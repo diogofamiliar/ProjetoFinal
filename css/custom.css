@@ -1,0 +1,79 @@
+body { 
+    padding-top: 80px;
+}
+
+input,label,option {
+    padding: 10px;
+}
+
+
+#form {
+    padding-top: 25px;
+}
+
+#otherType { display: none; }
+
+.brand-centered {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
+
+/* pagina incidentes*/
+
+#h1-centered{
+    text-align: center;
+}
+#index_incidentes{
+    align-content: center;
+    width: 300px;
+}
+/* botão da pagina incidentes*/
+.btn-change{
+    background: #0199e6;
+    box-shadow: 0 0 1px #ccc;
+    -webkit-transition: all 0.5s ease-in-out;
+    border: 0px;
+    color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.btn-change:hover{
+    -webkit-transform: scale(1.1);
+    background: #0186e6;
+}
+
+
+a:hover {
+    color: #fff;
+}
+
+/* NAVBAR */
+navbar.navbar-expand-md.navbar-dark.fixed-top{
+    color: #0199e6;
+}
+#nav-link {
+    color: #0199e6;
+}
+
+
+/* LOGIN */
+
+.modal-header, .close {
+    background-color: #0199e6;
+    color:white !important;
+    text-align: center;
+    font-size: 30px;
+  }
+  .modal-footer {      
+    background-color: #f9f9f9;
+  }
+  
+  #modal_footer_content{
+      margin-left: auto;
+      margin-right: auto;
+  }

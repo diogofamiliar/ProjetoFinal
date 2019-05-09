@@ -19,4 +19,5 @@ $(document).ready(function(){
          $('#id_condominio').val($(this).text());  
          $('#lista_condominios').fadeOut();  
     });  
+    
 });  

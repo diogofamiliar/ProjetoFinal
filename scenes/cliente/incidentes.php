@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
+  echo "grupo 7 c/ utilizador definido";
+}else header('Location: ../index.php');
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -6,8 +13,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="css/custom.css">
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/custom.css">
 
     <title>elVecino</title>
   </head>
@@ -15,7 +22,7 @@
 <body>
 
 	<?php
-	include 'headers/cliente_header.php';
+	include '../../headers/cliente_header.php';
 	?>
   
   <h1 id="h1-centered">Incidentes</h1>

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -16,6 +19,7 @@
 
 	<?php
   include '../headers/header.php';
+  
 	?>
 
 

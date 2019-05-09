@@ -1,3 +1,6 @@
+<?php
+ob_start();
+?>
 <div class="container">
     <div class="modal fade" id="loginModal" role="dialog">
         <div class="modal-dialog">  
@@ -8,20 +11,20 @@
                 <h2>HabitaBem</h2>
             </div>
             <div class="modal-body" style="padding:40px 50px;">
-            <form role="form">
-                <div class="form-group">
-                <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-                <input type="text" class="form-control" id="usrname" placeholder="Enter email">
-                </div>
-                <div class="form-group">
-                <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-                <input type="text" class="form-control" id="psw" placeholder="Enter password">
-                </div>
-                <div class="checkbox">
-                <label><input type="checkbox" value="" checked>Remember me</label>
-                </div>
-                <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
-            </form>
+                <form form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>"> 
+                    <div class="form-group">
+                        <label for="usrname"><span class="glyphicon glyphicon-user"></span> Email</label>
+                        <input type="text" class="form-control" name="email" placeholder="Enter email" Required>
+                    </div>
+                    <div class="form-group">
+                        <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                        <input type="password" class="form-control" id="pw" name="password" placeholder="Enter password" Required>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" value="" checked>Remember me</label>
+                        </div>
+                    <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+                </form>
             </div>
             <div class="modal-footer">
                 <div class="content-center" id="modal_footer_content">
@@ -41,4 +44,23 @@
         
         </div>
     </div>
-</div>  
+</div> 
+
+<?php
+ob_start();
+include '../core/connect.php';
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+    $email1 = $_POST['email'];
+    $senha = $_POST['password'];
+    
+    $sql="SELECT id_utilizador, email1, senha FROM utilizador WHERE email1='$email1'";
+    $result=mysqli_query($conn,$sql);
+    $row=mysqli_fetch_array($result);
+    $hash=$row['senha'];
+    $id_utilizador=$row['id_utilizador'];
+    $_SESSION['id_utilizador']=$id_utilizador;
+    include '../core/pw_handle.php';
+    verifyPw($senha,$hash);
+    
+}
+?>

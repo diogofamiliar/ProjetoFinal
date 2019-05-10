@@ -30,7 +30,6 @@ ob_start();
                 <div class="content-center" id="modal_footer_content">
                     <ul style="list-style-type: none;">
                         <li>
-                            <p>Não tens uma conta? <a href="registar_cliente.php">Regista-te!</a></p>
                             <p>Esqueceste-te da <a href="#">palavra-passe?</a></p>
                         </li>
                         <li>
@@ -47,20 +46,30 @@ ob_start();
 </div> 
 
 <?php
-ob_start();
-include '../core/connect.php';
+include __DIR__.'/../core/connect.php';
+include __DIR__.'/../core/pw_handle.php'; //vai verificar a pass inserida com a hash guardada na bd
+
+/*
+IMPORTANTE para no ficheiro "verify_user_role.php" o utilizador poder ser reencaminhado corretamente para a página pretendida. PARA JÁ a clientes.php.
+Este isset define a proveniencia do user para este ficheiro login.php
+*/
+if(isset($camefrom)){ 
+    if($camefrom=="registar_utilizador.php"){
+        $_SESSION['camefrom']='registar_utilizador.php';
+    }else $_SESSION['camefrom']='index.php';
+}
+
+//pega nos dados do MODAL FORM e pesquisa pelo id_utilizador, email e senha do utilizador com o EMAIL inserido
 if($_SERVER["REQUEST_METHOD"] == "POST"){
     $email1 = $_POST['email'];
     $senha = $_POST['password'];
     
-    $sql="SELECT id_utilizador, email1, senha FROM utilizador WHERE email1='$email1'";
+    $sql="SELECT id_utilizador, email1, senha FROM utilizador WHERE email1='$email1'"; 
     $result=mysqli_query($conn,$sql);
     $row=mysqli_fetch_array($result);
-    $hash=$row['senha'];
+    $hash=$row['senha']; //hash que contem a pass do user
     $id_utilizador=$row['id_utilizador'];
-    $_SESSION['id_utilizador']=$id_utilizador;
-    include '../core/pw_handle.php';
-    verifyPw($senha,$hash);
-    
+    $_SESSION['id_utilizador']=$id_utilizador;  //vai ser util para mais tarde os dados das páginas serem direcionados ao user que efetuou Login
+    verifyPw($senha,$hash); //compara a senha inserida pelo user com a hash guardada
 }
 ?>

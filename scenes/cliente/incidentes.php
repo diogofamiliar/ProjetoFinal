@@ -2,7 +2,7 @@
 session_start();
 if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
   echo "grupo 7 c/ utilizador definido";
-}else header('Location: ../index.php');
+}else header('Location: ../../index.php');
 ?>
 
 <!doctype html>
@@ -22,7 +22,7 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
 <body>
 
 	<?php
-	include '../../headers/cliente_header.php';
+	include __DIR__.'/../../headers/cliente_header.php';
 	?>
   
   <h1 id="h1-centered">Incidentes</h1>

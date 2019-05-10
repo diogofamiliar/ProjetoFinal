@@ -20,7 +20,10 @@
 
     <body>
         
-        <?php include '../headers/header.php';?>
+    <?php 
+        $camefrom=basename(__FILE__); //determinhar de onde vai ser feito o login
+        include __DIR__.'/../headers/header_scenes.php'; 
+    ?>
         <div class="container">
             <h1>Registo de novo utilizador</h1>
             <p>Por favor preencha este formulário de forma a criar uma conta.</p>

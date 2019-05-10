@@ -6,7 +6,7 @@
         <div class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link pl-0" href="index.php"  id="navbar-text">Home <span class="sr-only">Home</span></a>
+                    <a class="nav-link pl-0" href="../../index.php"  id="navbar-text">Home <span class="sr-only">Home</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="incidentes.php">Incidentes</a>
@@ -19,7 +19,7 @@
                 </li>
             </ul>
         </div>
-        <a class="navbar-brand" href="index.php"><img src="../../assets/navbar/icon_navbar.png" style="width:40px;"></a>
+        <a class="navbar-brand" href="../../index.php"><img src="../../assets/navbar/icon_navbar.png" style="width:40px;"></a>
         <div class="navbar-collapse collapse dual-nav w-50 order-2">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item">

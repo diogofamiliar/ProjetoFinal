@@ -43,19 +43,21 @@ if(isset($_POST['submit'])){
                 $statusMsg = "Sorry, there was an error uploading your file.";
             }
         }
+        
+        $sql = "SELECT MAX(id_foto) AS id_foto FROM foto"; //calcular o ultimo id_foto inserido
+        $result = $conn->query($sql);//NOT A STRING
+        $max_id = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        for ($id_foto = $first_id_foto; $id_foto <= $max_id['id_foto']; $id_foto++) {
+            $sql = "INSERT INTO ocorrencia_fotos (id_ocorrencia,id_foto) VALUES ('$last_id_ocorrencia', '$id_foto')";
+                if ($conn->query($sql) === TRUE) {
+                    echo "New record created successfully";
+                } else {
+                    echo "Error: " . $sql . "<br>" . $conn->error;
+                }
+        
+        } 
     }
-    $sql = "SELECT MAX(id_foto) AS id_foto FROM foto"; //calcular o ultimo id_foto inserido
-    $result = $conn->query($sql);//NOT A STRING
-    $max_id = mysqli_fetch_array($result, MYSQLI_ASSOC);
-    for ($id_foto = $first_id_foto; $id_foto <= $max_id['id_foto']; $id_foto++) {
-        $sql = "INSERT INTO ocorrencia_fotos (id_ocorrencia,id_foto) VALUES ('$last_id_ocorrencia', '$id_foto')";
-            if ($conn->query($sql) === TRUE) {
-                echo "New record created successfully";
-            } else {
-                echo "Error: " . $sql . "<br>" . $conn->error;
-            }
-    
-    } 
+   
     // Display status message
     echo $statusMsg;
 }

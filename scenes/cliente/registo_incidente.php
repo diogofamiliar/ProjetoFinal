@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
+  echo "grupo 7 c/ utilizador definido";
+}else header('Location: ../../index.php');
+?>
+
 <!doctype html>
 <html lang="en">
     <head>

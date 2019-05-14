@@ -18,6 +18,6 @@
            $output .= '<li class="list-group-item">Condomínio nao encontrado</li>';  
       }  
       $output .= '</ul>';  
-      echo $output;  
+      echo utf8_encode($output);  //IMPORTANTE. ERRO DOS ACENTOS
  }  
  ?>  

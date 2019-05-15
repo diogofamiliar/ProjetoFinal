@@ -57,7 +57,7 @@
                             $query="SELECT id_zona, nome FROM zona WHERE id_condominio = '$id_condominio'";
                             $result = mysqli_query($conn, $query);
                             while($row_result=mysqli_fetch_assoc($result)){ ?>
-                                <option value="<?php echo $row_result['id_zona']; ?>"><?php echo $row_result['nome'];?></option> <?php
+                                <option value="<?php echo $row_result['id_zona']; ?>"><?php echo utf8_encode($row_result['nome']);?></option> <?php
                             }
                                 ?>
                         </select>

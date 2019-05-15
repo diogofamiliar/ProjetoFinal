@@ -19,7 +19,7 @@ include __DIR__.'/../scenes/login.php';?>
                     <a class="nav-link" href="#">Contatos Uteis</a>
                 </li>
         </div>
-        <a class="navbar-brand" href="../index.php"><img src="../assets/navbar/icon_navbar.png" style="width:40px;"></a>
+        <a class="navbar-brand" href="../index.php"><img src="https://i.imgur.com/SzFkxr6.png" style="width:40px;"></a>
         <div class="navbar-collapse collapse dual-nav w-50 order-2">
             <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">

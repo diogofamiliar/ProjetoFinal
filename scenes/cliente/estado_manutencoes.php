@@ -3,7 +3,7 @@ session_start();
 if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
     $id_utilizador=$_SESSION['id_utilizador'];
     include __DIR__.'/../../core/connect.php';
-    $query ="SELECT data_ocorrencia, local_ocorrencia, descricao FROM ocorrencia WHERE id_utilizador='$id_utilizador' ORDER BY data_ocorrencia DESC";  
+    $query ="SELECT ocorrencia.data_ocorrencia, ocorrencia.local_ocorrencia, ocorrencia.descricao, estado.estado FROM ocorrencia INNER JOIN estado ON ocorrencia.estado = estado.id_estado WHERE ocorrencia.id_utilizador='$id_utilizador' ORDER BY ocorrencia.data_ocorrencia DESC;";  
     $result = mysqli_query($conn, $query);
 
 }else header('Location: ../../index.php');
@@ -33,29 +33,27 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
 
 <body>
 
-	<?php
-	    include __DIR__.'/../../headers/cliente_header.php';
-	?>
-  <div class="container">
+	<?php include __DIR__.'/../../headers/cliente_header.php'; ?>
+    <div class="container">
         <div class="table-responsive">  
             <table id="dados_manutencoes" class="table table-striped table-bordered">  
             <thead>  
                 <tr>  
-                    <div class="col-sm-4"><th data-column-id="data_ocorrencia">Data</th></div>
-                    <div class="col-sm-4"><th data-column-id="local_ocorrencia">Local</th></div>
-                    <div class="col-sm-4"></div><th data-column-id="descricao">Descrição</th></div>
+                    <div class="col-sm-3"><th data-column-id="data_ocorrencia">Data</th></div>
+                    <div class="col-sm-3"><th data-column-id="local_ocorrencia">Local</th></div>
+                    <div class="col-sm-3"></div><th data-column-id="descricao">Descrição</th></div>
+                    <div class="col-sm-3"></div><th data-column-id="estado">Estado</th></div>
                 </tr>  
             </thead>  
             <tbody>  
                 <?php  
                     while($row = mysqli_fetch_array($result))  
-                    {   $date=$row["data_ocorrencia"];
-                        $new_date_format = date('Y-m-d H:i:s', $date);
-                        echo '  
+                    {       echo '  
                                <tr>  
-                                    <td>'.$new_date_format.'</td>  
+                                    <td>'.$row["data_ocorrencia"].'</td>  
                                     <td>'.$row["local_ocorrencia"].'</td>  
                                     <td>'.$row["descricao"].'</td>  
+                                    <td>'.utf8_encode($row["estado"]).'</td>  
                                </tr>  
                         ';  
                     }  

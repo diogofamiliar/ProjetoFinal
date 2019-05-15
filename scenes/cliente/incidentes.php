@@ -1,7 +1,6 @@
 <?php
 session_start();
 if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
-  echo "grupo 7 c/ utilizador definido";
 }else header('Location: ../../index.php');
 ?>
 
@@ -28,7 +27,7 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
   <h1 id="h1-centered">Incidentes</h1>
 	<div class="container" id="index_incidentes">
     <a href="registo_incidente.php" class="btn btn-lg btn-change btn-block" role="button">Registar incidente</a>
-    <a href="#" class="btn btn-lg btn-change btn-block" role="button">Estado das manutenções</a>
+    <a href="estado_manutencoes.php" class="btn btn-lg btn-change btn-block" role="button">Estado das manutenções</a>
   </div>
     
     <!-- Optional JavaScript -->

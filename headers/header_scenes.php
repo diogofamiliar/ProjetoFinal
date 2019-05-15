@@ -1,6 +1,7 @@
 <?php
 include __DIR__.'/../scenes/login.php';?>
 
+<div class="container-fluid">
 <nav class="navbar navbar-light navbar-expand-md bg-light justify-content-between fixed-top">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
@@ -32,4 +33,4 @@ include __DIR__.'/../scenes/login.php';?>
         </div>
     </div>
 </nav>
-
+</div>

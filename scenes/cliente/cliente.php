@@ -28,7 +28,7 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
 	<div class="container" id="index_incidentes">
     <h2 id="h1-centered">Incidentes</h2>
     <a href="registo_incidente.php" class="btn btn-lg btn-change btn-block" role="button">Registar incidente</a>
-    <a href="#" class="btn btn-lg btn-change btn-block" role="button">Estado das manutenções</a>
+    <a href="estado_manutencoes.php" class="btn btn-lg btn-change btn-block" role="button">Estado das manutenções</a>
   </div>
     
     <!-- Optional JavaScript -->

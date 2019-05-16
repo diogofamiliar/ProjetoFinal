@@ -72,6 +72,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $id_utilizador=$row['id_utilizador'];
         $_SESSION['id_utilizador']=$id_utilizador;  //vai ser util para mais tarde os dados das páginas serem direcionados ao user que efetuou Login
         verifyPw($senha,$hash); //compara a senha inserida pelo user com a hash guardada
+        include __DIR__.'/../core/verify_user_role.php';
     }
 }
 ?>

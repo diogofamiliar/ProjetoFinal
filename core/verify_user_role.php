@@ -1,6 +1,4 @@
 <?php
-include 'connect.php';
-$id_utilizador=$_SESSION['id_utilizador'];
 /* Verifica a que grupo de utilizadores (id_grupo) pertence o utilizador (id_utilizador) */
 $sql="SELECT id_grupo FROM utilizador_grupo WHERE id_utilizador='$id_utilizador'";
     $result=mysqli_query($conn,$sql);

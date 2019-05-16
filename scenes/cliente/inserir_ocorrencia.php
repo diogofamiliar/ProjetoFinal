@@ -39,7 +39,7 @@ $result = mysqli_query($conn, $sql);
 
 echo $id_zona;
 
-$sql = "INSERT INTO ocorrencia (id_utilizador,id_zona,local_ocorrencia,id_tipoocorrencia,outro_tipo_ocorrencia,descricao,data_ocorrencia) VALUES ('$id_utilizador','$id_zona','$local_ocorrencia','$id_tipoocorrencia','$outro_tipo_ocorrencia','$descricao',now())";
+$sql = "INSERT INTO ocorrencia (id_utilizador,id_zona,local_ocorrencia,id_tipoocorrencia,outro_tipo_ocorrencia,descricao,data_ocorrencia,estado) VALUES ('$id_utilizador','$id_zona','$local_ocorrencia','$id_tipoocorrencia','$outro_tipo_ocorrencia','$descricao',now(),'3')";
 if (mysqli_query($conn, $sql)) {
     $last_id_ocorrencia = $conn->insert_id;
     echo "last_id_ocorrencia-> $last_id_ocorrencia;";

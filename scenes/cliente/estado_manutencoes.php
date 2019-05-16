@@ -5,7 +5,6 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
     include __DIR__.'/../../core/connect.php';
     $query ="SELECT ocorrencia.data_ocorrencia, ocorrencia.local_ocorrencia, ocorrencia.descricao, estado.estado FROM ocorrencia INNER JOIN estado ON ocorrencia.estado = estado.id_estado WHERE ocorrencia.id_utilizador='$id_utilizador' ORDER BY ocorrencia.data_ocorrencia DESC;";  
     $result = mysqli_query($conn, $query);
-
 }else header('Location: ../../index.php');
 ?>
 
@@ -46,17 +45,19 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
                 </tr>  
             </thead>  
             <tbody>  
-                <?php  
-                    while($row = mysqli_fetch_array($result))  
-                    {       echo '  
-                               <tr>  
-                                    <td>'.$row["data_ocorrencia"].'</td>  
-                                    <td>'.$row["local_ocorrencia"].'</td>  
-                                    <td>'.$row["descricao"].'</td>  
-                                    <td>'.utf8_encode($row["estado"]).'</td>  
-                               </tr>  
-                        ';  
-                    }  
+                <?php
+                    
+                        while($row = mysqli_fetch_array($result)){
+                            echo '  
+                                <tr>  
+                                        <td>'.$row["data_ocorrencia"].'</td>  
+                                        <td>'.$row["local_ocorrencia"].'</td>  
+                                        <td>'.$row["descricao"].'</td>  
+                                        <td>'.utf8_encode($row["estado"]).'</td>  
+                                </tr>  
+                            ';  
+                        }
+                    
                 ?>  
             </tbody>  
             </table>  

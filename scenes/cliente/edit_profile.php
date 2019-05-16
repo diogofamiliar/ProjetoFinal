@@ -41,17 +41,17 @@ if(isset($_SESSION['id_utilizador'])){
                         <h1 class="mb-0" id="h1-centered">Perfil</h1>
                     </div>
                     <div class="card-body">
-                        <form class="form" role="form" autocomplete="off">
+                        <form class="form" role="form" autocomplete="off" method="post" action="../../core/alter_user.php">
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label">Nome</label>
                                 <div class="col-lg-9">
-                                    <input class="form-control" type="text" value="<?php echo $row['nome']; ?>" required>
+                                    <input class="form-control" type="text" value="<?php echo $row['nome']; ?>" name="nome" required>
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label">Email</label>
                                 <div class="col-lg-9">
-                                    <input type="email" class="form-control" name="" id="" aria-describedby="emailHelpId" value="<?php echo $row['email1']; ?>" required>
+                                    <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelpId" value="<?php echo $row['email1']; ?>" required>
                                 </div>
                             </div>
                             

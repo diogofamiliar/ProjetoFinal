@@ -1,6 +1,5 @@
 
-<?php include "../core/connect.php";?>
-<?php
+<?php include "../core/connect.php";
     if (isset ($_POST['nome_completo'], $_POST['email'], $_POST['id_condominio'], $_POST['pw'])) {
         $nome = $_POST['nome_completo'];
         $email = $_POST['email'];
@@ -15,9 +14,7 @@
         echo "///";
         echo $nome_condominio;
         echo "///";
-        
-        
-        }else header( "Location: registar_utilizador.php" );
+    }else header( "Location: registar_utilizador.php" );
 ?>
 <!doctype html>
 <html lang="en">
@@ -41,9 +38,9 @@
         
         <?php include '../headers/header.php';?>
         <div class="container">
-            <h1>Já está quase!!</h1>
+            <h1>Já está quase!!!</h1>
             <p>Por favor conclua o preenchimento deste formulário de forma a criar uma conta.</p>
-            <form method="post" action="registar_utilizador_2.php"> <!--  VERIFICAR ISTO-->
+            <form method="post" action="registar_utilizador_2.php">
                 <div class="form-group">
                         <label for="morada" class="font-weight-bold">A sua morada:</label>
                         <input type="text" name="nome_condominio" id="nome_condominio" class="form-control" placeholder="<?php echo $nome_condominio;?>" disabled/>  
@@ -69,14 +66,14 @@
                 <div class="form-group form-row">
                     <div class="form-group col-md-3">
                         <label for="telefone" class="font-weight-bold">Telemóvel:</label>
-                        <input type="text" name="telefone1" class="form-control" required pattern="[0-9]{9}"/> <!-- required numeros de 0-9 e de 9 digitos -->
+                        <input type="text" name="telefone1" class="form-control" required pattern="[0-9]{9}"> <!-- required numeros de 0-9 e de 9 digitos -->
                     </div>
                     <div class="form-group col-md-3 font-weight-bold">    
                         <label for="telefone" class="font-weight-bold">Telefone:</label>
-                        <input type="text" name="telefone2" class="form-control" pattern="[0-9]{9}"/> <!-- required numeros de 0-9 e de 9 digitos -->
+                        <input type="text" name="telefone2" class="form-control" pattern="[0-9]{9}"> <!-- required numeros de 0-9 e de 9 digitos -->
                     </div>
                 </div>
-                <input type="hidden" name="nome" value="<?php echo $nome; ?>"/> <!-- nome da pag anterior -->
+                <input type="hidden" name="nome" value="<?php echo $nome; ?>"> <!-- nome da pag anterior -->
                 <input type="hidden" name="email" value="<?php echo $email; ?>"/> <!-- email da pag anterior -->
                 <input type="hidden" name="pw" value="<?php echo $pw; ?>"/> <!-- pass da pag anterior -->
                 

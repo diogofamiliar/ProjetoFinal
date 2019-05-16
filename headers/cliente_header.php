@@ -6,7 +6,7 @@
         <div class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link pl-0" href="../../index.php"  id="navbar-text">Home <span class="sr-only">Home</span></a>
+                    <a class="nav-link pl-0" href="cliente.php"  id="navbar-text">Home <span class="sr-only">Home</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="incidentes.php">Incidentes</a>
@@ -24,14 +24,12 @@
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="#">
-                        <img src="../../assets/navbar/messages_navbar.png" alt="logo" style="width:32px;">
-                        Mensagens
+                        <img src="../../assets/navbar/messages_navbar.png" alt="logo" style="width:32px;"> Notificações
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <img src="../../assets/navbar/perfil_navbar.png" alt="logo" style="width:30px;">
-                        Perfil
+                    <a class="nav-link" href="edit_profile.php">
+                        <img src="../../assets/navbar/perfil_navbar.png" alt="logo" style="width:30px;"> Perfil
                     </a>
                 </li>
                 <li class="nav-item">

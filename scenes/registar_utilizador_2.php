@@ -16,7 +16,8 @@ include "../core/pw_handle.php";
 //transforma a pw introduzida numa pw criptografada
 $pw=getHash($pw);
 //inserir utilizador
-$sql = "INSERT INTO utilizador (id_zona,nome,data_alteracao,data_nascimento,email1,telefone1,telefone2,senha) VALUES ('$id_zona','$nome',now(),'$data_nascimento','$email','$telefone1','$telefone2','$pw')";
+
+$sql = "INSERT INTO utilizador (id_zona,nome,data_alteracao,data_nascimento,email1,telefone1,telefone2,senha) VALUES ('$id_zona','$nome',now(),SUBDATE('$data_nascimento', INTERVAL 0 DAY),'$email','$telefone1','$telefone2','$pw')";
 if (mysqli_query($conn, $sql)) {
     $last_id_utilizador = $conn->insert_id;
     echo "last_id_utilizador-> $last_id_utilizador;";
@@ -36,5 +37,6 @@ if (mysqli_query($conn, $sql)) {
 
 mysqli_close($conn);
 header('Location: /ProjetoFinal/scenes/cliente/cliente.php');
+
 ?>
 

@@ -30,6 +30,16 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
     <a href="registo_incidente.php" class="btn btn-lg btn-change btn-block" role="button">Registar incidente</a>
     <a href="estado_manutencoes.php" class="btn btn-lg btn-change btn-block" role="button">Estado das manutenções</a>
   </div>
+  <?php 
+    if(isset($_COOKIE["alertaOk"])){
+      ?>
+      <SCRIpt>
+      alert("qualquercoisa");
+      </SCRIpt>
+      <?php
+    }
+    
+  ?>
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

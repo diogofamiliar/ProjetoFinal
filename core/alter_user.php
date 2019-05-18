@@ -29,10 +29,12 @@ if (isset ($_POST['nome'], $_POST['email'], $_POST['pw'], $_POST['data_nasciment
         $sql = "UPDATE utilizador SET nome='$nome', data_alteracao=now(), data_nascimento='$data_nascimento', email1='$email', telefone1='$telefone1', telefone2='$telefone2' WHERE id_utilizador='$id_utilizador'";
         $result=mysqli_query($conn,$sql);
 
-            
-            echo '<script src="../js/sweetalert.min.js">';
-            echo 'setTimeout(function () { swal("WOW!","Message!","success");';
-            echo '}, 1000);</script>';
+        
+        setcookie("alertaOk", "1", time()+10, "/");
+        if(count($_COOKIE)>1){
+            echo "oiiiii";
+        }else echo "nao";
+        header( "Location: ../scenes/cliente/cliente.php" );
             
     }
 

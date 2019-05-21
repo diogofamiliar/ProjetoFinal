@@ -30,10 +30,7 @@ if (isset ($_POST['nome'], $_POST['email'], $_POST['pw'], $_POST['data_nasciment
         $result=mysqli_query($conn,$sql);
 
         
-        setcookie("alertaOk", "1", time()+10, "/");
-        if(count($_COOKIE)>1){
-            echo "oiiiii";
-        }else echo "nao";
+        setcookie("alter_user", "1", time()+(10), "/"); // o "/" disponibiliza a cookie para toda a plataforma
         header( "Location: ../scenes/cliente/cliente.php" );
             
     }

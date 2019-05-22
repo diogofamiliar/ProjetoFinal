@@ -1,5 +1,9 @@
 
-<?php include "../core/connect.php";
+<?php   session_start();
+        ob_start();     
+        echo $_SESSION["camefrom"];
+        include "../core/connect.php";
+
     if (isset ($_POST['nome_completo'], $_POST['email'], $_POST['id_condominio'], $_POST['pw'])) {
         $nome = $_POST['nome_completo'];
         $email = $_POST['email'];
@@ -14,6 +18,7 @@
         echo "///";
         echo $nome_condominio;
         echo "///";
+        
     }else header( "Location: registar_utilizador.php" );
 ?>
 <!doctype html>

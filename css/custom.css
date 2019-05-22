@@ -63,6 +63,11 @@ navbar.navbar-expand-md.navbar-dark.fixed-top{
     color: #0199e6;
 }
 
+/* Adiciona o efeito hover qd o rato passa por cima do navbar */
+.dropdown:hover>.dropdown-menu{
+    display: block;
+}
+
 
 /* LOGIN */
 

@@ -61,7 +61,7 @@ if(isset($camefrom)){
 
 //pega nos dados do MODAL FORM e pesquisa pelo id_utilizador, email e senha do utilizador com o EMAIL inserido
 if($_SERVER["REQUEST_METHOD"] == "POST"){ 
-    include __DIR__.'/../core/pw_handle.php'; //vai verificar a pass inserida com a hash guardada na bd   
+    //include __DIR__.'/../core/pw_handle.php'; //vai verificar a pass inserida com a hash guardada na bd   
     if(isset($_POST['login_password'],$_POST['login_email'])){
         $email1 = $_POST['login_email'];
         $senha = $_POST['login_password'];       
@@ -71,8 +71,11 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $hash=$row['senha']; //hash que contem a pass do user
         $id_utilizador=$row['id_utilizador'];
         $_SESSION['id_utilizador']=$id_utilizador;  //vai ser util para mais tarde os dados das páginas serem direcionados ao user que efetuou Login
-        verifyPw($senha,$hash); //compara a senha inserida pelo user com a hash guardada
-        include __DIR__.'/../core/verify_user_role.php';
+        if (password_verify($senha, $hash)) {
+            include __DIR__.'/../core/verify_user_role.php';
+        } else {
+            echo 'Invalid password or email.';
+        }
     }
 }
 ?>

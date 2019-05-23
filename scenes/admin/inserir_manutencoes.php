@@ -16,7 +16,7 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
     <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../css/custom.css">
 
-    <title>elVecino | Área administrativa</title>
+    <title>elVecino | Manutenções</title>
   </head>
 
 <body>
@@ -25,8 +25,7 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
 	include __DIR__.'/../../headers/admin_header.php';
 	?>
   
-  <h1 id="h1-centered">Bem-vindo</h1>
-  <h2 id="h1-centered">Página inicial</h2>
+  <h1 id="h1-centered">Inserir manutenções:</h1>
   <div class="container">
     
   </div>

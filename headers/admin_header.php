@@ -12,11 +12,11 @@
                     <a class="nav-link" href="#">Arquivo</a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <a class="nav-link" href="manutencoes.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Manutenções
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Manutenções</a>
+                            <a class="dropdown-item" href="manutencoes.php ">Manutenções</a>
                         <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Relatórios</a>
                     </div>
@@ -51,9 +51,9 @@
                     Definições
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Manutenções</a>
+                            <a class="dropdown-item" href="#">Gestão de permissões</a>
                         <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Relatórios</a>
+                            <a class="dropdown-item" href="#">Gestão de notificações</a>
                     </div>
                 </li>
                 <li class="nav-item">

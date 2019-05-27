@@ -2,22 +2,6 @@
 include "../core/connect.php";
 include "../core/pw_handle.php";
 
-
-$nome = $_POST['nome'];
-$email = $_POST['email'];
-$id_zona = $_POST['id_zona'];
-$data_nascimento = $_POST['data_nascimento'];
-$senha =  $_POST['senha'];
-$telemovel = $_POST['telemovel'];
-
-echo "$nome";
-echo "$email";
-echo "$id_zona";
-echo "$data_nascimento";
-echo "$senha";
-echo "$telemovel";
-
-
 $telemovel = $_POST['telemovel'];
     if (isset ($_POST['nome'], $_POST['email'], $_POST['senha'], $_POST['id_zona'], $_POST['data_nascimento'], $_POST['telemovel'])) {
         $nome = $_POST['nome'];
@@ -26,7 +10,7 @@ $telemovel = $_POST['telemovel'];
         $data_nascimento = $_POST['data_nascimento'];
         $senha =  $_POST['senha'];
         $telemovel = $_POST['telemovel'];
-    }//else header( "Location: registar_utilizador.php" );
+    }else header( "Location: registar_utilizador.php" );
     //adicionar tipo_utilizador
 
 //transforma a pw introduzida numa pw criptografada
@@ -52,7 +36,7 @@ if (mysqli_query($conn, $sql)) {
 }
 
 mysqli_close($conn);
-//header('Location: /ProjetoFinal/scenes/cliente/cliente.php');
+header('Location: /ProjetoFinal/scenes/cliente/cliente.php');
 
 ?>
 

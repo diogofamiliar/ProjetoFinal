@@ -63,7 +63,7 @@ if(isset($camefrom)){
 if($_SERVER["REQUEST_METHOD"] == "POST"){ 
     //include __DIR__.'/../core/pw_handle.php'; //vai verificar a pass inserida com a hash guardada na bd   
     if(isset($_POST['login_password'],$_POST['login_email'])){
-        $email1 = $_POST['login_email'];
+        $email = $_POST['login_email'];
         $senha = $_POST['login_password'];       
         $sql="SELECT id_utilizador, email, senha FROM utilizador WHERE email='$email'"; 
         $result=mysqli_query($conn,$sql);

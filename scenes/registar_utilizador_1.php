@@ -10,7 +10,7 @@
         $nome_condominio = $_POST['id_condominio'];
         $senha = $_POST['senha'];
         $id_condominio = substr($nome_condominio, 0, 1);
-        
+        echo $nome;
         echo "///";
         echo $id_condominio;
         echo "///";

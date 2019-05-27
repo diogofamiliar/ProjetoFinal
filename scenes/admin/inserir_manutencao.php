@@ -79,50 +79,62 @@ if (isset ($_POST['id_incidente'])) {
                             <h5><?php echo utf8_encode($row['cod_condominio']);?>-<?php echo utf8_encode($row['morada']);?></h5>
                         </div>
                         <div class="col-sm-3">
-                            <input type="text" class="datepicker-here form-control" data-language='pt'data-position="bottom right" name="data_nascimento" value="<?php echo $row['data_incidente'] ?>" disabled>
+                            <input type="text" class="datepicker-here form-control" data-language='pt'data-position="bottom right" name="data_incidente" value="<?php echo $row['data_incidente'] ?>" disabled>
                         </div>
                     </div>    
                 </div>
                 <div class="card-body">
                     <form>
+                        <input type="hidden" name="id_incidente" value="<?php echo $valor ?>">
                         <div class="form-group">
                             <label>Descrição:</label>
-                            <textarea class="form-control" id="descricao" rows="2" disabled>Tipo de avaria: <?php echo utf8_encode($row['categoria_incidente']);?> Descrição do cliente: <?php echo utf8_encode($row['descricao']);?> </textarea>
+                            <textarea class="form-control" name="descricao" rows="2" disabled>Tipo de avaria: <?php echo utf8_encode($row['categoria_incidente']);?> Descrição do cliente: <?php echo utf8_encode($row['descricao']);?> </textarea>
                         </div>              
                         <div class="form-row">
                             <div class="form-group col-md-3">
                                 <label>Tipo manutenção:</label>
-                                <select id="tipo_manutencao" class="form-control">
-                                    <option selected="">Choose...</option>
-                                    <option>...</option>
+                                <select name="id_tipo_manutencao" class="form-control" required>
+                                    <option selected=""></option>
+                                    <?php
+                                    $query_1="SELECT id_tipo_manutencao, descricao FROM tipo_manutencao ORDER BY descricao ASC";
+                                    $result = mysqli_query($conn, $query_1);
+                                    while($row_result=mysqli_fetch_assoc($result)){ ?>
+                                <option value="<?php echo $row_result['id_tipo_manutencao']; ?>"><?php echo utf8_encode($row_result['descricao']); ?></option> <?php
+                                    }
+                                        ?>
                                 </select>
                             </div>
                             <div class="form-group col-md-2">
-                                <label for="prioridade">Prioridade</label>
-                                <select id="prioridade" class="form-control">
-                                    <option selected="2" style="background: #0ca027; color: #fff;">Baixa</option>
+                                <label for="prioridade" required>Prioridade:</label>
+                                <select name="prioridade" class="form-control" required>
+                                    <option value=""></option>
+                                    <option style="background: #009933; color: #fff;">Baixa</option>
                                     <option style="background: #e65c00; color: #fff;">Média</option>
                                     <option style="background: #cc2900; color: #fff;">Alta</option>
                                 </select>
                             </div>
                             <div class="form-group col-md-3">
                                 <label for="data_agendamento">Data agendamento:</label>
-                                <input type="text" class="datepicker-here form-control" data-language='pt'data-position="bottom right" name="data_agendamento" id="data_agendamento" value="">
+                                <input type="text" class="datepicker-here form-control" data-language='pt'data-position="bottom right" name="data_agendamento" id="data_agendamento" required>
                             </div>
                             <div class="form-group col-md-4">
                                 <label>Equipa de manutenção:</label>
-                                <select id="equipa" name="equipa" class="form-control">
-                                <option value=""></option>
+                                <select name="equipa" class="form-control" required>
+                                <option value="">Selecione uma equipa</option>
                                     <?php
-                                    $query_1="SELECT id_fornecedor, nome FROM fornecedor";
+                                    $query_1="SELECT id_fornecedor, nome FROM fornecedor ORDER BY nome ASC";
                                     $result = mysqli_query($conn, $query_1);
                                     while($row_result=mysqli_fetch_assoc($result)){ ?>
-                                        <option value="<?php echo $row_result['id_fornecedor']; ?>"><?php echo $row_result['nome']; ?></option> <?php
+                                <option value="<?php echo $row_result['id_fornecedor']; ?>"><?php echo utf8_encode($row_result['nome']); ?></option> <?php
                                     }
                                         ?>
                                 </select>
                             </div>
                         </div>
+                        <div class="form-group">
+                                <label>Observações:</label>
+                                <textarea class="form-control" name="observacao" rows="1"></textarea>
+                            </div> 
                         <input type="submit" value="Submit" name="submit">
                     </form>
                 </div>

@@ -43,17 +43,17 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
       </thead>
       <tbody>
         <?php
-        $sql = "SELECT id_incidente, data_incidente, condominio.cod_condominio AS cod_condominio, zona.nome AS entrada, descricao, id_categoria_incidente  FROM incidente INNER JOIN zona ON incidente.id_zona = zona.id_zona INNER JOIN condominio ON condominio.id_condominio = zona.id_condominio";
+        $sql = "select v.id_incidente, v.data_incidente, v.cod_condominio AS cod_condominio, v.entrada AS entrada, v.descricao, v.id_categoria_incidente from view_incidentes v LEFT JOIN incidente_manutencao t ON v.id_incidente = t.id_incidente WHERE t.id_incidente IS NULL";
         $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
         while($rows = mysqli_fetch_assoc($resultset)) {
         ?>
       <tr>
           <td class="col-sm-1"><input type="checkbox" name="id_incidente[]" value="<?php echo $rows['id_incidente']; ?>" multiple></td>
-          <td><?php echo $rows["data_incidente"]; ?></td>
-          <td><?php echo $rows["cod_condominio"]; ?></td>
-          <td><?php echo $rows["entrada"]; ?></td>
-          <td><?php echo $rows["descricao"]; ?></td>
-          <td><?php echo $rows["id_categoria_incidente"]; ?></td>
+          <td><?php echo utf8_encode($rows["data_incidente"]); ?></td>
+          <td><?php echo utf8_encode($rows["cod_condominio"]); ?></td>
+          <td><?php echo utf8_encode($rows["entrada"]); ?></td>
+          <td><?php echo utf8_encode($rows["descricao"]); ?></td>
+          <td><?php echo utf8_encode($rows["id_categoria_incidente"]); ?></td>
       </tr>
       <?php
       }

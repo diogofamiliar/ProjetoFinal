@@ -12,7 +12,7 @@
                     <a class="nav-link" href="incidentes.php">Incidentes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Documentos</a>
+                    <a class="nav-link" href="documentos.php">Documentos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Contatos Uteis</a>

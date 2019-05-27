@@ -1,11 +1,8 @@
-
 <?php/*
 session_start();
 if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
 }else header('Location: ../../index.php');
 */?>
-
-
 
 <!doctype html>
 <html lang="en">
@@ -21,17 +18,15 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
     <title>elVecino</title>
   </head>
 
-<body>
+  <body>
 
 	<?php
 	include __DIR__.'/../../headers/cliente_header.php';
 	?>
   
-  <h1 id="h1-centered">Bem-vindo</h1>
-	<div class="container" id="index_incidentes">
-    <h2 id="h1-centered">Incidentes</h2>
-    <a href="registo_incidente.php" class="btn btn-lg btn-change btn-block" role="button">Registar incidente</a>
-    <a href="estado_manutencoes.php" class="btn btn-lg btn-change btn-block" role="button">Estado das manutenções</a>
+  <h1 id="h1-centered"></h1>
+	<div class="container" id="index_documentos">
+    <h2 id="h1-centered">Documentos</h2>
   </div>
 
     

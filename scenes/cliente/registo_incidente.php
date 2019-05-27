@@ -27,25 +27,21 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
             <form target="_self" action="inserir_ocorrencia.php" method="Post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="localizacao" class="font-weight-bold">Insira o local do incidente:</label>
-                    <input type="text" class="form-control" id="localizacao" placeholder="Rés chão" name="local_ocorrencia" Required>
+                    <input type="text" class="form-control" id="localizacao" placeholder="Rés chão" name="local" Required>
                 </div>
                 <div class="form-group form-row">
                     <div class="form-group col-md-6">
-                        <label for="tipo_incidente" class="font-weight-bold">Selecione o tipo de incidente:</label>
-                        <select class="form-control" id="tipo_incidente" name="tipo_incidente" Required>
+                        <label for="id_categoria_incidente" class="font-weight-bold">Selecione o tipo de incidente:</label>
+                        <select class="form-control" id="id_categoria_incidente" name="id_categoria_incidente" Required>
                             <option value=""></option>
                             <?php
-                            $query="SELECT id_tipoocorrencia,descricao FROM tipo_ocorrencia";
+                            $query="SELECT id_categoria_incidente,descricao FROM categoria_incidente";
                             $result = mysqli_query($conn, $query);
                             while($row_result=mysqli_fetch_assoc($result)){ ?>
-                                <option value="<?php echo $row_result['id_tipoocorrencia']; ?>"><?php echo $row_result['descricao']; ?></option> <?php
+                                <option value="<?php echo $row_result['id_categoria_incidente']; ?>"><?php echo $row_result['descricao']; ?></option> <?php
                             }
                                 ?>
                         </select>
-                    </div>
-                    <div class="form-group col-md-6 font-weight-bold" id="otherType">
-                            <label class="col-md-6">Outro(s) tipo de estragos:</label>
-                            <input class="form-control" type="text" name="other_type">
                     </div>
                 </div>
                 <div class="form-group">

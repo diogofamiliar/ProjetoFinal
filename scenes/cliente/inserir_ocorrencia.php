@@ -9,12 +9,9 @@ include __DIR__.'/../../core/connect.php';
 /*
 ficheiro que pega no formulario do registo_incidente.php e insere os dados do form na tabela "ocorrencia da bd"
 */
-if (isset ($_POST['local_ocorrencia'], $_POST['tipo_incidente'])) {
-    $local_ocorrencia = $_POST['local_ocorrencia'];
-    $id_tipoocorrencia = $_POST['tipo_incidente'];
-}
-if (isset ($_POST['other_type'])) {
-    $outro_tipo_ocorrencia = $_POST['other_type'];
+if (isset ($_POST['local'], $_POST['id_categoria_incidente'])) {
+    $local = $_POST['local'];
+    $id_categoria_incidente = $_POST['id_categoria_incidente'];
 }
 
 if (isset ($_POST['descricao'])) {
@@ -39,10 +36,11 @@ $result = mysqli_query($conn, $sql);
 
 echo $id_zona;
 
-$sql = "INSERT INTO ocorrencia (id_utilizador,id_zona,local_ocorrencia,id_tipoocorrencia,outro_tipo_ocorrencia,descricao,data_ocorrencia,estado) VALUES ('$id_utilizador','$id_zona','$local_ocorrencia','$id_tipoocorrencia','$outro_tipo_ocorrencia','$descricao',now(),'3')";
+$sql = "INSERT INTO incidente (id_utilizador,id_zona,local,id_categoria_incidente,descricao,data_incidente,estado) VALUES ('$id_utilizador','$id_zona','$local','$id_categoria_incidente','$descricao',now())";
+// INSERIR estado '3'
 if (mysqli_query($conn, $sql)) {
-    $last_id_ocorrencia = $conn->insert_id;
-    echo "last_id_ocorrencia-> $last_id_ocorrencia;";
+    $last_id_incidente = $conn->insert_id;
+    echo "last_id_incidente-> $last_id_incidente;";
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }

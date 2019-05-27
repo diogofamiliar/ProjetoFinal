@@ -3,7 +3,7 @@ session_start();
 if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
     $id_utilizador=$_SESSION['id_utilizador'];
     include __DIR__.'/../../core/connect.php';
-    $query ="SELECT ocorrencia.data_ocorrencia, ocorrencia.local_ocorrencia, ocorrencia.descricao, estado.estado FROM ocorrencia INNER JOIN estado ON ocorrencia.estado = estado.id_estado WHERE ocorrencia.id_utilizador='$id_utilizador' ORDER BY ocorrencia.data_ocorrencia DESC;";  
+    $query ="SELECT incidente.data_incidente, incidente.local, incidente.descricao, incidente_manutencao.estado FROM incidente INNER JOIN incidente_manutencao ON incidente.id_incidente = incidente_manutencao.id_incidente WHERE incidente.id_utilizador='$id_utilizador' ORDER BY incidente.data_incidente DESC;";  
     $result = mysqli_query($conn, $query);
 }else header('Location: ../../index.php');
 ?>
@@ -38,8 +38,8 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
             <table id="dados_manutencoes" class="table table-striped table-bordered">  
             <thead>  
                 <tr>  
-                    <div class="col-sm-3"><th data-column-id="data_ocorrencia">Data</th></div>
-                    <div class="col-sm-3"><th data-column-id="local_ocorrencia">Local</th></div>
+                    <div class="col-sm-3"><th data-column-id="data_incidente">Data</th></div>
+                    <div class="col-sm-3"><th data-column-id="local">Local</th></div>
                     <div class="col-sm-3"></div><th data-column-id="descricao">Descrição</th></div>
                     <div class="col-sm-3"></div><th data-column-id="estado">Estado</th></div>
                 </tr>  
@@ -50,8 +50,8 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
                         while($row = mysqli_fetch_array($result)){
                             echo '  
                                 <tr>  
-                                        <td>'.$row["data_ocorrencia"].'</td>  
-                                        <td>'.$row["local_ocorrencia"].'</td>  
+                                        <td>'.$row["data_incidente"].'</td>  
+                                        <td>'.$row["local"].'</td>  
                                         <td>'.$row["descricao"].'</td>  
                                         <td>'.utf8_encode($row["estado"]).'</td>  
                                 </tr>  

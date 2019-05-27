@@ -35,7 +35,7 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
         <div class="card-body d-flex flex-column">
           <h4 class="card-title">Inserir Manutenção</h4>
           <p class="card-text">Inicie o processo de manutenção ao agendar reparações</p>
-          <a href="inserir_manutencoes.php" class="mt-auto btn btn-primary">Inserir</a>
+          <a href="selecao_ocorrencias.php" class="mt-auto btn btn-primary">Inserir</a>
         </div>
       </div>
     </div>

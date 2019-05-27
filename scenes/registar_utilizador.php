@@ -53,7 +53,6 @@
                         <div id="lista_condominios"></div> 
                 </div>
                 <button type="submit" name="submit" id="submit" class="btn btn-primary" disabled>Continuar</button>
-            </div>
             </form>
         </div>
         

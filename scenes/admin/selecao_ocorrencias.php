@@ -29,9 +29,11 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
   
   <h1 id="h1-centered">Inserir manutenções:</h1>
   <div class="container">
+  <form action="inserir_manutencao.php" method="POST"> 
     <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0">
       <thead>
         <tr>
+          <th><input type="checkbox" id="checkAll"/></th>
           <th>Data</th>
           <th>Condominio</th>
           <th>Local</th>
@@ -45,7 +47,8 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
         $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
         while( $rows = mysqli_fetch_assoc($resultset) ) {
         ?>
-          <tr id="<?php echo $rows["id_ocorrencia"]; ?>">
+      <tr>
+          <td class="col-sm-1"><input type="checkbox" name="id_ocorrencia[]" value="<?php echo $rows['id_ocorrencia']; ?>" multiple></td>
           <td><?php echo $rows["data_ocorrencia"]; ?></td>
           <td><?php echo $rows["cod_condominio"]; ?></td>
           <td><?php echo $rows["entrada"]; ?></td>
@@ -57,6 +60,9 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
       ?>
       </tbody>
     </table>
+    <button type="submit" class="btn btn-primary btn-lg">Criar manutenção</button>
+    <button type="submit" class="btn btn-primary btn-lg">Criar lista de tarefas</button>
+    </form>
   </div>
 
     
@@ -73,6 +79,13 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
         $('#data').DataTable({
           select: true
         });
+      
+        
       });
+    </script>
+    <script>
+    $("#checkAll").change(function () {
+    $("input:checkbox").prop('checked', $(this).prop("checked"));
+});
     </script>
 </body>

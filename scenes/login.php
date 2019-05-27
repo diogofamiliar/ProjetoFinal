@@ -65,7 +65,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(isset($_POST['login_password'],$_POST['login_email'])){
         $email1 = $_POST['login_email'];
         $senha = $_POST['login_password'];       
-        $sql="SELECT id_utilizador, email1, senha FROM utilizador WHERE email1='$email1'"; 
+        $sql="SELECT id_utilizador, email, senha FROM utilizador WHERE email='$email'"; 
         $result=mysqli_query($conn,$sql);
         $row=mysqli_fetch_array($result);
         $hash=$row['senha']; //hash que contem a pass do user

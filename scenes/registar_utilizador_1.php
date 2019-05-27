@@ -4,17 +4,17 @@
         echo $_SESSION["camefrom"];
         include "../core/connect.php";
 
-    if (isset ($_POST['nome_completo'], $_POST['email'], $_POST['id_condominio'], $_POST['pw'])) {
+    if (isset ($_POST['nome_completo'], $_POST['email'], $_POST['id_condominio'], $_POST['senha'])) {
         $nome = $_POST['nome_completo'];
         $email = $_POST['email'];
         $nome_condominio = $_POST['id_condominio'];
-        $pw = $_POST['pw'];
+        $senha = $_POST['senha'];
         $id_condominio = substr($nome_condominio, 0, 1);
         
         echo "///";
         echo $id_condominio;
         echo "///";
-        echo $pw;
+        echo $senha;
         echo "///";
         echo $nome_condominio;
         echo "///";
@@ -71,16 +71,12 @@
                 <div class="form-group form-row">
                     <div class="form-group col-md-3">
                         <label for="telefone" class="font-weight-bold">Telemóvel:</label>
-                        <input type="text" name="telefone1" class="form-control" required pattern="[0-9]{9}"> <!-- required numeros de 0-9 e de 9 digitos -->
-                    </div>
-                    <div class="form-group col-md-3 font-weight-bold">    
-                        <label for="telefone" class="font-weight-bold">Telefone:</label>
-                        <input type="text" name="telefone2" class="form-control" pattern="[0-9]{9}"> <!-- required numeros de 0-9 e de 9 digitos -->
+                        <input type="text" name="telemovel" class="form-control" required pattern="[0-9]{9}"> <!-- required numeros de 0-9 e de 9 digitos -->
                     </div>
                 </div>
                 <input type="hidden" name="nome" value="<?php echo $nome; ?>"> <!-- nome da pag anterior -->
                 <input type="hidden" name="email" value="<?php echo $email; ?>"/> <!-- email da pag anterior -->
-                <input type="hidden" name="pw" value="<?php echo $pw; ?>"/> <!-- pass da pag anterior -->
+                <input type="hidden" name="senha" value="<?php echo $senha; ?>"/> <!-- pass da pag anterior -->
                 
                 <button type="submit" name="submit" class="btn btn-primary">Finalizar</button>
             </div>

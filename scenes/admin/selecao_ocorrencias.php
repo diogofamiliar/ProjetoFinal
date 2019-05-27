@@ -45,7 +45,7 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
         <?php
         $sql = "SELECT id_ocorrencia, data_ocorrencia, condominio.cod_condominio AS cod_condominio, zona.nome AS entrada, descricao, id_tipoocorrencia  FROM ocorrencia INNER JOIN zona ON ocorrencia.id_zona = zona.id_zona INNER JOIN condominio ON condominio.id_condominio = zona.id_condominio";
         $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
-        while( $rows = mysqli_fetch_assoc($resultset) ) {
+        while($rows = mysqli_fetch_assoc($resultset)) {
         ?>
       <tr>
           <td class="col-sm-1"><input type="checkbox" name="id_ocorrencia[]" value="<?php echo $rows['id_ocorrencia']; ?>" multiple></td>

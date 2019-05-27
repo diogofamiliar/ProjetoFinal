@@ -25,6 +25,30 @@ if (isset ($_POST['id_ocorrencia'])) {
     <link rel="stylesheet" type="text/css" href="../../css/custom.css">
     <!-- datepicker CSS-->
     <link href="../../css/datepicker.min.css" rel="stylesheet" type="text/css">
+    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+    <script>
+      $(function () {
+
+        $('form').on('submit', function (e) {
+
+          e.preventDefault();
+          var theForm=$(this);
+
+          $.ajax({
+            type: 'post',
+            url: 'manutencao_handle.php',
+            data: $(theForm).serialize(),
+            success: function () {
+                theForm.hide();
+              alert('form was submitted');
+            }
+          });
+
+        });
+
+      });
+    </script>
+
 
     <title>elVecino | Inserir Manutenções</title>
   </head>
@@ -60,7 +84,7 @@ if (isset ($_POST['id_ocorrencia'])) {
                     </div>    
                 </div>
                 <div class="card-body">
-                    <form method="post">
+                    <form>
                         <div class="form-group">
                             <label>Descrição:</label>
                             <textarea class="form-control" id="descricao" rows="2" disabled>Tipo de avaria: <?php echo utf8_encode($row['tipo_avaria']);?> Descrição do cliente: <?php echo utf8_encode($row['descricao']);?> </textarea>
@@ -87,7 +111,7 @@ if (isset ($_POST['id_ocorrencia'])) {
                             </div>
                             <div class="form-group col-md-4">
                                 <label>Equipa de manutenção:</label>
-                                <select id="equipa" class="form-control">
+                                <select id="equipa" name="equipa" class="form-control">
                                 <option value=""></option>
                                     <?php
                                     $query_1="SELECT id_fornecedor, nome FROM fornecedor";
@@ -99,7 +123,7 @@ if (isset ($_POST['id_ocorrencia'])) {
                                 </select>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-primary" onclick="submit_form();">Submeter</button>
+                        <input type="submit" value="Submit" name="submit">
                     </form>
                 </div>
             </div>
@@ -109,7 +133,7 @@ if (isset ($_POST['id_ocorrencia'])) {
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- Optional JavaScript -->
@@ -117,22 +141,11 @@ if (isset ($_POST['id_ocorrencia'])) {
     <script src="../../js/i18n/datepicker.pt.js"></script>
 
 
+
 	
 <script>
-function submit_form(){
-var prioridade=$("#prioridade").val();
-var data_agendamento=$("#data_agendamento").val();
-var dataTosend='prioridade='+prioridade+'&data_agendamento='+data_agendamento;
-    $.ajax({
-    url: 'manutencao_handle.php',
-    type: 'POST',
-    data:{prioridade: "média"},
-    async: true,
-    success: function (data) {
-    alert(data)
-    },
-    });
-}
+
+
 </script>
     
 

@@ -10,7 +10,7 @@ $telemovel = $_POST['telemovel'];
         $data_nascimento = $_POST['data_nascimento'];
         $senha =  $_POST['senha'];
         $telemovel = $_POST['telemovel'];
-    }//else header( "Location: registar_utilizador.php" );
+    }else header( "Location: registar_utilizador.php" );
     //adicionar tipo_utilizador
 
 //transforma a pw introduzida numa pw criptografada
@@ -36,7 +36,7 @@ if (mysqli_query($conn, $sql)) {
 }
 
 mysqli_close($conn);
-//header('Location: /ProjetoFinal/scenes/cliente/cliente.php');
+header('Location: /ProjetoFinal/scenes/cliente/cliente.php');
 
 ?>
 

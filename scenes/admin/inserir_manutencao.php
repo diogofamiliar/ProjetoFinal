@@ -6,8 +6,8 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
 }else header('Location: ../../index.php');
 */
 
-if (isset ($_POST['id_ocorrencia'])) {
-    $id_ocorrencia=$_POST['id_ocorrencia'];
+if (isset ($_POST['id_incidente'])) {
+    $id_incidente=$_POST['id_incidente'];
     
 }else echo "nada"; //mudar ISTO . REENCAMINHAR PARA OUTRO LADO
 
@@ -63,12 +63,12 @@ if (isset ($_POST['id_ocorrencia'])) {
     <h1 id="h1-centered">Inserir manutenções:</h1>
     <div class="container">
         <?php
-            foreach ($id_ocorrencia as $valor) {
-                $sql="  SELECT ocorrencia.data_ocorrencia AS data_ocorrencia, ocorrencia.local_ocorrencia as local_ocorrencia, tipo_ocorrencia.descricao as tipo_avaria, ocorrencia.outro_tipo_ocorrencia AS outra_avaria, zona.nome AS entrada, ocorrencia.descricao AS descricao, condominio.cod_condominio AS cod_condominio, condominio.morada AS morada
-                            FROM ocorrencia 
-                            inner JOIN zona ON ocorrencia.id_zona = zona.id_zona 
+            foreach ($id_incidente as $valor) {
+                $sql="  SELECT incidente.data_incidente AS data_incidente, incidente.local as local, categoria_incidente.descricao as categoria_incidente, zona.nome AS entrada, incidente.descricao AS descricao, condominio.cod_condominio AS cod_condominio, condominio.morada AS morada
+                            FROM incidente 
+                            inner JOIN zona ON incidente.id_zona = zona.id_zona 
                             Inner JOIN condominio ON zona.id_condominio = condominio.id_condominio 
-                            Inner Join tipo_ocorrencia ON tipo_ocorrencia.id_tipoocorrencia = ocorrencia.id_tipoocorrencia WHERE id_ocorrencia='$valor'";
+                            Inner Join categoria_incidente ON categoria_incidente.id_categoria_incidente = incidente.id_categoria_incidente WHERE id_incidente='$valor'";
                 $result=mysqli_query($conn,$sql);
                 $row=mysqli_fetch_array($result);
         ?>
@@ -79,7 +79,7 @@ if (isset ($_POST['id_ocorrencia'])) {
                             <h5><?php echo utf8_encode($row['cod_condominio']);?>-<?php echo utf8_encode($row['morada']);?></h5>
                         </div>
                         <div class="col-sm-3">
-                            <input type="text" class="datepicker-here form-control" data-language='pt'data-position="bottom right" name="data_nascimento" value="<?php echo $row['data_ocorrencia'] ?>" disabled>
+                            <input type="text" class="datepicker-here form-control" data-language='pt'data-position="bottom right" name="data_nascimento" value="<?php echo $row['data_incidente'] ?>" disabled>
                         </div>
                     </div>    
                 </div>
@@ -87,7 +87,7 @@ if (isset ($_POST['id_ocorrencia'])) {
                     <form>
                         <div class="form-group">
                             <label>Descrição:</label>
-                            <textarea class="form-control" id="descricao" rows="2" disabled>Tipo de avaria: <?php echo utf8_encode($row['tipo_avaria']);?> Descrição do cliente: <?php echo utf8_encode($row['descricao']);?> </textarea>
+                            <textarea class="form-control" id="descricao" rows="2" disabled>Tipo de avaria: <?php echo utf8_encode($row['categoria_incidente']);?> Descrição do cliente: <?php echo utf8_encode($row['descricao']);?> </textarea>
                         </div>              
                         <div class="form-row">
                             <div class="form-group col-md-3">

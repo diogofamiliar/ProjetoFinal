@@ -43,17 +43,17 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
       </thead>
       <tbody>
         <?php
-        $sql = "SELECT id_ocorrencia, data_ocorrencia, condominio.cod_condominio AS cod_condominio, zona.nome AS entrada, descricao, id_tipoocorrencia  FROM ocorrencia INNER JOIN zona ON ocorrencia.id_zona = zona.id_zona INNER JOIN condominio ON condominio.id_condominio = zona.id_condominio";
+        $sql = "SELECT id_incidente, data_incidente, condominio.cod_condominio AS cod_condominio, zona.nome AS entrada, descricao, id_categoria_incidente  FROM incidente INNER JOIN zona ON incidente.id_zona = zona.id_zona INNER JOIN condominio ON condominio.id_condominio = zona.id_condominio";
         $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
         while($rows = mysqli_fetch_assoc($resultset)) {
         ?>
       <tr>
-          <td class="col-sm-1"><input type="checkbox" name="id_ocorrencia[]" value="<?php echo $rows['id_ocorrencia']; ?>" multiple></td>
-          <td><?php echo $rows["data_ocorrencia"]; ?></td>
+          <td class="col-sm-1"><input type="checkbox" name="id_incidente[]" value="<?php echo $rows['id_incidente']; ?>" multiple></td>
+          <td><?php echo $rows["data_incidente"]; ?></td>
           <td><?php echo $rows["cod_condominio"]; ?></td>
           <td><?php echo $rows["entrada"]; ?></td>
           <td><?php echo $rows["descricao"]; ?></td>
-          <td><?php echo $rows["id_tipoocorrencia"]; ?></td>
+          <td><?php echo $rows["id_categoria_incidente"]; ?></td>
       </tr>
       <?php
       }

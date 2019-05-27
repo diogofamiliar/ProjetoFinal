@@ -31,7 +31,7 @@ if(isset($_POST['submit'])){
         if(!empty($insertValuesSQL)){
             $insertValuesSQL = trim($insertValuesSQL,',');
             // Insert image file name into database
-            $insert = $conn->query("INSERT INTO foto (nome_ficheiro, data_upload) VALUES $insertValuesSQL");
+            $insert = $conn->query("INSERT INTO fotografia (caminho, data_upload) VALUES $insertValuesSQL");
             $first_id_foto = $conn->insert_id; //first id_foto inserted
             echo "\DEPOIS last_id_foto-> $first_id_foto";
             if($insert){
@@ -44,11 +44,11 @@ if(isset($_POST['submit'])){
             }
         }
         
-        $sql = "SELECT MAX(id_foto) AS id_foto FROM foto"; //calcular o ultimo id_foto inserido
+        $sql = "SELECT MAX(id_fotografia) AS id_fotografia FROM fotografia"; //calcular o ultimo id_foto inserido
         $result = $conn->query($sql);//NOT A STRING
         $max_id = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        for ($id_foto = $first_id_foto; $id_foto <= $max_id['id_foto']; $id_foto++) {
-            $sql = "INSERT INTO ocorrencia_fotos (id_ocorrencia,id_foto) VALUES ('$last_id_ocorrencia', '$id_foto')";
+        for ($id_fotografia = $first_id_foto; $id_fotografia <= $max_id['id_fotografia']; $id_fotografia++) {
+            $sql = "INSERT INTO incidente_fotografia (id_incidente,id_fotografia) VALUES ('$last_id_incidente', '$id_fotografia')";
                 if ($conn->query($sql) === TRUE) {
                     echo "New record created successfully";
                 } else {

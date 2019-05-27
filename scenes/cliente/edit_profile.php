@@ -3,7 +3,7 @@ session_start();
 if(isset($_SESSION['id_utilizador'])){
     $id_utilizador=$_SESSION['id_utilizador'];
     include "../../core/connect.php";
-    $sql="SELECT nome, data_nascimento, email1, telefone1, telefone2, senha FROM utilizador WHERE id_utilizador='$id_utilizador'";
+    $sql="SELECT nome, data_nascimento, email, telemovel, senha FROM utilizador WHERE id_utilizador='$id_utilizador'";
     $result=mysqli_query($conn,$sql);
     $row=mysqli_fetch_array($result);
 }else header('Location: ../../index.php');
@@ -51,20 +51,14 @@ if(isset($_SESSION['id_utilizador'])){
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label">Email</label>
                                 <div class="col-lg-9">
-                                    <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelpId" value="<?php echo $row['email1']; ?>" required>
+                                    <input type="email" class="form-control" name="email" id="" aria-describedby="emailHelpId" value="<?php echo $row['email']; ?>" required>
                                 </div>
                             </div>
                             
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label">Telemóvel</label>
                                 <div class="col-lg-9">
-                                    <input type="text" name="telefone1" class="form-control" pattern="[0-9]{9}" value="<?php echo $row['telefone1']; ?>" required> <!-- required e numeros de 0-9 e de 9 digitos -->
-                                </div>
-                            </div>
-                            <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Telefone</label>
-                                <div class="col-lg-9">
-                                    <input type="text" name="telefone2" class="form-control" pattern="[0-9]{9}" value="<?php echo $row['telefone2']; ?>"> <!-- numeros de 0-9 e de 9 digitos -->
+                                    <input type="text" name="telemovel" class="form-control" pattern="[0-9]{9}" value="<?php echo $row['telemovel']; ?>" required> <!-- required e numeros de 0-9 e de 9 digitos -->
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -76,7 +70,7 @@ if(isset($_SESSION['id_utilizador'])){
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label">Insira a password</label>
                                 <div class="col-lg-9">
-                                    <input type="password" class="form-control" id="password" placeholder="Password" name="pw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange='check_pass();' value="<?php echo $row['senha']; ?>" Required>
+                                    <input type="password" class="form-control" id="password" placeholder="Password" name="senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange='check_pass();' value="<?php echo $row['senha']; ?>" Required>
                                     <small id="passHelp" class="form-text text-muted">A password deve conter um mínimo de 8 caracteres, incluíndo pelo menos: um algarismo, uma letra maiúscula e uma letra minúscula.</small>
                                 </div>                                    
                             </div>

@@ -2,22 +2,21 @@
 include "../core/connect.php";
 include "../core/pw_handle.php";
 
-    if (isset ($_POST['nome'], $_POST['email'], $_POST['pw'], $_POST['id_zona'], $_POST['data_nascimento'], $_POST['telefone1'], $_POST['telefone2'])) {
+    if (isset ($_POST['nome'], $_POST['email'], $_POST['senha'], $_POST['id_zona'], $_POST['data_nascimento'], $_POST['telemovel'])) {
         $nome = $_POST['nome'];
         $email = $_POST['email'];
         $id_zona = $_POST['id_zona'];
         $data_nascimento = $_POST['data_nascimento'];
-        $pw =  $_POST['pw'];
-        $telefone1 = $_POST['telefone1'];
-        $telefone2 = $_POST['telefone2'];
+        $senha =  $_POST['senha'];
+        $telemovel = $_POST['telemovel'];
     }else header( "Location: registar_utilizador.php" );
     //adicionar tipo_utilizador
 
 //transforma a pw introduzida numa pw criptografada
-$pw=getHash($pw);
+$senha=getHash($senha);
 //inserir utilizador
 
-$sql = "INSERT INTO utilizador (id_zona,nome,data_alteracao,data_nascimento,email1,telefone1,telefone2,senha) VALUES ('$id_zona','$nome',now(),SUBDATE('$data_nascimento', INTERVAL 0 DAY),'$email','$telefone1','$telefone2','$pw')";
+$sql = "INSERT INTO utilizador (id_zona,nome,data_alteracao,data_nascimento,email,telemovel,senha) VALUES ('$id_zona','$nome',now(),SUBDATE('$data_nascimento', INTERVAL 0 DAY),'$email','$telemovel','$senha')";
 if (mysqli_query($conn, $sql)) {
     $last_id_utilizador = $conn->insert_id;
     echo "last_id_utilizador-> $last_id_utilizador;";

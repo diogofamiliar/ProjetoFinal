@@ -39,7 +39,7 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1" class="font-weight-bold">Password:</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password" name="pw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange='check_pass();' Required>
+                    <input type="password" class="form-control" id="password" placeholder="Password" name="senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange='check_pass();' Required>
                     <small id="passHelp" class="form-text text-muted">A password deve conter um mínimo de 8 caracteres, incluíndo pelo menos: um algarismo, uma letra maiúscula e uma letra minúscula.</small>
                 </div>
                 <div class="form-group">

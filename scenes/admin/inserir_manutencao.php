@@ -1,9 +1,9 @@
-<?php
+<?php /*
 session_start();
 if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) && isset ($_POST['id_incidente'])){
     $id_incidente=$_POST['id_incidente'];
 }else header('Location: ../../index.php');
-?>
+*/?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -54,6 +54,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
     <h1 id="h1-centered">Inserir manutenções:</h1>
     <div class="container">
         <?php
+        $id_incidente=$_POST['id_incidente'];
             foreach ($id_incidente as $valor) {
                 $sql="  SELECT incidente.data_incidente AS data_incidente, incidente.local as local, categoria_incidente.descricao as categoria_incidente, zona.nome AS entrada, incidente.descricao AS descricao, condominio.cod_condominio AS cod_condominio, condominio.morada AS morada
                             FROM incidente 

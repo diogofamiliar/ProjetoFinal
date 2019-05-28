@@ -1,8 +1,8 @@
-<?php
+<?php/*
 session_start();
 if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador'])){
 }else header('Location: ../../index.php');
-?>
+*/?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -29,15 +29,15 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
   <h1 id="h1-centered">Inserir manutenções:</h1>
   <div class="container">
   <form action="inserir_manutencao.php" method="POST"> 
-    <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0">
+    <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0" style="table-layout: fixed; width: 100%;">
       <thead>
-        <tr class="d-flex"  >
-          <th class="col-1"><input type="checkbox" id="checkAll"/></th>
-          <th class="col-1">Data</th>
-          <th class="col-1">Condominio</th>
-          <th class="col-2">Local</th>
-          <th class="col-4">Descrição</th>
-          <th class="col-3">Avaria</th>
+        <tr>
+          <th><input type="checkbox" id="checkAll"/></th>
+          <th>Data</th>
+          <th>Condominio</th>
+          <th>Local</th>
+          <th>Descrição</th>  
+          <th>Avaria</th>
         </tr>
       </thead>
       <tbody>
@@ -46,13 +46,13 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
         $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
         while($rows = mysqli_fetch_assoc($resultset)) {
         ?>
-      <tr class="d-flex">
-          <td class="col-1"><input type="checkbox" name="id_incidente[]" value="<?php echo $rows['id_incidente']; ?>" multiple></td>
-          <td class="col-1"><?php echo utf8_encode($rows["data_incidente"]); ?></td>
-          <td class="col-1"><?php echo utf8_encode($rows["cod_condominio"]); ?></td>
-          <td class="col-2"><?php echo utf8_encode($rows["entrada"]); ?></td>
-          <td class="col-4"><?php echo utf8_encode($rows["descricao"]); ?></td>
-          <td class="col-3"><?php echo utf8_encode($rows["id_categoria_incidente"]); ?></td>
+      <tr>
+          <td class="col-sm-1"><input type="checkbox" name="id_incidente[]" value="<?php echo $rows['id_incidente']; ?>" multiple></td>
+          <td><?php echo utf8_encode($rows["data_incidente"]); ?></td>
+          <td><?php echo utf8_encode($rows["cod_condominio"]); ?></td>
+          <td><?php echo utf8_encode($rows["entrada"]); ?></td>
+          <td><?php echo utf8_encode($rows["descricao"]); ?></td>
+          <td><?php echo utf8_encode($rows["id_categoria_incidente"]); ?></td>
       </tr>
       <?php
       }
@@ -76,7 +76,16 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
       $(document).ready( function () {
         
         $('#data').DataTable({
-          select: true
+          "columnDefs": [
+            { "width": "10px", "targets": 0 },
+            { "width": "80px", "targets": 1 },
+            { "width": "70px", "targets": 2 },
+            { "width": "200px", "targets": 3 },
+            { "width": "200px", "targets": 4 },
+            { "width": "50px", "targets": 5 }
+          ],
+          select: true,
+          "scrollX": true
         });
       
         

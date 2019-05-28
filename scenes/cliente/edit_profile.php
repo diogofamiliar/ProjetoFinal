@@ -1,7 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['id_utilizador'])){
-    $id_utilizador=$_SESSION['id_utilizador'];
+if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador'])){
     include "../../core/connect.php";
     $sql="SELECT nome, data_nascimento, email, telemovel, senha FROM utilizador WHERE id_utilizador='$id_utilizador'";
     $result=mysqli_query($conn,$sql);

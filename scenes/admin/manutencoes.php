@@ -1,11 +1,8 @@
-<?php/* DEPOIS TIRAR O COMENTARIO E MUDAR O ID_GRUPO PARA O NOME DO GRUPO
+<?php
 session_start();
-if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
+if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador'])){
 }else header('Location: ../../index.php');
-*/
-
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>

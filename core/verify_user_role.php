@@ -27,8 +27,26 @@ $sql="SELECT nome FROM grupo WHERE id_grupo='$id_grupo'";
     else if ($row['nome']=="tecnico"){ 
                    
     }else if ($row['nome']=="admin"){ 
+        if($_SESSION["camefrom"]=="scenes"){ //este if irá reencaminhar os utilizadores para a sua àrea de utilizador consoante o sítio de onde fizeram login
+            session_start();
+            ob_start();
+            header('location: admin/admin.php', true);      
+        }else{
+            session_start();
+            ob_start();
+            header('location: scenes/admin/admin.php', true);   
+           }
 
     }else if ($row['nome']=="master"){ 
+        if($_SESSION["camefrom"]=="scenes"){ //este if irá reencaminhar os utilizadores para a sua àrea de utilizador consoante o sítio de onde fizeram login
+            session_start();
+            ob_start();
+            header('location: admin/admin.php', true);      
+        }else{
+            session_start();
+            ob_start();
+            header('location: scenes/admin/admin.php', true);   
+           }
 
     }
 

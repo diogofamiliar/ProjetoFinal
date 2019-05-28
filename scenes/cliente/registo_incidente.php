@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
+if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador'])){
 }else header('Location: ../../index.php');
 ?>
 

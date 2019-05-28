@@ -1,10 +1,8 @@
-
-<?php /*
+<?php
 session_start();
-if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
+if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador'])){
 }else header('Location: ../../index.php');
-*/?>
-
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -33,13 +31,13 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
   <form action="inserir_manutencao.php" method="POST"> 
     <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0">
       <thead>
-        <tr>
-          <div class="col-sm-4"><th><input type="checkbox" id="checkAll"/></th></div>
-          <th class="col-sm-1">Data</th>
-          <th class="col-sm-1">Condominio</th>
-          <th class="col-sm-2">Local</th>
-          <th class="col-sm-4">Descrição</th>
-          <th class="col-sm-3">Avaria</th>
+        <tr class="d-flex"  >
+          <th class="col-1"><input type="checkbox" id="checkAll"/></th>
+          <th class="col-1">Data</th>
+          <th class="col-1">Condominio</th>
+          <th class="col-2">Local</th>
+          <th class="col-4">Descrição</th>
+          <th class="col-3">Avaria</th>
         </tr>
       </thead>
       <tbody>
@@ -48,13 +46,13 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
         $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
         while($rows = mysqli_fetch_assoc($resultset)) {
         ?>
-      <tr>
-          <td class="col-sm-1"><input type="checkbox" name="id_incidente[]" value="<?php echo $rows['id_incidente']; ?>" multiple></td>
-          <td class="col-sm-1"><?php echo utf8_encode($rows["data_incidente"]); ?></td>
-          <td class="col-sm-1"><?php echo utf8_encode($rows["cod_condominio"]); ?></td>
-          <td class="col-sm-2"><?php echo utf8_encode($rows["entrada"]); ?></td>
-          <td class="col-sm-4"><?php echo utf8_encode($rows["descricao"]); ?></td>
-          <td class="col-sm-3"><?php echo utf8_encode($rows["id_categoria_incidente"]); ?></td>
+      <tr class="d-flex">
+          <td class="col-1"><input type="checkbox" name="id_incidente[]" value="<?php echo $rows['id_incidente']; ?>" multiple></td>
+          <td class="col-1"><?php echo utf8_encode($rows["data_incidente"]); ?></td>
+          <td class="col-1"><?php echo utf8_encode($rows["cod_condominio"]); ?></td>
+          <td class="col-2"><?php echo utf8_encode($rows["entrada"]); ?></td>
+          <td class="col-4"><?php echo utf8_encode($rows["descricao"]); ?></td>
+          <td class="col-3"><?php echo utf8_encode($rows["id_categoria_incidente"]); ?></td>
       </tr>
       <?php
       }

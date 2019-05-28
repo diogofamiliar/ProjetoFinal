@@ -1,18 +1,9 @@
-
-<?php /*
+<?php
 session_start();
-if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
-    
-}else header('Location: ../../index.php');
-*/
-
-if (isset ($_POST['id_incidente'])) {
+if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) && isset ($_POST['id_incidente'])){
     $id_incidente=$_POST['id_incidente'];
-    
-}else echo "nada"; //mudar ISTO . REENCAMINHAR PARA OUTRO LADO
-
+}else header('Location: ../../index.php');
 ?>
-
 <!doctype html>
 <html lang="en">
   <head>

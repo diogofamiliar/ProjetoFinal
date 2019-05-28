@@ -32,7 +32,7 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
   <body>
 
 	<?php
-	include __DIR__.'/../../headers/cliente_header.php';
+	include __DIR__.'/../../headers/admin_header.php';
 	?>
   
   <h1 id="h1-centered"></h1>

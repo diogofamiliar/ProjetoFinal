@@ -9,7 +9,7 @@
                     <a class="nav-link pl-0" href="admin.php"  id="navbar-text">Home <span class="sr-only">Home</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Arquivo</a>
+                    <a class="nav-link" href="admin_documentos.php">Arquivo</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="manutencoes.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

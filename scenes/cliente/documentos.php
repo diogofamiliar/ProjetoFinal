@@ -75,8 +75,8 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
                 ?>  
             </tbody>  
             </table>  
-            <button type="submit" class="btn btn-primary btn-lg">Adicionar Documento</button>
-        </div>  
+        </div> 
+        <button type="submit" class="btn btn-primary btn-lg">Adicionar Documento</button> 
     </div>  
     <?php
     

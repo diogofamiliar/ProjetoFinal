@@ -16,7 +16,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
     <!-- datatables CSS -->
     <link rel="stylesheet" type="text/css" href="../../css/jquery.dataTables.min.css">
 
-    <title>elVecino | Manutenções</title>
+    <title>elVecino | Inserir Lista manutenções</title>
   </head>
   <script type="text/javascript">
   function submitForm(action) {
@@ -33,7 +33,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
 	include __DIR__.'/../../headers/admin_header.php';
 	?>
   
-  <h1 id="h1-centered">Inserir manutenções:</h1>
+  <h1 id="h1-centered">Inserir lista de tarefas:</h1>
   <div class="container">
   <form method="POST" id="form1"> 
     <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0" style="table-layout: fixed; width: 100%;">
@@ -45,21 +45,28 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
           <th>Local</th>
           <th>Descrição</th>  
           <th>Avaria</th>
+          <th>Sel equipa</th>
         </tr>
       </thead>
       <tbody>
-        <?php
-        $sql = "select v.id_incidente, v.data_incidente, v.cod_condominio AS cod_condominio, v.entrada AS entrada, v.descricao, v.id_categoria_incidente from view_incidentes v LEFT JOIN incidente_manutencao t ON v.id_incidente = t.id_incidente WHERE t.id_incidente IS NULL";
-        $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
-        while($rows = mysqli_fetch_assoc($resultset)) {
+      <?php
+        $id_incidente=$_POST['id_incidente'];
+            foreach ($id_incidente as $valor) {
+                $sql="  SELECT incidente.data_incidente AS data_incidente, incidente.local as local, categoria_incidente.descricao as categoria_incidente, zona.nome AS entrada, incidente.descricao AS descricao, condominio.cod_condominio AS cod_condominio, condominio.morada AS morada
+                FROM incidente 
+                inner JOIN zona ON incidente.id_zona = zona.id_zona 
+                Inner JOIN condominio ON zona.id_condominio = condominio.id_condominio 
+                Inner Join categoria_incidente ON categoria_incidente.id_categoria_incidente = incidente.id_categoria_incidente WHERE id_incidente='$valor'";
+                $result=mysqli_query($conn,$sql);
+                $row=mysqli_fetch_array($result);
         ?>
       <tr>
           <td class="col-sm-1"><input type="checkbox" name="id_incidente[]" value="<?php echo $rows['id_incidente']; ?>" multiple></td>
-          <td><?php echo utf8_encode($rows["data_incidente"]); ?></td>
-          <td><?php echo utf8_encode($rows["cod_condominio"]); ?></td>
-          <td><?php echo utf8_encode($rows["entrada"]); ?></td>
-          <td><?php echo utf8_encode($rows["descricao"]); ?></td>
-          <td><?php echo utf8_encode($rows["id_categoria_incidente"]); ?></td>
+          <td><?php echo utf8_encode($row["data_incidente"]); ?></td>
+          <td><?php echo utf8_encode($row["cod_condominio"]); ?></td>
+          <td><?php echo utf8_encode($row["entrada"]); ?></td>
+          <td><?php echo utf8_encode($row["descricao"]); ?></td>
+          <td><?php echo utf8_encode($row["categoria_incidente"]); ?></td>
       </tr>
       <?php
       }
@@ -85,15 +92,16 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
         
         $('#data').DataTable({
           "columnDefs": [
-            { "width": "10px", "targets": 0 },
-            { "width": "80px", "targets": 1 },
-            { "width": "70px", "targets": 2 },
-            { "width": "200px", "targets": 3 },
+            { "width": "50%", "targets": 0 },
+            { "width": "60px", "targets": 1 },
+            { "width": "60px", "targets": 2 },
+            { "width": "100px", "targets": 3 },
             { "width": "200px", "targets": 4 },
             { "width": "50px", "targets": 5 }
           ],
           select: true,
-          "scrollX": true
+          
+          "searching": false
         });
       
         

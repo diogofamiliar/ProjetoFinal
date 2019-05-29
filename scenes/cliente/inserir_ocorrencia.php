@@ -36,7 +36,6 @@ $result = mysqli_query($conn, $sql);
 echo $id_zona;
 
 $sql = "INSERT INTO incidente (id_utilizador,id_zona,local,id_categoria_incidente,descricao,data_incidente,estado) VALUES ('$id_utilizador','$id_zona','$local','$id_categoria_incidente','$descricao',now())";
-// INSERIR estado '3'
 if (mysqli_query($conn, $sql)) {
     $last_id_incidente = $conn->insert_id;
     echo "last_id_incidente-> $last_id_incidente;";

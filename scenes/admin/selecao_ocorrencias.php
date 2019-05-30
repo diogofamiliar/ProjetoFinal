@@ -18,6 +18,13 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
 
     <title>elVecino | Manutenções</title>
   </head>
+  <script type="text/javascript">
+  function submitForm(action) {
+    var form = document.getElementById('form1');
+    form.action = action;
+    form.submit();
+  }
+</script>
 
 <body>
 
@@ -28,7 +35,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
   
   <h1 id="h1-centered">Inserir manutenções:</h1>
   <div class="container">
-  <form action="inserir_manutencao.php" method="POST"> 
+  <form method="POST" id="form1"> 
     <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0" style="table-layout: fixed; width: 100%;">
       <thead>
         <tr>
@@ -59,8 +66,9 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
       ?>
       </tbody>
     </table>
-    <button type="submit" class="btn btn-primary btn-lg">Criar manutenção</button>
-    <button type="submit" class="btn btn-primary btn-lg">Criar lista de tarefas</button>
+    <button type="button" onclick="submitForm('inserir_manutencao.php')" value="submit 1" class="btn btn-primary btn-lg">Criar manutenção</button>
+    <button type="button" onclick="submitForm('inserir_lista.php')" value="submit 2" class="btn btn-primary btn-lg">Criar lista de tarefas</button>
+
     </form>
   </div>
 

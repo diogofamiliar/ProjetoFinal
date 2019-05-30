@@ -36,7 +36,19 @@
                         <option value="manutencoes">Manutenções</option>
                     </select>
                 </div>
-                
+                <div class="form-group col-md-6">
+                        <label for="id_zona" class="font-weight-bold">Selecione a zona:</label>
+                        <select class="form-control" id="id_zona" name="id_zona" Required>
+                            <option value=""></option>
+                            <?php
+                            $query="SELECT id_zona,nome FROM zona";
+                            $result = mysqli_query($conn, $query);
+                            while($row_result=mysqli_fetch_assoc($result)){ ?>
+                                <option value="<?php echo utf8_encode($row_result['id_zona']); ?>"><?php echo utf8_encode($row_result['nome']); ?></option> <?php
+                            }
+                                ?>
+                        </select>
+                </div>
                 
                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>
             </form>

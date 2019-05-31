@@ -36,20 +36,27 @@
                         <option value="manutencoes">Manutenções</option>
                     </select>
                 </div>
-                <div class="form-group col-md-6">
-                        <label for="id_zona" class="font-weight-bold">Selecione a zona:</label>
+                <div class="form-group">
+                        <label for="id_zona" class="font-weight-bold">Selecione a zona (condominio - zona):</label>
                         <select class="form-control" id="id_zona" name="id_zona" Required>
                             <option value=""></option>
                             <?php
-                            $query="SELECT id_zona,nome FROM zona";
+                            $query="SELECT id_zona, zona.nome as nome_zona, condominio.nome as nome_condominio FROM zona INNER JOIN condominio ON zona.id_condominio=condominio.id_condominio";
                             $result = mysqli_query($conn, $query);
                             while($row_result=mysqli_fetch_assoc($result)){ ?>
-                                <option value="<?php echo utf8_encode($row_result['id_zona']); ?>"><?php echo utf8_encode($row_result['nome']); ?></option> <?php
+                                <option value="<?php echo utf8_encode($row_result['id_zona']); ?>"><?php echo utf8_encode($row_result['nome_condominio']); ?> - <?php echo utf8_encode($row_result['nome_zona']); ?></option> <?php
                             }
                                 ?>
                         </select>
                 </div>
-                
+                <div class="form-group">
+                    <label for="descricao" class="font-weight-bold">Descrição:</label>
+                    <textarea class="form-control" rows="3" id="descricao" name="descricao"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="documento" class="font-weight-bold">Introduza o documento:</label><br>
+                    <input id="documento" type="file" name="files">
+                </div>
                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

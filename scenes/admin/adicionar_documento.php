@@ -50,6 +50,10 @@
                         </select>
                 </div>
                 <div class="form-group">
+                    <label for="nome" class="font-weight-bold">Nome do documento:</label>
+                    <textarea class="form-control" rows="1" id="nome" name="nome"></textarea>
+                </div>
+                <div class="form-group">
                     <label for="descricao" class="font-weight-bold">Descrição:</label>
                     <textarea class="form-control" rows="3" id="descricao" name="descricao"></textarea>
                 </div>

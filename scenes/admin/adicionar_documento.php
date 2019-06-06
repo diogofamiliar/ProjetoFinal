@@ -24,7 +24,7 @@
         <?php include '../../headers/admin_header.php';?>
         <div class="container">
             <h2>Adicionar Documento</h2>
-            <form target="_self" action="#" method="Post" enctype="multipart/form-data">
+            <form target="_self" action="inserir_documento.php" method="Post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="tipo_documento" class="font-weight-bold">Tipo de documento:</label>
                     <br>
@@ -36,8 +36,31 @@
                         <option value="manutencoes">Manutenções</option>
                     </select>
                 </div>
-                
-                
+                <div class="form-group">
+                        <label for="id_zona" class="font-weight-bold">Selecione a zona (condominio - zona):</label>
+                        <select class="form-control" id="id_zona" name="id_zona" Required>
+                            <option value=""></option>
+                            <?php
+                            $query="SELECT id_zona, zona.nome as nome_zona, condominio.nome as nome_condominio FROM zona INNER JOIN condominio ON zona.id_condominio=condominio.id_condominio";
+                            $result = mysqli_query($conn, $query);
+                            while($row_result=mysqli_fetch_assoc($result)){ ?>
+                                <option value="<?php echo $row_result['id_zona']; ?>"><?php echo utf8_encode($row_result['nome_condominio']); ?> - <?php echo utf8_encode($row_result['nome_zona']); ?></option> <?php
+                            }
+                                ?>
+                        </select>
+                </div>
+                <div class="form-group">
+                    <label for="nome" class="font-weight-bold">Nome do documento:</label>
+                    <textarea class="form-control" rows="1" id="nome" name="nome"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="descricao" class="font-weight-bold">Descrição:</label>
+                    <textarea class="form-control" rows="3" id="descricao" name="descricao"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="documento" class="font-weight-bold">Introduza o documento:</label><br>
+                    <input id="documento" type="file" name="documento">
+                </div>
                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>

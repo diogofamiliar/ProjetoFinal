@@ -3,9 +3,10 @@ function fill_tipo_manutencao() {
   $(".form-control.tipo_manutencao").val(x);
 }
 
-function fill_data_manutencao() {
-    var x = document.getElementById("cab_data").value;
-    $(".datepicker-here.form-control").val(x);
+
+function fill_data() {
+    var x = document.getElementById("calendario").value;
+    $(".datepicker-here.form-control.class_calendar").val(x);
 }
 
 function fill_prioridade() {

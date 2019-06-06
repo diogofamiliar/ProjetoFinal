@@ -1,3 +1,8 @@
+    <!-- fontawesome CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="../../css/custom.css">
+
 <nav class="navbar navbar-light navbar-expand-md bg-light justify-content-between fixed-top">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-nav">
@@ -37,13 +42,16 @@
         <div class="navbar-collapse collapse dual-nav w-50 order-2">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <img src="../../assets/navbar/messages_navbar.png" alt="logo" style="width:32px;"> Mensagens
+                    <a class="nav-link" href="mensagens.php">
+                        <span class="fa-stack has-badge" data-count="8" aria-hidden="true">
+                            <i class="fa fa-circle fa-stack-2x"></i>
+                            <i class="fa fa-bell fa-stack-1x fa-inverse"></i>
+                        </span> Notificações
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="edit_profile.php">
-                        <img src="../../assets/navbar/perfil_navbar.png" alt="logo" style="width:30px;"> Perfil
+                        <span class="fa fa-user" aria-hidden="true" style="font-size:25px;"></span> Perfil
                     </a>
                 </li>
                 <li class="nav-item dropdown">

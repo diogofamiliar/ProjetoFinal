@@ -17,10 +17,12 @@ $sql="SELECT nome FROM grupo WHERE id_grupo='$id_grupo'";
         if($_SESSION["camefrom"]=="scenes"){ //este if irá reencaminhar os utilizadores para a sua àrea de utilizador consoante o sítio de onde fizeram login
             session_start();
             ob_start();
+            unset($_SESSION["camefrom"]);
             header('location: cliente/cliente.php', true);      
         }else{
             session_start();
             ob_start();
+            unset($_SESSION["camefrom"]);
             header('location: scenes/cliente/cliente.php', true);   
            }
     }
@@ -34,6 +36,7 @@ $sql="SELECT nome FROM grupo WHERE id_grupo='$id_grupo'";
         }else{
             session_start();
             ob_start();
+            unset($_SESSION["camefrom"]);
             header('location: scenes/admin/admin.php', true);   
            }
 
@@ -41,10 +44,12 @@ $sql="SELECT nome FROM grupo WHERE id_grupo='$id_grupo'";
         if($_SESSION["camefrom"]=="scenes"){ //este if irá reencaminhar os utilizadores para a sua àrea de utilizador consoante o sítio de onde fizeram login
             session_start();
             ob_start();
+            unset($_SESSION["camefrom"]);
             header('location: admin/admin.php', true);      
         }else{
             session_start();
             ob_start();
+            unset($_SESSION["camefrom"]);
             header('location: scenes/admin/admin.php', true);   
            }
 

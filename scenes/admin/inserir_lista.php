@@ -17,17 +17,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
     <!-- datepicker CSS-->
     <link href="../../css/datepicker.min.css" rel="stylesheet" type="text/css">
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script>
-$("#cab_data").datepicker({
-    onSelect: function(dateText, inst) {
-        var date = $(this).val();
-        var time = $('#time').val();
-        alert('on select triggered');
-        $("#start").val(date + time.toString(' HH:mm').toString());
-        console.log(date + time.toString(' HH:mm').toString());
-    }
-});
-</script>
+
 
 
     <title>elVecino | Inserir Lista Tarefas</title>
@@ -81,7 +71,7 @@ $("#cab_data").datepicker({
                   </div>
                   <div class="form-group col-md-3">
                     <label for="data_agendamento">Data agendamento:</label>
-                    <input id="cab_data" type="text" class="datepicker-here form-control cab_data" data-language='pt'data-position="bottom right"  required onchange="fill_data_manutencao()">
+                    <input type="text" class="datepicker-here form-control" id="calendario" onchange="fill_data()"/>
                   </div>
                   <div class="form-group col-md-4">
                     <label>Equipa de manutenção:</label>
@@ -99,7 +89,7 @@ $("#cab_data").datepicker({
               </div>
     </div>
     <div class="card-body">
-      <form>
+      <form action="inserir_lista_tarefas_1.php" method="POST">
         <?php
         $id_incidente=$_POST['id_incidente'];
         foreach ($id_incidente as $valor) {
@@ -123,7 +113,7 @@ $("#cab_data").datepicker({
             </div>    
           </div>
           <div class="card-body">
-              <input type="hidden" name="id_incidente" value="<?php echo $valor ?>">
+              <input type="hidden" name="id_incidente[]" value="<?php echo $valor ?>">
               <div class="form-row">
                 <div class="form-group col-sm-6">
                   <label>Descrição:</label>
@@ -131,13 +121,13 @@ $("#cab_data").datepicker({
                 </div>
                 <div class="form-group col-sm-6">
                   <label>Observações:</label>
-                  <textarea class="form-control" name="observacao" rows="2"></textarea>
+                  <textarea class="form-control" name="observacao[]" rows="2"></textarea>
                 </div>
               </div>
               <div class="form-row">
                   <div class="form-group col-md-3">
                     <label>Tipo manutenção:</label>
-                    <select name="id_tipo_manutencao" class="form-control tipo_manutencao" required>
+                    <select name="id_tipo_manutencao[]" class="form-control tipo_manutencao" required>
                       <option selected=""></option>
                         <?php
                         $query_1="SELECT id_tipo_manutencao, descricao FROM tipo_manutencao ORDER BY descricao ASC";
@@ -150,7 +140,7 @@ $("#cab_data").datepicker({
                   </div>
                   <div class="form-group col-md-2">
                     <label for="prioridade" required>Prioridade:</label>
-                    <select name="prioridade" class="form-control prioridade" required>
+                    <select name="prioridade[]" class="form-control prioridade" required>
                         <option value=""></option>
                         <option style="background: #009933; color: #fff;">Baixa</option>
                         <option style="background: #e65c00; color: #fff;">Média</option>
@@ -159,11 +149,11 @@ $("#cab_data").datepicker({
                   </div>
                   <div class="form-group col-md-3">
                     <label for="data_agendamento">Data agendamento:</label>
-                    <input type="text" class="datepicker-here form-control" data-language='pt'data-position="bottom right" name="data_agendamento" required>
+                    <input type="text" class="datepicker-here form-control class_calendar" name="data[]" required/>
                   </div>
                   <div class="form-group col-md-4">
                     <label>Equipa de manutenção:</label>
-                    <select name="equipa" class="form-control equipa" required>
+                    <select name="equipa[]" class="form-control equipa" required>
                       <option value="">Selecione uma equipa:</option>
                         <?php
                         $query_1="SELECT id_fornecedor, nome FROM fornecedor ORDER BY nome ASC";
@@ -187,14 +177,33 @@ $("#cab_data").datepicker({
 </div>
 
     <!-- Optional JavaScript -->
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- Optional JavaScript -->
-    <script src="../../js/datepicker.min.js"></script>
-    <script src="../../js/i18n/datepicker.pt.js"></script>
     <script src="../../js/fill_form.js"></script>
+    <script>
+    $(function() {
+        $( "#calendario" ).datepicker({ 
+          dateFormat: 'yy-mm-dd' 
+          
+        });
+    });
+    </script>
+
+    <script>
+    $(function() {
+      var add_date_picker = document.getElementsByName('data[]');
+      $(add_date_picker ).datepicker({ 
+          dateFormat: 'yy-mm-dd' 
+          
+        });
+    });
+    </script>
 
 
 

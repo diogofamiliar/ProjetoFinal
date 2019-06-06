@@ -15,13 +15,13 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
         } else {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
-            $sql="INSERT INTO incidente_manutencao (id_incidente, id_manutencao, data_insert, estado) VALUES ('$id_incidente', '$last_id_manutencao', now(),'agendada')";
+            $sql="INSERT INTO incidente_manutencao (id_incidente, id_manutencao, data, estado) VALUES ('$id_incidente', '$last_id_manutencao', now(),'agendada')";
             if ($conn->query($sql) === TRUE) {
                 echo "Have a good night!";
             } else {
                 echo "Error: " . $sql . "<br>" . $conn->error;
             }
-    }else {
+    }else { //caso nao tenha inserido descricao/observacao
         $id_tipo_manutencao=$_POST['id_tipo_manutencao'];
         $prioridade=$_POST['prioridade'];
         $data_agendamento=$_POST['data_agendamento'];
@@ -33,5 +33,6 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
     }
+
 /*}else header('Location: ../../index.php');    */
 ?>

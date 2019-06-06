@@ -33,12 +33,11 @@ $result = mysqli_query($conn, $sql);
             echo "0 results";
          }
 
-echo $id_zona;
 
-$sql = "INSERT INTO incidente (id_utilizador,id_zona,local,id_categoria_incidente,descricao,data_incidente,estado) VALUES ('$id_utilizador','$id_zona','$local','$id_categoria_incidente','$descricao',now())";
+$sql = "INSERT INTO incidente (id_utilizador,id_zona,local,id_categoria_incidente,descricao,data_incidente) VALUES ('$id_utilizador','$id_zona','$local','$id_categoria_incidente','$descricao',now())";
 if (mysqli_query($conn, $sql)) {
     $last_id_incidente = $conn->insert_id;
-    echo "last_id_incidente-> $last_id_incidente;";
+    //echo "last_id_incidente-> $last_id_incidente;";
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
@@ -48,6 +47,5 @@ if (mysqli_query($conn, $sql)) {
 
 
 mysqli_close($conn);
-
 header('location: cliente.php', true);   
 ?>

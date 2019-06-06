@@ -3,7 +3,7 @@
 if(isset($_POST['submit'])){
 
     // File upload configuration
-    $targetDir = "C:/xampp/htdocs/elVecino/projeto_elVecino/uploads/";
+    $targetDir = "C:/xampp/htdocs/ProjetoFinal/uploads/";
     $allowTypes = array('jpg','png','jpeg','gif');
 
     $statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = '';
@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
                 // Upload file to server
                 if(move_uploaded_file($_FILES["files"]["tmp_name"][$key], $targetFilePath)){
                     // Image db insert sql
-                    $insertValuesSQL .= "('".$fileName."', NOW()),";
+                    $insertValuesSQL .= "('".$fileName."', NOW(),'".$last_id_incidente."'),";
                 }else{
                     $errorUpload .= $_FILES['files']['name'][$key].', ';
                 }
@@ -30,8 +30,10 @@ if(isset($_POST['submit'])){
         
         if(!empty($insertValuesSQL)){
             $insertValuesSQL = trim($insertValuesSQL,',');
+            echo $insertValuesSQL;
+            
             // Insert image file name into database
-            $insert = $conn->query("INSERT INTO fotografia (caminho, data_upload) VALUES $insertValuesSQL");
+            $insert = $conn->query("INSERT INTO fotografia (caminho, data_upload, id_incidente) VALUES $insertValuesSQL");
             $first_id_foto = $conn->insert_id; //first id_foto inserted
             echo "\DEPOIS last_id_foto-> $first_id_foto";
             if($insert){
@@ -43,7 +45,7 @@ if(isset($_POST['submit'])){
                 $statusMsg = "Sorry, there was an error uploading your file.";
             }
         }
-        
+        /*
         $sql = "SELECT MAX(id_fotografia) AS id_fotografia FROM fotografia"; //calcular o ultimo id_foto inserido
         $result = $conn->query($sql);//NOT A STRING
         $max_id = mysqli_fetch_array($result, MYSQLI_ASSOC);
@@ -55,7 +57,7 @@ if(isset($_POST['submit'])){
                     echo "Error: " . $sql . "<br>" . $conn->error;
                 }
         
-        } 
+        } */
     }
    
     // Display status message

@@ -52,7 +52,7 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
         ?>
       <tr>
           <td><?php echo utf8_encode($rows["id_documento"]); ?></td>
-          <td><?php echo utf8_encode($rows["data_criacao"]); ?></td>
+          <td><?php echo $rows["data_criacao"]; ?></td>
           <td><?php echo utf8_encode($rows["tipo_de_documento"]); ?></td>
           <td><?php echo utf8_encode($rows["nome_zona"]); ?></td>
           <td><?php echo utf8_encode($rows["nome_documento"]); ?></td>

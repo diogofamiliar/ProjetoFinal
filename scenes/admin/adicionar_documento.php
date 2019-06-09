@@ -1,7 +1,7 @@
 <?php
-//session_start();
-//if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador'])){
-//}else header('Location: ../../index.php');
+session_start();
+if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador'])){
+}else header('Location: ../../index.php');
 ?>
 
 <!doctype html>
@@ -24,7 +24,7 @@
         <?php include '../../headers/admin_header.php';?>
         <div class="container">
             <h2>Adicionar Documento</h2>
-            <form target="_self" action="inserir_documento.php" method="Post" enctype="multipart/form-data">
+            <form action="inserir_documento.php" method="Post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="tipo_documento" class="font-weight-bold">Tipo de documento:</label>
                     <br>

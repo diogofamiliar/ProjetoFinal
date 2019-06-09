@@ -3,8 +3,14 @@ session_start();
 if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
   $id_utilizador=$_SESSION['id_utilizador'];  
     include __DIR__.'/../../core/connect.php';
-    // mudar para mostrar apenas documentos relativos à zona e certos tipos 
-    $query ="SELECT zona.nome AS nome_zona, utilizador_documento.data_criacao, documento.nome AS nome_documento, documento.descricao, documento.tipo_de_documento, documento.tamanho_ficheiro, documento.id_documento, utilizador.nome AS nome_autor FROM documento LEFT JOIN utilizador_documento ON documento.id_documento=utilizador_documento.id_documento LEFT JOIN zona ON zona.id_zona=documento.id_zona LEFT JOIN utilizador ON utilizador.id_utilizador=utilizador_documento.id_utilizador";  
+   
+    $id_utilizador=$_SESSION['id_utilizador'];
+    //seleciona a zona a que esta associado o utilizador
+    $zona= "SELECT id_zona FROM utilizador WHERE utilizador.id_utilizador=$id_utilizador";
+    $resultado = mysqli_query($conn, $zona);
+    $row = mysqli_fetch_assoc($resultado);
+    // query que mostra os documentos que estao relacionados com a zona do utilizador
+    $query ="SELECT zona.nome AS nome_zona, utilizador_documento.data_criacao, documento.nome AS nome_documento, documento.descricao, documento.tipo_de_documento, documento.tamanho_ficheiro, documento.id_documento, utilizador.nome AS nome_autor FROM documento LEFT JOIN utilizador_documento ON documento.id_documento=utilizador_documento.id_documento LEFT JOIN zona ON zona.id_zona=documento.id_zona LEFT JOIN utilizador ON utilizador.id_utilizador=utilizador_documento.id_utilizador WHERE documento.id_zona=$row[id_zona]";  
     $result = mysqli_query($conn, $query);
 }else header('Location: ../../index.php');
 ?>
@@ -53,7 +59,7 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
         while($rows = mysqli_fetch_assoc($result)) {
         ?>
       <tr>
-          <td><?php echo utf8_encode($rows["id_documento"]); ?></td>
+          <td><?php echo utf8_encode($rows["id_documento"]); ?></td> 
           <td><?php echo utf8_encode($rows["data_criacao"]); ?></td>
           <td><?php echo utf8_encode($rows["tipo_de_documento"]); ?></td>
           <td><?php echo utf8_encode($rows["nome_zona"]); ?></td>

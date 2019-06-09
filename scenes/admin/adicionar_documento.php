@@ -29,11 +29,11 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
                     <label for="tipo_documento" class="font-weight-bold">Tipo de documento:</label>
                     <br>
                     <select class="form-control" name="tipo_documento">
-                        <option value="ata_reuniao">Ata de Reunião</option>
-                        <option value="fatura">Fatura</option>
-                        <option value="seguro">Seguro</option>
-                        <option value="inspecoes">Inspeções</option>
-                        <option value="manutencoes">Manutenções</option>
+                        <option value="Ata de Reuniao">Ata de Reunião</option>
+                        <option value="Fatura">Fatura</option>
+                        <option value="Seguro">Seguro</option>
+                        <option value="Inspecoes">Inspeções</option>
+                        <option value="Manutencoes">Manutenções</option>
                     </select>
                 </div>
                 <div class="form-group">

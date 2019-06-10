@@ -58,7 +58,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
                     <textarea class="form-control" rows="3" id="descricao" name="descricao"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="documento" class="font-weight-bold">Introduza o documento:</label><br>
+                    <label for="documento" class="font-weight-bold">Introduza o documento(doc ou docx, pdf ainda não disponível):</label><br>
                     <input id="documento" type="file" name="documento">
                 </div>
                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>

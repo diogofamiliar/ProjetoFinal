@@ -12,7 +12,7 @@
         $id_zona = $_POST['id_zona'];
         $nome = $_POST['nome'];
         $descricao = $_POST['descricao'];
-        //só funciona para docx e doc, pdf nao
+        // nao ve o tamanho de certos pdfs
         $size=$_FILES['documento']['size'];
         
     }
@@ -28,6 +28,11 @@
         // Allow certain file formats
         if($FileType != "pdf" && $FileType != "docx" && $FileType != "doc" ) {
             echo "Sorry, only PDF, DOC and DOCX files are allowed.";
+            $uploadOk = 0;
+        }
+        // Check file size
+        if ($size > 500000) {
+            echo "Sorry, your file is too large.";
             $uploadOk = 0;
         }
         // Check if file already exists

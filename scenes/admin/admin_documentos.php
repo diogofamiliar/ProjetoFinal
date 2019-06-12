@@ -51,7 +51,7 @@ if(isset($_SESSION['id_grupo'])=='admin' || isset($_SESSION['id_utilizador'])){
         while($rows = mysqli_fetch_assoc($result)) {
         ?>
       <tr>
-          <td><?php echo utf8_encode($rows["id_documento"]); ?></td>
+          <td class='item-id'><?php echo utf8_encode($rows["id_documento"]); ?></td>
           <td><?php echo $rows["data_criacao"]; ?></td>
           <td><?php echo utf8_encode($rows["tipo_de_documento"]); ?></td>
           <td><?php echo utf8_encode($rows["nome_zona"]); ?></td>
@@ -75,7 +75,17 @@ if(isset($_SESSION['id_grupo'])=='admin' || isset($_SESSION['id_utilizador'])){
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script>
+
+    <script type="text/javascript"> //mostrar o id do doc ao clicar na linha da tabela correspondente
+      $("tr").click(function() {
+
+        var id = $(this).find('.item-id').text();
+
+        alert("Documento ID: " + $.trim(id));
+    });
+    </script>
+
+    <script> 
       $(document).ready( function () {
         
         $('#data').DataTable({

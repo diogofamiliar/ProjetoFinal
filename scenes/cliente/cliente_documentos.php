@@ -43,14 +43,13 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
     <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0" style="table-layout: fixed; width: 100%;">
       <thead>
         <tr>
-          <th>ID</th>
+         
           <th>Data</th>
           <th>Tipo de Documento</th>
           <th>Zona</th>
           <th>Nome</th>
           <th>Descrição</th>  
-          <th>Autor</th>
-          <th>Tamanho</th>
+       
         </tr>
       </thead>
       <tbody>
@@ -59,14 +58,13 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
         while($rows = mysqli_fetch_assoc($result)) {
         ?>
       <tr>
-          <td><?php echo utf8_encode($rows["id_documento"]); ?></td> 
+        
           <td><?php echo utf8_encode($rows["data_criacao"]); ?></td>
           <td><?php echo utf8_encode($rows["tipo_de_documento"]); ?></td>
           <td><?php echo utf8_encode($rows["nome_zona"]); ?></td>
-          <td><?php echo utf8_encode($rows["nome_documento"]); ?></td>
+          <td><a href="../pdfreader.php?id=<?php echo utf8_encode($rows["nome_documento"]);?>"><?php echo utf8_encode($rows["nome_documento"]); ?></td>
           <td><?php echo utf8_encode($rows["descricao"]); ?></td>
-          <td><?php echo utf8_encode($rows["nome_autor"]); ?></td>
-          <td><?php echo utf8_encode($rows["tamanho_ficheiro"]); ?></td>
+         
       </tr>
       <?php
       }
@@ -85,14 +83,13 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
         
         $('#data').DataTable({
           "columnDefs": [
-            { "width": "10px", "targets": 0 },
-            { "width": "80px", "targets": 1 },
-            { "width": "150px", "targets": 2 },
+           
+            { "width": "80px", "targets": 0 },
+            { "width": "150px", "targets": 1 },
+            { "width": "100px", "targets": 2 },
             { "width": "100px", "targets": 3 },
-            { "width": "100px", "targets": 4 },
-            { "width": "100px", "targets": 5 },
-            { "width": "100px", "targets": 6 },
-            { "width": "50px", "targets": 7 }
+            { "width": "100px", "targets": 4 }
+          
           ],
           select: true,
           "scrollX": true

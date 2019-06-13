@@ -4,15 +4,14 @@
     }else header('Location: ../../index.php');
 
     include __DIR__.'/../../core/connect.php';
+    mysqli_set_charset($conn, "utf8");
 
 // ficheiro que pega no formulario do adicionar_documento.php e insere os dados do form na tabela da bd
 
-    if (isset ($_POST['tipo_documento'], $_POST['id_zona'], $_POST['nome'], $_POST['descricao'] )) {
+    if (isset ($_POST['tipo_documento'], $_POST['id_zona'], $_POST['descricao'] )) {
         $tipo_documento = $_POST['tipo_documento'];
         $id_zona = $_POST['id_zona'];
-        $nome = $_POST['nome'];
         $descricao = $_POST['descricao'];
-        // nao ve o tamanho de certos pdfs
         $size=$_FILES['documento']['size'];
         
     }
@@ -48,8 +47,7 @@
             if (move_uploaded_file($_FILES['documento']['tmp_name'], $target_file)) {
 
                 $id_utilizador=$_SESSION['id_utilizador'];
-                $sql = "INSERT INTO documento (nome, descricao, tipo_de_documento, tamanho_ficheiro, id_zona) VALUES ('$nome', '$descricao', '$tipo_documento', '$size', '$id_zona')";
-               
+                $sql = "INSERT INTO documento (nome, descricao, tipo_de_documento, tamanho_ficheiro, id_zona) VALUES ('$fileName', '$descricao', '$tipo_documento', '$size', '$id_zona')";
                 if (mysqli_query($conn, $sql)) {
                     $lastid = mysqli_insert_id($conn);
                     $sql1 = "INSERT INTO utilizador_documento (id_utilizador, id_documento, data_criacao) VALUES ('$id_utilizador','$lastid',NOW())";

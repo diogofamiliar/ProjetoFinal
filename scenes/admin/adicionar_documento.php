@@ -50,15 +50,11 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
                         </select>
                 </div>
                 <div class="form-group">
-                    <label for="nome" class="font-weight-bold">Nome do documento:</label>
-                    <textarea class="form-control" rows="1" id="nome" name="nome"></textarea>
-                </div>
-                <div class="form-group">
                     <label for="descricao" class="font-weight-bold">Descrição:</label>
                     <textarea class="form-control" rows="3" id="descricao" name="descricao"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="documento" class="font-weight-bold">Introduza o documento(doc ou docx, pdf ainda não disponível):</label><br>
+                    <label for="documento" class="font-weight-bold">Introduza o documento (doc, docx ou pdf):</label><br>
                     <input id="documento" type="file" name="documento">
                 </div>
                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>

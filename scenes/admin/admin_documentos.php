@@ -1,7 +1,7 @@
 <?php
 session_start();
-if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
-  $id_utilizador=$_SESSION['id_utilizador'];  
+if(isset($_SESSION['id_grupo'])=='admin' || isset($_SESSION['id_utilizador'])){
+    $id_utilizador=$_SESSION['id_utilizador'];  
     include __DIR__.'/../../core/connect.php';
     $query ="SELECT zona.nome AS nome_zona, utilizador_documento.data_criacao, documento.nome AS nome_documento, documento.descricao, documento.tipo_de_documento, documento.tamanho_ficheiro, documento.id_documento, utilizador.nome AS nome_autor FROM documento LEFT JOIN utilizador_documento ON documento.id_documento=utilizador_documento.id_documento LEFT JOIN zona ON zona.id_zona=documento.id_zona LEFT JOIN utilizador ON utilizador.id_utilizador=utilizador_documento.id_utilizador";  
     $result = mysqli_query($conn, $query);
@@ -21,7 +21,7 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
 
     <!-- datatables CSS -->
     <link rel="stylesheet" type="text/css" href="../../css/jquery.dataTables.min.css">
-
+    
     <title>elVecino | Documentos</title>
   </head>
 
@@ -52,10 +52,10 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
         ?>
       <tr>
           <td><?php echo utf8_encode($rows["id_documento"]); ?></td>
-          <td><?php echo utf8_encode($rows["data_criacao"]); ?></td>
+          <td><?php echo $rows["data_criacao"]; ?></td>
           <td><?php echo utf8_encode($rows["tipo_de_documento"]); ?></td>
           <td><?php echo utf8_encode($rows["nome_zona"]); ?></td>
-          <td><?php echo utf8_encode($rows["nome_documento"]); ?></td>
+          <td><a href="../pdfreader.php?id=<?php echo utf8_encode($rows["nome_documento"]);?>"><?php echo utf8_encode($rows["nome_documento"]); ?></td>
           <td><?php echo utf8_encode($rows["descricao"]); ?></td>
           <td><?php echo utf8_encode($rows["nome_autor"]); ?></td>
           <td><?php echo utf8_encode($rows["tamanho_ficheiro"]); ?></td>
@@ -75,7 +75,8 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
     <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script>
+
+    <script> 
       $(document).ready( function () {
         
         $('#data').DataTable({

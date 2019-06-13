@@ -1,7 +1,7 @@
 <?php
-//session_start();
-//if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador'])){
-//}else header('Location: ../../index.php');
+session_start();
+if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador'])){
+}else header('Location: ../../index.php');
 ?>
 
 <!doctype html>
@@ -24,16 +24,16 @@
         <?php include '../../headers/admin_header.php';?>
         <div class="container">
             <h2>Adicionar Documento</h2>
-            <form target="_self" action="inserir_documento.php" method="Post" enctype="multipart/form-data">
+            <form action="inserir_documento.php" method="Post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="tipo_documento" class="font-weight-bold">Tipo de documento:</label>
                     <br>
                     <select class="form-control" name="tipo_documento">
-                        <option value="ata_reuniao">Ata de Reunião</option>
-                        <option value="fatura">Fatura</option>
-                        <option value="seguro">Seguro</option>
-                        <option value="inspecoes">Inspeções</option>
-                        <option value="manutencoes">Manutenções</option>
+                        <option value="Ata de Reuniao">Ata de Reunião</option>
+                        <option value="Fatura">Fatura</option>
+                        <option value="Seguro">Seguro</option>
+                        <option value="Inspecoes">Inspeções</option>
+                        <option value="Manutencoes">Manutenções</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -50,15 +50,11 @@
                         </select>
                 </div>
                 <div class="form-group">
-                    <label for="nome" class="font-weight-bold">Nome do documento:</label>
-                    <textarea class="form-control" rows="1" id="nome" name="nome"></textarea>
-                </div>
-                <div class="form-group">
                     <label for="descricao" class="font-weight-bold">Descrição:</label>
                     <textarea class="form-control" rows="3" id="descricao" name="descricao"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="documento" class="font-weight-bold">Introduza o documento:</label><br>
+                    <label for="documento" class="font-weight-bold">Introduza o documento (doc, docx ou pdf):</label><br>
                     <input id="documento" type="file" name="documento">
                 </div>
                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>

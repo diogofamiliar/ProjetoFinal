@@ -1,8 +1,10 @@
 <?php
-include "../../core/connect.php";
+include "../../../core/connect.php";
+mysqli_set_charset($conn, "utf8");
 session_start();
 ob_start();
 $remetente=$_SESSION['id_utilizador'];
+echo $remetente;
 if(isset($_POST['submit'], $_POST['tipo_destinatario'], $_POST['assunto'], $_POST['mensagem'])){
     $tipo_destinatario=$_POST['tipo_destinatario'];
     $assunto=$_POST['assunto'];
@@ -11,7 +13,7 @@ if(isset($_POST['submit'], $_POST['tipo_destinatario'], $_POST['assunto'], $_POS
     if($tipo_destinatario=="id_utilizador"){ //se for enviar para um utilizador apenas
         $destinatario=$_POST['input_utilizador'];
         $destinatario=substr($destinatario, 0, 1);
-        $sql="INSERT INTO mensagem (remetente,assunto,texto) VALUES ('$remetente','$assunto','$mensagem')";
+        $sql="INSERT INTO mensagem (remetente,assunto,texto,data_criacao) VALUES ('$remetente','$assunto','$mensagem',now())";
         if ($conn->query($sql) === TRUE) {
             $id_mensagem = $conn->insert_id;
             echo "id_mensagem=".$id_mensagem;
@@ -21,7 +23,7 @@ if(isset($_POST['submit'], $_POST['tipo_destinatario'], $_POST['assunto'], $_POS
     }elseif ($tipo_destinatario=="id_grupo") { // se for enviar para um grupo
         $destinatario=$_POST['input_grupo'];
         $destinatario=substr($destinatario, 0, 1);
-        $sql="INSERT INTO mensagem (remetente,assunto,texto) VALUES ('$remetente','$assunto','$mensagem')";
+        $sql="INSERT INTO mensagem (remetente,assunto,texto,data_criacao) VALUES ('$remetente','$assunto','$mensagem',now())";
         if ($conn->query($sql) === TRUE) {
             $id_mensagem = $conn->insert_id;
             echo "id_mensagem=".$id_mensagem;
@@ -37,7 +39,7 @@ if(isset($_POST['submit'], $_POST['tipo_destinatario'], $_POST['assunto'], $_POS
         $destinatario=$_POST['input_condominio'];
         $destinatario=substr($destinatario, 0, 3);
         $destinatario=preg_replace('/[^0-9]/', '', $destinatario);
-        $sql="INSERT INTO mensagem (remetente,assunto,texto) VALUES ('$remetente','$assunto','$mensagem')";
+        $sql="INSERT INTO mensagem (remetente,assunto,texto,data_criacao) VALUES ('$remetente','$assunto','$mensagem',now())";
         if ($conn->query($sql) === TRUE) {
             $id_mensagem = $conn->insert_id;
             echo "id_mensagem=".$id_mensagem;
@@ -51,4 +53,6 @@ if(isset($_POST['submit'], $_POST['tipo_destinatario'], $_POST['assunto'], $_POS
         }
     }
 }
+setcookie("mensagem_enviada", "1", time()+(3), "/"); // o "/" disponibiliza a cookie para toda a plataforma
+header('Location: mensagens.php');
 ?>

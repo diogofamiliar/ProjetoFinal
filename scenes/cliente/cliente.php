@@ -25,10 +25,20 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
 <body>
 
 	<?php
-	include __DIR__.'/../../headers/cliente_header.php';
+  include __DIR__.'/../../headers/cliente_header.php';
+  include '../../core/connect.php';
+  include '../../core/notificacao.php';
 	?>
   
-  <h1 id="h1-centered">Bem-vindo</h1>
+  <h1 id="h1-centered">
+    <?php
+    $id_utilizador=$_SESSION['id_utilizador'];
+    $sql = "SELECT nome FROM utilizador WHERE id_utilizador='$id_utilizador'";
+    $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
+    $row = mysqli_fetch_assoc($resultset);
+    ?>
+    Bem-vindo <?php echo $row['nome'];?>
+  </h1>
 	<div class="container" id="index_incidentes">
     <h2 id="h1-centered">Incidentes</h2>
     <a href="registo_incidente.php" class="btn btn-lg btn-change btn-block" role="button">Registar incidente</a>
@@ -44,22 +54,20 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
     <!-- sweet alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <?php
-
-    if(isset($_COOKIE["alter_user"])){
-      ?>
-      <script>
-        swal({
-            title: "Sucesso!",
-            text: "O seu perfil foi atualizado com sucesso.",
-            icon: "success",
-            button: "Continuar",
-        });
-      </script>
-      <?php
-    }
-    
-  ?>
+<?php
+  if(isset($_COOKIE["alter_user"])){
+?>
+    <script>
+      swal({
+          title: "Sucesso!",
+          text: "O seu perfil foi atualizado com sucesso.",
+          icon: "success",
+          button: "Continuar",
+      });
+    </script>
+<?php
+  }    
+?>
 
 </body>
 

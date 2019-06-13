@@ -21,7 +21,7 @@
                     Manutenções
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="manutencoes.php ">Manutenções</a>
+                            <a class="dropdown-item" href="http://localhost/ProjetoFinal/scenes/admin/manutencoes.php">Manutenções</a>
                         <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Relatórios</a>
                     </div>
@@ -42,7 +42,7 @@
         <div class="navbar-collapse collapse dual-nav w-50 order-2">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="mensagens.php">
+                    <a class="nav-link" href="http://localhost/ProjetoFinal/scenes/admin/mensagens/mensagens.php">
                         <span class="fa-stack has-badge" data-count="8" aria-hidden="true">
                             <i class="fa fa-circle fa-stack-2x"></i>
                             <i class="fa fa-bell fa-stack-1x fa-inverse"></i>
@@ -65,7 +65,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="../../core/logout.php">Logout</a>
+                    <a class="nav-link" href="http://localhost/ProjetoFinal/core/logout.php">Logout</a>
                 </li>
             </ul>
         </div>

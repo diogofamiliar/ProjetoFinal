@@ -4,6 +4,7 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
 }else header('Location: ../../index.php');
 
 include __DIR__.'/../../core/connect.php';
+mysqli_set_charset($conn, "utf8");
 
 /*
 ficheiro que pega no formulario do registo_incidente.php e insere os dados do form na tabela "ocorrencia da bd"
@@ -15,7 +16,7 @@ if (isset ($_POST['local'], $_POST['id_categoria_incidente'])) {
 
 if (isset ($_POST['descricao'])) {
     $descricao = $_POST['descricao'];
-
+    echo $descricao;
 }
 
 $id_utilizador=$_SESSION['id_utilizador'];
@@ -47,5 +48,5 @@ if (mysqli_query($conn, $sql)) {
 
 
 mysqli_close($conn);
-header('location: cliente.php', true);   
+//header('location: cliente.php', true);   
 ?>

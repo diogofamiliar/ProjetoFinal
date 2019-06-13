@@ -1,7 +1,9 @@
 <?php
-session_start();
+//session_start();
+include __DIR__.'/../../headers/cliente_header.php';
 if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador'])){
     include "../../core/connect.php";
+    $id_utilizador=$_SESSION['id_utilizador'];
     $sql="SELECT nome, data_nascimento, email, telemovel, senha FROM utilizador WHERE id_utilizador='$id_utilizador'";
     $result=mysqli_query($conn,$sql);
     $row=mysqli_fetch_array($result);
@@ -25,12 +27,7 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
   </head>
 
 <body>
-
-	<?php
-	include __DIR__.'/../../headers/cliente_header.php';
-	?>
   
-    
 	<div class="container py-3">
         <div class="row">
             <div class="mx-auto col-sm-7">

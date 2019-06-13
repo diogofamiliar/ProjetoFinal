@@ -4,7 +4,7 @@ $(document).ready(function(){
          if(query != '')  
          {  
               $.ajax({  
-                   url:"../../core/fetch_results/fetch_user.php",
+                   url:"../../../core/fetch_results/fetch_user.php",
                    method:"POST",  
                    data:{query:query},  
                    success:function(data)  

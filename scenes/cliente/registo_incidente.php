@@ -1,5 +1,5 @@
 <?php
-session_start();
+include '../../headers/cliente_header.php';
 if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador'])){
 }else header('Location: ../../index.php');
 ?>
@@ -21,7 +21,6 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
     </head>
 
     <body>
-        <?php include '../../headers/cliente_header.php';?>
         <div class="container">
             <h2>Registo de Incidentes</h2>
             <form target="_self" action="inserir_ocorrencia.php" method="Post" enctype="multipart/form-data">

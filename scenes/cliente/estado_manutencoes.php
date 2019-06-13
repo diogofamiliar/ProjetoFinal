@@ -1,5 +1,6 @@
 <?php
-session_start();
+include __DIR__.'/../../headers/cliente_header.php'; 
+//session_start();
 if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador'])){
     $id_utilizador=$_SESSION['id_utilizador'];
     include __DIR__.'/../../core/connect.php';
@@ -32,7 +33,7 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
 
 <body>
 
-	<?php include __DIR__.'/../../headers/cliente_header.php'; ?>
+	<?php ?>
     <div class="container">
         <div class="table-responsive">  
             <table id="dados_manutencoes" class="table table-striped table-bordered">  

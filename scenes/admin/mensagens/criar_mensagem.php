@@ -12,10 +12,10 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../../css/custom.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/custom.css">
     <!-- datepicker CSS-->
-    <link href="../../css/datepicker.min.css" rel="stylesheet" type="text/css">
+    <link href="../../../css/datepicker.min.css" rel="stylesheet" type="text/css">
 
     <title>elVecino | Mensagens</title>
   </head>
@@ -23,8 +23,8 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
 <body>
 
 	<?php
-  include "../../core/connect.php";
-	include __DIR__.'/../../headers/admin_header.php';
+  include "../../../core/connect.php";
+	include __DIR__.'/../../../headers/admin_header.php';
 	?>
   
     <h1 id="h1-centered">Criar mensagem:</h1>
@@ -70,18 +70,18 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     
-    <script src="../../js/jquery-3.4.1.js"></script>  
+    <script src="../../../js/jquery-3.4.1.js"></script>  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- LIVE SEARCH BAR JavaScript -->
-    <script type="text/javascript" src="../../js/search/search_user.js" charset="utf-8"></script>
-    <script type="text/javascript" src="../../js/search/search_condominio.js" charset="utf-8"></script>
-    <script type="text/javascript" src="../../js/search/search_grupo.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../../js/search/search_user.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../../js/search/search_condominio.js" charset="utf-8"></script>
+    <script type="text/javascript" src="../../../js/search/search_grupo.js" charset="utf-8"></script>
     <!-- Opções de vizualização -->
 
     <!-- Optional JavaScript -->
-    <script src="../../js/datepicker.min.js"></script>
-    <script src="../../js/i18n/datepicker.pt.js"></script>
+    <script src="../../../js/datepicker.min.js"></script>
+    <script src="../../../js/i18n/datepicker.pt.js"></script>
     <script>
       function showTipoDestinatario() {
         document.getElementsByName("input_utilizador")[0].value = "" ;
@@ -120,3 +120,4 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
     </script>
 
 </body>
+</html>

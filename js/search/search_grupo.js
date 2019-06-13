@@ -4,7 +4,7 @@ $(document).ready(function(){
          if(query != '')  
          {  
               $.ajax({  
-                   url:"../../core/fetch_results/fetch_grupo.php",
+                   url:"../../../core/fetch_results/fetch_grupo.php",
                    method:"POST",  
                    data:{query:query},  
                    success:function(data)  

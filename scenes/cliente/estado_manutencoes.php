@@ -4,7 +4,7 @@ include __DIR__.'/../../headers/cliente_header.php';
 if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador'])){
     $id_utilizador=$_SESSION['id_utilizador'];
     include __DIR__.'/../../core/connect.php';
-    $query ="SELECT incidente.data_incidente, incidente.local, incidente.descricao, incidente_manutencao.estado FROM incidente INNER JOIN incidente_manutencao ON incidente.id_incidente = incidente_manutencao.id_incident     nte.id_utilizador='$id_utilizador' ORDER BY incidente.data_incidente DESC;";  
+    $query ="SELECT incidente.data_incidente, incidente.local, incidente.descricao, incidente_manutencao.estado FROM incidente INNER JOIN incidente_manutencao ON incidente.id_incidente = incidente_manutencao.id_incidente WHERE incidente.id_utilizador='$id_utilizador' ORDER BY incidente.data_incidente DESC;";  
     $result = mysqli_query($conn, $query);
 }else header('Location: ../../index.php');
 ?>

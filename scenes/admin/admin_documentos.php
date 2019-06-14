@@ -21,6 +21,8 @@ if(isset($_SESSION['id_grupo'])=='admin' || isset($_SESSION['id_utilizador'])){
 
     <!-- datatables CSS -->
     <link rel="stylesheet" type="text/css" href="../../css/jquery.dataTables.min.css">
+
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
     
     <title>elVecino | Documentos</title>
   </head>
@@ -44,6 +46,7 @@ if(isset($_SESSION['id_grupo'])=='admin' || isset($_SESSION['id_utilizador'])){
           <th>Descrição</th>  
           <th>Autor</th>
           <th>Tamanho</th>
+          <th></th>
         </tr>
       </thead>
       <tbody>
@@ -59,6 +62,7 @@ if(isset($_SESSION['id_grupo'])=='admin' || isset($_SESSION['id_utilizador'])){
           <td><?php echo utf8_encode($rows["descricao"]); ?></td>
           <td><?php echo utf8_encode($rows["nome_autor"]); ?></td>
           <td><?php echo utf8_encode($rows["tamanho_ficheiro"]); ?></td>
+          <td><a href="funcoes_doc.php?id=<?php echo $rows["id_documento"];?>&tipo_documento=<?php echo $rows["tipo_de_documento"];?>&zona=<?php echo $rows["nome_zona"];?>&descricao=<?php echo $rows["descricao"];?>&tipo=editar" class='far fa-edit' style='font-size:24px'></a><a href="funcoes_doc.php?id=<?php echo $rows["id_documento"];?>&tipo=apagar" class='far fa-trash-alt' style='font-size:24px'></a></td>
       </tr>
       <?php
       }
@@ -68,6 +72,7 @@ if(isset($_SESSION['id_grupo'])=='admin' || isset($_SESSION['id_utilizador'])){
     <form action="adicionar_documento.php" method="Post">
     <button type="submit" class="btn btn-primary btn-lg">Adicionar Documento</button>
     </form>
+  
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

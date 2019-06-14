@@ -61,6 +61,7 @@
                 }
 
                 echo "The file ". $fileName. " has been uploaded.";
+                header('Location: admin_documentos.php');
             } else {
                 echo "Sorry, there was an error uploading your file.";
             }

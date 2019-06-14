@@ -88,7 +88,7 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
               while($rows = mysqli_fetch_assoc($resultset)) {
               ?>
             <tr class="d-flex"> 
-                <th class="col-1"><input type="checkbox" name="id_manutencao[]" value="<?php echo $rows['id_manutencao']; ?>" multiple></td>
+                <td class="col-1"><input type="checkbox" name="id_manutencao[]" value="<?php echo $rows['id_manutencao']; ?>" multiple></td>
                 <td class="col-1"><?php echo utf8_encode($rows["data_planeada"]); ?></td>
                 <td class="col-3"><?php echo utf8_encode($rows["entrada"]);?><br><?php echo utf8_encode($rows["morada"]);?></td>
                 <td class="col-2"><?php echo utf8_encode($rows["tipo_manutencao"]); ?></td>
@@ -98,14 +98,13 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
             <?php
               }}else{
             ?>
-            <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>Não existem reparações!</td>
-                <td></td>
-                <td></td>
-                <td></td>
+            <tr class="d-flex">
+                <td class="col-1"></td>
+                <td class="col-1"></td>
+                <td class="col-3"></td>
+                <td class="col-2">Não existem reparações!</td>
+                <td class="col-2"></td>
+                <td class="col-3"></td>
             </tr>
                 
             <?php

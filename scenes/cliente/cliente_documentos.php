@@ -53,7 +53,7 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
       </thead>
       <tbody>
         <?php
-        // alguns campos que nao interessam ao cliente tirar maybe
+      
         while($rows = mysqli_fetch_assoc($result)) {
         ?>
       <tr>

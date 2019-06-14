@@ -1,6 +1,6 @@
 <?php
     $id=$_GET["id"];
-    $target_dir = "/projetofinal/uploads/";
+    $target_dir = "/projetofinal/uploads/documentos/";
     $target_file = $target_dir . $id;
 ?>
 

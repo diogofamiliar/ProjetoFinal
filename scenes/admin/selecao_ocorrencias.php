@@ -45,12 +45,14 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
           <th>Local</th>
           <th>Descrição</th>  
           <th>Avaria</th>
+          <th>Fotografia</th>
         </tr>
       </thead>
       <tbody>
         <?php
-        $sql = "select v.id_incidente, v.data_incidente, v.cod_condominio AS cod_condominio, v.entrada AS entrada, v.descricao, v.id_categoria_incidente from view_incidentes v LEFT JOIN incidente_manutencao t ON v.id_incidente = t.id_incidente WHERE t.id_incidente IS NULL";
+        $sql = "SELECT caminho, incidente.id_incidente AS id_incidente, data_incidente, condominio.cod_condominio AS cod_condominio, zona.nome AS entrada, descricao, id_categoria_incidente  FROM incidente INNER JOIN zona ON incidente.id_zona = zona.id_zona INNER JOIN condominio ON condominio.id_condominio = zona.id_condominio INNER JOIN fotografia ON incidente.id_incidente=fotografia.id_incidente LEFT JOIN incidente_manutencao ON incidente.id_incidente = incidente_manutencao.id_incidente WHERE incidente_manutencao.id_incidente IS NULL;";
         $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
+
         while($rows = mysqli_fetch_assoc($resultset)) {
         ?>
       <tr>
@@ -60,6 +62,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
           <td><?php echo utf8_encode($rows["entrada"]); ?></td>
           <td><?php echo utf8_encode($rows["descricao"]); ?></td>
           <td><?php echo utf8_encode($rows["id_categoria_incidente"]); ?></td>
+          <td><a href="\ProjetoFinal\uploads\<?php echo $rows['caminho'];?>"><img  name="fotos" style="width: 70px; height: 70px;" title="foto" src="\ProjetoFinal\uploads\<?php echo $rows['caminho'];?>"></td>
       </tr>
       <?php
       }
@@ -90,7 +93,8 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
             { "width": "70px", "targets": 2 },
             { "width": "200px", "targets": 3 },
             { "width": "200px", "targets": 4 },
-            { "width": "50px", "targets": 5 }
+            { "width": "50px", "targets": 5 },
+            { "width": "70px", "targets": 6 }
           ],
           select: true,
           "scrollX": true

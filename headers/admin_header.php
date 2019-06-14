@@ -26,15 +26,10 @@
                             <a class="dropdown-item" href="#">Relatórios</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="nav-item">
+                    <a class="nav-link" href="/ProjetoFinal/scenes/admin/gestao/gestao.php">
                     Gestão de condomínios e utilizadores
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Gestão de condomínios</a>
-                        <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Gestão de utilizadores</a>
-                    </div>
                 </li>
             </ul>
         </div>
@@ -42,8 +37,8 @@
         <div class="navbar-collapse collapse dual-nav w-50 order-2">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/ProjetoFinal/scenes/admin/mensagens/mensagens.php">
-                        <span class="fa-stack has-badge" data-count="8" aria-hidden="true">
+                    <a class="nav-link" href="/ProjetoFinal/scenes/admin/mensagens/mensagens.php">
+                        <span class="fa-stack" aria-hidden="true">
                             <i class="fa fa-circle fa-stack-2x"></i>
                             <i class="fa fa-bell fa-stack-1x fa-inverse"></i>
                         </span> Notificações
@@ -65,7 +60,7 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/ProjetoFinal/core/logout.php">Logout</a>
+                    <a class="nav-link" href="/ProjetoFinal/core/logout.php">Logout</a>
                 </li>
             </ul>
         </div>

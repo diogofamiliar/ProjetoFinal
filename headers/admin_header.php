@@ -21,7 +21,7 @@
                     Manutenções
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="http://localhost/ProjetoFinal/scenes/admin/manutencoes.php">Manutenções</a>
+                            <a class="dropdown-item" href="/ProjetoFinal/scenes/admin/manutencoes.php">Manutenções</a>
                         <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Relatórios</a>
                     </div>

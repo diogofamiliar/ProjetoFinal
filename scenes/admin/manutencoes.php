@@ -28,10 +28,20 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
   <div class="row justify-content-center"> <!--justify-content-center alinha os conteudos ao meio sem os "escalar"  -->
     <div class="col-sm-3 my-2">
       <div class="card h-100">
+        <img class="card-img-top mx-auto my-2" src="../../assets/admin/manutencoes/broken-door.png" alt="Card image">
+        <div class="card-body d-flex flex-column">
+          <h4 class="card-title">Inserir Incidente</h4>
+          <p class="card-text">Insira estragos ocorridos nos condomínios de forma a poder criar uma manutenção posteriormente.</p>
+          <a href="registo_incidente.php" class="mt-auto btn btn-primary">Inserir</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3 my-2">
+      <div class="card h-100">
         <img class="card-img-top mx-auto my-2" src="../../assets/admin/manutencoes/agendar.png" alt="Card image">
         <div class="card-body d-flex flex-column">
           <h4 class="card-title">Inserir Manutenção</h4>
-          <p class="card-text">Inicie o processo de manutenção ao agendar reparações</p>
+          <p class="card-text">Inicie o processo de manutenção ao agendar reparações.</p>
           <a href="selecao_ocorrencias.php" class="mt-auto btn btn-primary">Inserir</a>
         </div>
       </div>
@@ -59,6 +69,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
         </div>
       </div>
     </div>
+  </div>
 </div>
     
     <!-- Optional JavaScript -->

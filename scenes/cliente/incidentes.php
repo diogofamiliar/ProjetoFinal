@@ -1,5 +1,5 @@
 <?php
-session_start();
+include '../../headers/cliente_header.php';
 if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador'])){
 }else header('Location: ../../index.php');
 ?>
@@ -20,10 +20,6 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
 
 <body>
 
-	<?php
-	include __DIR__.'/../../headers/cliente_header.php';
-	?>
-  
   <h1 id="h1-centered">Incidentes</h1>
 	<div class="container" id="index_incidentes">
     <a href="registo_incidente.php" class="btn btn-lg btn-change btn-block" role="button">Registar incidente</a>

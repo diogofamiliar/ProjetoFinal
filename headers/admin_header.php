@@ -51,7 +51,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="edit_profile.php">
-                        <span class="fa fa-user" aria-hidden="true" style="font-size:25px;"></span> Perfil
+                        <span class="fa fa-user" aria-hidden="true" style="font-size:20px;"></span> Perfil
                     </a>
                 </li>
                 <li class="nav-item dropdown">

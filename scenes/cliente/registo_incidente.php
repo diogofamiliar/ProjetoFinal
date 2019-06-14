@@ -48,8 +48,8 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
                     <textarea class="form-control" rows="3" id="descricao" name="descricao"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="fotos" class="font-weight-bold">Introduza imagens:</label>
-                    <input id="fotos" type="file" name="files[]" multiple>
+                    <label for="camera" class="font-weight-bold">Introduza imagens:</label>
+                    <input id="camera" type="file" accept="image/*" capture="camera" name="files[]" multiple>
                 </div>
                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>
             </form>

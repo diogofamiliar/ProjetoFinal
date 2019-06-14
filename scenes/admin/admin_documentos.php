@@ -51,6 +51,7 @@ if(isset($_SESSION['id_grupo'])=='admin' || isset($_SESSION['id_utilizador'])){
       </thead>
       <tbody>
         <?php
+      if ($result->num_rows > 0) {
         while($rows = mysqli_fetch_assoc($result)) {
         ?>
       <tr>
@@ -66,6 +67,22 @@ if(isset($_SESSION['id_grupo'])=='admin' || isset($_SESSION['id_utilizador'])){
       </tr>
       <?php
       }
+    }else{
+      ?>
+            <tr>
+                <td></td> 
+                <td></td> 
+                <td></td>
+                <td></td>
+                <td>Não existem documentos!</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+                
+            <?php
+    }
       ?>
       </tbody>
     </table>

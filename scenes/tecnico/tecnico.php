@@ -70,4 +70,3 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
 
 </body>
 </html>
->>>>>>> eda1b50ceb174845a91dc4d84f0ad4c5fe0284d6

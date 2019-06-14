@@ -60,13 +60,13 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
         <form method="POST" id="form1" action="tarefa_concluída.php"> 
           <table class="table table-hover">
             <thead>
-              <tr>
-                <th class="col-sm-1"><input type="checkbox" id="checkAll"/></th>
-                <th class="col-sm-1">Data</th>
-                <th class="col-sm-3">Local</th>
-                <th class="col-sm-1">Manutenção</th>
-                <th class="col-sm-3">Descrição do cliente</th>
-                <th class="col-sm-3">Observações</th>
+              <tr class="d-flex">
+                <th class="col-1"><input type="checkbox" id="checkAll"/></th>
+                <th class="col-1">Data</th>
+                <th class="col-3">Local</th>
+                <th class="col-2">Manutenção</th>
+                <th class="col-2">Descrição do cliente</th>
+                <th class="col-3">Observações</th>
               </tr>
             </thead>
             <tbody>
@@ -87,13 +87,13 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
               if ($resultset->num_rows > 0) {
               while($rows = mysqli_fetch_assoc($resultset)) {
               ?>
-            <tr> 
-                <td class="col-sm-1"><input type="checkbox" name="id_manutencao[]" value="<?php echo $rows['id_manutencao']; ?>" multiple></td>
-                <td><?php echo utf8_encode($rows["data_planeada"]); ?></td>
-                <td><?php echo utf8_encode($rows["entrada"]);?><br><?php echo utf8_encode($rows["morada"]);?></td>
-                <td><?php echo utf8_encode($rows["tipo_manutencao"]); ?></td>
-                <td><?php echo utf8_encode($rows["observacoes"]);?></td>
-                <td><?php echo utf8_encode($rows["descricao"]);?></td>               
+            <tr class="d-flex"> 
+                <th class="col-1"><input type="checkbox" name="id_manutencao[]" value="<?php echo $rows['id_manutencao']; ?>" multiple></td>
+                <td class="col-1"><?php echo utf8_encode($rows["data_planeada"]); ?></td>
+                <td class="col-3"><?php echo utf8_encode($rows["entrada"]);?><br><?php echo utf8_encode($rows["morada"]);?></td>
+                <td class="col-2"><?php echo utf8_encode($rows["tipo_manutencao"]); ?></td>
+                <td class="col-2"><?php echo utf8_encode($rows["observacoes"]);?></td>
+                <td class="col-3"><?php echo utf8_encode($rows["descricao"]);?></td>               
             </tr>
             <?php
               }}else{

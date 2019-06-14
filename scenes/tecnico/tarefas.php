@@ -98,7 +98,7 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
                 <td class="col-2"><?php echo utf8_encode($rows["tipo_manutencao"]); ?></td>
                 <td class="col-2"><?php echo utf8_encode($rows["observacoes"]);?></td>
                 <td class="col-2"><?php echo utf8_encode($rows["descricao"]);?></td>
-                <td class="col-2"><a href="\ProjetoFinal\uploads\<?php echo $rows['caminho'];?>"><img  name="fotos" style="width: 90px; height: 90px;" title="foto" src="\ProjetoFinal\uploads\<?php echo $rows['caminho'];?>"></td>               
+                <td class="col-2"><a href="\ProjetoFinal\uploads\fotografias\<?php echo $rows['caminho'];?>"><img  name="fotos" style="width: 90px; height: 90px;" title="foto" src="\ProjetoFinal\uploads\fotografias\<?php echo $rows['caminho'];?>"></td>               
             </tr>
             <?php
               }}else{

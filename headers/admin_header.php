@@ -11,10 +11,10 @@
         <div class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link pl-0" href="admin.php"  id="navbar-text">Home <span class="sr-only">Home</span></a>
+                    <a class="nav-link pl-0" href="/ProjetoFinal/scenes/admin/admin.php"  id="navbar-text">Home <span class="sr-only">Home</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/ProjetoFinal/scenes/admin/admin_documentos.php">Arquivo</a>
+                    <a class="nav-link" href="/ProjetoFinal/scenes/admin/admin_documentos.php">Arquivo</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="manutencoes.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

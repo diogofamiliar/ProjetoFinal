@@ -13,7 +13,7 @@ session_start();
         <div class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link pl-0" href="http://localhost/ProjetoFinal/scenes/cliente/cliente.php"  id="navbar-text">Home <span class="sr-only">Home</span></a>
+                    <a class="nav-link pl-0" href="/ProjetoFinal/scenes/cliente/cliente.php"  id="navbar-text">Home <span class="sr-only">Home</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="incidentes.php">Incidentes</a>
@@ -30,7 +30,7 @@ session_start();
         <div class="navbar-collapse collapse dual-nav w-50 order-2">
             <ul class="nav navbar-nav ml-auto">
             <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/ProjetoFinal/scenes/cliente/notificacoes/notificacoes.php">
+                    <a class="nav-link" href="/ProjetoFinal/scenes/cliente/notificacoes/notificacoes.php">
                         <span class="fa-stack has-badge" data-count="<?php echo $_SESSION['nr_notificacao'];?>" aria-hidden="true">
                             <i class="fa fa-circle fa-stack-2x"></i>
                             <i class="fa fa-bell fa-stack-1x fa-inverse"></i>
@@ -38,12 +38,12 @@ session_start();
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/ProjetoFinal/scenes/cliente/edit_profile.php">
+                    <a class="nav-link" href="/ProjetoFinal/scenes/cliente/edit_profile.php">
                         <span class="fa fa-user" aria-hidden="true" style="font-size:25px;"></span> Perfil
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="http://localhost/ProjetoFinal/core/logout.php">Logout</a>
+                    <a class="nav-link" href="/ProjetoFinal/core/logout.php">Logout</a>
                 </li>
             </ul>
         </div>

@@ -55,7 +55,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
                 </div>
                 <div class="form-group">
                     <label for="documento" class="font-weight-bold">Introduza o documento (doc, docx ou pdf):</label><br>
-                    <input id="documento" type="file" name="documento">
+                    <input id="documento" type="file" name="documento" required='required'>
                 </div>
                 <button type="submit" name="submit" class="btn btn-primary">Submit</button>
             </form>

@@ -13,7 +13,6 @@
  <title>TechJunkGigs</title>
  <script type="text/javascript" src="https://www.google.com/jsapi"></script>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
  <script type="text/javascript">
@@ -35,15 +34,22 @@
  ]);
 
  var options = {
- title: 'Número de incidentes por condominio',
-  pieHole: 0.5,
+ title: 'Número de Incidentes por Condomínio',
+ titleTextStyle: {
+     fontSize: 20,
+    },
+  pieHole: 0,
           pieSliceTextStyle: {
-            color: 'black',
+            color: 'white',
           },
-          legend: 'none'
+          is3D: true,
+          legend: {
+              position: 'bottom'
+              },
  };
  var chart = new google.visualization.PieChart(document.getElementById("columnchart12"));
  chart.draw(data,options);
+
  }
 	
     </script>

@@ -3,7 +3,7 @@
 if(isset($_POST['submit'])){
 
     // File upload configuration
-    $targetDir = "C:/xampp/htdocs/ProjetoFinal/uploads/";
+    $targetDir = "C:/xampp/htdocs/ProjetoFinal/uploads/fotografias/";
     $allowTypes = array('jpg','png','jpeg','gif');
 
     $statusMsg = $errorMsg = $insertValuesSQL = $errorUpload = $errorUploadType = '';

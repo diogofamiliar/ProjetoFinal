@@ -63,26 +63,30 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
               <tr class="d-flex">
                 <th class="col-1"><input type="checkbox" id="checkAll"/></th>
                 <th class="col-1">Data</th>
-                <th class="col-3">Local</th>
+                <th class="col-2">Local</th>
                 <th class="col-2">Manutenção</th>
                 <th class="col-2">Descrição do cliente</th>
-                <th class="col-3">Observações</th>
+                <th class="col-2">Observações</th>
+                <th class="col-2">Fotografia</th>
               </tr>
             </thead>
             <tbody>
             <?php
-              $sql =    "SELECT manutencao.id_manutencao as id_manutencao, tipo_manutencao.descricao as tipo_manutencao, incidente.id_zona, zona.morada as morada, zona.nome as entrada, manutencao.id_tipo_manutencao, manutencao.data_planeada as data_planeada, manutencao.observacoes as observacoes, incidente.descricao as descricao
-                        FROM manutencao
-                        INNER JOIN incidente_manutencao
-                        ON manutencao.id_manutencao=incidente_manutencao.id_manutencao
-                        INNER JOIN incidente
-                        ON incidente.id_incidente=incidente_manutencao.id_incidente
-                        INNER JOIN zona
-                        ON zona.id_zona=incidente.id_zona
-                        INNER JOIN tipo_manutencao
-                        ON tipo_manutencao.id_tipo_manutencao=manutencao.id_tipo_manutencao
-                        WHERE manutencao.data_conclusao IS NULL
-                        ORDER BY data_planeada ASC";
+              $sql =    "SELECT caminho, manutencao.id_manutencao as id_manutencao, tipo_manutencao.descricao as tipo_manutencao, incidente.id_zona, zona.morada as morada, zona.nome as entrada, manutencao.id_tipo_manutencao, manutencao.data_planeada as data_planeada, manutencao.observacoes as observacoes, incidente.descricao as descricao
+                          FROM manutencao
+                          INNER JOIN incidente_manutencao
+                          ON manutencao.id_manutencao=incidente_manutencao.id_manutencao
+                          INNER JOIN incidente
+                          ON incidente.id_incidente=incidente_manutencao.id_incidente
+                          INNER JOIN zona
+                          ON zona.id_zona=incidente.id_zona
+                          INNER JOIN tipo_manutencao
+                          ON tipo_manutencao.id_tipo_manutencao=manutencao.id_tipo_manutencao
+                          INNER JOIN fotografia
+                          ON fotografia.id_incidente=incidente.id_incidente
+                          WHERE manutencao.data_conclusao IS NULL
+                          ORDER BY data_planeada ASC";
+
               $resultset = $conn->query($sql);
               if ($resultset->num_rows > 0) {
               while($rows = mysqli_fetch_assoc($resultset)) {
@@ -90,10 +94,11 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
             <tr class="d-flex"> 
                 <td class="col-1"><input type="checkbox" name="id_manutencao[]" value="<?php echo $rows['id_manutencao']; ?>" multiple></td>
                 <td class="col-1"><?php echo utf8_encode($rows["data_planeada"]); ?></td>
-                <td class="col-3"><?php echo utf8_encode($rows["entrada"]);?><br><?php echo utf8_encode($rows["morada"]);?></td>
+                <td class="col-2"><?php echo utf8_encode($rows["entrada"]);?><br><?php echo utf8_encode($rows["morada"]);?></td>
                 <td class="col-2"><?php echo utf8_encode($rows["tipo_manutencao"]); ?></td>
                 <td class="col-2"><?php echo utf8_encode($rows["observacoes"]);?></td>
-                <td class="col-3"><?php echo utf8_encode($rows["descricao"]);?></td>               
+                <td class="col-2"><?php echo utf8_encode($rows["descricao"]);?></td>
+                <td class="col-2"><a href="\ProjetoFinal\uploads\fotografias\<?php echo $rows['caminho'];?>"><img  name="fotos" style="width: 90px; height: 90px;" title="foto" src="\ProjetoFinal\uploads\fotografias\<?php echo $rows['caminho'];?>"></td>               
             </tr>
             <?php
               }}else{
@@ -101,10 +106,11 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
             <tr class="d-flex">
                 <td class="col-1"></td>
                 <td class="col-1"></td>
-                <td class="col-3"></td>
+                <td class="col-2"></td>
                 <td class="col-2">Não existem reparações!</td>
                 <td class="col-2"></td>
-                <td class="col-3"></td>
+                <td class="col-2"></td>
+                <td class="col-2"></td>
             </tr>
                 
             <?php

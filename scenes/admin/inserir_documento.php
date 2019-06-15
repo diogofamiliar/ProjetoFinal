@@ -18,7 +18,7 @@
 
     if(isset($_POST['submit'])) {
         //upload file
-        $target_dir = "C:/xampp/htdocs/ProjetoFinal/uploads/";
+        $target_dir = "C:/xampp/htdocs/ProjetoFinal/uploads/documentos/";
         $fileName = basename($_FILES['documento']['name']);
         $target_file = $target_dir . $fileName;
         $uploadOk = 1;

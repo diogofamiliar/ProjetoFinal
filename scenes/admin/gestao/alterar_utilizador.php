@@ -2,7 +2,7 @@
 include '../../../core/connect.php';
 if (isset($_POST['id_utilizador'])) {
     $id_utilizador=$_POST['id_utilizador'];
-     echo $id_utilizador;
+     //echo $id_utilizador;
 } else {header('Location: gestao.php');}
 ?>
 
@@ -56,7 +56,7 @@ if (isset($_POST['id_utilizador'])) {
                             <div class="row col-sm-6">
                                 <label for="inputEmail" class="col-sm-3 col-form-label">Nr telemóvel:</label>
                                 <div class="col-sm-9">
-                                    <input type="tel" name="telemovel" class="form-control" value="<?php echo utf8_encode($row['telemovel']);?>" placeholder="<?php echo utf8_encode($row['telemovel']);?>"  required pattern="[0-9]{9}">
+                                    <input type="tel" name="telemovel" class="form-control" id="inputTelemovel" value="<?php echo utf8_encode($row['telemovel']);?>" placeholder="<?php echo utf8_encode($row['telemovel']);?>"  required pattern="[0-9]{9}">
                                 </div>
                             </div>
                         </div>              

@@ -62,7 +62,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
           <td><?php echo utf8_encode($rows["entrada"]); ?></td>
           <td><?php echo utf8_encode($rows["descricao"]); ?></td>
           <td><?php echo utf8_encode($rows["id_categoria_incidente"]); ?></td>
-          <td><a href="\ProjetoFinal\uploads\<?php echo $rows['caminho'];?>"><img  name="fotos" style="width: 70px; height: 70px;" title="foto" src="\ProjetoFinal\uploads\<?php echo $rows['caminho'];?>"></td>
+          <td><a href="\ProjetoFinal\uploads\fotografias\<?php echo $rows['caminho'];?>"><img  name="fotos" style="width: 70px; height: 70px;" title="foto" src="\ProjetoFinal\uploads\fotografias\<?php echo $rows['caminho'];?>"></td>
       </tr>
       <?php
       }

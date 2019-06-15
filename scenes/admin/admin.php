@@ -1,5 +1,6 @@
 <?php
-session_start();
+  include __DIR__.'/../../headers/admin_header.php';
+  
 if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador'])){
 }else header('Location: ../../index.php');
 ?>
@@ -22,10 +23,6 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
 
 <body>
 
-	<?php
-	include __DIR__.'/../../headers/admin_header.php';
-	?>
-  
   <h1 id="h1-centered">Bem-vindo</h1>
   <h2 id="h1-centered">Página inicial</h2>
   <div class="container">

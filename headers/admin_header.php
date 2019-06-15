@@ -1,7 +1,6 @@
 <?php
 session_start();
 ?>
-
     <!-- fontawesome CSS -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
@@ -27,7 +26,7 @@ session_start();
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="/ProjetoFinal/scenes/admin/manutencoes.php">Manutenções</a>
                         <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Relatórios</a>
+                            <a class="dropdown-item" href="/ProjetoFinal/scenes/admin/relatorios.php">Relatórios</a>
                     </div>
                 </li>
                 <li class="nav-item">

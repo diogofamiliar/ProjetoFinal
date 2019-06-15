@@ -1,5 +1,6 @@
 <?php
-session_start();
+	include __DIR__.'/../../headers/admin_header.php';
+
 if(isset($_SESSION['id_grupo'])=='admin' || isset($_SESSION['id_utilizador'])){
     $id_utilizador=$_SESSION['id_utilizador'];  
     include __DIR__.'/../../core/connect.php';
@@ -29,9 +30,6 @@ if(isset($_SESSION['id_grupo'])=='admin' || isset($_SESSION['id_utilizador'])){
 
   <body>
 
-	<?php
-	include __DIR__.'/../../headers/admin_header.php';
-	?>
   
   <h1 id="h1-centered">Documentos</h1>
     <div class="container">
@@ -51,6 +49,7 @@ if(isset($_SESSION['id_grupo'])=='admin' || isset($_SESSION['id_utilizador'])){
       </thead>
       <tbody>
         <?php
+      if ($result->num_rows > 0) {
         while($rows = mysqli_fetch_assoc($result)) {
         ?>
       <tr>
@@ -66,6 +65,22 @@ if(isset($_SESSION['id_grupo'])=='admin' || isset($_SESSION['id_utilizador'])){
       </tr>
       <?php
       }
+    }else{
+      ?>
+            <tr>
+                <td></td> 
+                <td></td> 
+                <td></td>
+                <td></td>
+                <td>Não existem documentos!</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+                
+            <?php
+    }
       ?>
       </tbody>
     </table>

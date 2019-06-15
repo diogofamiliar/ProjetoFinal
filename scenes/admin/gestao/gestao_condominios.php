@@ -38,7 +38,7 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th></th>
+                        <th><</th>
                     </tr>
                 </thead>
                 <tbody>

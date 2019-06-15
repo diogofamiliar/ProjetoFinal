@@ -1,3 +1,5 @@
+<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel="icon" href="https://i.imgur.com/SzFkxr6.png">
 <?php
 	include __DIR__.'/../../headers/admin_header.php';
 

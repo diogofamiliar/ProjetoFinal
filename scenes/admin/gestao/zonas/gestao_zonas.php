@@ -58,27 +58,29 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
         <a class="btn btn-danger mx-1" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-trash"></i> Eliminar zona</a>
       </div>
       <div class="card" id="card-novo-condominio" style="display:none;">
-        <form id="form3" method="POST" action="adicionar_condominio.php">
+        <form id="form3" method="POST" action="adicionar_zona.php">
         <div class="card-header">
           <h5 id="h1-centered">Insira os dados da nova zona:</h5>
         </div>
         <div class="card-body">
-          <div class="form-group row">
-            <div class="row col-sm-4">
-              <label for="inputCodCondominio" class="col-sm-4 col-form-control">Código:</label>
-              <input type="number" form="form3" name="cod_condominio" class="form-control col-sm-7" id="inputCodCondominio" placeholder="Código do condomínio"  required>
-            </div>
-            <div class="row col-sm-8">
-              <label for="inputNome" class="col-sm-2 col-form-control">Nome:</label>
-              <input type="text" form="form3" name="nome" class="form-control col-sm-10" id="inputNome" placeholder="Insira o nome do condomínio"  required>
-            </div>
-          </div>
-          <div class="form-group row">
-              <label for="inputMorada" class="col-sm-1 col-form-control">Morada:</label>
-              <div class="col-sm-10">
-                  <input type="text" form="form3" name="morada" class="form-control" id="inputMorada" placeholder="Insira a morada do condomínio"  required>
+          <div class="form-group" id="codCondominioSelector">
+            <label class="col-form-label">Selecione o condominio ao qual pertence a nova zona:</label>
+            <div class="col-11">
+                <input type="text" name="id_condominio" id="id_condominio" class="form-control" placeholder="Comece a digitar e selecione uma das opções"/ Required>  
+                <div id="lista_condominios"></div>
               </div>
-          </div>
+          </div>  
+          <div class="form-group row">
+            <div class="row col-sm-7">
+              <label for="inputNome" class="col-sm-2 col-form-control">Morada:</label>
+              <input type="text" form="form3" name="morada" class="form-control col-sm-10" id="inputNome" placeholder="Insira a morada"  required>
+            </div>          
+            <div class="row col-sm-5">
+              <label for="inputCodCondominio" class="col-sm-4 col-form-control">Entrada:</label>
+              <input type="text" form="form3" name="nome" class="form-control col-sm-8" id="inputCodCondominio" placeholder="Nº porta"  required>
+            </div>
+
+          </div> 
           <div class="d-flex justify-content-center">
             <button form="form3" class="btn btn-success" type="submit"> Adicionar</button>
           </div>
@@ -105,8 +107,8 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
               while($rows = mysqli_fetch_assoc($resultset)) {
               ?>
                 <tr>
-                    <td class="col-sm-1"><input type="checkbox" name="cod_zona[]" value="<?php echo $rows['cod_zona']; ?>" multiple></td>
-                    <td><?php echo utf8_encode($rows["cod_zona"]); ?></td>
+                    <td class="col-sm-1"><input type="checkbox" name="id_zona[]" value="<?php echo $rows['id_zona']; ?>" multiple></td>
+                    <td><?php echo utf8_encode($rows["id_zona"]); ?></td>
                     <td><?php echo utf8_encode($rows["cod_condominio"]); ?></td>
                     <td><?php echo utf8_encode($rows["entrada"]); ?></td>
                     <td><?php echo utf8_encode($rows["morada"]); ?></td>
@@ -177,12 +179,12 @@ $('#myButton').click(function() {
   }
 ?>
 <?php
-  if(isset($_COOKIE["condominio_alterado"])){
+  if(isset($_COOKIE["zona_alterada"])){
 ?>
       <script>
       swal({
-            title: "Sucesso!",
-            text: "O condomínio foi alterado com sucesso!",
+            title: "Zona alterada!",
+            text: "Zona alterada com sucesso!",
             icon: "success",
             button: "Continuar",
       });
@@ -190,7 +192,20 @@ $('#myButton').click(function() {
 <?php
   }
 ?>
-
+<?php
+  if(isset($_COOKIE["zona_adicionada"])){
+?>
+      <script>
+      swal({
+            title: "Zona adicionada!",
+            text: "Zona adicionada com sucesso!",
+            icon: "success",
+            button: "Continuar",
+      });
+      </script>
+<?php
+  }
+?>
 <?php
   if(isset($_COOKIE["condominio_eliminado"])){
 ?>
@@ -205,6 +220,44 @@ $('#myButton').click(function() {
 <?php
   }
 ?>
+<?php
+  if(isset($_COOKIE["zona_eliminada"])){
+?>
+      <script>
+      swal({
+            title: "Zona eliminada!",
+            text: "As zonas foram eliminadas com sucesso!",
+            icon: "success",
+            button: "Continuar",
+      });
+      </script>
+<?php
+  }
+?>
+<script>
+    $(document).ready(function(){  
+    $('#id_condominio').keyup(function(){
+            var query = $(this).val();  
+            if(query != '')  
+            {  
+                $.ajax({  
+                    url:"../../../../core/fetch_results/fetch_condominio_1.php",
+                    method:"POST",  
+                    data:{query:query},  
+                    success:function(data)  
+                    {  
+                        $('#lista_condominios').fadeIn();  
+                        $('#lista_condominios').html(data);  
+                    }  
+                });  
+            }  
+    });  
+    $(document).on('click', 'li', function(){  
+            $('#id_condominio').val($(this).text());  
+            $('#lista_condominios').fadeOut();  
+    });  
 
+    });
+</script>
 </body>
 </html>

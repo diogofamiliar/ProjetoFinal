@@ -23,13 +23,13 @@ if (isset($_POST['condominio'])) {
     <script language="JavaScript" type="text/javascript">
       function checkDelete() {
 
-        var confirmed = confirm("Pretende eliminar as mensagens?");
+        var confirmed = confirm("Pretende gravar as alterações?");
           if(confirmed){
             document.getElementById('form1').submit();
             return true;
       }else{
         swal("Aviso!", 
-        "Selecione as notificações que pretende eliminar!", 
+        "Campos inválidos!", 
         "error");
       return false;}
       }

@@ -7,11 +7,20 @@
     }else header('Location: ../../index.php');
 ?>
 <html>
-  <head>
+
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <div id="dashboard_div">
+    <br>
+    <h1 style="font-size:160%; text-align:center;"><strong>Incidentes por Zona e por Seleção de Condomínio</strong></h1>
+    <div id="categoryPicker_div" style="text-align:center;"></div>  
+    <div id="chart_div" style="width: 100%; height: 500px;"></div>  
+    </div>
+    <h1 style="font-size:160%; text-align:center;"><strong>Incidentes por Condomínio</strong></h1>
     <script type="text/javascript">
 
-      google.charts.load('current', {'packages':['corechart']});
+      
+      google.charts.load('current', {'packages':['corechart', 'table', 'gauge', 'controls']});
+      google.charts.setOnLoadCallback(drawMainDashboard);
 
       google.charts.setOnLoadCallback(drawcondominioChart);
 
@@ -23,7 +32,7 @@
 
 ['nome_condominio','incidentes'],
 <?php 
-            $query ="SELECT condominio.nome as nome_condominio, zona.nome as nome_zona, incidente.id_zona, COUNT(id_incidente) as incidentes FROM incidente INNER JOIN zona ON incidente.id_zona=zona.id_zona INNER JOIN condominio ON condominio.id_condominio=zona.id_condominio GROUP BY id_zona";  
+            $query ="SELECT condominio.nome as nome_condominio, zona.nome as nome_zona, incidente.id_zona, COUNT(id_incidente) as incidentes FROM incidente INNER JOIN zona ON incidente.id_zona=zona.id_zona INNER JOIN condominio ON condominio.id_condominio=zona.id_condominio GROUP BY condominio.id_condominio";  
             $result = mysqli_query($conn, $query);
         
             while($row = mysqli_fetch_array($result)){
@@ -34,11 +43,9 @@
 ]);
 
         var options = {
-            title:'Número de Incidentes por Condomínio',
-            titleTextStyle:{fontSize: 20},
             pieSliceTextStyle: {color: 'white'},
             is3D: true,
-            legend: {position: 'bottom'},
+            legend: {position: 'right'},
                        };
 
         var chart = new google.visualization.PieChart(document.getElementById('condominio_chart_div'));
@@ -55,27 +62,82 @@
  $exec = mysqli_query($conn,$query);
  while($row = mysqli_fetch_array($exec)){
 
- echo "['".$row['nome_categoria']."',".$row['incidentes']."],";
+ echo utf8_encode("['".$row['nome_categoria']."',".$row['incidentes']."],");
  }
  ?>
  
  ]);
 
         var options = {
-          title:'Número de Incidentes por Categoria de Incidente',
-          titleTextStyle:{fontSize: 20},
-          legend: 'none'
-
+          legend: {position: 'bottom'},
+          pieHole: 0.5
           };
 
-        var chart = new google.visualization.ColumnChart(document.getElementById('incidente_chart_div'));
+        var chart = new google.visualization.PieChart(document.getElementById('incidente_chart_div'));
         chart.draw(data, options);
     
       }
+
+      function drawMainDashboard() {
+        var dashboard = new google.visualization.Dashboard(
+            document.getElementById('dashboard_div'));
+      
+        var categoryPicker = new google.visualization.ControlWrapper({
+          'controlType': 'CategoryFilter',
+          'containerId': 'categoryPicker_div',
+          'options': {
+            'filterColumnIndex': 0,
+            'ui': {
+              'labelStacking': 'vertical',
+              'label': 'Seleção do Condomínio:',
+              'allowTyping': false,
+              'allowMultiple': false
+            }
+          }
+        });
+        var pie = new google.visualization.ChartWrapper({
+          'chartType': 'PieChart',
+          'containerId': 'chart_div',
+          'options': {
+            legend: {position: 'right'},
+            pieSliceTextStyle: {color: 'white'},
+          },
+          'view': {'columns': [1, 2]}
+        });
+  
+ 
+        var data = google.visualization.arrayToDataTable([
+
+          ['nome_condominio','nome_zona','incidentes'],
+          <?php 
+                      $query ="SELECT condominio.nome as nome_condominio, zona.nome as nome_zona, incidente.id_zona, COUNT(id_incidente) as incidentes FROM incidente INNER JOIN zona ON incidente.id_zona=zona.id_zona INNER JOIN condominio ON condominio.id_condominio=zona.id_condominio GROUP BY id_zona";  
+                      $result = mysqli_query($conn, $query);
+                  
+                      while($row = mysqli_fetch_array($result)){
+                          echo utf8_encode("['".$row['nome_condominio']."','".$row['nome_zona']."',".$row['incidentes']."],");
+                          }
+                      ?> 
+
+          ]);
+
+
+
+
+
+    dashboard.bind([categoryPicker], [pie]);
+    dashboard.draw(data);
+  }
+
+
+
     </script>
   </head>
   <body>
         <div id="condominio_chart_div" style="width: 100%; height: 500px;"></div>
+        <h1 style="font-size:160%; text-align:center;"><strong>Incidentes por Categoria de Incidente</strong></h1>
         <div id="incidente_chart_div" style="width: 100%; height: 500px;"></div>
+        <input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: null, &quot;dimension5&quot;: &quot;pt-pt&quot;, &quot;dimension3&quot;: false, &quot;dimension8&quot;: &quot;scriptsafe&quot;, &quot;dimension1&quot;: &quot;Signed out&quot;}, &quot;gaid&quot;: &quot;UA-24532603-1&quot;}">
+        <input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {}, &quot;gaid&quot;: &quot;UA-47037920-1&quot;}">
+
   </body>
 </html>

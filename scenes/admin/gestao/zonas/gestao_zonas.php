@@ -5,8 +5,8 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
 }else header('Location: ../../index.php');
 */?>
 <?php
-  include "../../../core/connect.php";
-	include __DIR__.'/../../../headers/admin_header.php';
+  include "../../../../core/connect.php";
+	include '../../../../headers/admin_header.php';
 ?>
 
 <!doctype html>
@@ -17,29 +17,29 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../css/custom.css">
+    <link rel="stylesheet" type="text/css" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../css/custom.css">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- datatables CSS -->
-    <link rel="stylesheet" type="text/css" href="../../../css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../css/jquery.dataTables.min.css">
     <!-- Sweet alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <title>elVecino | Gestão condomínios</title>
+    <title>elVecino | Gestão zonas</title>
 
 
 
     <script language="JavaScript" type="text/javascript">
     function checkDelete() {
-        var x = $('[name="id_condominio[]"]:checked').length;
+        var x = $('[name="id_zona[]"]:checked').length;
             if(x>0){ 
-            var confirmed = confirm("Pretende eliminar as mensagens?");
+            var confirmed = confirm("Pretende eliminar as zonas selecionadas?");
                 if(confirmed){
                 document.getElementById('form1').submit();
                 return true;
                 }
             }else{
             swal("Aviso!", 
-            "Selecione os condominios que pretende eliminar!", 
+            "Selecione as zonas que pretende eliminar!", 
             "error");
             return false;
             }
@@ -53,20 +53,20 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
 <div class="d-flex justify-content-center">
     <div class="card col-sm-9">
       <div class="card-header d-flex justify-content-between">
-        <button class="btn btn-success" id="myButton" type="button" name="answer"> Novo condominio</button>
-        <h3>Gestão de condomínios</h3>
-        <a class="btn btn-danger mx-1" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-trash"></i> Eliminar</a>
+        <button class="btn btn-success" id="myButton" type="button" name="answer"> Nova zona</button>
+        <h3>Gestão de zonas</h3>
+        <a class="btn btn-danger mx-1" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-trash"></i> Eliminar zona</a>
       </div>
       <div class="card" id="card-novo-condominio" style="display:none;">
         <form id="form3" method="POST" action="adicionar_condominio.php">
         <div class="card-header">
-          <h5 id="h1-centered">Insira os dados do novo condominio:</h5>
+          <h5 id="h1-centered">Insira os dados da nova zona:</h5>
         </div>
         <div class="card-body">
           <div class="form-group row">
             <div class="row col-sm-4">
               <label for="inputCodCondominio" class="col-sm-4 col-form-control">Código:</label>
-              <input type="text" form="form3" name="cod_condominio" class="form-control col-sm-7" id="inputCodCondominio" placeholder="Código do condomínio"  required>
+              <input type="number" form="form3" name="cod_condominio" class="form-control col-sm-7" id="inputCodCondominio" placeholder="Código do condomínio"  required>
             </div>
             <div class="row col-sm-8">
               <label for="inputNome" class="col-sm-2 col-form-control">Nome:</label>
@@ -86,30 +86,33 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
         </form>
       </div>
       <div class="card-body">
-          <form method="POST" id="form1" action="eliminar_condominios.php">
+          <form method="POST" id="form1" action="eliminar_zonas.php">
           <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0" style="table-layout: fixed; width: 100%;">
             <thead>
-              <tr>
-                <th><input type="checkbox" id="checkAll"/></th>
-                <th>COD</th>
-                <th>Nome</th>
-                <th>Morada</th>  
-                <th></th>
+                <tr>
+                    <th><input type="checkbox" id="checkAll"/></th>
+                    <th>COD</th>
+                    <th>Condominio</th>  
+                    <th>Entrada</th>
+                    <th>Morada</th>  
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
               <?php
-              $sql = "SELECT id_condominio, cod_condominio, nome, morada FROM condominio";
+              $sql = "SELECT zona.id_zona as id_zona, zona.cod_zona as cod_zona, zona.nome as entrada, zona.morada as morada, condominio.cod_condominio as cod_condominio FROM zona INNER JOIN condominio ON zona.id_condominio=condominio.id_condominio ORDER BY zona.id_zona ASC";
               $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
               while($rows = mysqli_fetch_assoc($resultset)) {
               ?>
                 <tr>
-                    <td class="col-sm-1"><input type="checkbox" name="id_condominio[]" value="<?php echo $rows['id_condominio']; ?>" multiple></td>
+                    <td class="col-sm-1"><input type="checkbox" name="cod_zona[]" value="<?php echo $rows['cod_zona']; ?>" multiple></td>
+                    <td><?php echo utf8_encode($rows["cod_zona"]); ?></td>
                     <td><?php echo utf8_encode($rows["cod_condominio"]); ?></td>
-                    <td><?php echo utf8_encode($rows["nome"]); ?></td>
+                    <td><?php echo utf8_encode($rows["entrada"]); ?></td>
                     <td><?php echo utf8_encode($rows["morada"]); ?></td>
-                    <td><form method="POST" id="form2" action="alterar_condominio.php">
-                          <button form="form2" name="condominio" class="btn btn-info" type="submit" value="<?php echo utf8_encode($rows["id_condominio"]); ?>"> Editar</button>
+                    <td class="d-flex justify-content-center">
+                        <form method="POST" id="form2" action="alterar_zona.php">
+                          <button form="form2" name="id_zona" class="btn btn-info" type="submit" value="<?php echo utf8_encode($rows["id_zona"]); ?>"> Editar</button>
                         </form>
                     </td>
                 </tr>
@@ -124,7 +127,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
       </div>
 </div>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="../../../js/jquery-3.4.1.js"></script>  
+<script src="../../../../js/jquery-3.4.1.js"></script>  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!-- Optional JavaScript -->
@@ -142,17 +145,16 @@ $('#myButton').click(function() {
     
     $('#data').DataTable({
       "columnDefs": [
-        { "width": "15px", "targets": 0 },
+        { "width": "10px", "targets": 0 },
         { "width": "25px", "targets": 1 },
-        { "width": "60px", "targets": 2 },
-        { "width": "200px", "targets": 3 },
-        { "width": "15px", "targets": 4 }
+        { "width": "25px", "targets": 2 },
+        { "width": "35px", "targets": 3 },
+        { "width": "150px", "targets": 4 },
+        { "width": "15px", "targets": 5 }
       ],
       select: true,
       "scrollX": true
     });
-  
-    
   });
 </script>
 <script>

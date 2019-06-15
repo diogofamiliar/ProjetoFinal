@@ -1,5 +1,6 @@
 <?php
-include '../../../core/connect.php';
+include "../../../core/connect.php";
+mysqli_set_charset($conn, "utf8");
 if (isset($_POST['utilizador'], $_POST['id_grupo'], $_POST['email'], $_POST['telemovel'])) {
     $email=$_POST['email'];
     $id_grupo=$_POST['id_grupo'];

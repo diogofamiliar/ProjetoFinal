@@ -26,25 +26,41 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
 <h1 id="h1-centered">Gestão de utilizadores e condomínios</h1>
 <div class="container">
     <div class="row justify-content-center"> <!--justify-content-center alinha os conteudos ao meio sem os "escalar"  -->
-        <div class="col-sm-3 my-2">
-        <div class="card h-100">
-            <img class="card-img-top mx-auto my-2" src="../../../assets/admin/gestao/gestao_utilizadores.jpg" alt="Card image">
-            <div class="card-body d-flex flex-column">
-            <h4 class="card-title">Gestão de utlizadores</h4>
-            <p class="card-text">Adicione um utilizador a um grupo de utilizadores.<br>Altere a função de um utilizador.</p>
-            <a href="registo_incidente.php" class="mt-auto btn btn-primary">Entrar</a>
+        <div class="col-sm-3 my-4">
+            <div class="card h-100">
+                <a class="card-img-top mx-auto my-2" href="gestao_utilizadores.php">
+                    <img class="object-fit-cover" src="../../../assets/admin/gestao/gestao_utilizadores.jpg" alt="Card image">
+                </a>
+                <div class="card-body d-flex flex-column">
+                    <h4 class="card-title">Gestão de utlizadores</h4>
+                    <p class="card-text">Adicione um utilizador a um grupo de utilizadores.<br>Altere a função de um utilizador.</p>
+                    <a href="gestao_utilizadores.php" class="mt-auto btn btn-primary">Entrar</a>
+                </div>
             </div>
         </div>
-        </div>
-        <div class="col-sm-3 my-2">
-        <div class="card h-100">
-            <img class="card-img-top mx-auto my-2" src="../../../assets/admin/gestao/gestao_condominio.png" alt="Card image">
-            <div class="card-body d-flex flex-column">
-            <h4 class="card-title">Gestão de condomínios</h4>
-            <p class="card-text"> Adicione novos condomínios ou altere os dados de um condomínio já existente.<br>Elimine Condomínios</p>
-            <a href="selecao_ocorrencias.php" class="mt-auto btn btn-primary">Entrar</a>
+        <div class="col-sm-3 my-4">
+            <div class="card h-100">
+                <a class="card-img-top mx-auto my-2" href="gestao_condominios.php">
+                    <img class="object-fit-cover" src="../../../assets/admin/gestao/gestao_condominio.png" alt="Card image">
+                </a>
+                <div class="card-body d-flex flex-column">
+                    <h4 class="card-title">Gestão de condomínios e zonas</h4>
+                    <p class="card-text"> Adicione novos condomínios ou altere os dados de um condomínio já existente.<br>Elimine Condomínios</p>
+                    <a href="gestao_condominios.php" class="mt-auto btn btn-primary">Entrar</a>
+                </div>
             </div>
         </div>
+        <div class="col-sm-3 my-4">
+            <div class="card h-100">
+                <a class="card-img-top mx-auto my-2" href="gestao_condominios.php">
+                    <img class="object-fit-cover" src="../../../assets/admin/gestao/gestao_fornecedor.png" alt="Card image">
+                </a>
+                <div class="card-body d-flex flex-column">
+                    <h4 class="card-title">Gestão de fornecedores</h4>
+                    <p class="card-text"> Adicione novos fornecedores ou altere os dados de um fornecedor já existente.<br>Elimine Condomínios</p>
+                    <a href="gestao_condominios.php" class="mt-auto btn btn-primary">Entrar</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>

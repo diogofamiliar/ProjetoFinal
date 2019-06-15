@@ -19,12 +19,12 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
     <title>elVecino | Manutenções</title>
   </head>
   <script type="text/javascript">
-  function submitForm(action) {
-    var form = document.getElementById('form1');
-    form.action = action;
-    form.submit();
-  }
-</script>
+    function submitForm(action) {
+      var form = document.getElementById('form1');
+      form.action = action;
+      form.submit();
+    }
+  </script>
 
 <body>
 

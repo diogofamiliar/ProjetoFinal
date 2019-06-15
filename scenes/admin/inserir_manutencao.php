@@ -145,3 +145,4 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
     <script src="../../js/i18n/datepicker.pt.js"></script>
 
 </body>
+</html>

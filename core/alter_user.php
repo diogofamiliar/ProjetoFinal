@@ -29,7 +29,7 @@ if (isset ($_POST['nome'], $_POST['email'], $_POST['senha'], $_POST['data_nascim
         $result=mysqli_query($conn,$sql);
 
         
-        setcookie("alter_user", "1", time()+(10), "/"); // o "/" disponibiliza a cookie para toda a plataforma
+        setcookie("alter_user", "1", time()+(3), "/"); // o "/" disponibiliza a cookie para toda a plataforma
         header( "Location: ../scenes/cliente/cliente.php" );
             
     }

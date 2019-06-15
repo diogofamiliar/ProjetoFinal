@@ -9,6 +9,14 @@
     }else header('Location: ../../index.php');
 ?>
 <html>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/custom.css">
+    
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <div id="dashboard_div">
     <br>

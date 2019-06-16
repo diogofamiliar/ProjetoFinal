@@ -1,5 +1,5 @@
 <?php
-include "../../core/connect.php";
+include "../../../core/connect.php";
 
 if(isset ($_POST['id_incidente'],$_POST['id_tipo_manutencao'],$_POST['id_incidente'],$_POST['data'],$_POST['equipa']) ){
 $id_incidente=$_POST['id_incidente'];$observacao=$_POST['observacao'];$id_tipo_manutencao=$_POST['id_tipo_manutencao'];$data=$_POST['data'];$equipa=$_POST['equipa'];$prioridade=$_POST['prioridade'];

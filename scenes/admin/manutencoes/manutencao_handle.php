@@ -1,5 +1,5 @@
 <?php
-include "../../core/connect.php";
+include "../../../core/connect.php";
 /*
 if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador'])){ */
     if(isset($_POST['equipa'], $_POST['data_agendamento'], $_POST['observacao'], $_POST['prioridade'], $_POST['id_tipo_manutencao'], $_POST['id_incidente'])){

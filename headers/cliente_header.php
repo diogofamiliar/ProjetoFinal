@@ -22,7 +22,7 @@ session_start();
                     <a class="nav-link" href="cliente_documentos.php">Documentos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contatos Uteis</a>
+                    <a class="nav-link" href="/ProjetoFinal/scenes/cliente/contactos.php">Contatos Uteis</a>
                 </li>
             </ul>
         </div>

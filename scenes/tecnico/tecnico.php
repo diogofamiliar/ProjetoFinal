@@ -20,7 +20,7 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
     <!-- Sweet alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    <title>ElVecino - Àrea técnica</title>
+    <title>ElVecino - Área Técnica</title>
 
 </head>
 

@@ -34,7 +34,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
                 <div class="card-body d-flex flex-column">
                     <h4 class="card-title">Gestão de utlizadores</h4>
                     <p class="card-text">Adicione um utilizador a um grupo de utilizadores.<br>Altere a função de um utilizador.</p>
-                    <a href="gestao_utilizadores.php" class="mt-auto btn btn-primary">Entrar</a>
+                    <a href="utilizadores/gestao_utilizadores.php" class="mt-auto btn btn-primary">Entrar</a>
                 </div>
             </div>
         </div>

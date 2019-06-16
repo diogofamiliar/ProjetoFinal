@@ -33,7 +33,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
 	include __DIR__.'/../../headers/admin_header.php';
 	?>
   
-  <h1 id="h1-centered">Inserir manutenções:</h1>
+  <h1 id="h1-centered">Lista de incidentes registados</h1>
   <div class="container">
   <form method="POST" id="form1"> 
     <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0" style="table-layout: fixed; width: 100%;">

@@ -1,5 +1,5 @@
 <?php
-include "../../../core/connect.php";
+include "../../../../core/connect.php";
 mysqli_set_charset($conn, "utf8");
 if (isset($_POST['utilizador'], $_POST['id_grupo'], $_POST['email'], $_POST['telemovel'])) {
     $email=$_POST['email'];
@@ -20,7 +20,7 @@ if (isset($_POST['utilizador'], $_POST['id_grupo'], $_POST['email'], $_POST['tel
         $sql="UPDATE utilizador_grupo SET id_grupo='$id_grupo', data_adicao=now() WHERE id_utilizador='$utilizador'";
         mysqli_query($conn, $sql);
     }
-    setcookie("user_editado", "1", time()+(3), "/"); // o "/" disponibiliza a cookie para toda a plataforma
+    setcookie("utilizador_alterado", "1", time()+(3), "/"); // o "/" disponibiliza a cookie para toda a plataforma
     header( "Location: gestao_utilizadores.php" );
     
 } else {header( "Location: registar_utilizador.php" );}

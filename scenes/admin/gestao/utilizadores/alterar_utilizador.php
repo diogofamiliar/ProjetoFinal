@@ -1,9 +1,7 @@
 <?php
-include '../../../core/connect.php';
 if (isset($_POST['id_utilizador'])) {
     $id_utilizador=$_POST['id_utilizador'];
-     //echo $id_utilizador;
-} else {header('Location: gestao.php');}
+} else {header( "Location: gestao_utilizadores.php" );}
 ?>
 
 <!doctype html>
@@ -14,8 +12,8 @@ if (isset($_POST['id_utilizador'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../css/custom.css">
+    <link rel="stylesheet" type="text/css" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../css/custom.css">
 
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
@@ -25,7 +23,8 @@ if (isset($_POST['id_utilizador'])) {
 <body>
 
 	<?php
-	    include '../../../headers/admin_header.php';
+        include '../../../../headers/admin_header.php';
+        include '../../../../core/connect.php';
 	?>
   
     <h1 id="h1-centered">Alterar utilizador:</h1>

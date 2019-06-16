@@ -18,6 +18,7 @@
     <link rel="stylesheet" type="text/css" href="../../css/custom.css">
     
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <button type="button" onclick="">Print PDF</button>
     <div id="dashboard_div">
     <br>
     <h1 style="font-size:160%; text-align:center;"><strong>Incidentes por Zona e por Seleção de Condomínio</strong></h1>

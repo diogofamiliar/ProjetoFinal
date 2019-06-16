@@ -10,5 +10,7 @@ if (isset($_POST['id_zona'])) {
     }
     setcookie("zona_eliminada", "1", time()+(3), "/"); // o "/" disponibiliza a cookie para toda a plataforma
     header('Location: gestao_zonas.php');
-} else {header('Location: gestao_condominios.php');}
+} else {header('Location: gestao_zonas.php');}
 ?>
+
+

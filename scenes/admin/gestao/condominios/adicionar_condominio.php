@@ -1,5 +1,5 @@
 <?php
-include "../../../core/connect.php";
+include "../../../../core/connect.php";
 mysqli_set_charset($conn, "utf8");
 
 

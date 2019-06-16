@@ -5,8 +5,8 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
 }else header('Location: ../../index.php');
 */?>
 <?php
-  include "../../../core/connect.php";
-	include __DIR__.'/../../../headers/admin_header.php';
+  include "../../../../core/connect.php";
+	include '../../../../headers/admin_header.php';
 ?>
 
 <!doctype html>
@@ -17,11 +17,11 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../css/custom.css">
+    <link rel="stylesheet" type="text/css" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../css/custom.css">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- datatables CSS -->
-    <link rel="stylesheet" type="text/css" href="../../../css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../../css/jquery.dataTables.min.css">
     <!-- Sweet alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <title>elVecino | Gestão condomínios</title>
@@ -51,7 +51,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
 <body>
 
 <div class="d-flex justify-content-center">
-    <div class="card col-sm-9">
+    <div class="card col-sm-11">
       <div class="card-header d-flex justify-content-between">
         <button class="btn btn-success" id="myButton" type="button" name="answer"> Novo condominio</button>
         <h3>Gestão de condomínios</h3>
@@ -108,7 +108,8 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
                     <td><?php echo utf8_encode($rows["cod_condominio"]); ?></td>
                     <td><?php echo utf8_encode($rows["nome"]); ?></td>
                     <td><?php echo utf8_encode($rows["morada"]); ?></td>
-                    <td><form method="POST" id="form2" action="alterar_condominio.php">
+                    <td class="d-flex justify-content-center">
+                        <form method="POST" id="form2" action="alterar_condominio.php">
                           <button form="form2" name="condominio" class="btn btn-info" type="submit" value="<?php echo utf8_encode($rows["id_condominio"]); ?>"> Editar</button>
                         </form>
                     </td>
@@ -124,7 +125,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
       </div>
 </div>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="../../../js/jquery-3.4.1.js"></script>  
+<script src="../../../../js/jquery-3.4.1.js"></script>  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <!-- Optional JavaScript -->
@@ -142,11 +143,11 @@ $('#myButton').click(function() {
     
     $('#data').DataTable({
       "columnDefs": [
-        { "width": "15px", "targets": 0 },
-        { "width": "25px", "targets": 1 },
-        { "width": "60px", "targets": 2 },
-        { "width": "200px", "targets": 3 },
-        { "width": "15px", "targets": 4 }
+        { "width": "5%", "targets": 0 },
+        { "width": "10%", "targets": 1 },
+        { "width": "30%", "targets": 2 },
+        { "width": "40%", "targets": 3 },
+        { "width": "10%", "targets": 4 }
       ],
       select: true,
       "scrollX": true

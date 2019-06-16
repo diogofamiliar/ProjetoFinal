@@ -149,8 +149,5 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
 <?php
   }
 ?>
-
-
-
 </body>
 </html>

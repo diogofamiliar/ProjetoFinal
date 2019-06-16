@@ -47,7 +47,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
                     <h4 class="card-title">Gestão de condomínios e zonas</h4>
                     <p class="card-text"> Adicione novos condomínios ou altere um condomínio já existente.<br>Gestão zonas</p>
                     <div class="row">
-                        <a href="gestao_condominios.php" class="m-auto btn btn-primary">Condomínios</a>
+                        <a href="condominios/gestao_condominios.php" class="m-auto btn btn-primary">Condomínios</a>
                         <a href="zonas/gestao_zonas.php" class="m-auto btn btn-primary">Zonas</a>
                     </div>
                 </div>
@@ -61,7 +61,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
                 <div class="card-body d-flex flex-column">
                     <h4 class="card-title">Gestão de fornecedores</h4>
                     <p class="card-text"> Adicione novos fornecedores ou altere os dados de um fornecedor já existente.<br>Elimine Condomínios</p>
-                    <a href="gestao_condominios.php" class="mt-auto btn btn-primary">Entrar</a>
+                    <a href="fornecedores/gestao_fornecedores.php" class="mt-auto btn btn-primary">Entrar</a>
                 </div>
             </div>
         </div>

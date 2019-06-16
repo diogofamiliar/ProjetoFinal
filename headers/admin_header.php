@@ -57,10 +57,6 @@ session_start();
                     Definições
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Gestão de permissões</a>
-                        <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Gestão de notificações</a>
-                        <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/ProjetoFinal/scenes/admin/gestao/contactos/gestao_contactos.php">Gestão de Contactos Úteis</a>
                     </div>
                 </li>

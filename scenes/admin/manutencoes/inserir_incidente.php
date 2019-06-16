@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-include '../../core/connect.php';
+include '../../../core/connect.php';
 mysqli_set_charset($conn, "utf8");
 $id_utilizador=$_SESSION['id_utilizador'];
 /*
@@ -44,10 +44,10 @@ if (isset ($_POST['local'], $_POST['id_categoria_incidente'], $_POST['id_zona'],
     }
 }
 //upload das fotos
-    include '../../upload.php';
+    include '../../../upload.php';
 
 
 mysqli_close($conn);
 setcookie("registo_efetuado", "1", time()+(3), "/"); // o "/" disponibiliza a cookie para toda a plataforma
-header( "Location: admin.php" );
+header( "Location: ../admin.php" );
 ?>

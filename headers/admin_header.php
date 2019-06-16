@@ -24,7 +24,7 @@ session_start();
                     Manutenções
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="/ProjetoFinal/scenes/admin/manutencoes.php">Manutenções</a>
+                            <a class="dropdown-item" href="/ProjetoFinal/scenes/admin/manutencoes/manutencoes.php">Manutenções</a>
                         <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/ProjetoFinal/scenes/admin/relatorios.php">Relatórios</a>
                     </div>

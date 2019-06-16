@@ -26,7 +26,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
 <h1 id="h1-centered">Manutenções</h1>
 <div class="container">
   <div class="row justify-content-center"> <!--justify-content-center alinha os conteudos ao meio sem os "escalar"  -->
-    <div class="col-sm-3 my-2">
+    <div class="col-sm-4 my-2">
       <div class="card h-100">
         <a class="card-img-top mx-auto my-2" href="registo_incidente.php">
             <img class="object-fit-cover" src="../../../assets/admin/manutencoes/broken-door.png" alt="Card image cap">
@@ -38,7 +38,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
         </div>
       </div>
     </div>
-    <div class="col-sm-3 my-2">
+    <div class="col-sm-4 my-2">
       <div class="card h-100">
         <a class="card-img-top mx-auto my-2" href="selecao_ocorrencias.php">
             <img class="object-fit-cover" src="../../../assets/admin/manutencoes/agendar.png" alt="Card image cap">
@@ -50,7 +50,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
         </div>
       </div>
     </div>
-    <div class="col-sm-3 my-2">
+    <div class="col-sm-4 my-2">
       <div class="card h-100">
         <a class="card-img-top mx-auto my-2" href="listagem.php">
             <img class="object-fit-cover" src="../../../assets/admin/manutencoes/repair.png" alt="Card image cap">

@@ -11,31 +11,69 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../../css/custom.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/custom.css">
     <!-- datatables CSS -->
-    <link rel="stylesheet" type="text/css" href="../../css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../css/jquery.dataTables.min.css">
+    <!-- Sweet alert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
     <title>elVecino | Manutenções</title>
+
+
+<script language="JavaScript" type="text/javascript">
+function OnButton1()
+{
+  var x = $('[name="id_incidente[]"]:checked').length;
+            if(x>0){ 
+            var confirmed = confirm("Pretende agendar os itens selecionados?");
+                if(confirmed){
+                  document.Form1.action = "inserir_manutencao.php"
+                  document.Form1.submit();             // Submit the page
+                  return true;
+                }
+            }else{
+            swal("Selecione checkboxs!", 
+            "Selecione os itens que pretende agendar!", 
+            "error");
+            return true;
+            }
+}
+</script>
+<script language="JavaScript" type="text/javascript">
+function OnButton2()
+{
+  var x = $('[name="id_incidente[]"]:checked').length;
+            if(x>0){ 
+            var confirmed = confirm("Pretende pretende criar uma lista de tarefas com os itens selecionados?");
+                if(confirmed){
+                  document.Form1.action = "inserir_lista.php"
+                  document.Form1.submit();             // Submit the page
+                  return true;
+                }
+            }else{
+            swal("Selecione checkboxs!", 
+            "Selecione itens para criar uma lista de tarefas!", 
+            "error");
+            return true;
+            }
+}
+</script>
   </head>
-  <script type="text/javascript">
-    function submitForm(action) {
-      var form = document.getElementById('form1');
-      form.action = action;
-      form.submit();
-    }
-  </script>
+
 
 <body>
 
 	<?php
-  include "../../core/connect.php";
-	include __DIR__.'/../../headers/admin_header.php';
+  include "../../../core/connect.php";
+	include __DIR__.'/../../../headers/admin_header.php';
 	?>
+
+
   
   <h1 id="h1-centered">Lista de incidentes registados</h1>
   <div class="container">
-  <form method="POST" id="form1"> 
+  <form name="Form1" method="POST">
     <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0" style="table-layout: fixed; width: 100%;">
       <thead>
         <tr>
@@ -69,8 +107,8 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
       ?>
       </tbody>
     </table>
-    <button type="button" onclick="submitForm('inserir_manutencao.php')" value="submit 1" class="btn btn-primary btn-lg">Criar manutenção</button>
-    <button type="button" onclick="submitForm('inserir_lista.php')" value="submit 2" class="btn btn-primary btn-lg">Criar lista de tarefas</button>
+    <INPUT class="btn btn-primary btn-lg" type="button" value="Inserir manutencao" name="button1" onclick="return OnButton1();" placeholder="lista">
+    <INPUT class="btn btn-primary btn-lg" type="button" value="Criar lista tarefas" name="button2" onclick="return OnButton2();" placeholder="lista">
 
     </form>
   </div>
@@ -78,7 +116,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../../js/jquery-3.4.1.js"></script>
+    <script src="../../../js/jquery-3.4.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     

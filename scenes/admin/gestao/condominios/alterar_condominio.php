@@ -48,7 +48,7 @@ if (isset($_POST['condominio'])) {
     <h1 id="h1-centered">Alterar condomínio:</h1>
     <div class="container">
         <?php
-                $sql="SELECT id_condominio, cod_condominio, nome, morada FROM condominio";
+                $sql="SELECT id_condominio, cod_condominio, nome, morada FROM condominio WHERE id_condominio='$id_condominio'";
                 $result=mysqli_query($conn,$sql);
                 $row=mysqli_fetch_array($result);
                 $cod_condominio=$row['cod_condominio'];

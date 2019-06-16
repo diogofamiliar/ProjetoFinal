@@ -60,6 +60,8 @@ session_start();
                             <a class="dropdown-item" href="#">Gestão de permissões</a>
                         <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="#">Gestão de notificações</a>
+                        <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="/ProjetoFinal/scenes/admin/gestao/contactos/gestao_contactos.php">Gestão de Contactos Úteis</a>
                     </div>
                 </li>
                 <li class="nav-item">

@@ -20,6 +20,8 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
     <link rel="stylesheet" type="text/css" href="../../../../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../../../css/custom.css">
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- datepicker CSS-->
+    <link href="../../../../css/datepicker.min.css" rel="stylesheet" type="text/css">
     <!-- datatables CSS -->
     <link rel="stylesheet" type="text/css" href="../../../../css/jquery.dataTables.min.css">
     <!-- Sweet alert -->
@@ -68,23 +70,52 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
             <div>
               <input type="text" form="form3" name="nome" class="form-control" placeholder="Insira o nome completo"/ Required>  
             </div>
-          </div>  
+          </div>
+          <div class="form-group">
+            <label for="data_agendamento">Data nascimento:</label>
+            <input type="text" class="datepicker-here form-control" data-language='pt'data-position="bottom left" name="data_nascimento" id="data_agendamento" required>
+          </div>
           <div class="form-group">
             <div>
               <label class="form-label">Número contribuinte:</label>
-              <input type="text" form="form3" class="form-control" name="n_contribuinte" id="inputContribuinte" placeholder="Insira o número de contribuinte">
+              <input type="text" form="form3" class="form-control" name="n_contribuinte" id="inputContribuinte" placeholder="Insira o número de contribuinte" pattern="[0-9]{9}">
             </div>          
             <div>
               <label class="form-label">Telemovel:</label>
-              <input type="tel" form="form3" name="telemovel" class="form-control col-sm-8" required required pattern="[0-9]{9}">
+              <input type="tel" form="form3" name="telemovel" class="form-control col-sm-8" required pattern="[0-9]{9}">
             </div>
             <div>
               <label class="form-label">Email:</label>
               <input type="email" form="form3" name="email" class="form-control" required>
             </div>
-          </div> 
+            <div class="form-group">
+              <label for="exampleInputPassword1" class="font-weight-bold">Password:</label>
+              <input type="password" class="form-control" id="password" placeholder="Password" name="senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange='check_pass();' Required>
+              <small id="passHelp" class="form-text text-muted">A password deve conter um mínimo de 8 caracteres, incluíndo pelo menos: um algarismo, uma letra maiúscula e uma letra minúscula.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputPassword1" class="font-weight-bold">Confirme a password:</label>
+              <input type="password" class="form-control" id="confirm_password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange='check_pass();' Required>
+              <span id='message'></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tipo de Utilizador:</label>
+            <div>
+                <select id="gruposelector" name="id_grupo" class="form-control" required>
+                    <option value=""></option>
+                    <?php
+                    $query_1="SELECT id_grupo, nome FROM grupo";
+                    $result = mysqli_query($conn, $query_1);
+                    while($row_result=mysqli_fetch_assoc($result)){ ?>
+                <option value="<?php echo $row_result['id_grupo']; ?>"><?php echo utf8_encode($row_result['nome']); ?></option> <?php
+                    }
+                        ?>
+                </select>
+            </div>
+          </div>    
           <div class="d-flex justify-content-center">
-            <button form="form3" class="btn btn-success" type="submit"> Adicionar</button>
+            <button form="form3" class="btn btn-success" id="submit" type="submit"> Adicionar</button>
           </div>
         </div>
         </form>
@@ -132,6 +163,11 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
 <script src="../../../../js/jquery-3.4.1.js"></script>  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<!-- Compara as duas pw's introduzidas -->
+<script src="../../../../js/compare_pw.js"></script>
+<!-- Optional JavaScript -->
+<script src="../../../../js/datepicker.min.js"></script>
+<script src="../../../../js/i18n/datepicker.pt.js"></script>
 <!-- Optional JavaScript -->
 <script>
 $('#myButton').click(function() {

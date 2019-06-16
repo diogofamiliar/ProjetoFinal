@@ -60,7 +60,7 @@ if (isset($_POST['id_utilizador'])) {
                             </div>
                         </div>              
                         <div class="form-group row">
-                            <div class="form-group col-md-5"">
+                            <div class="form-group col-md-5">
                                 <div class="form-row">
                                     <label class="col-sm-4 col-form-label">Tipo de Utilizador:</label>
                                     <div class="col-sm-8">

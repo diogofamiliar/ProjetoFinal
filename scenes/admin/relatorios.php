@@ -24,6 +24,12 @@
     <div id="categoryPicker_div" style="text-align:center;"></div>  
     <div id="chart_div" style="width: 100%; height: 500px;"></div>  
     </div>
+    <div id="dashboard_div">
+    <br>
+    <h1 style="font-size:160%; text-align:center;"><strong>Incidentes por Condomínio e por Seleção de Ano</strong></h1>
+    <div id="categoryPicker2_div" style="text-align:center;"></div>  
+    <div id="chart_div2" style="width: 100%; height: 500px;"></div>  
+    </div>
     <h1 style="font-size:160%; text-align:center;"><strong>Incidentes por Condomínio</strong></h1>
     <script type="text/javascript">
 
@@ -34,6 +40,7 @@
       google.charts.setOnLoadCallback(drawcondominioChart);
 
       google.charts.setOnLoadCallback(drawincidenteChart);
+      google.charts.setOnLoadCallback(drawMainDashboard2);
 
       function drawcondominioChart() {
 
@@ -98,7 +105,7 @@
             'filterColumnIndex': 0,
             'ui': {
               'labelStacking': 'vertical',
-              'label': 'Seleção do Condomínio:',
+              'label': 'Escolha o Condomínio:',
               'allowTyping': false,
               'allowMultiple': false
             }
@@ -130,14 +137,58 @@
           ]);
 
 
-
-
-
     dashboard.bind([categoryPicker], [pie]);
     dashboard.draw(data);
   }
 
+  function drawMainDashboard2() {
+        var dashboard = new google.visualization.Dashboard(
+            document.getElementById('dashboard_div'));
+      
+        var categoryPicker2 = new google.visualization.ControlWrapper({
+          'controlType': 'CategoryFilter',
+          'containerId': 'categoryPicker2_div',
+          'options': {
+            'filterColumnIndex': 0,
+            'ui': {
+              'labelStacking': 'vertical',
+              'label': 'Escolha o Ano:',
+              'allowTyping': false,
+              'allowMultiple': false
+            }
+          }
+        });
+        
+        var pie = new google.visualization.ChartWrapper({
+          'chartType': 'PieChart',
+          'containerId': 'chart_div2',
+          'options': {
+            legend: {position: 'right'},
+            pieSliceTextStyle: {color: 'white'},
+          },
+          'view': {'columns': [1, 2]}
+        });
+  
+        var data = google.visualization.arrayToDataTable([
 
+          ['data_incidente','nome_condominio','incidentes'],
+          <?php 
+                      $query ="SELECT year(data_incidente) as data_incidente, condominio.nome as nome_condominio, COUNT(id_incidente) as incidentes 
+                      FROM incidente INNER JOIN zona ON incidente.id_zona=zona.id_zona 
+                      INNER JOIN condominio ON condominio.id_condominio=zona.id_condominio 
+                      GROUP BY year(data_incidente), condominio.nome";  
+                      $result = mysqli_query($conn, $query);
+                  
+                      while($row = mysqli_fetch_array($result)){
+                          echo utf8_encode("['".$row['data_incidente']."','".$row['nome_condominio']."',".$row['incidentes']."],");
+                          }
+                      ?> 
+
+          ]);
+
+    dashboard.bind([categoryPicker2], [pie]);
+    dashboard.draw(data);
+  }
 
     </script>
   </head>
@@ -147,6 +198,5 @@
         <div id="incidente_chart_div" style="width: 100%; height: 500px;"></div>
         <input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {&quot;dimension6&quot;: null, &quot;dimension5&quot;: &quot;pt-pt&quot;, &quot;dimension3&quot;: false, &quot;dimension8&quot;: &quot;scriptsafe&quot;, &quot;dimension1&quot;: &quot;Signed out&quot;}, &quot;gaid&quot;: &quot;UA-24532603-1&quot;}">
         <input class="google-analytics-id-json" type="hidden" value="{&quot;dimensions&quot;: {}, &quot;gaid&quot;: &quot;UA-47037920-1&quot;}">
-
   </body>
 </html>

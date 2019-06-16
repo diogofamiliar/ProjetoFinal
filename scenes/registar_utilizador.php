@@ -2,7 +2,6 @@
     session_start();
     ob_start();
         $_SESSION["camefrom"]="scenes";
-        echo $_SESSION['camefrom'];
 
         include __DIR__.'/../headers/header_scenes.php'; 
     ?>

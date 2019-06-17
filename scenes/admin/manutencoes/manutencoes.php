@@ -95,9 +95,9 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
           <tr class="<?php if (($rows['data_conclusao'] == "") and ($rows['data_planeada'] == $rows['hoje'])){ echo 'table-danger';}elseif(($rows['data_conclusao'] == null)){ echo '';}elseif(isset($rows['data_conclusao'])){ echo 'table-success';} ?>">
               <td><?php echo utf8_encode($rows["data_planeada"]); ?></td>
               <td><?php echo utf8_encode($rows["data_conclusao"]); ?></td>
-              <td><?php echo utf8_encode($rows["tipo_reparacao"]); ?></td>
               <td><?php echo utf8_encode($rows["cod_condominio"]); ?></td>
               <td><?php echo utf8_encode($rows["zona"]); ?></td>
+              <td><?php echo utf8_encode($rows["tipo_reparacao"]); ?></td>
               <td><?php echo utf8_encode($rows["fornecedor"]); ?></td>
           </tr>
           <?php

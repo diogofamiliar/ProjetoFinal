@@ -100,7 +100,7 @@ function OnButton2()
 
         ?>
       <tr>
-      <?php $id_inc=$rows['id_incidente']; ?>
+      <?php $id_incidente=$rows['id_incidente']; ?>
           <td class="col-sm-1"><input type="checkbox" name="id_incidente[]" value="<?php echo $rows['id_incidente']; ?>" multiple></td>
           <td><?php echo utf8_encode($rows["data_incidente"]); ?></td>
           <td><?php echo utf8_encode($rows["cod_condominio"]); ?></td>
@@ -108,7 +108,7 @@ function OnButton2()
           <td><?php echo utf8_encode($rows["descricao"]); ?></td>
           <td><?php echo utf8_encode($rows["id_categoria_incidente"]); ?></td>
 <?php
-          $sql1="SELECT caminho FROM fotografia WHERE id_incidente=$id_inc";
+          $sql1="SELECT caminho FROM fotografia WHERE id_incidente=$id_incidente";
           $resultset1 = mysqli_query($conn, $sql1) or die("database error:". mysqli_error($conn));
           while($row = mysqli_fetch_assoc($resultset1)) {
 ?>

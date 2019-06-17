@@ -5,7 +5,7 @@
 
     include __DIR__.'/../../core/connect.php';
     mysqli_set_charset($conn, "utf8");
-
+ 
 // ficheiro que pega no formulario do adicionar_documento.php e insere os dados do form na tabela da bd
 
     if (isset ($_POST['tipo_documento'], $_POST['id_zona'], $_POST['descricao'] )) {

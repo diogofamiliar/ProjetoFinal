@@ -48,7 +48,7 @@ session_start();
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="edit_profile.php">
+                    <a class="nav-link" href="/ProjetoFinal/scenes/admin/edit_profile.php">
                         <span class="fa fa-user" aria-hidden="true" style="font-size:20px;"></span> Perfil
                     </a>
                 </li>

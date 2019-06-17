@@ -47,7 +47,12 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
   include '../../headers/tecnico_header.php';
   include '../../core/connect.php';
   //include '../../../core/notificacao.php'; //verifica o nr_notificacoes por ler
-  //$id_utilizador=$_SESSION['id_utilizador'];
+  $id_utilizador=$_SESSION['id_utilizador'];
+  //Vê a que fornecedor pertence o utilizador
+  $sql="SELECT id_fornecedor, id_utilizador FROM fornecedor_utilizador WHERE id_utilizador='$id_utilizador'";
+  $result=mysqli_query($conn,$sql);
+  $row=mysqli_fetch_array($result);
+  $id_fornecedor=$row['id_fornecedor'];
 	?>
   
   <h1 id="h1-centered">Lista de tarefas:</h1>
@@ -85,6 +90,7 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
                           INNER JOIN fotografia
                           ON fotografia.id_incidente=incidente.id_incidente
                           WHERE manutencao.data_conclusao IS NULL
+                          AND manutencao.id_fornecedor='$id_fornecedor'
                           ORDER BY data_planeada ASC";
 
               $resultset = $conn->query($sql);

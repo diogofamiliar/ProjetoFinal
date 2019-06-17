@@ -54,7 +54,7 @@ if (isset($_POST['cod_fornecedor'])) {
                             </div>                            
                             <div class="form-group">
                                 <label for="inputTel" class="col-sm-4 col-form-label">Telemóvel:</label>
-                                <input type="tel" name="telemovel" class="form-control col-sm-6" id="inputCodCondominio" value="<?php echo utf8_encode($row['telemovel']);?>" placeholder="<?php echo utf8_encode($row['cod_condominio']);?>"  required required pattern="[0-9]{9}">
+                                <input type="tel" name="telemovel" class="form-control col-sm-6" id="inputCodCondominio" value="<?php echo utf8_encode($row['telemovel']);?>" placeholder="<?php echo utf8_encode($row['cod_condominio']);?>"  required pattern="[0-9]{9}">
                                 
                             </div>
                         </div>

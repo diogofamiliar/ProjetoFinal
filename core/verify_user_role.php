@@ -26,7 +26,17 @@ $sql="SELECT nome FROM grupo WHERE id_grupo='$id_grupo'";
             header('location: scenes/cliente/cliente.php', true);   
            }
     }
-    else if ($row['nome']=="tecnico"){ 
+    else if ($row['nome']=="tecnico"){
+        if($_SESSION["camefrom"]=="scenes"){ //este if irá reencaminhar os utilizadores para a sua àrea de utilizador consoante o sítio de onde fizeram login
+            session_start();
+            ob_start();
+            header('location: tecnico/tecnico.php', true);      
+        }else{
+            session_start();
+            ob_start();
+            unset($_SESSION["camefrom"]);
+            header('location: scenes/tecnico/tecnico.php', true);   
+           }
                    
     }else if ($row['nome']=="admin"){ 
         if($_SESSION["camefrom"]=="scenes"){ //este if irá reencaminhar os utilizadores para a sua àrea de utilizador consoante o sítio de onde fizeram login

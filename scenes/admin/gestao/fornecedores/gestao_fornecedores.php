@@ -76,7 +76,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
             </div>          
             <div>
               <label class="form-label">Telemovel:</label>
-              <input type="tel" form="form3" name="telemovel" class="form-control col-sm-8" required required pattern="[0-9]{9}">
+              <input type="tel" form="form3" name="telemovel" class="form-control col-sm-8" required pattern="[0-9]{9}" placeholder="Introduza um numero de 9 digitos">
             </div>
             <div>
               <label class="form-label">Email:</label>

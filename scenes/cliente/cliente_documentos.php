@@ -2,7 +2,7 @@
 session_start();
 	include __DIR__.'/../../headers/cliente_header.php';
 
-if(isset($_SESSION['nome_grupo'])=='cliente' && isset($_SESSION['id_utilizador'])){
+if($_SESSION['nome_grupo']=='cliente' && $_SESSION['id_utilizador']){
   $id_utilizador=$_SESSION['id_utilizador'];  
     include __DIR__.'/../../core/connect.php';
    

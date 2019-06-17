@@ -36,7 +36,7 @@ session_start();
                 </li>
             </ul>
         </div>
-        <a class="navbar-brand" href="../../index.php"><img src="https://i.imgur.com/SzFkxr6.png"></a>
+        <a class="navbar-brand" href="/ProjetoFinal/scenes/admin/admin.php"><img src="https://i.imgur.com/SzFkxr6.png"></a>
         <div class="navbar-collapse collapse dual-nav w-50 order-2">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item">

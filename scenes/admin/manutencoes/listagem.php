@@ -74,13 +74,14 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
             </thead>
             <tbody>
               <?php
-              $sql = "SELECT manutencao.id_manutencao as id_manutencao, manutencao.data_planeada as data_planeada, incidente.id_incidente as id_incidente, incidente.local as local, manutencao.observacoes as observacoes, incidente_manutencao.estado as estado, zona.id_zona, condominio.cod_condominio as cod_condominio, manutencao.id_fornecedor as id_fornecedor, fornecedor.nome as fornecedor  FROM manutencao
+              $sql = "SELECT manutencao.data_conclusao, manutencao.id_manutencao as id_manutencao, manutencao.data_planeada as data_planeada, incidente.id_incidente as id_incidente, incidente.local as local, manutencao.observacoes as observacoes, incidente_manutencao.estado as estado, zona.id_zona, condominio.cod_condominio as cod_condominio, manutencao.id_fornecedor as id_fornecedor, fornecedor.nome as fornecedor  FROM manutencao
               INNER JOIN incidente_manutencao ON manutencao.id_manutencao=incidente_manutencao.id_manutencao
               INNER JOIN incidente ON incidente.id_incidente=incidente_manutencao.id_incidente
               INNER JOIN zona ON zona.id_zona=incidente.id_zona
               INNER JOIN condominio ON condominio.id_condominio=zona.id_condominio
               INNER JOIN fornecedor ON fornecedor.id_fornecedor=manutencao.id_fornecedor
-              WHERE incidente_manutencao.estado NOT LIKE 'concl%'";
+              WHERE manutencao.data_planeada >= now() OR manutencao.data_planeada = CURDATE()
+              ORDER BY manutencao.data_planeada, manutencao.data_conclusao ASC";
               $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
               while($rows = mysqli_fetch_assoc($resultset)) {
               ?>

@@ -1,7 +1,6 @@
 
 <?php   session_start();
         ob_start();     
-        echo $_SESSION["camefrom"];
         include "../core/connect.php";
 
     if (isset ($_POST['nome_completo'], $_POST['email'], $_POST['id_condominio'], $_POST['senha'])) {

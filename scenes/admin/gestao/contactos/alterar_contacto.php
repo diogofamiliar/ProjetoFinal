@@ -1,4 +1,9 @@
 <?php
+session_start();
+if(isset($_SESSION['nome_grupo'])=='admin' || isset($_SESSION['nome_grupo'])=='master' && isset($_SESSION['id_utilizador'])){
+}else header('Location: /ProjetoFinal/index.php');
+?>
+<?php
 if (isset($_POST['id_contacto_util'])) {
     $id_contacto_util=$_POST['id_contacto_util'];
 } else {header( "Location: gestao_contactos.php" );}

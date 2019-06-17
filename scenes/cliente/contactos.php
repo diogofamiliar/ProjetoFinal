@@ -1,7 +1,7 @@
 <?php
 	include __DIR__.'/../../headers/cliente_header.php';
 
-if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
+if(isset($_SESSION['nome_grupo'])=='inquilino' || isset($_SESSION['nome_grupo'])=='cliente' && isset($_SESSION['id_utilizador'])){
   $id_utilizador=$_SESSION['id_utilizador'];  
     include __DIR__.'/../../core/connect.php';
    

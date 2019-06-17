@@ -1,3 +1,8 @@
+<?php 
+session_start();
+if(isset($_SESSION['nome_grupo'])=='tecnico' && isset($_SESSION['id_utilizador'])){
+}else header('Location: /ProjetoFinal/index.php');
+?>
 <?php
 include "../../core/connect.php";
 /*

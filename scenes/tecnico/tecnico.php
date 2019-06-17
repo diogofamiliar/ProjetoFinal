@@ -1,12 +1,8 @@
-<?php/*
+<?php 
 session_start();
-if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador'])){
-}else header('Location: ../../index.php');
-*/
+if(isset($_SESSION['nome_grupo'])=='tecnico' && isset($_SESSION['id_utilizador'])){
+}else header('Location: /ProjetoFinal/index.php');
 ?>
-
-
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -29,8 +25,6 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
 	<?php
   include '../../headers/tecnico_header.php';
   include '../../core/connect.php';
-  //include '../../../core/notificacao.php'; //verifica o nr_notificacoes por ler
-  //$id_utilizador=$_SESSION['id_utilizador'];
 	?>
     
     <h1 id="h1-centered">

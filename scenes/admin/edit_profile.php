@@ -1,13 +1,15 @@
 <?php
-//session_start();
+session_start();
+if(isset($_SESSION['nome_grupo'])=='admin' || isset($_SESSION['nome_grupo'])=='master' && isset($_SESSION['id_utilizador'])){
+}else header('Location: /ProjetoFinal/index.php');
+?>
+<?php
 include __DIR__.'/../../headers/admin_header.php';
-//if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador'])){
-    include "../../core/connect.php";
-    $id_utilizador=$_SESSION['id_utilizador'];
-    $sql="SELECT nome, data_nascimento, email, telemovel, senha FROM utilizador WHERE id_utilizador='$id_utilizador'";
-    $result=mysqli_query($conn,$sql);
-    $row=mysqli_fetch_array($result);
-//}else header('Location: ../../index.php');
+include "../../core/connect.php";
+$id_utilizador=$_SESSION['id_utilizador'];
+$sql="SELECT nome, data_nascimento, email, telemovel, senha FROM utilizador WHERE id_utilizador='$id_utilizador'";
+$result=mysqli_query($conn,$sql);
+$row=mysqli_fetch_array($result);
 ?>
 
 <!doctype html>

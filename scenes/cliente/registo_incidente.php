@@ -1,6 +1,6 @@
 <?php
 include '../../headers/cliente_header.php';
-if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador'])){
+if(isset($_SESSION['nome_grupo'])=='inquilino' || isset($_SESSION['nome_grupo'])=='cliente' && isset($_SESSION['id_utilizador'])){
 }else header('Location: ../../index.php');
 ?>
 

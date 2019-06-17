@@ -1,12 +1,14 @@
 <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
 <link rel="icon" href="https://i.imgur.com/SzFkxr6.png">
 <?php
-    include __DIR__.'/../../headers/admin_header.php';
-    
-    if(isset($_SESSION['id_grupo'])=='admin' || isset($_SESSION['id_utilizador'])){
-        $id_utilizador=$_SESSION['id_utilizador'];  
-        include __DIR__.'/../../core/connect.php';
-    }else header('Location: ../../index.php');
+session_start();
+if(isset($_SESSION['nome_grupo'])=='admin' || isset($_SESSION['nome_grupo'])=='master' && isset($_SESSION['id_utilizador'])){
+}else header('Location: /ProjetoFinal/index.php');
+?>
+<?php
+include __DIR__.'/../../headers/admin_header.php';
+$id_utilizador=$_SESSION['id_utilizador'];  
+include __DIR__.'/../../core/connect.php';
 ?>
 <html>
     <!-- Required meta tags -->

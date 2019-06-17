@@ -1,9 +1,8 @@
-<?php /*
+<?php
 session_start();
-if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) && isset ($_POST['id_incidente'])){
-    $id_incidente=$_POST['id_incidente'];
-}else header('Location: ../../index.php');
-*/?>
+if(isset($_SESSION['nome_grupo'])=='admin' || isset($_SESSION['nome_grupo'])=='master' && isset($_SESSION['id_utilizador'])){
+}else header('Location: /ProjetoFinal/index.php');
+?>
 <?php
   include "../../../../core/connect.php";
 	include '../../../../headers/admin_header.php';
@@ -31,7 +30,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
 
     <script language="JavaScript" type="text/javascript">
     function checkDelete() {
-        var x = $('[name="cod_fornecedor[]"]:checked').length;
+        var x = $('[name="id_fornecedor[]"]:checked').length;
             if(x>0){ 
             var confirmed = confirm("Pretende eliminar os fornecedores eliminados?");
                 if(confirmed){
@@ -105,12 +104,12 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
             </thead>
             <tbody>
               <?php
-              $sql = "SELECT cod_fornecedor, nome, email, telemovel, morada FROM fornecedor";
+              $sql = "SELECT id_fornecedor, nome, email, telemovel, morada FROM fornecedor";
               $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
               while($rows = mysqli_fetch_assoc($resultset)) {
               ?>
                 <tr>
-                    <td class="col-sm-1"><input type="checkbox" name="cod_fornecedor[]" value="<?php echo $rows['cod_fornecedor']; ?>" multiple></td>
+                    <td class="col-sm-1"><input type="checkbox" name="id_fornecedor[]" value="<?php echo $rows['id_fornecedor']; ?>" multiple></td>
                     <td><?php echo utf8_encode($rows["nome"]); ?></td>
                     <td><?php echo utf8_encode($rows["email"]); ?></td>
                     <td><?php echo utf8_encode($rows["telemovel"]); ?></td>

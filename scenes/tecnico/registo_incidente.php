@@ -1,8 +1,10 @@
+<?php 
+session_start();
+if(isset($_SESSION['nome_grupo'])=='tecnico' && isset($_SESSION['id_utilizador'])){
+}else header('Location: /ProjetoFinal/index.php');
+?>
 <?php
-include '../../headers/tecnico_header.php';/*
-if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador'])){
-}else header('Location: ../../index.php');
-*/?>
+include '../../headers/tecnico_header.php';?>
 
 <!doctype html>
 <html lang="en">

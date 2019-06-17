@@ -1,8 +1,12 @@
 <?php
+session_start();
+if(isset($_SESSION['nome_grupo'])=='admin' || isset($_SESSION['nome_grupo'])=='master' && isset($_SESSION['id_utilizador'])){
+}else header('Location: /ProjetoFinal/index.php');
+?>
+<?php
 if (isset($_POST['condominio'])) {
     $id_condominio=$_POST['condominio'];
-    echo $id_condominio;
-} else {header( "Location: registar_utilizador.php" );}
+} else {header( "Location: /ProjetoFinal/index.php" );}
 ?>
 
 <!doctype html>

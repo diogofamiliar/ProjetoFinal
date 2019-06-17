@@ -1,14 +1,15 @@
+<?php 
+session_start();
+if(isset($_SESSION['nome_grupo'])=='tecnico' && isset($_SESSION['id_utilizador'])){
+}else header('Location: /ProjetoFinal/index.php');
+?>
 <?php
   include '../../headers/tecnico_header.php';
-   
-//if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
     $id_utilizador=$_SESSION['id_utilizador'];  
     include __DIR__.'/../../core/connect.php';
-
-      // query que mostra os contactos
-      $query ="SELECT contacto_util.contacto, contacto_util.tipo_de_contacto, condominio.nome as nome_condominio FROM contacto_util INNER JOIN condominio_contacto ON contacto_util.id_contacto_util=condominio_contacto.id_contacto_util INNER JOIN condominio ON condominio_contacto.id_condominio=condominio.id_condominio";  
-      $result = mysqli_query($conn, $query);
- // }else header('Location: ../../index.php');
+    // query que mostra os contactos
+    $query ="SELECT contacto_util.contacto, contacto_util.tipo_de_contacto, condominio.nome as nome_condominio FROM contacto_util INNER JOIN condominio_contacto ON contacto_util.id_contacto_util=condominio_contacto.id_contacto_util INNER JOIN condominio ON condominio_contacto.id_condominio=condominio.id_condominio";  
+    $result = mysqli_query($conn, $query);
 ?>
 
 

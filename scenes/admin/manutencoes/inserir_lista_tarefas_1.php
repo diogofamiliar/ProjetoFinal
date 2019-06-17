@@ -50,4 +50,5 @@ $id_incidente=$_POST['id_incidente'];$observacao=$_POST['observacao'];$id_tipo_m
 header('Location: selecao_ocorrencias.php');
 //CRIAR COOKIE
 }
+header('Location: selecao_ocorrencias.php');
 ?>

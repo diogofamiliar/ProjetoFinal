@@ -1,7 +1,7 @@
 <?php
-include __DIR__.'/../../headers/admin_header.php';
-if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador'])){
-}else header('Location: ../../index.php');
+session_start();
+if(isset($_SESSION['nome_grupo'])=='admin' || isset($_SESSION['nome_grupo'])=='master' && isset($_SESSION['id_utilizador'])){
+}else header('Location: /ProjetoFinal/index.php');
 ?>
 
 <!doctype html>

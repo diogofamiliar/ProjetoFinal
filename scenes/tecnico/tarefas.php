@@ -77,21 +77,19 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
             </thead>
             <tbody>
             <?php
-              $sql =    "SELECT caminho, manutencao.id_manutencao as id_manutencao, tipo_manutencao.descricao as tipo_manutencao, incidente.id_zona, zona.morada as morada, zona.nome as entrada, manutencao.id_tipo_manutencao, manutencao.data_planeada as data_planeada, manutencao.observacoes as observacoes, incidente.descricao as descricao
-                          FROM manutencao
-                          INNER JOIN incidente_manutencao
-                          ON manutencao.id_manutencao=incidente_manutencao.id_manutencao
-                          INNER JOIN incidente
-                          ON incidente.id_incidente=incidente_manutencao.id_incidente
-                          INNER JOIN zona
-                          ON zona.id_zona=incidente.id_zona
-                          INNER JOIN tipo_manutencao
-                          ON tipo_manutencao.id_tipo_manutencao=manutencao.id_tipo_manutencao
-                          INNER JOIN fotografia
-                          ON fotografia.id_incidente=incidente.id_incidente
-                          WHERE manutencao.data_conclusao IS NULL
-                          AND manutencao.id_fornecedor='$id_fornecedor'
-                          ORDER BY data_planeada ASC";
+              $sql =    "SELECT manutencao.id_manutencao as id_manutencao, tipo_manutencao.descricao as tipo_manutencao, incidente.id_zona, zona.morada as morada, zona.nome as entrada, manutencao.id_tipo_manutencao, manutencao.data_planeada as data_planeada, manutencao.observacoes as observacoes, incidente.descricao as descricao
+                        FROM manutencao
+                        INNER JOIN incidente_manutencao
+                        ON manutencao.id_manutencao=incidente_manutencao.id_manutencao
+                        INNER JOIN incidente
+                        ON incidente.id_incidente=incidente_manutencao.id_incidente
+                        INNER JOIN zona
+                        ON zona.id_zona=incidente.id_zona
+                        INNER JOIN tipo_manutencao
+                        ON tipo_manutencao.id_tipo_manutencao=manutencao.id_tipo_manutencao
+                        WHERE manutencao.data_conclusao IS NULL
+                        AND manutencao.id_fornecedor='$id_fornecedor'
+                        ORDER BY data_planeada ASC";
 
               $resultset = $conn->query($sql);
               if ($resultset->num_rows > 0) {

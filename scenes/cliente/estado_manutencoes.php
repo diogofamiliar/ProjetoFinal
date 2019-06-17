@@ -1,6 +1,6 @@
 <?php
+session_start();
 include __DIR__.'/../../headers/cliente_header.php'; 
-//session_start();
 if(isset($_SESSION['nome_grupo'])=='inquilino' || isset($_SESSION['nome_grupo'])=='cliente' && isset($_SESSION['id_utilizador'])){
     $id_utilizador=$_SESSION['id_utilizador'];
     include __DIR__.'/../../core/connect.php';

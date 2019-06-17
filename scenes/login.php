@@ -30,9 +30,6 @@ ob_start();
                 <div class="content-center" id="modal_footer_content">
                     <ul style="list-style-type: none;">
                         <li>
-                            <p>Esqueceste-te da <a href="#">palavra-passe?</a></p>
-                        </li>
-                        <li>
                             <button type="submit" class="btn btn-danger btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Cancel</button>
                         </li>
                     </ul>

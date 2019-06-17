@@ -42,6 +42,11 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
         */?>
         Bem-vindo <?php/* echo $row['nome'];*/?>
     </h1>
+    <div class="container" id="index_incidentes">
+    <h2 id="h1-centered">Incidentes</h2>
+    <a href="registo_incidente.php" class="btn btn-lg btn-change btn-block" role="button">Registar incidente</a>
+    <a href="tarefas.php" class="btn btn-lg btn-change btn-block" role="button">Lista tarefas</a>
+  </div>
 	<div class="container col-11">
 
     </div>

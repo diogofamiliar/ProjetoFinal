@@ -88,19 +88,32 @@ function OnButton2()
       </thead>
       <tbody>
         <?php
-        $sql = "SELECT caminho, incidente.id_incidente AS id_incidente, data_incidente, condominio.cod_condominio AS cod_condominio, zona.nome AS entrada, descricao, id_categoria_incidente  FROM incidente INNER JOIN zona ON incidente.id_zona = zona.id_zona INNER JOIN condominio ON condominio.id_condominio = zona.id_condominio INNER JOIN fotografia ON incidente.id_incidente=fotografia.id_incidente LEFT JOIN incidente_manutencao ON incidente.id_incidente = incidente_manutencao.id_incidente WHERE incidente_manutencao.id_incidente IS NULL;";
+        $sql = "SELECT incidente.id_incidente AS id_incidente, data_incidente, condominio.cod_condominio AS cod_condominio, zona.nome AS entrada, descricao, id_categoria_incidente  
+        FROM incidente INNER JOIN zona ON incidente.id_zona = zona.id_zona 
+        INNER JOIN condominio ON condominio.id_condominio = zona.id_condominio 
+        LEFT JOIN fotografia ON incidente.id_incidente=fotografia.id_incidente 
+        LEFT JOIN incidente_manutencao ON incidente.id_incidente = incidente_manutencao.id_incidente 
+        WHERE incidente_manutencao.id_incidente IS NULL GROUP BY id_incidente;";
         $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
 
         while($rows = mysqli_fetch_assoc($resultset)) {
+
         ?>
       <tr>
+      <?php $id_inc=$rows['id_incidente']; ?>
           <td class="col-sm-1"><input type="checkbox" name="id_incidente[]" value="<?php echo $rows['id_incidente']; ?>" multiple></td>
           <td><?php echo utf8_encode($rows["data_incidente"]); ?></td>
           <td><?php echo utf8_encode($rows["cod_condominio"]); ?></td>
           <td><?php echo utf8_encode($rows["entrada"]); ?></td>
           <td><?php echo utf8_encode($rows["descricao"]); ?></td>
           <td><?php echo utf8_encode($rows["id_categoria_incidente"]); ?></td>
-          <td><a href="\ProjetoFinal\uploads\fotografias\<?php echo $rows['caminho'];?>"><img  name="fotos" style="width: 70px; height: 70px;" title="foto" src="\ProjetoFinal\uploads\fotografias\<?php echo $rows['caminho'];?>"></td>
+<?php
+          $sql1="SELECT caminho FROM fotografia WHERE id_incidente=$id_inc";
+          $resultset1 = mysqli_query($conn, $sql1) or die("database error:". mysqli_error($conn));
+          while($row = mysqli_fetch_assoc($resultset1)) {
+?>
+          <td><a href="\ProjetoFinal\uploads\fotografias\<?php echo $row['caminho'];?>"><img  name="fotos" style="width: 70px; height: 70px;" title="foto" src="\ProjetoFinal\uploads\fotografias\<?php echo $row['caminho'];?>"></td>
+    <?php } ?>
       </tr>
       <?php
       }

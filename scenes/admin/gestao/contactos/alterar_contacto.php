@@ -1,6 +1,6 @@
 <?php
-if (isset($_POST['id_utilizador'])) {
-    $id_utilizador=$_POST['id_utilizador'];
+if (isset($_POST['id_contacto_util'])) {
+    $id_contacto_util=$_POST['id_contacto_util'];
 } else {header( "Location: gestao_contactos.php" );}
 ?>
 

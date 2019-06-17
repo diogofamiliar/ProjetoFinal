@@ -126,7 +126,11 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
                     <td><?php echo utf8_encode($rows["nome"]); ?></td>
                     <td class="d-flex justify-content-center">
                         <form method="POST" id="form2" action="alterar_contacto.php">
+<<<<<<< HEAD
                           <button form="form2" name="id_contacto" class="btn btn-info" type="submit" value="<?php echo utf8_encode($rows['id_contacto_util']); ?>"> Alterar</button>
+=======
+                          <button form="form2" name="id_contacto_util" class="btn btn-info" type="submit" value="<?php echo utf8_encode($rows['id_contacto_util']); ?>"> Alterar</button>
+>>>>>>> 26439b0e7b48ebc4bc0fc42c0f30c00411c0bf8c
                         </form>
                     </td>
                 </tr>
@@ -135,7 +139,6 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
               ?>
             </tbody>
         </table>
-          
           </form>
       </div>  
       </div>

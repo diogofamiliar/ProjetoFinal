@@ -80,7 +80,6 @@ include __DIR__.'/../../headers/admin_header.php';
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label"></label>
                                 <div class="col-lg-9">
-                                    <input type="reset" class="btn btn-secondary" value="Cancel">
                                     <input type="submit" class="btn btn-primary" value="Save Changes">
                                 </div>
                             </div>

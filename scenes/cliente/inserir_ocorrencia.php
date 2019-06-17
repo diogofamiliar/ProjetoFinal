@@ -48,5 +48,6 @@ if (mysqli_query($conn, $sql)) {
 
 
 mysqli_close($conn);
-//header('location: cliente.php', true);   
+setcookie("registo_efetuado", "1", time()+(3), "/"); // o "/" disponibiliza a cookie para toda a plataforma
+header('location: cliente.php', true);   
 ?>

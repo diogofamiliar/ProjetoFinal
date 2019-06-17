@@ -77,7 +77,7 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
             </thead>
             <tbody>
             <?php
-              $sql =    "SELECT manutencao.id_manutencao as id_manutencao, tipo_manutencao.descricao as tipo_manutencao, incidente.id_zona, zona.morada as morada, zona.nome as entrada, manutencao.id_tipo_manutencao, manutencao.data_planeada as data_planeada, manutencao.observacoes as observacoes, incidente.descricao as descricao
+              $sql =    "SELECT  incidente.id_incidente, manutencao.id_manutencao as id_manutencao, tipo_manutencao.descricao as tipo_manutencao, incidente.id_zona, zona.morada as morada, zona.nome as entrada, manutencao.id_tipo_manutencao, manutencao.data_planeada as data_planeada, manutencao.observacoes as observacoes, incidente.descricao as descricao
                         FROM manutencao
                         INNER JOIN incidente_manutencao
                         ON manutencao.id_manutencao=incidente_manutencao.id_manutencao
@@ -96,13 +96,26 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
               while($rows = mysqli_fetch_assoc($resultset)) {
               ?>
             <tr class="d-flex"> 
+            <?php $id_incidente=$rows['id_incidente']; ?>
                 <td class="col-1"><input type="checkbox" name="id_manutencao[]" value="<?php echo $rows['id_manutencao']; ?>" multiple></td>
                 <td class="col-1"><?php echo utf8_encode($rows["data_planeada"]); ?></td>
                 <td class="col-2"><?php echo utf8_encode($rows["entrada"]);?><br><?php echo utf8_encode($rows["morada"]);?></td>
                 <td class="col-2"><?php echo utf8_encode($rows["tipo_manutencao"]); ?></td>
                 <td class="col-2"><?php echo utf8_encode($rows["observacoes"]);?></td>
                 <td class="col-2"><?php echo utf8_encode($rows["descricao"]);?></td>
-                <td class="col-2"><a href="\ProjetoFinal\uploads\fotografias\<?php echo $rows['caminho'];?>"><img  name="fotos" style="width: 90px; height: 90px;" title="foto" src="\ProjetoFinal\uploads\fotografias\<?php echo $rows['caminho'];?>"></td>               
+                <td class="col-2">
+<?php
+          $sql1="SELECT caminho FROM fotografia WHERE id_incidente=$id_incidente";
+          $resultset1 = mysqli_query($conn, $sql1) or die("database error:". mysqli_error($conn));
+?>
+         
+<?php
+          while($row = mysqli_fetch_assoc($resultset1)) {
+?>
+          <a href="\ProjetoFinal\uploads\fotografias\<?php echo utf8_encode($row['caminho']);?>"><img  name="fotos" style="width: 70px; height: 70px;" title="foto" src="\ProjetoFinal\uploads\fotografias\<?php echo utf8_encode($row['caminho']);?>">
+    <?php } ?>
+    </td>
+                            
             </tr>
             <?php
               }}else{

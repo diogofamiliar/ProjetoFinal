@@ -1,5 +1,5 @@
 <?php
-session_start();
+include __DIR__.'/../../headers/admin_header.php';
 if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador'])){
 }else header('Location: ../../index.php');
 ?>
@@ -21,7 +21,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
     </head>
 
     <body>
-        <?php include '../../headers/admin_header.php';?>
+       
         <div class="container">
             <h2>Adicionar Documento</h2>
             <form action="inserir_documento.php" method="Post" enctype="multipart/form-data">

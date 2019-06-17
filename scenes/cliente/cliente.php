@@ -67,6 +67,20 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
 <?php
   }    
 ?>
+<?php
+  if(isset($_COOKIE["registo_efetuado"])){
+?>
+      <script>
+      swal({
+            title: "Sucesso!",
+            text: "Pedido de manutenção inserido com sucesso!",
+            icon: "success",
+            button: "Continuar",
+      });
+      </script>
+<?php
+  }
+?>
 
 </body>
 

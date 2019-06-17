@@ -81,7 +81,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
               <td><?php echo utf8_encode($rows["assunto"]); ?></td>
               <td><?php echo utf8_encode($rows["texto"]); ?></td>
               <td><?php echo utf8_encode($rows["data_criacao"]); ?></td>
-              <td><?php echo utf8_encode($rows["lida"]); ?></td>
+              <td><?php if($rows["lida"]==1){ echo "Sim";}elseif($rows["lida"]==NULL){echo "Não";}; ?></td>
           </tr>
           <?php
           }

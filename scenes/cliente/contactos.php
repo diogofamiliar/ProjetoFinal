@@ -1,4 +1,5 @@
 <?php
+session_start();
 	include __DIR__.'/../../headers/cliente_header.php';
 
 if(isset($_SESSION['nome_grupo'])=='inquilino' || isset($_SESSION['nome_grupo'])=='cliente' && isset($_SESSION['id_utilizador'])){

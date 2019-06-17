@@ -39,7 +39,7 @@ $row=mysqli_fetch_array($result);
                         <h1 class="mb-0" id="h1-centered">Perfil</h1>
                     </div>
                     <div class="card-body">
-                        <form class="form" role="form" autocomplete="off" method="post" action="../../core/alter_user.php">
+                        <form class="form" role="form" autocomplete="off" method="post" action="alter_user.php">
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label">Nome</label>
                                 <div class="col-lg-9">

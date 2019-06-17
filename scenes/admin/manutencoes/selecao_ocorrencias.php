@@ -110,10 +110,14 @@ function OnButton2()
 <?php
           $sql1="SELECT caminho FROM fotografia WHERE id_incidente=$id_incidente";
           $resultset1 = mysqli_query($conn, $sql1) or die("database error:". mysqli_error($conn));
+?>
+          <td>
+<?php
           while($row = mysqli_fetch_assoc($resultset1)) {
 ?>
-          <td><a href="\ProjetoFinal\uploads\fotografias\<?php echo $row['caminho'];?>"><img  name="fotos" style="width: 70px; height: 70px;" title="foto" src="\ProjetoFinal\uploads\fotografias\<?php echo $row['caminho'];?>"></td>
+          <a href="\ProjetoFinal\uploads\fotografias\<?php echo $row['caminho'];?>"><img  name="fotos" style="width: 70px; height: 70px;" title="foto" src="\ProjetoFinal\uploads\fotografias\<?php echo $row['caminho'];?>">
     <?php } ?>
+    </td>
       </tr>
       <?php
       }

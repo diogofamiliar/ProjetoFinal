@@ -34,7 +34,7 @@ $id_incidente=$_POST['id_incidente'];$observacao=$_POST['observacao'];$id_tipo_m
         $conn->query($sql);
         //faz a associação id_incidente à respetiva manutenção (INSERÇÃO DE VALORES NA TABELA INCIDENTE_MANUTENCAO)
         foreach ($id_incidente as $key => $value) {
-            $sql="insert into incidente_manutencao (id_incidente,id_manutencao, data, estado) values ('$value','$manu_min', now(),'agendada')";
+            $sql="insert into incidente_manutencao (id_incidente,id_manutencao, data_insert, estado) values ('$value','$manu_min', now(),'agendada')";
             $manu_min++;
             if ($conn->query($sql) === TRUE) {
             } else {

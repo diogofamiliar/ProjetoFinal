@@ -1,8 +1,7 @@
-
 <?php
 session_start();
-if(isset($_SESSION['nome_grupo'])=='inquilino' || isset($_SESSION['nome_grupo'])=='cliente' && isset($_SESSION['id_utilizador'])){
-}else header('Location: ../../index.php');
+if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador'])){
+}else header('Location: /ProjetoFinal/index.php');
 ?>
 
 

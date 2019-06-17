@@ -1,9 +1,11 @@
 <?php
 session_start();
-if(isset($_SESSION['nome_grupo'])=='admin' || isset($_SESSION['nome_grupo'])=='master' && isset($_SESSION['id_utilizador'])){
+if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && isset($_SESSION['id_utilizador'])){
 }else header('Location: /ProjetoFinal/index.php');
 ?>
-<?php include __DIR__.'/../../headers/admin_header.php';?>
+<?php
+include __DIR__.'/../../headers/admin_header.php';
+?>
 
 <!doctype html>
 <html lang="en">

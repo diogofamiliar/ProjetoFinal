@@ -1,16 +1,11 @@
 <?php
-<<<<<<< HEAD
 session_start();
-if(isset($_SESSION['nome_grupo'])=='admin' || isset($_SESSION['nome_grupo'])=='master' && isset($_SESSION['id_utilizador'])){
+if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && isset($_SESSION['id_utilizador'])){
 }else header('Location: /ProjetoFinal/index.php');
 ?>
 <?php
-if (isset($_POST['cod_fornecedor'])) {
-    $cod_fornecedor=$_POST['cod_fornecedor'];
-=======
 if (isset($_POST['id_fornecedor'])) {
     $id_fornecedor=$_POST['id_fornecedor'];
->>>>>>> 5e276c70be62776675830feafba416430c0e182c
 } else {header( "Location: gestao_fornecedor.php" );}
 ?>
 

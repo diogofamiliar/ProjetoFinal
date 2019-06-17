@@ -2,7 +2,7 @@
 session_start();
 	include __DIR__.'/../../headers/cliente_header.php';
 
-if(isset($_SESSION['nome_grupo'])=='inquilino' || isset($_SESSION['nome_grupo'])=='cliente' && isset($_SESSION['id_utilizador'])){
+if(isset($_SESSION['nome_grupo'])=='cliente' && isset($_SESSION['id_utilizador'])){
   $id_utilizador=$_SESSION['id_utilizador'];  
     include __DIR__.'/../../core/connect.php';
    
@@ -14,7 +14,7 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' || isset($_SESSION['nome_grupo'])
     // query que mostra os documentos que estao relacionados com a zona do utilizador
     $query ="SELECT zona.nome AS nome_zona, utilizador_documento.data_criacao, documento.nome AS nome_documento, documento.descricao, documento.tipo_de_documento, documento.tamanho_ficheiro, documento.id_documento, utilizador.nome AS nome_autor FROM documento LEFT JOIN utilizador_documento ON documento.id_documento=utilizador_documento.id_documento LEFT JOIN zona ON zona.id_zona=documento.id_zona LEFT JOIN utilizador ON utilizador.id_utilizador=utilizador_documento.id_utilizador WHERE documento.id_zona=$row[id_zona]";  
     $result = mysqli_query($conn, $query);
-}else header('Location: /ProjetoFinal/index.php');
+}else header('Location: /ProjetoFinal/scenes/cliente/cliente.php');
 ?>
 
 <!doctype html>

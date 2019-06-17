@@ -28,7 +28,7 @@
         <div class="container">
             <h1>Registo de novo utilizador</h1>
             <p>Por favor preencha este formulário de forma a criar uma conta.</p>
-            <form action="registar_utilizador_1.php" method="Post" enctype="multipart/form-data"> <!--  VERIFICAR ISTO-->
+            <form action="registar_utilizador_1.php" method="Post" enctype="multipart/form-data" id="signup"> <!--  VERIFICAR ISTO-->
                 <div class="form-group">
                     <label for="localizacao" class="font-weight-bold">Insira o nome completo:</label>
                     <input type="text" class="form-control" id="nome" placeholder="Tiago Oliveira Cardoso" name="nome_completo" Required>
@@ -36,6 +36,7 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1" class="font-weight-bold">Endereço email:</label>
                     <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="...@email.com.pt" Required>
+                    <span></span>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1" class="font-weight-bold">Password:</label>
@@ -65,6 +66,33 @@
         <script type="text/javascript" src="../js/search_box.js" charset="utf-8"></script>
         <!-- Compara as duas pw's introduzidas -->
         <script src="../js/compare_pw.js"></script>
-
+<script>
+$(document).ready(function () {
+    $('#signup').validate({ 
+    errorLabelContainer: "#cs-error-note",
+    wrapper: "li",
+    rules: {
+        email: {
+            required: true,
+            email: true,
+                remote: {
+                    url: "check_email.php",
+                    type: "post"
+                 }
+        }
+    },
+    messages: {
+        email: {
+            required: "Please enter your email address.",
+            email: "Please enter a valid email address.",
+            remote: "Email already in use!"
+        }
+    },
+    submitHandler: function(form) {
+                        form.submit();
+                     }
+    });
+});
+</script>
 </html>
        

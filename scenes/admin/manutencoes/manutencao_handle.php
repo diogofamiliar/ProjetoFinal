@@ -1,9 +1,11 @@
 <?php
 session_start();
-if(isset($_SESSION['nome_grupo'])=='admin' || isset($_SESSION['nome_grupo'])=='master' && isset($_SESSION['id_utilizador'])){
+if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && isset($_SESSION['id_utilizador'])){
 }else header('Location: /ProjetoFinal/index.php');
 ?>
+
 <?php
+mysqli_set_charset($conn, "utf8");
 include "../../../core/connect.php";
 
     if(isset($_POST['equipa'], $_POST['data_agendamento'], $_POST['observacao'], $_POST['prioridade'], $_POST['id_tipo_manutencao'], $_POST['id_incidente'])){

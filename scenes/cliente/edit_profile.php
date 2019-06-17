@@ -1,7 +1,7 @@
 <?php
 session_start();
 include __DIR__.'/../../headers/cliente_header.php';
-if(isset($_SESSION['nome_grupo'])=='inquilino' || isset($_SESSION['nome_grupo'])=='cliente' && isset($_SESSION['id_utilizador'])){
+if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador'])){
     include "../../core/connect.php";
     $id_utilizador=$_SESSION['id_utilizador'];
     $sql="SELECT nome, data_nascimento, email, telemovel, senha FROM utilizador WHERE id_utilizador='$id_utilizador'";

@@ -112,11 +112,20 @@ function OnButton2()
           $resultset1 = mysqli_query($conn, $sql1) or die("database error:". mysqli_error($conn));
 ?>
           <td>
+          <div class="container">
+          <div class="row">
+         
 <?php
           while($row = mysqli_fetch_assoc($resultset1)) {
 ?>
-          <a href="\ProjetoFinal\uploads\fotografias\<?php echo utf8_encode($row['caminho']);?>"><img  name="fotos" style="width: 70px; height: 70px;" title="foto" src="\ProjetoFinal\uploads\fotografias\<?php echo utf8_encode($row['caminho']);?>">
+
+<div class="col-xs-auto">
+          <a href="\ProjetoFinal\uploads\fotografias\<?php echo utf8_encode($row['caminho']);?>"><img  name="fotos" style="" title="foto" src="\ProjetoFinal\uploads\fotografias\<?php echo utf8_encode($row['caminho']);?>">
+  </div>
     <?php } ?>
+    </div>
+    </div>
+  
     </td>
       </tr>
       <?php

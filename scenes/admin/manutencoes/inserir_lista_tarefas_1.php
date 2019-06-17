@@ -3,7 +3,8 @@ include "../../../core/connect.php";
 
 if(isset ($_POST['id_incidente'],$_POST['id_tipo_manutencao'],$_POST['id_incidente'],$_POST['data'],$_POST['equipa']) ){
 $id_incidente=$_POST['id_incidente'];$observacao=$_POST['observacao'];$id_tipo_manutencao=$_POST['id_tipo_manutencao'];$data=$_POST['data'];$equipa=$_POST['equipa'];$prioridade=$_POST['prioridade'];
-        //mysql-criar uma lista de tarefas
+        
+//mysql-criar uma lista de tarefas
     $sql = "INSERT INTO lista_tarefas (data_planeada) VALUES (now())";
     if (mysqli_query($conn, $sql)) {
         $last_id_tarefa = $conn->insert_id;

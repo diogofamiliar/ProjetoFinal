@@ -31,7 +31,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
 
     <script language="JavaScript" type="text/javascript">
     function checkDelete() {
-        var x = $('[name="cod_fornecedor[]"]:checked').length;
+        var x = $('[name="id_fornecedor[]"]:checked').length;
             if(x>0){ 
             var confirmed = confirm("Pretende eliminar os fornecedores eliminados?");
                 if(confirmed){
@@ -105,19 +105,19 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
             </thead>
             <tbody>
               <?php
-              $sql = "SELECT cod_fornecedor, nome, email, telemovel, morada FROM fornecedor";
+              $sql = "SELECT id_fornecedor, nome, email, telemovel, morada FROM fornecedor";
               $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
               while($rows = mysqli_fetch_assoc($resultset)) {
               ?>
                 <tr>
-                    <td class="col-sm-1"><input type="checkbox" name="cod_fornecedor[]" value="<?php echo $rows['cod_fornecedor']; ?>" multiple></td>
+                    <td class="col-sm-1"><input type="checkbox" name="id_fornecedor[]" value="<?php echo $rows['id_fornecedor']; ?>" multiple></td>
                     <td><?php echo utf8_encode($rows["nome"]); ?></td>
                     <td><?php echo utf8_encode($rows["email"]); ?></td>
                     <td><?php echo utf8_encode($rows["telemovel"]); ?></td>
                     <td><?php echo utf8_encode($rows["morada"]); ?></td>
                     <td class="d-flex justify-content-center">
                         <form method="POST" id="form2" action="alterar_fornecedor.php">
-                          <button form="form2" name="cod_fornecedor" class="btn btn-info" type="submit" value="<?php echo utf8_encode($rows["cod_fornecedor"]); ?>"> Editar</button>
+                          <button form="form2" name="id_fornecedor" class="btn btn-info" type="submit" value="<?php echo utf8_encode($rows["id_fornecedor"]); ?>"> Editar</button>
                         </form>
                     </td>
                 </tr>

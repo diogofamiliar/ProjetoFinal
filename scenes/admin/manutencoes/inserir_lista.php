@@ -19,8 +19,8 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
 
-
-    <title>elVecino | Inserir Lista Tarefas</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
+    <title>Inserir Lista Tarefas</title>
   </head>
 
 <body>

@@ -16,8 +16,8 @@ if (isset($_POST['id_utilizador'])) {
     <link rel="stylesheet" type="text/css" href="../../../../css/custom.css">
 
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-
-    <title>elVecino | Alterar Utilizador</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
+    <title>Alterar Utilizador</title>
   </head>
 
 <body>

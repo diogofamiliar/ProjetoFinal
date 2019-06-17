@@ -3,6 +3,7 @@ session_start();
 include __DIR__.'/../core/notificacao.php';
 ?>
     <!-- fontawesome CSS -->
+
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../../css/custom.css">

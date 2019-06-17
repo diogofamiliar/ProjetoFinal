@@ -191,6 +191,7 @@
   }
 
     </script>
+  <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
   </head>
   <body>
         <div id="condominio_chart_div" style="width: 100%; height: 500px;"></div>

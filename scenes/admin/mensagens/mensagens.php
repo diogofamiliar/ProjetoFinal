@@ -24,6 +24,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
     <link rel="stylesheet" type="text/css" href="../../../css/jquery.dataTables.min.css">
     <!-- Sweet alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
     <title>elVecino | Mensagens</title>
 
     <script language="JavaScript" type="text/javascript">

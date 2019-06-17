@@ -25,7 +25,7 @@
     <link rel="stylesheet" type="text/css" href="../../css/custom.css">
     <!-- Sweet alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
     <title>Técnico - Contactos Úteis</title>
 
 </head>

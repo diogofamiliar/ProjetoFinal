@@ -15,7 +15,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="../../../../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../../../css/custom.css">
@@ -26,7 +26,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
     <link rel="stylesheet" type="text/css" href="../../../../css/jquery.dataTables.min.css">
     <!-- Sweet alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <title>elVecino | Gestão Contactos Úteis</title>
+    <title>Gestão Contactos Úteis</title>
 
 
 

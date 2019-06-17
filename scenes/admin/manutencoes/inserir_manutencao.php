@@ -47,8 +47,8 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
       });
     </script>
 
-
-    <title>elVecino | Inserir Manutenções</title>
+        <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
+        <title>Inserir Manutenções</title>
   </head>
 
 <body>

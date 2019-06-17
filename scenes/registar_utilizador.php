@@ -16,6 +16,7 @@
         <link rel="stylesheet" type="text/css" href="../css/custom.css">
         <!-- datepicker CSS-->
         <link href="../css/datepicker.min.css" rel="stylesheet" type="text/css">
+        <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
         <title>elVecino</title> 
         <?php include "../core/connect.php";?>
 

@@ -18,8 +18,8 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
     <link href="../../../css/datepicker.min.css" rel="stylesheet" type="text/css">
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
-
-    <title>elVecino | Alterar Manutenções</title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
+    <title>Alterar Manutenções</title>
   </head>
 
 <body>

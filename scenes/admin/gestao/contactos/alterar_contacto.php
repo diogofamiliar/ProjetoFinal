@@ -10,14 +10,14 @@ if (isset($_POST['id_contacto_util'])) {
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="../../../../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../../../css/custom.css">
 
     <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 
-    <title>elVecino | Alterar Contacto</title>
+    <title>Alterar Contacto</title>
   </head>
 
 <body>

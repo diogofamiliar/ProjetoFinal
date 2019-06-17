@@ -29,7 +29,7 @@ if(isset($_SESSION['id_grupo'])=='7' || isset($_SESSION['id_utilizador'])){
 
     <!-- datatables CSS -->
     <link rel="stylesheet" type="text/css" href="../../css/jquery.dataTables.min.css">
-
+    <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
     <title>elVecino | Contactos Úteis</title>
   </head>
  

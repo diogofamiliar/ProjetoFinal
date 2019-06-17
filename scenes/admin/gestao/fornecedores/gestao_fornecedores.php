@@ -116,7 +116,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' || isset($_SESSION['nome_grupo'])=='m
                     <td><?php echo utf8_encode($rows["morada"]); ?></td>
                     <td class="d-flex justify-content-center">
                         <form method="POST" id="form2" action="alterar_fornecedor.php">
-                          <button form="form2" name="cod_fornecedor" class="btn btn-info" type="submit" value="<?php echo utf8_encode($rows["cod_fornecedor"]); ?>"> Editar</button>
+                          <button form="form2" name="id_fornecedor" class="btn btn-info" type="submit" value="<?php echo utf8_encode($rows["id_fornecedor"]); ?>"> Editar</button>
                         </form>
                     </td>
                 </tr>

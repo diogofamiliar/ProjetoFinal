@@ -6,7 +6,7 @@
 if(isset($_SESSION['id_grupo'])=='admin' || $_SESSION['id_grupo'])=='master' && isset($_SESSION['id_utilizador'])){
     $id_utilizador=$_SESSION['id_utilizador'];  
     include __DIR__.'/../../core/connect.php';
-    $query ="SELECT zona.nome AS nome_zona, utilizador_documento.data_criacao, documento.nome AS nome_documento, documento.descricao, documento.tipo_de_documento, documento.tamanho_ficheiro, documento.id_documento, utilizador.nome AS nome_autor FROM documento LEFT JOIN utilizador_documento ON documento.id_documento=utilizador_documento.id_documento LEFT JOIN zona ON zona.id_zona=documento.id_zona LEFT JOIN utilizador ON utilizador.id_utilizador=utilizador_documento.id_utilizador";  
+    $query ="SELECT condominio.nome as nome_condominio, zona.nome AS nome_zona, utilizador_documento.data_criacao, documento.nome AS nome_documento, documento.descricao, documento.tipo_de_documento, documento.tamanho_ficheiro, documento.id_documento, utilizador.nome AS nome_autor FROM documento LEFT JOIN utilizador_documento ON documento.id_documento=utilizador_documento.id_documento LEFT JOIN zona ON zona.id_zona=documento.id_zona LEFT JOIN utilizador ON utilizador.id_utilizador=utilizador_documento.id_utilizador LEFT JOIN condominio ON condominio.id_condominio=zona.id_condominio";  
     $result = mysqli_query($conn, $query);
 }else header('Location: ../../index.php');
 ?>
@@ -58,7 +58,7 @@ if(isset($_SESSION['id_grupo'])=='admin' || $_SESSION['id_grupo'])=='master' && 
           <td><?php echo utf8_encode($rows["id_documento"]); ?></td>
           <td><?php echo $rows["data_criacao"]; ?></td>
           <td><?php echo utf8_encode($rows["tipo_de_documento"]); ?></td>
-          <td><?php echo utf8_encode($rows["nome_zona"]); ?></td>
+          <td><?php echo utf8_encode($rows["nome_zona"]); ?> - <?php echo utf8_encode($rows["nome_condominio"]); ?></td>
           <td><a href="../pdfreader.php?id=<?php echo utf8_encode($rows["nome_documento"]);?>"><?php echo utf8_encode($rows["nome_documento"]); ?></td>
           <td><?php echo utf8_encode($rows["descricao"]); ?></td>
           <td><?php echo utf8_encode($rows["nome_autor"]); ?></td>
@@ -109,8 +109,9 @@ if(isset($_SESSION['id_grupo'])=='admin' || $_SESSION['id_grupo'])=='master' && 
             { "width": "100px", "targets": 3 },
             { "width": "100px", "targets": 4 },
             { "width": "100px", "targets": 5 },
-            { "width": "100px", "targets": 6 },
-            { "width": "50px", "targets": 7 }
+            { "width": "50px", "targets": 6 },
+            { "width": "50px", "targets": 7 },
+            { "width": "50px", "targets": 8 }
           ],
           select: true,
           "scrollX": true

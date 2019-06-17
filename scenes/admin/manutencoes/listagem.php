@@ -54,8 +54,8 @@ if(isset($_SESSION['nome_grupo'])=='admin' || isset($_SESSION['nome_grupo'])=='m
     <div class="card col-sm-11">
       <div class="card-header d-flex justify-content-between">
         <a href="selecao_ocorrencias.php" class="btn btn-success" id="myButton" type="button" name="answer"> Nova Manutenção</a>
-        <h3>Gestão de tarefas:</h3>
-        <a class="btn btn-danger mx-1" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-trash"></i> Eliminar</a>
+        <h3>Lista de Manutenções Registadas</h3>
+        <a class="btn btn-danger mx-1" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-trash"></i> Eliminar Manutenção</a>
       </div>
       <div class="card-body">
           <form method="POST" id="form1" action="eliminar_manutencoes.php">

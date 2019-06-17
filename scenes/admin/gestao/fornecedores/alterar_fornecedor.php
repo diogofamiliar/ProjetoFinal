@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 session_start();
 if(isset($_SESSION['nome_grupo'])=='admin' || isset($_SESSION['nome_grupo'])=='master' && isset($_SESSION['id_utilizador'])){
 }else header('Location: /ProjetoFinal/index.php');
@@ -6,6 +7,10 @@ if(isset($_SESSION['nome_grupo'])=='admin' || isset($_SESSION['nome_grupo'])=='m
 <?php
 if (isset($_POST['cod_fornecedor'])) {
     $cod_fornecedor=$_POST['cod_fornecedor'];
+=======
+if (isset($_POST['id_fornecedor'])) {
+    $id_fornecedor=$_POST['id_fornecedor'];
+>>>>>>> 5e276c70be62776675830feafba416430c0e182c
 } else {header( "Location: gestao_fornecedor.php" );}
 ?>
 
@@ -35,7 +40,7 @@ if (isset($_POST['cod_fornecedor'])) {
     <h1 id="h1-centered">Alterar fornecedor:</h1>
     <div class="container col-12">
         <?php
-                $sql="SELECT cod_fornecedor, telemovel, email, nome, morada FROM fornecedor WHERE cod_fornecedor='$cod_fornecedor'";
+                $sql="SELECT id_fornecedor, telemovel, email, nome, morada FROM fornecedor WHERE id_fornecedor='$id_fornecedor'";
                 $result=mysqli_query($conn,$sql);
                 $row=mysqli_fetch_array($result);
         ?>
@@ -49,7 +54,7 @@ if (isset($_POST['cod_fornecedor'])) {
                 </div>
                 <div class="card-body">
                     <form method="POST" action="alterar_fornecedor_1.php">
-                        <input type="hidden" name="cod_fornecedor" value="<?php echo utf8_encode($row['cod_fornecedor']);?>">
+                        <input type="hidden" name="id_fornecedor" value="<?php echo utf8_encode($row['id_fornecedor']);?>">
                         <div class="form-group">
                             <div class="">
                                 <label for="inputEmail" class="">Nome:</label>

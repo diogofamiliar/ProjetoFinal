@@ -66,11 +66,12 @@ if(isset($_SESSION['nome_grupo'])=='admin' || isset($_SESSION['nome_grupo'])=='m
               <th>Assunto</th>
               <th>Mensagem</th>  
               <th>Data</th>
+              <th>Lida</th>
             </tr>
           </thead>
           <tbody>
             <?php
-            $sql = "SELECT mensagem.id_mensagem as id_mensagem, mensagem.assunto as assunto, mensagem.texto as texto, mensagem.data_criacao as data_criacao, destinatario.id_utilizador as destinatario from mensagem inner join destinatario WHERE mensagem.id_mensagem=destinatario.id_mensagem order by data_criacao DESC";
+            $sql = "SELECT mensagem.id_mensagem as id_mensagem, mensagem.assunto as assunto, mensagem.texto as texto, mensagem.data_criacao as data_criacao, destinatario.id_utilizador as destinatario, destinatario.lida as lida from mensagem inner join destinatario WHERE mensagem.id_mensagem=destinatario.id_mensagem order by data_criacao DESC";
             $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
             while($rows = mysqli_fetch_assoc($resultset)) {
             ?>
@@ -80,6 +81,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' || isset($_SESSION['nome_grupo'])=='m
               <td><?php echo utf8_encode($rows["assunto"]); ?></td>
               <td><?php echo utf8_encode($rows["texto"]); ?></td>
               <td><?php echo utf8_encode($rows["data_criacao"]); ?></td>
+              <td><?php echo utf8_encode($rows["lida"]); ?></td>
           </tr>
           <?php
           }
@@ -106,7 +108,8 @@ if(isset($_SESSION['nome_grupo'])=='admin' || isset($_SESSION['nome_grupo'])=='m
         { "width": "20%", "targets": 1 },
         { "width": "20%", "targets": 2 },
         { "width": "20%", "targets": 3 },
-        { "width": "20%", "targets": 4 }
+        { "width": "10%", "targets": 4 },
+        { "width": "10%", "targets": 5 }
       ],
       select: true,
       "scrollX": true

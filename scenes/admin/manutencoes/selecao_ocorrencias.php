@@ -115,7 +115,7 @@ function OnButton2()
 <?php
           while($row = mysqli_fetch_assoc($resultset1)) {
 ?>
-          <a href="\ProjetoFinal\uploads\fotografias\<?php echo $row['caminho'];?>"><img  name="fotos" style="width: 70px; height: 70px;" title="foto" src="\ProjetoFinal\uploads\fotografias\<?php echo $row['caminho'];?>">
+          <a href="\ProjetoFinal\uploads\fotografias\<?php echo utf8_encode($row['caminho']);?>"><img  name="fotos" style="width: 70px; height: 70px;" title="foto" src="\ProjetoFinal\uploads\fotografias\<?php echo utf8_encode($row['caminho']);?>">
     <?php } ?>
     </td>
       </tr>

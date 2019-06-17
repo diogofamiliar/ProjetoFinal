@@ -60,6 +60,7 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
   
     <h1 id="h1-centered">Inserir manutenções:</h1>
     <div class="container">
+    <button class="btn btn-secondary" onclick="history.go(-1);"><i class="fa fa-chevron-left"></i> Voltar</button>
         <?php
         $id_incidente=$_POST['id_incidente'];
             foreach ($id_incidente as $valor) {

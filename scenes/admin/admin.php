@@ -50,6 +50,20 @@ if(isset($_SESSION['nome_grupo'])=='admin' || isset($_SESSION['nome_grupo'])=='m
 <?php
   }
 ?>
+<?php
+  if(isset($_COOKIE["alter_user"])){
+?>
+    <script>
+    swal({
+          title: "Sucesso!",
+          text: "User alterado com sucesso!",
+          icon: "success",
+          button: "Continuar",
+    });
+    </script>
+<?php
+  }
+?>
 </body>
 
 </html>

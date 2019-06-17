@@ -10,6 +10,7 @@
         $nome_condominio = $_POST['id_condominio'];
         $senha = $_POST['senha'];
         $id_condominio = substr($nome_condominio, 0, 1);
+        echo $id_condominio;
     }else header( "Location: registar_utilizador.php" );
 ?>
 <!doctype html>
@@ -62,7 +63,7 @@
                 <div class="form-group form-row">
                     <div class="form-group col-md-3">
                         <label for="telefone" class="font-weight-bold">Telemóvel:</label>
-                        <input type="tel" name="telemovel" class="form-control" required pattern="[0-9]{9}"> <!-- required numeros de 0-9 e de 9 digitos -->
+                        <input type="tel" name="telemovel" class="form-control" placeholder="Introduza um numero 9 digitos" required pattern="[0-9]{9}"> <!-- required numeros de 0-9 e de 9 digitos -->
                     </div>
                 </div>
                 <input type="hidden" name="nome" value="<?php echo $nome; ?>"> <!-- nome da pag anterior -->

@@ -17,6 +17,8 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../../css/custom.css">
+    <!-- datatables CSS -->
+    <link rel="stylesheet" type="text/css" href="../../../css/jquery.dataTables.min.css">
     <!-- Sweet alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
@@ -46,7 +48,6 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
 	<?php
   include '../../../headers/cliente_header.php';
   include '../../../core/connect.php';
-  include '../../../core/notificacao.php'; //verifica o nr_notificacoes por ler
   $id_utilizador=$_SESSION['id_utilizador'];
 	?>
   
@@ -61,11 +62,11 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
           <table class="table table-hover">
             <thead>
               <tr>
-                <th class="col-sm-1"><input type="checkbox" id="checkAll"/></th>
-                <th class="col-sm-2">Assunto</th>
-                <th class="col-sm-6">Mensagem</th>
-                <th class="col-sm-2">Data</th>
-                <th class="col-sm-1"></th>
+                <th><input type="checkbox" id="checkAll"/></th>
+                <th>Assunto</th>
+                <th>Mensagem</th>
+                <th>Data</th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -109,18 +110,36 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
     
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="../../../js/jquery-3.4.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <!-- sweet alert -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
     <!-- checkbox check all -->
     <script>
       $("#checkAll").change(function () {
       $("input:checkbox").prop('checked', $(this).prop("checked"));
       });
     </script>
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready( function () {
     
+    $('#data').DataTable({
+      "columnDefs": [
+        { "width": "5%", "targets": 0 },
+        { "width": "10%", "targets": 1 },
+        { "width": "40%", "targets": 2 },
+        { "width": "20%", "targets": 3 },
+        { "width": "10%", "targets": 4 }
+      ],
+      select: true,
+      "scrollX": true
+    });
+  
+    
+  });
+</script>
 <?php
   if(isset($_COOKIE["notificacoes_eliminadas"])){
 ?>

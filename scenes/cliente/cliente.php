@@ -27,7 +27,6 @@ if(isset($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador
 	<?php
   include __DIR__.'/../../headers/cliente_header.php';
   include '../../core/connect.php';
-  include '../../core/notificacao.php';
 	?>
   
   <h1 id="h1-centered">

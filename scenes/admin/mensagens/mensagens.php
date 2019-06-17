@@ -102,17 +102,15 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']) 
     
     $('#data').DataTable({
       "columnDefs": [
-        { "width": "5px", "targets": 0 },
-        { "width": "25px", "targets": 1 },
-        { "width": "60px", "targets": 2 },
-        { "width": "200px", "targets": 3 },
-        { "width": "15px", "targets": 4 }
+        { "width": "20%", "targets": 0 },
+        { "width": "20%", "targets": 1 },
+        { "width": "20%", "targets": 2 },
+        { "width": "20%", "targets": 3 },
+        { "width": "20%", "targets": 4 }
       ],
       select: true,
       "scrollX": true
     });
-  
-    
   });
 </script>
 <script>

@@ -59,6 +59,25 @@ function OnButton2()
             }
 }
 </script>
+<script language="JavaScript" type="text/javascript">
+function OnButton3()
+{
+  var x = $('[name="id_incidente[]"]:checked').length;
+            if(x>0){ 
+            var confirmed = confirm("Pretende eliminar os incidentes selecionados?");
+                if(confirmed){
+                  document.Form1.action = "apagar_incidente.php"
+                  document.Form1.submit();             // Submit the page
+                  return true;
+                }
+            }else{
+            swal("Selecione checkboxs!", 
+            "Selecione os incidentes que pretende eliminar!", 
+            "error");
+            return true;
+            }
+}
+</script>
   </head>
 
 
@@ -135,6 +154,7 @@ function OnButton2()
     </table>
     <INPUT class="btn btn-primary btn-lg" type="button" value="Inserir manutencao" name="button1" onclick="return OnButton1();" placeholder="lista">
     <INPUT class="btn btn-primary btn-lg" type="button" value="Criar lista tarefas" name="button2" onclick="return OnButton2();" placeholder="lista">
+    <INPUT class="btn btn-danger btn-lg" type="button" value="Eliminar incidente" name="button2" onclick="return OnButton3();" placeholder="lista">
 
     </form>
   </div>

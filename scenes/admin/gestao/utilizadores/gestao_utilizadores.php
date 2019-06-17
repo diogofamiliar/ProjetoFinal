@@ -78,11 +78,11 @@ if(isset($_SESSION['nome_grupo'])=='admin' || isset($_SESSION['nome_grupo'])=='m
           <div class="form-group">
             <div>
               <label class="form-label">Número contribuinte:</label>
-              <input type="text" form="form3" class="form-control" name="n_contribuinte" id="inputContribuinte" placeholder="Insira o número de contribuinte" pattern="[0-9]{9}">
+              <input type="text" form="form3" class="form-control" name="n_contribuinte" id="inputContribuinte" placeholder="Insira um número de 9 digitos" pattern="[0-9]{9}">
             </div>          
             <div>
               <label class="form-label">Telemovel:</label>
-              <input type="tel" form="form3" name="telemovel" class="form-control col-sm-8" required pattern="[0-9]{9}">
+              <input type="tel" form="form3" name="telemovel" class="form-control col-sm-8" placeholder="Insira um número de 9 digitos" required pattern="[0-9]{9}">
             </div>
             <div>
               <label class="form-label">Email:</label>

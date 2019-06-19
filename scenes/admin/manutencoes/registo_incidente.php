@@ -59,7 +59,7 @@ include '../../../headers/admin_header.php';
                     <label for="camera" class="font-weight-bold">Introduza imagens:</label>
                     <input id="camera" type="file" accept="image/*" capture="camera" name="files[]" multiple>
                 </div>
-                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" name="submit" class="btn btn-primary">Enviar</button>
             </form>
         </div>
         

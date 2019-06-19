@@ -28,7 +28,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
     <div class="row justify-content-center"> <!--justify-content-center alinha os conteudos ao meio sem os "escalar"  -->
         <div class="col-sm-3 my-4">
             <div class="card h-100">
-                <a class="card-img-top mx-auto my-2" href="gestao_utilizadores.php">
+                <a class="card-img-top mx-auto my-2" href="utilizadores/gestao_utilizadores.php">
                     <img class="object-fit-cover" src="../../../assets/admin/gestao/gestao_utilizadores.jpg" alt="Card image">
                 </a>
                 <div class="card-body d-flex flex-column">
@@ -40,7 +40,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
         </div>
         <div class="col-sm-3 my-4">
             <div class="card h-100">
-                <a class="card-img-top mx-auto my-2" href="gestao_condominios.php">
+                <a class="card-img-top mx-auto my-2" href="#">
                     <img class="object-fit-cover" src="../../../assets/admin/gestao/gestao_condominio.png" alt="Card image">
                 </a>
                 <div class="card-body d-flex flex-column">
@@ -55,7 +55,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
         </div>
         <div class="col-sm-3 my-4">
             <div class="card h-100">
-                <a class="card-img-top mx-auto my-2" href="gestao_condominios.php">
+                <a class="card-img-top mx-auto my-2" href="fornecedores/gestao_fornecedores.php">
                     <img class="object-fit-cover" src="../../../assets/admin/gestao/gestao_fornecedor.png" alt="Card image">
                 </a>
                 <div class="card-body d-flex flex-column">

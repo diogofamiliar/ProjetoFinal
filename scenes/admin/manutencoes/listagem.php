@@ -26,25 +26,23 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
     <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
     <title>Gestão condomínios</title>
 
-
-
-    <script language="JavaScript" type="text/javascript">
-    function checkDelete() {
-        var x = $('[name="id_manutencao[]"]:checked').length;
-            if(x>0){ 
-            var confirmed = confirm("Pretende eliminar as manutenções?");
-                if(confirmed){
-                document.getElementById('form1').submit();
-                return true;
-                }
-            }else{
-            swal("Aviso!", 
-            "Selecione as manutenções que pretende eliminar!", 
-            "error");
-            return false;
+<script language="JavaScript" type="text/javascript">
+function checkDelete() {
+    var x = $('[name="id_manutencao[]"]:checked').length;
+        if(x>0){ 
+        var confirmed = confirm("Pretende eliminar as manutenções?");
+            if(confirmed){
+            document.getElementById('form1').submit();
+            return true;
             }
+        }else{
+        swal("Aviso!", 
+        "Selecione as manutenções que pretende eliminar!", 
+        "error");
+        return false;
         }
-    </script>
+    }
+</script>
   </head>
 
 
@@ -53,8 +51,8 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
 <div class="d-flex justify-content-center">
     <div class="card col-sm-11">
       <div class="card-header d-flex justify-content-between">
-        <a href="selecao_ocorrencias.php" class="btn btn-success" id="myButton" type="button" name="answer"> Nova Manutenção</a>
-        <h3>Lista de Manutenções Registadas</h3>
+        <a href="incidentes.php" class="btn btn-success" id="myButton" type="button" name="answer"> Nova Manutenção</a>
+        <h3>Lista de Manutenções Agendadas</h3>
         <a class="btn btn-danger mx-1" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-trash"></i> Eliminar Manutenção</a>
       </div>
       <div class="card-body">
@@ -75,13 +73,13 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
             <tbody>
               <?php
               $sql = "SELECT manutencao.data_conclusao, manutencao.id_manutencao as id_manutencao, manutencao.data_planeada as data_planeada, incidente.id_incidente as id_incidente, incidente.local as local, manutencao.observacoes as observacoes, incidente_manutencao.estado as estado, zona.id_zona, condominio.cod_condominio as cod_condominio, manutencao.id_fornecedor as id_fornecedor, fornecedor.nome as fornecedor  FROM manutencao
-              INNER JOIN incidente_manutencao ON manutencao.id_manutencao=incidente_manutencao.id_manutencao
-              INNER JOIN incidente ON incidente.id_incidente=incidente_manutencao.id_incidente
-              INNER JOIN zona ON zona.id_zona=incidente.id_zona
-              INNER JOIN condominio ON condominio.id_condominio=zona.id_condominio
-              INNER JOIN fornecedor ON fornecedor.id_fornecedor=manutencao.id_fornecedor
-              WHERE manutencao.data_planeada >= now() OR manutencao.data_planeada = CURDATE()
-              ORDER BY manutencao.data_planeada, manutencao.data_conclusao ASC";
+                      INNER JOIN incidente_manutencao ON manutencao.id_manutencao=incidente_manutencao.id_manutencao
+                      INNER JOIN incidente ON incidente.id_incidente=incidente_manutencao.id_incidente
+                      INNER JOIN zona ON zona.id_zona=incidente.id_zona
+                      INNER JOIN condominio ON condominio.id_condominio=zona.id_condominio
+                      INNER JOIN fornecedor ON fornecedor.id_fornecedor=manutencao.id_fornecedor
+                      WHERE manutencao.data_planeada >= now() OR manutencao.data_planeada = CURDATE()
+                      ORDER BY manutencao.data_planeada, manutencao.data_conclusao ASC";
               $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
               while($rows = mysqli_fetch_assoc($resultset)) {
               ?>

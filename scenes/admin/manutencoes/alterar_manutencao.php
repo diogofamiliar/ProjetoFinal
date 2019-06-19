@@ -32,7 +32,6 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
     <div class="container">
         <?php
         $id_manutencao=$_POST['id_manutencao'];
-        echo $id_manutencao;
                 $sql="SELECT manutencao.id_manutencao as id_manutencao, manutencao.id_fornecedor as id_fornecedor, fornecedor.nome as fornecedor, zona.morada as morada, zona.nome as entrada, manutencao.data_planeada as data_planeada, incidente.local as local, manutencao.observacoes as observacoes, manutencao.id_tipo_manutencao as id_tipo_manutencao, tipo_manutencao.descricao as tipo_manutencao, incidente_manutencao.estado as estado, zona.id_zona, condominio.cod_condominio as cod_condominio  FROM manutencao
                 INNER JOIN incidente_manutencao ON manutencao.id_manutencao=incidente_manutencao.id_manutencao
                 INNER JOIN incidente ON incidente.id_incidente=incidente_manutencao.id_incidente
@@ -100,7 +99,9 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
                                 </select>
                             </div>
                         </div>
-                        <input type="submit" value="Submit" name="submit">
+                        <div class="d-flex justify-content-center">
+                            <input class=" btn btn-primary" type="submit" value="Enviar" name="submit">
+                        </div>
                     </form>
                 </div>
             </div>

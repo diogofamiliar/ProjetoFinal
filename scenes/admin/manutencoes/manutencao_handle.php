@@ -5,8 +5,8 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
 ?>
 
 <?php
-mysqli_set_charset($conn, "utf8");
 include "../../../core/connect.php";
+mysqli_set_charset($conn, "utf8");
 
     if(isset($_POST['equipa'], $_POST['data_agendamento'], $_POST['observacao'], $_POST['prioridade'], $_POST['id_tipo_manutencao'], $_POST['id_incidente'])){
         $id_tipo_manutencao=$_POST['id_tipo_manutencao'];

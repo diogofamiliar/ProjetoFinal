@@ -17,6 +17,7 @@
         <!-- datepicker CSS-->
         <link href="../css/datepicker.min.css" rel="stylesheet" type="text/css">
         <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
+
         <title>elVecino</title> 
         <?php include "../core/connect.php";?>
 
@@ -28,7 +29,7 @@
         <div class="container">
             <h1>Registo de novo utilizador</h1>
             <p>Por favor preencha este formulário de forma a criar uma conta.</p>
-            <form action="registar_utilizador_1.php" method="Post" enctype="multipart/form-data" id="signup"> <!--  VERIFICAR ISTO-->
+            <form action="registar_utilizador_1.php" method="Post" enctype="multipart/form-data"> <!--  VERIFICAR ISTO-->
                 <div class="form-group">
                     <label for="localizacao" class="font-weight-bold">Insira o nome completo:</label>
                     <input type="text" class="form-control" id="nome" placeholder="Tiago Oliveira Cardoso" name="nome_completo" Required>
@@ -36,7 +37,7 @@
                 <div class="form-group">
                     <label for="exampleInputEmail1" class="font-weight-bold">Endereço email:</label>
                     <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="...@email.com.pt" Required>
-                    <span></span>
+                    <span id="availability"></span>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1" class="font-weight-bold">Password:</label>
@@ -53,7 +54,7 @@
                         <input type="text" name="id_condominio" id="id_condominio" class="form-control" placeholder="Selecione uma das opções"/ Required>  
                         <div id="lista_condominios"></div> 
                 </div>
-                <button type="submit" name="submit" id="submit" class="btn btn-primary" disabled>Continuar</button>
+                <button type="submit" name="submit" id="register" class="btn btn-primary">Continuar</button>
             </form>
         </div>
         
@@ -66,33 +67,34 @@
         <script type="text/javascript" src="../js/search_box.js" charset="utf-8"></script>
         <!-- Compara as duas pw's introduzidas -->
         <script src="../js/compare_pw.js"></script>
-<script>
-$(document).ready(function () {
-    $('#signup').validate({ 
-    errorLabelContainer: "#cs-error-note",
-    wrapper: "li",
-    rules: {
-        email: {
-            required: true,
-            email: true,
-                remote: {
-                    url: "check_email.php",
-                    type: "post"
-                 }
-        }
-    },
-    messages: {
-        email: {
-            required: "Please enter your email address.",
-            email: "Please enter a valid email address.",
-            remote: "Email already in use!"
-        }
-    },
-    submitHandler: function(form) {
-                        form.submit();
-                     }
-    });
-});
+
+<script>  
+ $(document).ready(function(){  
+   $('#email').blur(function(){
+
+     var email = $(this).val();
+
+     $.ajax({
+      url:'check_email.php',
+      method:"POST",
+      data:{post_email:email},
+      success:function(data)
+      {
+       if(data != '0')
+       {
+        $('#availability').html('<span class="text-danger">Endereço de email não disponível</span>');
+        $('#register').attr("disabled", true);
+       }
+       else
+       {
+        $('#availability').html('<span class="text-success">Endereço de email disponível</span>');
+        $('#register').attr("disabled", false);
+       }
+      }
+     })
+
+  });
+ });  
 </script>
-</html>
+
        

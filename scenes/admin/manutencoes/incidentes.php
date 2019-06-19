@@ -3,27 +3,50 @@ session_start();
 if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && isset($_SESSION['id_utilizador'])){
 }else header('Location: /ProjetoFinal/index.php');
 ?>
+<?php
+  include "../../../core/connect.php";
+	include '../../../headers/admin_header.php';
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../../../css/custom.css">
+    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- datatables CSS -->
     <link rel="stylesheet" type="text/css" href="../../../css/jquery.dataTables.min.css">
     <!-- Sweet alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
-    <title>elVecino | Manutenções</title>
-
+    <title>Gestão manutenções</title>
 
 <script language="JavaScript" type="text/javascript">
-function OnButton1()
-{
+function checkDelete() {
+    var x = $('[name="id_incidente[]"]:checked').length;
+        if(x>0){ 
+        var confirmed = confirm("Pretende eliminar as manutenções?");
+            if(confirmed){
+            document.getElementById('form1').submit();
+            return true;
+            }
+        }else{
+        swal("Aviso!", 
+        "Selecione as manutenções que pretende eliminar!", 
+        "error");
+        return false;
+        }
+    }
+
+
+</script>
+<script language="JavaScript" type="text/javascript">
+function OnButtonManu(){
   var x = $('[name="id_incidente[]"]:checked').length;
             if(x>0){ 
             var confirmed = confirm("Pretende agendar os itens selecionados?");
@@ -41,8 +64,7 @@ function OnButton1()
 }
 </script>
 <script language="JavaScript" type="text/javascript">
-function OnButton2()
-{
+function OnButtonLista(){
   var x = $('[name="id_incidente[]"]:checked').length;
             if(x>0){ 
             var confirmed = confirm("Pretende pretende criar uma lista de tarefas com os itens selecionados?");
@@ -60,39 +82,45 @@ function OnButton2()
 }
 </script>
 <script language="JavaScript" type="text/javascript">
-function OnButton3()
-{
+function OnButtonEdit(){
   var x = $('[name="id_incidente[]"]:checked').length;
             if(x>0){ 
-            var confirmed = confirm("Pretende eliminar os incidentes selecionados?");
+            var confirmed = confirm("Pretende pretende editar os incidentes selecionados?");
                 if(confirmed){
-                  document.Form1.action = "apagar_incidente.php"
+                  document.Form1.action = "editar_incidente.php"
                   document.Form1.submit();             // Submit the page
                   return true;
                 }
             }else{
             swal("Selecione checkboxs!", 
-            "Selecione os incidentes que pretende eliminar!", 
+            "Selecione itens para criar uma lista de tarefas!", 
             "error");
             return true;
             }
 }
 </script>
-  </head>
+</head>
 
 
 <body>
 
-	<?php
-  include "../../../core/connect.php";
-	include __DIR__.'/../../../headers/admin_header.php';
-	?>
-
-
-  
-  <h1 id="h1-centered">Lista de incidentes registados</h1>
-  <div class="container">
-  <form name="Form1" method="POST">
+<div class="d-flex justify-content-center">
+    <div class="card col-sm-11">
+        <div class="card-header">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <a class="btn btn-primary m-1" href="javascript:{}" onclick="return OnButtonManu();" style="width:165px;">Inserir manutenção</a>
+                    <a class="btn btn-primary m-1" href="javascript:{}" onclick="return OnButtonLista();" style="width:165px;">Criar lista de tarefas</a>
+                </div>
+                <div>
+                    <a href="registo_incidente.php" class="btn btn-success m-1" id="myButton" type="button" name="answer" style="width:165px;"><i class="fa fa-plus-square"></i> Registar incidente</a>
+                    <a class="btn btn-danger m-1" href="javascript:{}" onclick="checkDelete()" style="width:165px;"><i class="fa fa-trash"></i> Eliminar Incidente</a>
+                    <a class="btn btn-primary m-1" href="javascript:{}" onclick="return OnButtonEdit();" style="width:165px;"><i class="fa fa-pencil"></i> Editar Incidente </a>
+                </div>
+            </div>  
+        </div>
+      <div class="card-body">
+      <form name="Form1" method="POST">
     <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0" style="table-layout: fixed; width: 100%;">
       <thead>
         <tr>
@@ -120,7 +148,7 @@ function OnButton3()
         ?>
       <tr>
       <?php $id_incidente=$rows['id_incidente']; ?>
-          <td class="col-sm-1"><input type="checkbox" name="id_incidente[]" value="<?php echo $rows['id_incidente']; ?>" multiple></td>
+          <td class="d-flex justify-content-center"><input type="checkbox" name="id_incidente[]" value="<?php echo $rows['id_incidente']; ?>" multiple><?php echo $rows['id_incidente']; ?></td>
           <td><?php echo utf8_encode($rows["data_incidente"]); ?></td>
           <td><?php echo utf8_encode($rows["cod_condominio"]); ?></td>
           <td><?php echo utf8_encode($rows["entrada"]); ?></td>
@@ -153,44 +181,72 @@ function OnButton3()
       </tbody>
     </table>
 
-
     </form>
-    <INPUT class="btn btn-primary btn-lg" type="button" value="Inserir manutencao" name="button1" onclick="return OnButton1();">
-    <INPUT class="btn btn-primary btn-lg" type="button" value="Criar lista tarefas" name="button2" onclick="return OnButton2();">
-    <INPUT class="btn btn-danger btn-lg" type="button" value="Eliminar incidente" name="button2" onclick="return OnButton3();">
-  </div>
+      </div>  
+      </div>
+</div>
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="../../../js/jquery-3.4.1.js"></script>  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
+
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script>
+  $(document).ready( function () {
     
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="../../../js/jquery-3.4.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    $('#data').DataTable({
+      "columnDefs": [
+        { "width": "5%", "targets": 0 },    //checkbox
+        { "width": "10%", "targets": 1 },   //Data
+        { "width": "10%", "targets": 2 },   //Condominio
+        { "width": "10%", "targets": 3 },   //Local
+        { "width": "30%", "targets": 4 },   //Descricao
+        { "width": "10%", "targets": 5 },   //Avaria
+        { "width": "15%", "targets": 6 }    //Fotografia
+      ],
+      select: true,
+      "scrollX": true
+    });
+  
     
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-    <script>
-      $(document).ready( function () {
-        
-        $('#data').DataTable({
-          "columnDefs": [
-            { "width": "10px", "targets": 0 },
-            { "width": "80px", "targets": 1 },
-            { "width": "70px", "targets": 2 },
-            { "width": "200px", "targets": 3 },
-            { "width": "200px", "targets": 4 },
-            { "width": "50px", "targets": 5 },
-            { "width": "70px", "targets": 6 }
-          ],
-          select: true,
-          "scrollX": true
-        });
-      
-        
+  });
+</script>
+<script>
+  $("#checkAll").change(function () {
+  $("input:checkbox").prop('checked', $(this).prop("checked"));
+  });
+</script>
+
+<?php
+  if(isset($_COOKIE["condominio_alterado"])){
+?>
+      <script>
+      swal({
+            title: "Sucesso!",
+            text: "O condomínio foi alterado com sucesso!",
+            icon: "success",
+            button: "Continuar",
       });
-    </script>
-    <script>
-      $("#checkAll").change(function () {
-      $("input:checkbox").prop('checked', $(this).prop("checked"));
+      </script>
+<?php
+  }
+?>
+
+<?php
+  if(isset($_COOKIE["manutencao_eliminada"])){
+?>
+      <script>
+      swal({
+            title: "Manutenção eliminada!",
+            text: "As manutenções foram eliminadas com sucesso!",
+            icon: "success",
+            button: "Continuar",
       });
-    </script>
+      </script>
+<?php
+  }
+?>
+
 </body>
+</html>

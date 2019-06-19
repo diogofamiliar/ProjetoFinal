@@ -108,7 +108,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
                                 <select name="prioridade" class="form-control" required>
                                     <option value=""></option>
                                     <option style="background: #009933; color: #fff;">Baixa</option>
-                                    <option style="background: #e65c00; color: #fff;">Média</option>
+                                    <option style="background: #e65c00; color: #fff;">Media</option>
                                     <option style="background: #cc2900; color: #fff;">Alta</option>
                                 </select>
                             </div>

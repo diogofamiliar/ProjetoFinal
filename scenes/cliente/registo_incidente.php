@@ -52,7 +52,7 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
                     <label for="camera" class="font-weight-bold">Introduza imagens:</label>
                     <input id="camera" type="file" accept="image/*" capture="camera" name="files[]" multiple>
                 </div>
-                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" name="submit" class="btn btn-primary">Enviar</button>
             </form>
         </div>
         

@@ -5,7 +5,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
 ?>
 <?php
   include "../../../core/connect.php";
-	include __DIR__.'/../../../headers/admin_header.php';
+	include '../../../headers/admin_header.php';
 ?>
 
 <!doctype html>
@@ -53,8 +53,8 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
 <div class="d-flex justify-content-center">
   <div class="card col-sm-9">
     <div class="card-header">
-    <a class="btn btn-primary" href="criar_mensagem.php"><i class="fa fa-envelope-o"></i> Criar notificação</a>
-    <a class="btn btn-danger" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-trash"></i> Eliminar</a>
+      <a class="btn btn-primary" href="criar_mensagem.php"><i class="fa fa-envelope-o"></i> Criar notificação</a>
+      <a class="btn btn-danger" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-trash"></i> Eliminar</a>
     </div>
     <div class="card-body">
       <form method="POST" id="form1" action="eliminar_mensagens.php"> 
@@ -76,7 +76,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
             while($rows = mysqli_fetch_assoc($resultset)) {
             ?>
           <tr>
-              <td class="col-sm-1"><input type="checkbox" name="id_mensagem[]" value="<?php echo $rows['id_mensagem']; ?>" multiple></td>
+              <td><input type="checkbox" name="id_mensagem[]" value="<?php echo $rows['id_mensagem']; ?>" multiple></td>
               <td><?php echo utf8_encode($rows["destinatario"]); ?></td>
               <td><?php echo utf8_encode($rows["assunto"]); ?></td>
               <td><?php echo utf8_encode($rows["texto"]); ?></td>
@@ -104,12 +104,12 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
     
     $('#data').DataTable({
       "columnDefs": [
-        { "width": "20%", "targets": 0 },
-        { "width": "20%", "targets": 1 },
-        { "width": "20%", "targets": 2 },
-        { "width": "20%", "targets": 3 },
-        { "width": "10%", "targets": 4 },
-        { "width": "10%", "targets": 5 }
+        { "width": "5%", "targets": 0 },  //check
+        { "width": "10%", "targets": 1 }, //destinatario
+        { "width": "25%", "targets": 2 }, //assunto
+        { "width": "45%", "targets": 3 }, //mensagem
+        { "width": "10%", "targets": 4 }, //data
+        { "width": "5%", "targets": 5 }  //lida
       ],
       select: true,
       "scrollX": true

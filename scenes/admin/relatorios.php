@@ -117,7 +117,7 @@ include __DIR__.'/../../core/connect.php';
           'chartType': 'PieChart',
           'containerId': 'chart_div',
           'options': {
-            legend: {position: 'right'},
+            legend: {position: 'top'},
             pieSliceTextStyle: {color: 'white'},
           },
           'view': {'columns': [1, 2]}
@@ -165,7 +165,7 @@ include __DIR__.'/../../core/connect.php';
           'chartType': 'PieChart',
           'containerId': 'chart_div2',
           'options': {
-            legend: {position: 'right'},
+            legend: {position: 'top'},
             pieSliceTextStyle: {color: 'white'},
           },
           'view': {'columns': [1, 2]}

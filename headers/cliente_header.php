@@ -17,10 +17,10 @@ include __DIR__.'/../core/notificacao.php';
                     <a class="nav-link pl-0" href="/ProjetoFinal/scenes/cliente/cliente.php"  id="navbar-text">Página Inicial <span class="sr-only">Página Inicial</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="incidentes.php">Incidentes</a>
+                    <a class="nav-link" href="/ProjetoFinal/scenes/cliente/incidentes.php">Incidentes</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="cliente_documentos.php">Documentos</a>
+                    <a class="nav-link" href="/ProjetoFinal/scenes/cliente/cliente_documentos.php">Documentos</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/ProjetoFinal/scenes/cliente/contactos.php">Contatos Úteis</a>

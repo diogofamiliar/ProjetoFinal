@@ -18,19 +18,6 @@ include __DIR__.'/../../core/connect.php';
 
 $id=$_GET["id"];
 $tipo=$_GET["tipo"];
-$descricao=$_GET["descricao"];
-$zona=$_GET["zona"];
-$tipo_documento=$_GET["tipo_documento"];
-
-
-$query1="SELECT id_zona FROM zona WHERE nome='$zona' ";
-$result = mysqli_query($conn, $query1);
-$rows = mysqli_fetch_assoc($result);
-
-$query2="SELECT condominio.nome as nome_condominio FROM zona INNER JOIN condominio ON zona.id_condominio=condominio.id_condominio WHERE zona.nome='$zona' ";
-$result1 = mysqli_query($conn, $query2);
-$row = mysqli_fetch_assoc($result1);
-
 
 if(isset($_GET["apagar"])){
     $apagar=$_GET["apagar"];
@@ -72,6 +59,17 @@ if($tipo=="apagar" && $apagar){
 			</script>
             <?php
             }elseif($tipo=="editar"){
+                $descricao=$_GET["descricao"];
+                $zona=$_GET["zona"];
+                $tipo_documento=$_GET["tipo_documento"];
+
+                $query1="SELECT id_zona FROM zona WHERE nome='$zona' ";
+                $result = mysqli_query($conn, $query1);
+                $rows = mysqli_fetch_assoc($result);
+
+                $query2="SELECT condominio.nome as nome_condominio FROM zona INNER JOIN condominio ON zona.id_condominio=condominio.id_condominio WHERE zona.nome='$zona' ";
+                $result1 = mysqli_query($conn, $query2);
+                $row = mysqli_fetch_assoc($result1);
 ?>
                 <form  method="GET">
 				<!-- formulario para receber os dados para editar -->

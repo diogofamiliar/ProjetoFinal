@@ -9,13 +9,13 @@ include __DIR__.'/../scenes/login.php';?>
         <div class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link pl-0" href="index.php"  id="navbar-text">Home <span class="sr-only">Home</span></a>
+                    <a class="nav-link pl-0" href="index.php"  id="navbar-text">Página Inicial <span class="sr-only">Página Inicial</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Informações</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contatos Uteis</a>
+                    <a class="nav-link" href="#">Contatos Úteis</a>
                 </li>
         </div>
         <a class="navbar-brand" href="index.php"><img src="https://i.imgur.com/SzFkxr6.png" style="width:40px;"></a>

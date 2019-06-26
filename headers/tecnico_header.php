@@ -13,7 +13,7 @@
             <ul class="navbar-nav">
                 <li class="nav-item">
                     <a class="nav-link" href="/ProjetoFinal/scenes/tecnico/tecnico.php">
-                        <span class="fa fa-home" aria-hidden="true" style="font-size:20px;"></span> Home
+                        <span class="fa fa-home" aria-hidden="true" style="font-size:20px;"></span> Página Inicial
                     </a>
                 </li>
                     <a class="nav-link" href="/ProjetoFinal/scenes/tecnico/tarefas.php">
@@ -21,7 +21,7 @@
                     </a>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="/ProjetoFinal/scenes/tecnico/contactos_tecnico.php">
-                        <span class="fa fa-phone" aria-hidden="true" style="font-size:20px;"></span> Contatos
+                        <span class="fa fa-phone" aria-hidden="true" style="font-size:20px;"></span> Contatos Úteis
                     </a>
                 </li>
             </ul>
@@ -30,7 +30,7 @@
         <div class="navbar-collapse collapse dual-nav w-50 order-2">
             <ul class="nav navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/ProjetoFinal/core/logout.php">Logout</a>
+                    <a class="nav-link" href="/ProjetoFinal/core/logout.php">Terminar Sessão</a>
                 </li>
             </ul>
         </div>

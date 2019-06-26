@@ -8,29 +8,29 @@ ob_start();
         <div class="modal-content">
             <div class="modal-header" style="display:table-cell; vertical-align:middle; text-align:center">
                 <a class="navbar-brand"><img src="https://i.imgur.com/SzFkxr6.png" style="width:40px;"></a>
-                <h2>HabitaBem</h2>
+                <h2>elVecino</h2>
             </div>
             <div class="modal-body" style="padding:40px 50px;">
                 <form form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>"> 
                     <div class="form-group">
                         <label for="usrname"><span class="glyphicon glyphicon-user"></span> Email</label>
-                        <input type="text" class="form-control" name="login_email" placeholder="Enter email" Required>
+                        <input type="text" class="form-control" name="login_email" placeholder="Introduzir email" Required>
                     </div>
                     <div class="form-group">
-                        <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-                        <input type="password" class="form-control" id="login_password" name="login_password" placeholder="Enter password" Required>
+                        <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Palavra-passe</label>
+                        <input type="password" class="form-control" id="login_password" name="login_password" placeholder="Introduzir palavra-passe" Required>
                     </div>
                     <div class="checkbox">
-                        <label><input type="checkbox" value="" checked>Remember me</label>
+                        <label><input type="checkbox" value="" checked> Lembrar palavra-passe</label>
                         </div>
-                    <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+                    <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Iniciar Sessão</button>
                 </form>
             </div>
             <div class="modal-footer">
                 <div class="content-center" id="modal_footer_content">
                     <ul style="list-style-type: none;">
                         <li>
-                            <button type="submit" class="btn btn-danger btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Cancel</button>
+                            <button type="submit" class="btn btn-danger btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Cancelar</button>
                         </li>
                     </ul>
                 </div>

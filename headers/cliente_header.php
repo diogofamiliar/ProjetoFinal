@@ -14,7 +14,7 @@ include __DIR__.'/../core/notificacao.php';
         <div class="navbar-collapse collapse dual-nav w-50 order-1 order-md-0">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link pl-0" href="/ProjetoFinal/scenes/cliente/cliente.php"  id="navbar-text">Home <span class="sr-only">Home</span></a>
+                    <a class="nav-link pl-0" href="/ProjetoFinal/scenes/cliente/cliente.php"  id="navbar-text">Página Inicial <span class="sr-only">Página Inicial</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="incidentes.php">Incidentes</a>
@@ -23,7 +23,7 @@ include __DIR__.'/../core/notificacao.php';
                     <a class="nav-link" href="cliente_documentos.php">Documentos</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ProjetoFinal/scenes/cliente/contactos.php">Contatos Uteis</a>
+                    <a class="nav-link" href="/ProjetoFinal/scenes/cliente/contactos.php">Contatos Úteis</a>
                 </li>
             </ul>
         </div>
@@ -44,7 +44,7 @@ include __DIR__.'/../core/notificacao.php';
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ProjetoFinal/core/logout.php">Logout</a>
+                    <a class="nav-link" href="/ProjetoFinal/core/logout.php">Terminar Sessão</a>
                 </li>
             </ul>
         </div>

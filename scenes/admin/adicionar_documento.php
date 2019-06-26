@@ -2,6 +2,7 @@
 session_start();
 if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && isset($_SESSION['id_utilizador'])){
 }else header('Location: /ProjetoFinal/index.php');
+include __DIR__.'/../../headers/admin_header.php';
 ?>
 
 <!doctype html>
@@ -34,6 +35,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
                         <option value="Seguro">Seguro</option>
                         <option value="Inspecoes">Inspeções</option>
                         <option value="Manutencoes">Manutenções</option>
+                        <option value="Outro">Outro</option>
                     </select>
                 </div>
                 <div class="form-group">
@@ -57,7 +59,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
                     <label for="documento" class="font-weight-bold">Introduza o documento (doc, docx ou pdf):</label><br>
                     <input id="documento" type="file" name="documento" required='required'>
                 </div>
-                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" name="submit" class="btn btn-primary">Adicionar</button>
             </form>
         </div>
         

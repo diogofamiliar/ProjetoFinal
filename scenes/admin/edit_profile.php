@@ -66,14 +66,14 @@ $row=mysqli_fetch_array($result);
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Insira a password</label>
+                                <label class="col-lg-3 col-form-label form-control-label">Insira a palavra-passe</label>
                                 <div class="col-lg-9">
                                     <input type="password" class="form-control" id="password" placeholder="Password" name="senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange='check_pass();' value="<?php echo $row['senha']; ?>" Required>
-                                    <small id="passHelp" class="form-text text-muted">A password deve conter um mínimo de 8 caracteres, incluíndo pelo menos: um algarismo, uma letra maiúscula e uma letra minúscula.</small>
+                                    <small id="passHelp" class="form-text text-muted">A palavra-passe deve conter um mínimo de 8 caracteres, incluíndo pelo menos: um algarismo, uma letra maiúscula e uma letra minúscula.</small>
                                 </div>                                    
                             </div>
                             <div class="form-group row">
-                                <label class="col-lg-3 col-form-label form-control-label">Reintroduza a password</label>
+                                <label class="col-lg-3 col-form-label form-control-label">Reintroduza a palavra-passe</label>
                                 <div class="col-lg-9">
                                     <input type="password" class="form-control" id="confirm_password" placeholder="Password" name="conv" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange='check_pass();' value="<?php echo $row['senha']; ?>" Required>
                                     <span id='message'></span>
@@ -82,7 +82,7 @@ $row=mysqli_fetch_array($result);
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label"></label>
                                 <div class="col-lg-9">
-                                    <input type="submit" class="btn btn-primary" value="Save Changes">
+                                    <input type="submit" class="btn btn-primary" value="Guardar Alterações">
                                 </div>
                             </div>
                         </form>

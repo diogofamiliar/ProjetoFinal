@@ -148,7 +148,7 @@ function OnButtonEdit(){
         ?>
       <tr>
       <?php $id_incidente=$rows['id_incidente']; ?>
-          <td class="d-flex justify-content-center"><input type="checkbox" name="id_incidente[]" value="<?php echo $rows['id_incidente']; ?>" multiple><?php echo $rows['id_incidente']; ?></td>
+          <td class="d-flex justify-content-center"><input type="checkbox" name="id_incidente[]" value="<?php echo $rows['id_incidente']; ?>" multiple></td>
           <td><?php echo utf8_encode($rows["data_incidente"]); ?></td>
           <td><?php echo utf8_encode($rows["cod_condominio"]); ?></td>
           <td><?php echo utf8_encode($rows["entrada"]); ?></td>

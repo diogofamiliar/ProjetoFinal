@@ -72,16 +72,16 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
             </div>
           </div>
           <div class="form-group">
-            <label for="data_agendamento">Data nascimento:</label>
+            <label for="data_agendamento">Data Nascimento:</label>
             <input type="text" class="datepicker-here form-control" data-language='pt'data-position="bottom left" name="data_nascimento" id="data_agendamento" required>
           </div>
           <div class="form-group">
             <div>
-              <label class="form-label">Número contribuinte:</label>
+              <label class="form-label">Número Contribuinte:</label>
               <input type="text" form="form3" class="form-control" name="n_contribuinte" id="inputContribuinte" placeholder="Insira um número de 9 digitos" pattern="[0-9]{9}">
             </div>          
             <div>
-              <label class="form-label">Telemovel:</label>
+              <label class="form-label">Telemóvel:</label>
               <input type="tel" form="form3" name="telemovel" class="form-control col-sm-8" placeholder="Insira um número de 9 digitos" required pattern="[0-9]{9}">
             </div>
             <div>
@@ -89,12 +89,12 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
               <input type="email" form="form3" name="email" class="form-control" required>
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1" class="font-weight-bold">Password:</label>
+              <label for="exampleInputPassword1" class="font-weight-bold">Palavra-passe:</label>
               <input type="password" class="form-control" id="password" placeholder="Password" name="senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange='check_pass();' Required>
-              <small id="passHelp" class="form-text text-muted">A password deve conter um mínimo de 8 caracteres, incluíndo pelo menos: um algarismo, uma letra maiúscula e uma letra minúscula.</small>
+              <small id="passHelp" class="form-text text-muted">A palavra-passe deve conter um mínimo de 8 caracteres, incluíndo pelo menos: um algarismo, uma letra maiúscula e uma letra minúscula.</small>
             </div>
             <div class="form-group">
-              <label for="exampleInputPassword1" class="font-weight-bold">Confirme a password:</label>
+              <label for="exampleInputPassword1" class="font-weight-bold">Confirme a palavra-passe:</label>
               <input type="password" class="form-control" id="confirm_password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange='check_pass();' Required>
               <span id='message'></span>
             </div>

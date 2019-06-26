@@ -28,7 +28,7 @@ include '../../headers/tecnico_header.php';?>
             <form action="inserir_incidente.php" method="Post" enctype="multipart/form-data">    
                 <div class="form-group">
                     <label for="morada" class="font-weight-bold">Insira a morada:</label>
-                    <input type="text" name="id_zona" id="id_condominio" class="form-control" placeholder="Selecione uma das opções"/ Required>  
+                    <input type="text" name="id_zona" id="id_condominio" class="form-control" placeholder="Selecione uma das opções" Required>  
                     <div id="lista_condominios"></div> 
                 </div>
                 <div class="form-group">

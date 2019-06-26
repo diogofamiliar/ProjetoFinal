@@ -22,7 +22,7 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
 
 <?php
     
-    include '../../core/notificacao.php';
+    include '../../../core/notificacao.php';
     include __DIR__.'/../../../headers/cliente_header.php';
     include '../../../core/connect.php';
     if(isset($_POST['mensagem'])){

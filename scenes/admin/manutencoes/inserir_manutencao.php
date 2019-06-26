@@ -134,7 +134,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
                                 <label>Observações:</label>
                                 <textarea class="form-control" name="observacao" rows="1"></textarea>
                             </div> 
-                        <input type="submit" value="Submit" name="submit">
+                        <input type="submit" value="Enviar" name="submit">
                     </form>
                 </div>
             </div>

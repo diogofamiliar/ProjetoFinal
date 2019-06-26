@@ -27,29 +27,29 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
 
         // Allow certain file formats
         if($FileType != "pdf" && $FileType != "docx" && $FileType != "doc" ) {
+            echo "Desculpe, apenas são permitidos ficheiros do tipo pdf, doc e docx.";
 ?>      
       <button class="btn btn-secondary" onclick="history.go(-2);"><i class="fa fa-chevron-left"></i> Voltar</button>
 <?php 
-            echo "Sorry, only PDF, DOC and DOCX files are allowed.";
             $uploadOk = 0;
-        }elseif ($size > 500000) {
-?>      
-      <button class="btn btn-secondary" onclick="history.go(-2);"><i class="fa fa-chevron-left"></i> Voltar</button>
-<?php   
-            echo "Sorry, your file is too large.";
-            $uploadOk = 0;
-        }elseif (file_exists($target_file)) {
+        }elseif ($size > 500000) { 
+            echo "Desculpe, o ficheiro que inseriu é muito grande.";
 ?>      
       <button class="btn btn-secondary" onclick="history.go(-2);"><i class="fa fa-chevron-left"></i> Voltar</button>
 <?php  
-            echo "Sorry, file already exists.";
+            $uploadOk = 0;
+        }elseif (file_exists($target_file)) {
+            echo "Desculpe, o ficheiro que tentou inserir já existe.";
+?>      
+      <button class="btn btn-secondary" onclick="history.go(-2);"><i class="fa fa-chevron-left"></i> Voltar</button>
+<?php  
             $uploadOk = 0;
         }elseif ($uploadOk == 0) {
+            echo "Ocorreu um erro, o ficheiro não foi adicionado.";
 ?>      
       <button class="btn btn-secondary" onclick="history.go(-2);"><i class="fa fa-chevron-left"></i> Voltar</button>
 <?php 
-            echo "Sorry, your file was not uploaded.";
-        // if everything is ok, try to upload file
+        // se tudo tiver ok faz upload
         } else {
             if (move_uploaded_file($_FILES['documento']['tmp_name'], $target_file)) {
 
@@ -73,13 +73,13 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
                     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
                 }
 
-                echo "The file ". $fileName. " has been uploaded.";
+                echo "O ficheiro ". $fileName. " foi adicionado.";
                 header('Location: admin_documentos.php');
             } else {
 ?>      
       <button class="btn btn-secondary" onclick="history.go(-2);"><i class="fa fa-chevron-left"></i> Voltar</button>
 <?php 
-                echo "Sorry, there was an error uploading your file.";
+                echo "Ocorreu um erro, o ficheiro não foi adicionado.";
             }
         }
     }

@@ -108,6 +108,7 @@ include __DIR__.'/../../core/connect.php';
             'ui': {
               'labelStacking': 'vertical',
               'label': 'Escolha o Condomínio:',
+              'caption': 'Condomínio:',
               'allowTyping': false,
               'allowMultiple': false
             }
@@ -155,6 +156,7 @@ include __DIR__.'/../../core/connect.php';
             'ui': {
               'labelStacking': 'vertical',
               'label': 'Escolha o Ano:',
+              'caption': 'Ano:',
               'allowTyping': false,
               'allowMultiple': false
             }

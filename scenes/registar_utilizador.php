@@ -31,22 +31,22 @@
             <p>Por favor preencha este formulário de forma a criar uma conta.</p>
             <form action="registar_utilizador_1.php" method="Post" enctype="multipart/form-data"> <!--  VERIFICAR ISTO-->
                 <div class="form-group">
-                    <label for="localizacao" class="font-weight-bold">Insira o nome completo:</label>
-                    <input type="text" class="form-control" id="nome" placeholder="Tiago Oliveira Cardoso" name="nome_completo" Required>
+                    <label for="localizacao" class="font-weight-bold">Nome completo:</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Insira o seu nome completo" name="nome_completo" Required>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail1" class="font-weight-bold">Endereço email:</label>
-                    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="...@email.com.pt" Required>
+                    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Insira o seu email" Required>
                     <span id="availability"></span>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1" class="font-weight-bold">Password:</label>
-                    <input type="password" class="form-control" id="password" placeholder="Password" name="senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange='check_pass();' Required>
-                    <small id="passHelp" class="form-text text-muted">A password deve conter um mínimo de 8 caracteres, incluíndo pelo menos: um algarismo, uma letra maiúscula e uma letra minúscula.</small>
+                    <label for="exampleInputPassword1" class="font-weight-bold">Palavra-passe:</label>
+                    <input type="password" class="form-control" id="password" placeholder="Inserir palavra-passe" name="senha" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange='check_pass();' Required>
+                    <small id="passHelp" class="form-text text-muted">A palavra-passe deve conter um mínimo de 8 caracteres, incluíndo pelo menos: um algarismo, uma letra maiúscula e uma letra minúscula.</small>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1" class="font-weight-bold">Confirme a password:</label>
-                    <input type="password" class="form-control" id="confirm_password" placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange='check_pass();' Required>
+                    <label for="exampleInputPassword1" class="font-weight-bold">Confirme a palavra-passe:</label>
+                    <input type="password" class="form-control" id="confirm_password" placeholder="Confirmar palavra-passe" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" onchange='check_pass();' Required>
                     <span id='message'></span>
                 </div>
                 <div class="form-group">
@@ -82,12 +82,12 @@
       {
        if(data != '0')
        {
-        $('#availability').html('<span class="text-danger">Endereço de email não disponível</span>');
+        $('#availability').html('<span class="text-danger">Endereço de email já utilizado</span>');
         $('#register').attr("disabled", true);
        }
        else
        {
-        $('#availability').html('<span class="text-success">Endereço de email disponível</span>');
+        //$('#availability').html('<span class="text-success">Endereço de email disponível</span>');
         $('#register').attr("disabled", false);
        }
       }

@@ -168,7 +168,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
         </div>
         <?php }?>
           <div class="container">
-            <input type="submit" value="Submit" name="submit">
+            <input type="submit" value="Enviar" name="submit">
           </div>
       </form>
     </div>

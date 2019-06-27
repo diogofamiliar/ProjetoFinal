@@ -10,8 +10,11 @@ include __DIR__.'/../../headers/admin_header.php';
 $id_utilizador=$_SESSION['id_utilizador'];  
 include __DIR__.'/../../core/connect.php';
 ?>
-   <form method="post" action="printpdf.php">
-    <button type="submit" name="create_pdf" id="create_pdf" class="btn btn-danger btn-xs">Imprimir PDF</button>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>    
+   <div>
+   <form method="post" id="make_pdf" action="create_pdf.php">
+    <input type="hidden" name="hidden_html" id="hidden_html" />
+    <button type="button" name="create_pdf" id="create_pdf" class="btn btn-danger btn-xs">Imprimir em PDF</button>
    </form>
 <html>
     <!-- Required meta tags -->
@@ -35,7 +38,6 @@ include __DIR__.'/../../core/connect.php';
     <div id="categoryPicker2_div" style="text-align:center;"></div>  
     <div id="chart_div2" style="width: 100%; height: 500px;"></div>  
     </div>
-    <h1 style="font-size:160%; text-align:center;"><strong>Incidentes por Condomínio</strong></h1>
     <script type="text/javascript">
 
       
@@ -69,7 +71,13 @@ include __DIR__.'/../../core/connect.php';
             legend: {position: 'right'},
                        };
 
-        var chart = new google.visualization.PieChart(document.getElementById('condominio_chart_div'));
+        var chart_area = document.getElementById('condominio_chart_div');
+        var chart = new google.visualization.PieChart(chart_area);
+           
+        google.visualization.events.addListener(chart, 'ready', function(){
+        chart_area.innerHTML = '<img src="' + chart.getImageURI() + '" class="img-responsive">';
+    });
+
         chart.draw(data, options);
       }
 
@@ -94,7 +102,15 @@ include __DIR__.'/../../core/connect.php';
           pieHole: 0.5
           };
 
-        var chart = new google.visualization.PieChart(document.getElementById('incidente_chart_div'));
+        var chart_area = document.getElementById('incidente_chart_div');
+        var chart = new google.visualization.PieChart(chart_area);
+           
+        google.visualization.events.addListener(chart, 'ready', function(){
+        chart_area.innerHTML = '<img src="' + chart.getImageURI() + '" class="img-responsive">';
+    });
+
+
+
         chart.draw(data, options);
     
       }
@@ -201,8 +217,21 @@ include __DIR__.'/../../core/connect.php';
   <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
   </head>
   <body>
+  <div class="container" id="testing"> 
+  <div class="panel-body" align="center">
+        <h1 style="font-size:160%; text-align:center;"><strong>Incidentes por Condomínio</strong></h1>
         <div id="condominio_chart_div" style="width: 100%; height: 500px;"></div>
         <h1 style="font-size:160%; text-align:center;"><strong>Incidentes por Categoria de Incidente</strong></h1>
         <div id="incidente_chart_div" style="width: 100%; height: 500px;"></div>
+    </div>
+    </div>
        </body>
 </html>
+<script>
+$(document).ready(function(){
+ $('#create_pdf').click(function(){
+  $('#hidden_html').val($('#testing').html());
+  $('#make_pdf').submit();
+ });
+});
+</script>

@@ -4,7 +4,7 @@ include __DIR__.'/../../headers/cliente_header.php';
 if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino' && isset($_SESSION['id_utilizador'])){
     $id_utilizador=$_SESSION['id_utilizador'];
     include __DIR__.'/../../core/connect.php';
-    $query ="SELECT incidente.data_incidente, incidente.local, incidente.descricao, incidente_manutencao.estado FROM incidente INNER JOIN incidente_manutencao ON incidente.id_incidente = incidente_manutencao.id_incidente WHERE incidente.id_utilizador='$id_utilizador' ORDER BY incidente.data_incidente DESC;";  
+    $query ="SELECT incidente.data_incidente, incidente.local, incidente.descricao, incidente_manutencao.estado FROM incidente LEFT JOIN incidente_manutencao ON incidente.id_incidente = incidente_manutencao.id_incidente WHERE incidente.id_utilizador='$id_utilizador' ORDER BY incidente.data_incidente DESC;";  
     $result = mysqli_query($conn, $query);
 }else header('Location: ../../index.php');
 ?>
@@ -49,6 +49,9 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
                 <?php
                     
                         while($row = mysqli_fetch_array($result)){
+                            if($row["estado"]==NULL){
+                                $row["estado"]="Por agendar";
+                            }
                             echo '  
                                 <tr>  
                                         <td>'.$row["data_incidente"].'</td>  

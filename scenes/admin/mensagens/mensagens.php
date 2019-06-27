@@ -65,25 +65,40 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
               <th>Destinatário</th>
               <th>Assunto</th>
               <th>Mensagem</th>  
-              <th>Data</th>
+              <th>Data Envio</th>
+              <th>Autor</th>
               <th>Lida</th>
+              <th>Data Leitura</th>
             </tr>
           </thead>
           <tbody>
             <?php
-            $sql = "SELECT mensagem.id_mensagem as id_mensagem, mensagem.assunto as assunto, mensagem.texto as texto, mensagem.data_criacao as data_criacao, destinatario.id_utilizador as destinatario, destinatario.lida as lida from mensagem inner join destinatario WHERE mensagem.id_mensagem=destinatario.id_mensagem order by data_criacao DESC";
+            $sql = "SELECT mensagem.remetente as id_remetente,destinatario.data_leitura, utilizador.nome as nome_destinatario, 
+            mensagem.id_mensagem as id_mensagem, mensagem.assunto as assunto, 
+            mensagem.texto as texto, mensagem.data_criacao as data_criacao, 
+            destinatario.id_utilizador as destinatario, destinatario.lida as lida 
+            from mensagem inner join destinatario ON mensagem.id_mensagem=destinatario.id_mensagem 
+            INNER JOIN utilizador ON utilizador.id_utilizador=destinatario.id_utilizador 
+            order by data_criacao DESC";
             $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
             while($rows = mysqli_fetch_assoc($resultset)) {
+              $id_remetente=$rows["id_remetente"];
+              $sql1="SELECT utilizador.nome as autor FROM utilizador WHERE id_utilizador=".$id_remetente;
+              $resultset1 = mysqli_query($conn, $sql1) or die("database error:". mysqli_error($conn));
+              while($row = mysqli_fetch_assoc($resultset1)) {
             ?>
           <tr>
               <td><input type="checkbox" name="id_mensagem[]" value="<?php echo $rows['id_mensagem']; ?>" multiple></td>
-              <td><?php echo utf8_encode($rows["destinatario"]); ?></td>
+              <td><?php echo utf8_encode($rows["nome_destinatario"]); ?></td>
               <td><?php echo utf8_encode($rows["assunto"]); ?></td>
               <td><?php echo utf8_encode($rows["texto"]); ?></td>
               <td><?php echo utf8_encode($rows["data_criacao"]); ?></td>
+              <td><?php echo utf8_encode($row["autor"]); ?></td>
               <td><?php if($rows["lida"]==1){ echo "Sim";}elseif($rows["lida"]==NULL){echo "Não";}; ?></td>
+              <td><?php echo utf8_encode($rows["data_leitura"]); ?></td>
           </tr>
           <?php
+              }
           }
           ?>
           </tbody>
@@ -106,10 +121,12 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
       "columnDefs": [
         { "width": "5%", "targets": 0 },  //check
         { "width": "10%", "targets": 1 }, //destinatario
-        { "width": "25%", "targets": 2 }, //assunto
-        { "width": "45%", "targets": 3 }, //mensagem
-        { "width": "10%", "targets": 4 }, //data
-        { "width": "5%", "targets": 5 }  //lida
+        { "width": "10%", "targets": 2 }, //assunto
+        { "width": "35%", "targets": 3 }, //mensagem
+        { "width": "15%", "targets": 4 }, //data
+        { "width": "5%", "targets": 5 },  //autor
+        { "width": "5%", "targets": 6 },  //lida
+        { "width": "15%", "targets": 7 }  //data leitura
       ],
       select: true,
       "scrollX": true

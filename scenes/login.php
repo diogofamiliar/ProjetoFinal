@@ -71,7 +71,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if (password_verify($senha, $hash)) {
             include __DIR__.'/../core/verify_user_role.php';
         } else {
-            echo 'Palavra-passe ou email inválidos';
+            echo 'Palavra-passe ou email inválidos';        
         }
     }
 }

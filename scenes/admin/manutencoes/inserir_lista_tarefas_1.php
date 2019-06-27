@@ -49,8 +49,8 @@ $id_incidente=$_POST['id_incidente'];$observacao=$_POST['observacao'];$id_tipo_m
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
-header('Location: selecao_ocorrencias.php');
+header('Location: incidentes.php');
 //CRIAR COOKIE
 }
-header('Location: selecao_ocorrencias.php');
+header('Location: incidentes.php');
 ?>

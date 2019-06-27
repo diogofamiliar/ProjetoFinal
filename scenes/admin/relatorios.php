@@ -10,6 +10,9 @@ include __DIR__.'/../../headers/admin_header.php';
 $id_utilizador=$_SESSION['id_utilizador'];  
 include __DIR__.'/../../core/connect.php';
 ?>
+   <form method="post" action="printpdf.php">
+    <button type="submit" name="create_pdf" id="create_pdf" class="btn btn-danger btn-xs">Imprimir PDF</button>
+   </form>
 <html>
     <!-- Required meta tags -->
     <meta charset="utf-8">

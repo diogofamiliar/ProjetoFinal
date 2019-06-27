@@ -28,13 +28,13 @@ if(($_SESSION['nome_grupo'])=='tecnico' && isset($_SESSION['id_utilizador'])){
 	?>
     
     <h1 id="h1-centered">
-        <?php/*
+        <?php
         $id_utilizador=$_SESSION['id_utilizador'];
         $sql = "SELECT nome FROM utilizador WHERE id_utilizador='$id_utilizador'";
         $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
         $row = mysqli_fetch_assoc($resultset);
-        */?>
-        Bem-vindo <?php/* echo $row['nome'];*/?>
+        ?>
+        Bem-vindo(a) <?php echo $row['nome'];?>
     </h1>
     <div class="container" id="index_incidentes">
     <h2 id="h1-centered">Incidentes</h2>

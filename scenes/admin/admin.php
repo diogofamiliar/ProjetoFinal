@@ -5,6 +5,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
 ?>
 <?php
 include __DIR__.'/../../headers/admin_header.php';
+include '../../core/connect.php';
 ?>
 
 <!doctype html>
@@ -25,7 +26,15 @@ include __DIR__.'/../../headers/admin_header.php';
 
 <body>
 
-  <h1 id="h1-centered">Bem-vindo</h1>
+<h1 id="h1-centered">
+    <?php
+    $id_utilizador=$_SESSION['id_utilizador'];
+    $sql = "SELECT nome FROM utilizador WHERE id_utilizador='$id_utilizador'";
+    $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
+    $row = mysqli_fetch_assoc($resultset);
+    ?>
+    Bem-vindo(a) <?php echo $row['nome'];?>
+  </h1>
   <h2 id="h1-centered">Página inicial</h2>
   <div class="container">
     

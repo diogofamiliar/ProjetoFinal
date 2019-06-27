@@ -16,6 +16,9 @@
                         <span class="fa fa-home" aria-hidden="true" style="font-size:20px;"></span> Página Inicial
                     </a>
                 </li>
+                    <a class="nav-link" href="/ProjetoFinal/scenes/tecnico/registo_incidente.php">
+                        <span class="fa fa-exclamation-triangle" aria-hidden="true" style="font-size:20px;"></span> Incidente
+                    </a>
                     <a class="nav-link" href="/ProjetoFinal/scenes/tecnico/tarefas.php">
                         <span class="fa fa-wrench" aria-hidden="true" style="font-size:20px;"></span> Reparações
                     </a>

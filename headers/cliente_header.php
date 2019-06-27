@@ -19,9 +19,12 @@ include __DIR__.'/../core/notificacao.php';
                 <li class="nav-item">
                     <a class="nav-link" href="/ProjetoFinal/scenes/cliente/incidentes.php">Incidentes</a>
                 </li>
+ <!-- para não aparecer os documentos no inquilino -->
+<?php if($_SESSION['nome_grupo']=='cliente' && $_SESSION['id_utilizador']){ ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/ProjetoFinal/scenes/cliente/cliente_documentos.php">Documentos</a>
                 </li>
+<?php } ?>
                 <li class="nav-item">
                     <a class="nav-link" href="/ProjetoFinal/scenes/cliente/contactos.php">Contatos Úteis</a>
                 </li>

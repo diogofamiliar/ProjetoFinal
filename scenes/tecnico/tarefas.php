@@ -65,7 +65,8 @@ if(($_SESSION['nome_grupo'])=='tecnico' && isset($_SESSION['id_utilizador'])){
                 <th class="col-1"><input type="checkbox" id="checkAll"/></th>
                 <th class="col-1">Data</th>
                 <th class="col-2">Local</th>
-                <th class="col-2">Manutenção</th>
+                <th class="col-1">Manutenção</th>
+                <th class="col-1">Prioridade</th>
                 <th class="col-2">Descrição do cliente</th>
                 <th class="col-2">Observações</th>
                 <th class="col-2">Fotografia</th>
@@ -73,7 +74,7 @@ if(($_SESSION['nome_grupo'])=='tecnico' && isset($_SESSION['id_utilizador'])){
             </thead>
             <tbody>
             <?php
-              $sql =    "SELECT  incidente.id_incidente, manutencao.id_manutencao as id_manutencao, tipo_manutencao.descricao as tipo_manutencao, incidente.id_zona, zona.morada as morada, zona.nome as entrada, manutencao.id_tipo_manutencao, manutencao.data_planeada as data_planeada, manutencao.observacoes as observacoes, incidente.descricao as descricao
+              $sql =    "SELECT  prioridade, incidente.id_incidente, manutencao.id_manutencao as id_manutencao, tipo_manutencao.descricao as tipo_manutencao, incidente.id_zona, zona.morada as morada, zona.nome as entrada, manutencao.id_tipo_manutencao, manutencao.data_planeada as data_planeada, manutencao.observacoes as observacoes, incidente.descricao as descricao
                         FROM manutencao
                         INNER JOIN incidente_manutencao
                         ON manutencao.id_manutencao=incidente_manutencao.id_manutencao
@@ -96,9 +97,10 @@ if(($_SESSION['nome_grupo'])=='tecnico' && isset($_SESSION['id_utilizador'])){
                 <td class="col-1"><input type="checkbox" name="id_manutencao[]" value="<?php echo $rows['id_manutencao']; ?>" multiple></td>
                 <td class="col-1"><?php echo utf8_encode($rows["data_planeada"]); ?></td>
                 <td class="col-2"><?php echo utf8_encode($rows["entrada"]);?><br><?php echo utf8_encode($rows["morada"]);?></td>
-                <td class="col-2"><?php echo utf8_encode($rows["tipo_manutencao"]); ?></td>
-                <td class="col-2"><?php echo utf8_encode($rows["observacoes"]);?></td>
+                <td class="col-1"><?php echo utf8_encode($rows["tipo_manutencao"]); ?></td>
+                <td class="col-1"><?php echo utf8_encode($rows["prioridade"]);?></td>
                 <td class="col-2"><?php echo utf8_encode($rows["descricao"]);?></td>
+                <td class="col-2"><?php echo utf8_encode($rows["observacoes"]);?></td>
                 <td class="col-2">
 <?php
           $sql1="SELECT caminho FROM fotografia WHERE id_incidente=$id_incidente";

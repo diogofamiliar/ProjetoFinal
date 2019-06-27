@@ -239,7 +239,7 @@ function OnButtonEdit(){
 ?>
       <script>
       swal({
-            title: "Manutenção eliminada!",
+            title: "Incidente eliminado!",
             text: "Os incidentes foram eliminadas com sucesso!",
             icon: "success",
             button: "Continuar",

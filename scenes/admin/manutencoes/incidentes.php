@@ -32,7 +32,8 @@ function checkDelete() {
         if(x>0){ 
         var confirmed = confirm("Pretende eliminar as manutenções?");
             if(confirmed){
-            document.getElementById('form1').submit();
+            document.Form1.action = "apagar_incidente.php"
+            document.Form1.submit();             // Submit the page
             return true;
             }
         }else{
@@ -114,7 +115,7 @@ function OnButtonEdit(){
                 </div>
                 <div>
                     <a href="registo_incidente.php" class="btn btn-success m-1" id="myButton" type="button" name="answer" style="width:165px;"><i class="fa fa-plus-square"></i> Registar incidente</a>
-                    <a class="btn btn-danger m-1" href="javascript:{}" onclick="checkDelete()" style="width:165px;"><i class="fa fa-trash"></i> Eliminar Incidente</a>
+                    <a class="btn btn-danger m-1" href="javascript:{}" onclick="return checkDelete();" style="width:165px;"><i class="fa fa-trash"></i> Eliminar Incidente</a>
                     <a class="btn btn-primary m-1" href="javascript:{}" onclick="return OnButtonEdit();" style="width:165px;"><i class="fa fa-pencil"></i> Editar Incidente </a>
                 </div>
             </div>  
@@ -234,12 +235,12 @@ function OnButtonEdit(){
 ?>
 
 <?php
-  if(isset($_COOKIE["manutencao_eliminada"])){
+  if(isset($_COOKIE["incidente_apagado"])){
 ?>
       <script>
       swal({
             title: "Manutenção eliminada!",
-            text: "As manutenções foram eliminadas com sucesso!",
+            text: "Os incidentes foram eliminadas com sucesso!",
             icon: "success",
             button: "Continuar",
       });

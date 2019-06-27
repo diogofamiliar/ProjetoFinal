@@ -9,7 +9,7 @@ function getHash($senha){
 function verifyPw($pw_string,$hash){    
     if (password_verify($pw_string, $hash)) {
     } else {
-        echo 'Invalid password or email.';
+        echo 'Palavra-passe ou email inválidos';
     }
 }
 ?>

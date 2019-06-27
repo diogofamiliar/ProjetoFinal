@@ -10,12 +10,20 @@ include __DIR__.'/../../headers/admin_header.php';
 $id_utilizador=$_SESSION['id_utilizador'];  
 include __DIR__.'/../../core/connect.php';
 ?>
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>    
-   <div>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
+<div class="d-flex justify-content-center">
+<div class="card col-sm-12">   
+<div class="card-header d-flex justify-content-between">
    <form method="post" id="make_pdf" action="create_pdf.php">
     <input type="hidden" name="hidden_html" id="hidden_html" />
-    <button type="button" name="create_pdf" id="create_pdf" class="btn btn-danger btn-xs">Imprimir em PDF</button>
+    <button type="button" name="create_pdf" id="create_pdf" class="btn btn-primary m-1">Imprimir em PDF</button>
    </form>
+   <h3>Relatórios</h3>
+   <a type="hidden"></a>
+   </div>
+   
+
+   
 <html>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -223,6 +231,8 @@ include __DIR__.'/../../core/connect.php';
         <div id="condominio_chart_div" style="width: 100%; height: 500px;"></div>
         <h1 style="font-size:160%; text-align:center;"><strong>Incidentes por Categoria de Incidente</strong></h1>
         <div id="incidente_chart_div" style="width: 100%; height: 500px;"></div>
+    </div>
+    </div>
     </div>
     </div>
        </body>

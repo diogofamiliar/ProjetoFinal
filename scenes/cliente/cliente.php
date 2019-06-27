@@ -35,7 +35,7 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
     $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
     $row = mysqli_fetch_assoc($resultset);
     ?>
-    Bem-vindo <?php echo $row['nome'];?>
+    Bem-vindo(a) <?php echo $row['nome'];?>
   </h1>
 	<div class="container" id="index_incidentes">
     <h2 id="h1-centered">Incidentes</h2>

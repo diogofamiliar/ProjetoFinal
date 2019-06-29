@@ -39,6 +39,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
                 zona.nome as entrada, 
                 manutencao.data_planeada as data_planeada, 
                 manutencao.data_conclusao as data_reparacao, 
+                incidente.id_incidente,
                 incidente.local as local, 
                 incidente.descricao as descricao, 
                 incidente.data_incidente as data_incidente, 
@@ -121,7 +122,19 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
                             <H6>Fotografias do incidente</H6> <!-- COLOCAR A APARECER ESTA SEÇÃO SÓ SE HOUVER FOTOS. OU CASO DE NAO HAVER FOTOS, EMITIR ESSA MENSAGEM -->
                         </div>
                         <div class="card-body">
-                            <H1>FOTOS AQUI</H1>
+<?php
+                        $id_incidente=$row['id_incidente'];
+                        $sql1="SELECT caminho FROM fotografia WHERE id_incidente='$id_incidente'";
+                        $resultset1 = mysqli_query($conn, $sql1) or die("database error:". mysqli_error($conn));
+                        while($row = mysqli_fetch_assoc($resultset1)) {
+?>
+
+                        <div class="col-xs-auto">
+                                <img  name="fotos" height="30%" width="30%" title="foto" src="\ProjetoFinal\uploads\fotografias\<?php echo utf8_encode($row['caminho']);?>">
+                        </div>
+<?php 
+                        } 
+?>
                         </div>
 
                     </div>

@@ -49,8 +49,10 @@ if (isset($_POST['condominio'])) {
         include '../../../../core/connect.php';
 	?>
   
-    <h1 id="h1-centered">Alterar condomínio:</h1>
+
     <div class="container">
+        <?php include "../../../../assets/breadcrumbers/bc_alterar_condominio.php" ?>
+        <h1 id="h1-centered">Alterar condomínio:</h1>
         <?php
                 $sql="SELECT id_condominio, cod_condominio, nome, morada FROM condominio WHERE id_condominio='$id_condominio'";
                 $result=mysqli_query($conn,$sql);

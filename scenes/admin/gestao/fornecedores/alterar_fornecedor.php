@@ -31,9 +31,9 @@ if (isset($_POST['id_fornecedor'])) {
         include '../../../../headers/admin_header.php';
         include '../../../../core/connect.php';
 	?>
-  
-    <h1 id="h1-centered">Alterar fornecedor:</h1>
-    <div class="container col-12">
+    <div class="container col-11">
+        <?php include "../../../../assets/breadcrumbers/bc_alterar_fornecedor.php" ?>
+        <h1 id="h1-centered">Alterar fornecedor:</h1>
         <?php
                 $sql="SELECT id_fornecedor, telemovel, email, nome, morada FROM fornecedor WHERE id_fornecedor='$id_fornecedor'";
                 $result=mysqli_query($conn,$sql);

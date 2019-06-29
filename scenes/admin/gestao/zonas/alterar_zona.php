@@ -32,8 +32,10 @@ if (isset($_POST['id_zona'])) {
         include '../../../../core/connect.php';
 	?>
   
-    <h1 id="h1-centered">Alterar zona:</h1>
+
     <div class="container">
+        <?php include "../../../../assets/breadcrumbers/bc_alterar_zona.php" ?>
+        <h1 id="h1-centered">Alterar zona:</h1>
         <?php
                 $sql="SELECT zona.id_zona as id_zona, condominio.id_condominio as id_condominio, condominio.cod_condominio as cod_condominio, zona.nome as entrada, zona.morada as morada FROM zona INNER JOIN condominio ON zona.id_condominio=condominio.id_condominio WHERE zona.id_zona='$id_zona'";
                 $result=mysqli_query($conn,$sql);

@@ -58,9 +58,10 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
 	include __DIR__.'/../../../headers/admin_header.php';
 	?>
   
-    <h1 id="h1-centered">Editar incidentes:</h1>
+
     <div class="container">
-    <button class="btn btn-secondary" onclick="history.go(-1);"><i class="fa fa-chevron-left"></i> Voltar</button>
+        <?php include "../../../assets/breadcrumbers/bc_editar_incidente.php" ?>
+        <h1 id="h1-centered">Editar incidentes:</h1>
         <?php
         $id_incidente=$_POST['id_incidente'];
             foreach ($id_incidente as $valor) {

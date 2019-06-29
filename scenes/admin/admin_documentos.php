@@ -36,8 +36,10 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
   <body>
 
   
-  <h1 id="h1-centered">Documentos</h1>
+  
     <div class="container">
+    <?php include "../../assets/breadcrumbers/bc_admin_documentos.php" ?>
+    <h1 id="h1-centered">Documentos</h1>
     <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0" style="table-layout: fixed; width: 100%;">
       <thead>
         <tr>

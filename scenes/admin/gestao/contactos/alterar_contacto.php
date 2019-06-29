@@ -32,8 +32,10 @@ if (isset($_POST['id_contacto_util'])) {
         include '../../../../core/connect.php';
 	?>
   
-    <h1 id="h1-centered">Alterar Contacto:</h1>
+
     <div class="container">
+        <?php include "../../../../assets/breadcrumbers/bc_alterar_contacto.php" ?>
+        <h1 id="h1-centered">Alterar Contacto:</h1>
         <?php
                 $sql="SELECT contacto_util.id_contacto_util, contacto, tipo_de_contacto, condominio.nome 
               FROM contacto_util INNER JOIN condominio_contacto 

@@ -34,10 +34,10 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
         $row = mysqli_fetch_assoc($resultset);
     }
 ?>
-  
-    <h1 id="h1-centered">Aviso:</h1>
-    <div class="container d-flex justify-content-center">
-        <div class="card col-sm-8">
+   <div class="container">
+        <?php include "../../../assets/breadcrumbers/bc_cliente_mensagem_detalhe.php" ?>
+        <h1 id="h1-centered">Aviso:</h1>
+        <div class="card col-sm-12">
             <div class="card-header">
                 <div class="row">
                     <div class="form-group col-sm-8">

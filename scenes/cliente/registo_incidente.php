@@ -23,6 +23,7 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
 
     <body>
         <div class="container">
+            <?php include "../../assets/breadcrumbers/bc_cliente_registo_incidente.php" ?>
             <h2>Registo de Incidentes</h2>
             <form target="_self" action="inserir_ocorrencia.php" method="Post" enctype="multipart/form-data">
                 <div class="form-group">

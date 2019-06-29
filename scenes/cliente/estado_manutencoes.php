@@ -35,6 +35,8 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
 
 	<?php ?>
     <div class="container">
+        <?php include "../../assets/breadcrumbers/bc_cliente_estado_manutencoes.php" ?>
+        <h1>Estado das suas manutenções:</h1>
         <div class="table-responsive">  
             <table id="dados_manutencoes" class="table table-striped table-bordered">  
             <thead>  
@@ -55,8 +57,8 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
                             echo '  
                                 <tr>  
                                         <td>'.$row["data_incidente"].'</td>  
-                                        <td>'.$row["local"].'</td>  
-                                        <td>'.$row["descricao"].'</td>  
+                                        <td>'.utf8_encode($row["local"]).'</td>  
+                                        <td>'.utf8_encode($row["descricao"]).'</td>  
                                         <td>'.utf8_encode($row["estado"]).'</td>  
                                 </tr>  
                             ';  

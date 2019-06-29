@@ -21,7 +21,10 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
 
 <body>
 
-  <h1 id="h1-centered">Incidentes</h1>
+  <div class="container">
+    <?php include "../../assets/breadcrumbers/bc_cliente_incidentes.php" ?>
+    <h1 id="h1-centered">Incidentes</h1>
+  </div>
 	<div class="container" id="index_incidentes">
     <a href="registo_incidente.php" class="btn btn-lg btn-change btn-block" role="button">Registar incidente</a>
     <a href="estado_manutencoes.php" class="btn btn-lg btn-change btn-block" role="button">Estado das manutenções</a>

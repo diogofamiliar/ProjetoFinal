@@ -38,8 +38,10 @@ if($_SESSION['nome_grupo']=='cliente' && $_SESSION['id_utilizador']){
 
 	
   
-  <h1 id="h1-centered">Documentos</h1>
-    <div class="container">
+
+  <div class="container">
+    <?php include "../../assets/breadcrumbers/bc_cliente_documentos.php" ?>  
+    <h1 id="h1-centered">Documentos</h1>      
     <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0" style="table-layout: fixed; width: 100%;">
       <thead>
         <tr>
@@ -83,6 +85,7 @@ if($_SESSION['nome_grupo']=='cliente' && $_SESSION['id_utilizador']){
       ?>
       </tbody>
     </table>
+  </div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

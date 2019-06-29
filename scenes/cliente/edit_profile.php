@@ -29,6 +29,7 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
 <body>
   
 	<div class="container py-3">
+        <?php include "../../assets/breadcrumbers/bc_cliente_perfil.php" ?>
         <div class="row">
             <div class="mx-auto col-sm-7">
                 <!-- form user info -->

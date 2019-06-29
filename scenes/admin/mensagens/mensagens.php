@@ -48,10 +48,13 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
 <body>
 
   <div>
-    <h1 id="h1-centered">Notificações:</h1>
+
+
   </div>
-<div class="d-flex justify-content-center">
-  <div class="card col-sm-9">
+<div class="container">
+  <?php include "../../../assets/breadcrumbers/bc_mensagens.php" ?>
+  <h1 id="h1-centered">Notificações:</h1>
+  <div class="card col-sm-12">
     <div class="card-header">
       <a class="btn btn-primary" href="criar_mensagem.php"><i class="fa fa-envelope-o"></i> Criar notificação</a>
       <a class="btn btn-danger" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-trash"></i> Eliminar</a>

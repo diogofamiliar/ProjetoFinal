@@ -51,8 +51,9 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
 
 <body>
 
-<div class="d-flex justify-content-center">
-    <div class="card col-sm-11">
+<div class="container">
+    <?php include "../../../../assets/breadcrumbers/bc_gestao_contactos.php" ?>
+    <div class="card col-sm-12">
       <div class="card-header d-flex justify-content-between">
         <button class="btn btn-success" id="myButton" type="button" name="answer"> Novo contacto</button>
         <h3>Gestão de Contactos Úteis</h3>

@@ -29,16 +29,17 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
 	include __DIR__.'/../../../headers/admin_header.php';
 	?>
   
-<h1 id="h1-centered">Inserir Lista de tarefas:</h1>
 
+<div class="container">
+  <?php include "../../../assets/breadcrumbers/bc_inserir_lista.php" ?>
+  <h1 id="h1-centered">Inserir Lista de tarefas:</h1>
+</div>
 <div class="container">
   <h2 >Informação:</h2>
   <p></p>
   <p> Para evitar que o utilizador tenha de inserir todos os campos manualmente, a barra cinzenta que se encontra a baixo permite pré definir uma data agendamento, uma equipa, a prioridade e ou o tipo de manutenção</p>
   <p> É possível definir o valor de um campo para os respetivos campos da página, bem como alterar um destes campos manualmente sem que os restantes se alterem.</p>
 </div>
-
-
 <div class="container my-5">
   <div class="card">
     <div class="card-header">

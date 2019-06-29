@@ -32,59 +32,63 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
 
 
 <body>
-<h1 id="h1-centered">Histórico manutenções:</h1>
-<div class="d-flex justify-content-center">
-    <div class="card col-sm-11">
-      <div class="card-body">
-          <form method="POST" id="form1" action="eliminar_manutencoes.php">
-          <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0" style="table-layout: fixed; width: 100%;">
-            <thead>
-              <tr>
-                <th>Data reparação</th>
-                <th>Condomínio</th>
-                <th>Local</th>
-                <th>Descrição</th>  
-                <th>Fornecedor</th>
-                <th></th>
-                </tr>
-            </thead>
-            <tbody>
-              <?php
-              $sql = "SELECT manutencao.data_conclusao, manutencao.id_manutencao as id_manutencao, manutencao.data_planeada as data_planeada, incidente.id_incidente as id_incidente, incidente.local as local, manutencao.observacoes as observacoes, incidente_manutencao.estado as estado, zona.id_zona, condominio.cod_condominio as cod_condominio, manutencao.id_fornecedor as id_fornecedor, fornecedor.nome as fornecedor  FROM manutencao
-              INNER JOIN incidente_manutencao ON manutencao.id_manutencao=incidente_manutencao.id_manutencao
-              INNER JOIN incidente ON incidente.id_incidente=incidente_manutencao.id_incidente
-              INNER JOIN zona ON zona.id_zona=incidente.id_zona
-              INNER JOIN condominio ON condominio.id_condominio=zona.id_condominio
-              INNER JOIN fornecedor ON fornecedor.id_fornecedor=manutencao.id_fornecedor
-              WHERE manutencao.data_conclusao IS NOT NULL
-              ORDER BY manutencao.data_planeada, manutencao.data_conclusao ASC";
-              $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
-              while($rows = mysqli_fetch_assoc($resultset)) {
-              ?>
+<div class="container">
+  <?php include "../../../assets/breadcrumbers/bc_historico.php" ?>
+  <h1 id="h1-centered">Histórico manutenções:</h1>
+  <div class="d-flex justify-content-center">
+      <div class="card col-sm-12">
+        <div class="card-body">
+            <form method="POST" id="form1" action="eliminar_manutencoes.php">
+            <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0" style="table-layout: fixed; width: 100%;">
+              <thead>
                 <tr>
-                    <td><?php echo utf8_encode($rows["data_conclusao"]); ?></td>
-                    <td><?php echo utf8_encode($rows["cod_condominio"]); ?></td>
-                    <td><?php echo utf8_encode($rows["local"]); ?></td>
-                    <td><?php echo utf8_encode($rows["observacoes"]); ?></td>
-                    <td><?php echo utf8_encode($rows["fornecedor"]); ?></td>
-                    <td class="d-flex justify-content-center">
-                        <form method="POST" id="form2" action="historico_detalhes.php">
-                            <input type="hidden" name="id_incidente" value="<?php echo "$id_incidente"?>">
-                            <button form="form2" name="id_manutencao" class="btn btn-info" type="submit" value="<?php echo utf8_encode($rows["id_manutencao"]); ?>"> Detalhes</button>
-                        </form>
-                    </td>
-                </tr>
-                
-              <?php
-              }
-              ?>
-            </tbody>
-        </table>
+                  <th style="text-align: center;">Data reparação</th>
+                  <th style="text-align: center;">Condomínio</th>
+                  <th>Local</th>
+                  <th>Descrição</th>  
+                  <th>Fornecedor</th>
+                  <th></th>
+                  </tr>
+              </thead>
+              <tbody>
+                <?php
+                $sql = "SELECT manutencao.data_conclusao, manutencao.id_manutencao as id_manutencao, manutencao.data_planeada as data_planeada, incidente.id_incidente as id_incidente, incidente.local as local, manutencao.observacoes as observacoes, incidente_manutencao.estado as estado, zona.id_zona, condominio.cod_condominio as cod_condominio, manutencao.id_fornecedor as id_fornecedor, fornecedor.nome as fornecedor  FROM manutencao
+                INNER JOIN incidente_manutencao ON manutencao.id_manutencao=incidente_manutencao.id_manutencao
+                INNER JOIN incidente ON incidente.id_incidente=incidente_manutencao.id_incidente
+                INNER JOIN zona ON zona.id_zona=incidente.id_zona
+                INNER JOIN condominio ON condominio.id_condominio=zona.id_condominio
+                INNER JOIN fornecedor ON fornecedor.id_fornecedor=manutencao.id_fornecedor
+                WHERE manutencao.data_conclusao IS NOT NULL
+                ORDER BY manutencao.data_planeada, manutencao.data_conclusao ASC";
+                $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
+                while($rows = mysqli_fetch_assoc($resultset)) {
+                ?>
+                  <tr>
+                      <td style="text-align: center;"><?php echo utf8_encode($rows["data_conclusao"]); ?></td>
+                      <td style="text-align: center;"><?php echo utf8_encode($rows["cod_condominio"]); ?></td>
+                      <td><?php echo utf8_encode($rows["local"]); ?></td>
+                      <td><?php echo utf8_encode($rows["observacoes"]); ?></td>
+                      <td><?php echo utf8_encode($rows["fornecedor"]); ?></td>
+                      <td class="d-flex justify-content-center">
+                          <form method="POST" id="form2" action="historico_detalhes.php">
+                              <input type="hidden" name="id_incidente" value="<?php echo "$id_incidente"?>">
+                              <button form="form2" name="id_manutencao" class="btn btn-info" type="submit" value="<?php echo utf8_encode($rows["id_manutencao"]); ?>"> Detalhes</button>
+                          </form>
+                      </td>
+                  </tr>
+                  
+                <?php
+                }
+                ?>
+              </tbody>
+          </table>
 
-          
-          </form>
-      </div>  
-      </div>
+            
+            </form>
+        </div>  
+        </div>
+  </div>
+
 </div>
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="../../../js/jquery-3.4.1.js"></script>  

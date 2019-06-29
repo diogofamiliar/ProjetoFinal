@@ -23,9 +23,12 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
   include __DIR__.'/../../../headers/admin_header.php';
   include __DIR__.'/../../../core/connect.php';
 	?>
-  
-<h1 id="h1-centered">Manutenções</h1>
+
+
+
 <div class="container">
+  <?php include "../../../assets/breadcrumbers/bc_manutencoes.php" ?>
+  <h1 id="h1-centered">Manutenções</h1>
   <div class="row justify-content-center"> <!--justify-content-center alinha os conteudos ao meio sem os "escalar"  -->
     <div class="col-sm-4 my-2">
       <div class="card h-100">

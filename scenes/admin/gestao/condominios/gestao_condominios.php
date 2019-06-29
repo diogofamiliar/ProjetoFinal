@@ -49,8 +49,9 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
 
 <body>
 
-<div class="d-flex justify-content-center">
-    <div class="card col-sm-11">
+<div class="container">
+    <?php include "../../../../assets/breadcrumbers/bc_gestao_condominios.php" ?>
+    <div class="card col-sm-12">
       <div class="card-header d-flex justify-content-between">
         <button class="btn btn-success" id="myButton" type="button" name="answer"> Novo condominio</button>
         <h3>Gestão de condomínios</h3>
@@ -148,6 +149,17 @@ $('#myButton').click(function() {
         { "width": "40%", "targets": 3 },
         { "width": "10%", "targets": 4 }
       ],
+      "language": {
+        "search": "Pesquisar:",
+        "info":           "A mostrar _START_ de _END_ num total de _TOTAL_ resultados",
+        "lengthMenu":     "Resultados por página: _MENU_",
+        "paginate": {
+          "first":      "Primeiro",
+          "last":       "Ultimo",
+          "next":       "Próximo",
+          "previous":   "Anterior"
+        }
+      },
       select: true,
       "scrollX": true
     });

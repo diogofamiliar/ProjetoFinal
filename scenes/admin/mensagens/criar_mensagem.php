@@ -26,8 +26,10 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
 	include __DIR__.'/../../../headers/admin_header.php';
 	?>
   
-    <h1 id="h1-centered">Criar mensagem:</h1>
+    
     <div class="container">
+    <?php include "../../../assets/breadcrumbers/bc_criar_mensagem.php" ?>
+    <h1 id="h1-centered">Criar mensagem:</h1>
     <form method="POST" action="enviar_mensagem.php">
         <div class="form-row">
             <label for="destinatario" class="col-sm-2 col-form-label">Enviar para:</label>

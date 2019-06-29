@@ -11,6 +11,7 @@ $id_utilizador=$_SESSION['id_utilizador'];
 include __DIR__.'/../../core/connect.php';
 ?>
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script> 
+
 <div class="d-flex justify-content-center">
 <div class="card col-sm-12">   
 <div class="card-header d-flex justify-content-between">
@@ -20,7 +21,11 @@ include __DIR__.'/../../core/connect.php';
    </form>
    <h3>Relatórios</h3>
    <a type="hidden"></a>
-   </div>
+</div>
+<div class="container">
+  
+<?php include "../../assets/breadcrumbers/bc_relatorios.php" ?>
+</div>
    
 
    

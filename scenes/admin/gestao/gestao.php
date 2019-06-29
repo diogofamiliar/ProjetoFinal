@@ -23,10 +23,13 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
   include __DIR__.'/../../../headers/admin_header.php';
 	?>
   
-<h1 id="h1-centered">Gestão de utilizadores e condomínios</h1>
+
 <div class="container">
-    <div class="row justify-content-center"> <!--justify-content-center alinha os conteudos ao meio sem os "escalar"  -->
-        <div class="col-sm-3 my-4">
+    <?php include "../../../assets/breadcrumbers/bc_gestao.php" ?>
+    <h1 id="h1-centered">Gestão de utilizadores e condomínios</h1>    
+    
+    <div class="row"> <!--justify-content-center alinha os conteudos ao meio sem os "escalar"  -->
+        <div class="col-sm-4 my-4">
             <div class="card h-100">
                 <a class="card-img-top mx-auto my-2" href="utilizadores/gestao_utilizadores.php">
                     <img class="object-fit-cover" src="../../../assets/admin/gestao/gestao_utilizadores.jpg" alt="Card image">
@@ -38,7 +41,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
                 </div>
             </div>
         </div>
-        <div class="col-sm-3 my-4">
+        <div class="col-sm-4 my-4">
             <div class="card h-100">
                 <a class="card-img-top mx-auto my-2" href="#">
                     <img class="object-fit-cover" src="../../../assets/admin/gestao/gestao_condominio.png" alt="Card image">
@@ -53,7 +56,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
                 </div>
             </div>
         </div>
-        <div class="col-sm-3 my-4">
+        <div class="col-sm-4 my-4">
             <div class="card h-100">
                 <a class="card-img-top mx-auto my-2" href="fornecedores/gestao_fornecedores.php">
                     <img class="object-fit-cover" src="../../../assets/admin/gestao/gestao_fornecedor.png" alt="Card image">

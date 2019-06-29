@@ -59,7 +59,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
   
     <h1 id="h1-centered">Inserir manutenções:</h1>
     <div class="container">
-    <button class="btn btn-secondary" onclick="history.go(-1);"><i class="fa fa-chevron-left"></i> Voltar</button>
+    <?php include "../../../assets/breadcrumbers/bc_inserir_manutencao.php" ?>
         <?php
         $id_incidente=$_POST['id_incidente'];
             foreach ($id_incidente as $valor) {

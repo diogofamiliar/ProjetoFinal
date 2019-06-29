@@ -206,6 +206,18 @@ function OnButtonEdit(){
         { "width": "10%", "targets": 5 },   //Avaria
         { "width": "15%", "targets": 6 }    //Fotografia
       ],
+      "dom": '<"top"<l>f>rt<"bottom"ip><"clear">',
+      "language": {
+        "search": "Pesquisar:",
+        "info":           "A mostrar _START_ de _END_ num total de _TOTAL_ resultados",
+        "lengthMenu":     "Resultados por página: _MENU_",
+        "paginate": {
+          "first":      "Primeiro",
+          "last":       "Ultimo",
+          "next":       "Próximo",
+          "previous":   "Anterior"
+        }
+      },
       select: true,
       "scrollX": true
     });

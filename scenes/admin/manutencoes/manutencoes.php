@@ -53,13 +53,13 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
     </div>
     <div class="col-sm-4 my-2">
       <div class="card h-100">
-        <a class="card-img-top mx-auto my-2" href="#">
+        <a class="card-img-top mx-auto my-2" href="historico.php">
             <img class="object-fit-cover" src="../../../assets/admin/manutencoes/historico.png" alt="Card image cap">
         </a>
         <div class="card-body d-flex flex-column">
           <h4 class="card-title">Histórico de reparações</h4>
           <p class="card-text">Verifique o histórico das reparações efetuadas nos seus condomínios e os detalhes das mesmas.</p>
-          <a href="#" class="mt-auto btn btn-primary">Inserir</a>
+          <a href="historico.php" class="mt-auto btn btn-primary">Inserir</a>
         </div>
       </div>
     </div>

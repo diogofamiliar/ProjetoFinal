@@ -107,7 +107,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
         { "width": "10%", "targets": 2 },
         { "width": "25%", "targets": 3 },
         { "width": "10%", "targets": 4 },
-        { "width": "5%", "targets": 5 }
+        { "width": "10%", "targets": 5 }
       ],
       "dom": '<"top"<l>f>rt<"bottom"ip><"clear">',
       "language": {

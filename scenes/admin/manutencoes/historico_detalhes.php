@@ -28,8 +28,10 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
 	include __DIR__.'/../../../headers/admin_header.php';
 	?>
   
-    <h1 id="h1-centered"> Detalhes reparação:</h1>
     <div class="container my-5">
+        <?php include "../../../assets/breadcrumbers/bc_historico_detalhes.php" ?>
+        <h1 id="h1-centered"> Detalhes reparação:</h1>
+
         <?php
         $id_manutencao=$_POST['id_manutencao'];
                 $sql="SELECT manutencao.id_manutencao as id_manutencao, 

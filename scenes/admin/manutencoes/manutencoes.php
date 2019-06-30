@@ -36,8 +36,8 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
             <img class="object-fit-cover" src="../../../assets/admin/manutencoes/agendar.png" alt="Card image cap">
         </a>
         <div class="card-body d-flex flex-column">
-          <h4 class="card-title">Inserir manutenções</h4>
-          <p class="card-text">Faça a gestão dos incidentes inseridos pelos seus condóminos. Pode adicionar novos registos, alterar os existentes ou mesmo eliminar algum registo mal efetuado. <br>Inicie o processo de reparações ao agendar manutenções.</p>
+          <h4 class="card-title">Inserir Manutenções</h4>
+          <p class="card-text">Pode adicionar novos incidentes, alterar os existentes ou mesmo eliminar algum registo mal efetuado. <br>Inicie o processo de reparações ao agendar manutenções.</p>
           <a href="incidentes.php" class="mt-auto btn btn-primary">Inserir</a>
         </div>
       </div>
@@ -48,7 +48,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
             <img class="object-fit-cover" src="../../../assets/admin/manutencoes/repair.png" alt="Card image cap">
         </a>
         <div class="card-body d-flex flex-column">
-            <h4 class="card-title">Gestão de manutenções</h4>
+            <h4 class="card-title">Gestão de Manutenções</h4>
             <p class="card-text">Pode editar ou eliminar manutenções do sistema. <br> Página que contém a listagem de todas manutenções agendadas</p>
             <a href="listagem.php" class="mt-auto btn btn-primary">Entrar</a>
         </div>
@@ -60,9 +60,9 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
             <img class="object-fit-cover" src="../../../assets/admin/manutencoes/historico.png" alt="Card image cap">
         </a>
         <div class="card-body d-flex flex-column">
-          <h4 class="card-title">Histórico de reparações</h4>
+          <h4 class="card-title">Histórico de Reparações</h4>
           <p class="card-text">Verifique o histórico das reparações efetuadas nos seus condomínios e os detalhes das mesmas.</p>
-          <a href="historico.php" class="mt-auto btn btn-primary">Inserir</a>
+          <a href="historico.php" class="mt-auto btn btn-primary">Entrar</a>
         </div>
       </div>
     </div>

@@ -122,6 +122,7 @@ function OnButtonEdit(){
               </div>  
           </div>
         <div class="card-body">
+        <h2 align="center">Incidentes</h2>
         <form name="Form1" method="POST">
       <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0" style="table-layout: fixed; width: 100%;">
         <thead>

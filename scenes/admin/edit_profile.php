@@ -82,7 +82,7 @@ $row=mysqli_fetch_array($result);
                             <div class="form-group row">
                                 <label class="col-lg-3 col-form-label form-control-label"></label>
                                 <div class="col-lg-9">
-                                    <input type="submit" class="btn btn-primary" value="Guardar Alterações">
+                                    <input type="submit" id="register" class="btn btn-primary" value="Guardar Alterações">
                                 </div>
                             </div>
                         </form>
@@ -101,5 +101,16 @@ $row=mysqli_fetch_array($result);
     <script src="../../js/datepicker.min.js"></script>
     <script src="../../js/i18n/datepicker.pt.js"></script>
     <!-- Compara as duas pw's introduzidas -->
-    <script src="../../js/compare_pw.js"></script>
+    <script>
+        function check_pass() {
+        if (document.getElementById('password').value == document.getElementById('confirm_password').value) {
+                document.getElementById('register').disabled = false;
+                document.getElementById('message').innerHTML = '';
+            } else {
+                document.getElementById('register').disabled = true;
+                document.getElementById('message').style.color = 'red';
+                document.getElementById('message').innerHTML = 'As passwords introduzidas não são iguais';
+            }
+        }
+    </script>
 </body>

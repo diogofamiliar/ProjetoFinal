@@ -131,12 +131,14 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
                     <th>Nome</th>
                     <th>Email</th>  
                     <th>Telemóvel</th>
+                    <th>Ativo</th>
+                    <th>Grupo</th>
                     <th></th>
                 </tr>
             </thead>
             <tbody>
               <?php
-              $sql = "SELECT id_utilizador, nome, email, telemovel FROM utilizador WHERE ativo='1'";
+              $sql = "SELECT grupo.nome as nome_grupo, utilizador.id_utilizador, utilizador.nome, email, telemovel, ativo FROM utilizador LEFT JOIN utilizador_grupo ON utilizador_grupo.id_utilizador=utilizador.id_utilizador LEFT JOIN grupo ON grupo.id_grupo=utilizador_grupo.id_grupo";
               $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
               while($rows = mysqli_fetch_assoc($resultset)) {
               ?>
@@ -145,6 +147,8 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
                     <td><?php echo utf8_encode($rows["nome"]); ?></td>
                     <td><?php echo utf8_encode($rows["email"]); ?></td>
                     <td><?php echo utf8_encode($rows["telemovel"]); ?></td>
+                    <td><?php if($rows["ativo"]==NULL || $rows["ativo"]=="0"){echo "Não";}else{echo "Sim";} ?></td>
+                    <td><?php echo utf8_encode($rows["nome_grupo"]); ?></td>
                     <td class="d-flex justify-content-center">
                         <form method="POST" id="form2" action="alterar_utilizador.php">
                           <button form="form2" name="id_utilizador" class="btn btn-info" type="submit" value="<?php echo utf8_encode($rows["id_utilizador"]); ?>"> Alterar</button>

@@ -35,7 +35,7 @@ if (isset($_POST['id_utilizador'])) {
     <h1 id="h1-centered">Alterar utilizador:</h1>
     <div class="container">
         <?php
-                $sql="SELECT utilizador.email as email, utilizador.nome as nome, utilizador.telemovel as telemovel, utilizador_grupo.id_grupo as id_grupo, grupo.nome as grupo FROM utilizador INNER JOIN utilizador_grupo ON utilizador.id_utilizador=utilizador_grupo.id_utilizador INNER JOIN grupo ON grupo.id_grupo=utilizador_grupo.id_grupo WHERE utilizador.id_utilizador='$id_utilizador'";
+                $sql="SELECT ativo, utilizador.email as email, utilizador.nome as nome, utilizador.telemovel as telemovel, utilizador_grupo.id_grupo as id_grupo, grupo.nome as grupo FROM utilizador LEFT JOIN utilizador_grupo ON utilizador.id_utilizador=utilizador_grupo.id_utilizador LEFT JOIN grupo ON grupo.id_grupo=utilizador_grupo.id_grupo WHERE utilizador.id_utilizador='$id_utilizador'";
                 $result=mysqli_query($conn,$sql);
                 $row=mysqli_fetch_array($result);
         ?>
@@ -80,9 +80,17 @@ if (isset($_POST['id_utilizador'])) {
                                                 ?>
                                         </select>
                                     </div>
-                                </div>    
+                                </div>
+                            <div class="row col-sm-6">
+                                <label for="ativo" >Ativo:</label>
+                                    <select class="form-control" name="ativo">
+                                        <option name="ativo" value="<?php echo $row['ativo'];?>"><?php if($row["ativo"]==NULL || $row["ativo"]=="0"){echo "Não";}else{echo "Sim";}?></option>
+                                        <option value="1">Sim</option>
+                                        <option value=NULL>Não</option>
+                                    </select>
+                            </div>    
                             </div>
-                            <div class="form-group col-md-7"">
+                            <div class="form-group col-md-7">
                                 <div class="form-row" id="fornecedorselector" style="display:none;">
                                     <label class="col-sm-3 col-form-label">Fornecedor:</label>
                                     <div class="col-sm-9">

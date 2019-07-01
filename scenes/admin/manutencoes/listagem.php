@@ -50,7 +50,7 @@ function checkDelete() {
 <div class="container col-sm-11">
   <?php include "../../../assets/breadcrumbers/bc_listagem.php" ?>
   <h3>Lista de Manutenções Agendadas</h3>
-  <p>Lista das manutenções que se encontram agendadas para reparação.</p>
+  <p>Lista das manutenções que se encontram agendadas para reparação.<br>Para concluir uma manutenção deve selecionar a manutenção pretendida e clicar no botão "Manutenção Concluída".</p>
   <div class="card my-5">
     <div class="card-header">
       <div class="row">
@@ -160,12 +160,12 @@ function checkDelete() {
 </script>
 
 <?php
-  if(isset($_COOKIE["condominio_alterado"])){
+  if(isset($_COOKIE["manutencao_alterada"])){
 ?>
       <script>
       swal({
             title: "Sucesso!",
-            text: "O condomínio foi alterado com sucesso!",
+            text: "A manutenção foi alterada com sucesso!",
             icon: "success",
             button: "Continuar",
       });

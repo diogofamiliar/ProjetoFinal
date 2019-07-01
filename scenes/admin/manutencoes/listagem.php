@@ -54,8 +54,9 @@ function checkDelete() {
   <div class="card my-5">
     <div class="card-header">
       <div class="row">
-        <a href="incidentes.php" class="btn btn-success my-2 mx-1" id="myButton" type="button" name="answer"> Nova Manutenção</a>
+        <a class="btn btn-primary mx-1 my-2" href="incidentes.php"><i class="fa fa-plus-square"></i> Nova Manutenção</a>
         <a class="btn btn-danger mx-1 my-2" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-trash"></i> Eliminar Manutenção</a>
+        <a class="btn btn-success mx-1 my-2" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-check"></i> Manutenção concluída</a>
       </div>
     </div>
     <div class="card-body">
@@ -124,7 +125,7 @@ function checkDelete() {
     
     $('#data').DataTable({
       "columnDefs": [
-        { "width": "5%", "targets": 0 },
+        { "width": "10%", "targets": 0 },
         { "width": "10%", "targets": 1 },
         { "width": "10%", "targets": 2 },
         { "width": "10%", "targets": 3 },

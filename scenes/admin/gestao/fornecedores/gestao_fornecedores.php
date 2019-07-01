@@ -58,6 +58,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
         <h3>Gestão de fornecedores</h3>
         <a class="btn btn-danger mx-1" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-trash"></i> Eliminar fornecedor</a>
       </div>
+      <p><br>Listagem de todos os fornecedores e dados relativos aos mesmos.</p>
       <div class="card" id="card-novo-condominio" style="display:none;">
         <form id="form3" method="POST" action="adicionar_fornecedor.php">
         <div class="card-header">

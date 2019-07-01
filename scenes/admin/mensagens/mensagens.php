@@ -53,7 +53,8 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
   </div>
 <div class="container">
   <?php include "../../../assets/breadcrumbers/bc_mensagens.php" ?>
-  <h1 id="h1-centered">Notificações:</h1>
+  <h1 id="h1-centered">Notificações</h1>
+  <p>Listagem de todas as mensagens enviadas e detalhes das mesmas.</p>
   <div class="card col-sm-12">
     <div class="card-header">
       <a class="btn btn-primary" href="criar_mensagem.php"><i class="fa fa-envelope-o"></i> Criar notificação</a>

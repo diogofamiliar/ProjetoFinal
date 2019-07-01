@@ -58,6 +58,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
         <h3>Gestão de zonas</h3>
         <a class="btn btn-danger mx-1" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-trash"></i> Eliminar zona</a>
       </div>
+      <p><br>Listagem de todas as zonas dos condomínios e dados relativos às mesmas.</p>
       <div class="card" id="card-novo-condominio" style="display:none;">
         <form id="form3" method="POST" action="adicionar_zona.php">
         <div class="card-header">

@@ -51,8 +51,9 @@ if(($_SESSION['nome_grupo'])=='tecnico' && isset($_SESSION['id_utilizador'])){
   $id_fornecedor=$row['id_fornecedor'];
 	?>
   
-  <h1 id="h1-centered">Lista de tarefas:</h1>
+  <h1 id="h1-centered">Lista de tarefas</h1>
 	<div class="container col-11">
+  <p>Lista de todas as tarefas que tem para fazer. Clicando na fotografia tem acesso à mesma com maior detalhe.<br>Para concluir uma tarefa ou mais tarefas basta selecionar a(s) desejada(s) e clicar no botão "Concluído".</p>
     <div class="card">
       <div class="card-header d-flex justify-content-start">
         <a class="btn btn-success" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-trash"></i> Concluído</a>

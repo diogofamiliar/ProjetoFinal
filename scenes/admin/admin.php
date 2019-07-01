@@ -36,7 +36,7 @@ include '../../core/connect.php';
               $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
               $row = mysqli_fetch_assoc($resultset);
               ?>
-              <b>Bem-vindo <?php echo $row['nome'];?></b>
+              <b>Bem-vindo(a) <?php echo $row['nome'];?></b>
           </h5>
         </div>
     <div class="container my-5">

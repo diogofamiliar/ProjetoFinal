@@ -129,7 +129,7 @@ function OnButtonEdit(){
         <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0" style="table-layout: fixed; width: 100%;">
           <thead>
             <tr>
-              <th>Checkbox <input type="checkbox" id="checkAll"/></th>
+              <th><input type="checkbox" id="checkAll"/></th>
               <th>Data</th>
               <th>Condominio</th>
               <th>Local</th>

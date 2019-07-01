@@ -70,18 +70,57 @@ include '../../core/connect.php';
             <div class="card-header text-white" style="background-color: #0199e6;"><h3>Painel Administrativo</h3></div>
             <div class="card-body text-dark">
               <div class="border-bottom">
-                <p><b>NUMERO</b> manutenções por agendar.</p>
+                <?php
+                  $sql = "select count(incidente.id_incidente) as n_agendadas FROM incidente
+                    LEFT JOIN incidente_manutencao
+                    ON incidente_manutencao.id_incidente=incidente.id_incidente
+                    WHERE incidente_manutencao.id_incidente IS NULL";
+                  $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
+                  $row = mysqli_fetch_assoc($resultset);
+                ?>
+                <p><b><?php echo $row['n_agendadas'];?></b> manutenções por agendar.</p>
               </div>  
               <div class="border-bottom border-top">
-                <p><b>NUMERO</b> reparações concluídas.</p>
+                <?php
+                  $sql = "SELECT count(incidente.id_incidente) as r_efetuadas, manutencao.data_conclusao, manutencao.id_manutencao as id_manutencao, manutencao.data_planeada as data_planeada, incidente.id_incidente as id_incidente, incidente_manutencao.estado as estado  FROM manutencao
+                    INNER JOIN incidente_manutencao ON manutencao.id_manutencao=incidente_manutencao.id_manutencao
+                    INNER JOIN incidente ON incidente.id_incidente=incidente_manutencao.id_incidente
+                    WHERE manutencao.data_planeada = curdate() AND manutencao.data_conclusao IS NOT NULL
+                    ORDER BY manutencao.data_planeada, manutencao.data_conclusao ASC";
+                  $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
+                  $row1 = mysqli_fetch_assoc($resultset);
+                ?>
+                <p><b><?php echo $row1['r_efetuadas'];?></b> reparações concluídas hoje.</p>
               </div>
               <div class="border-bottom border-top">
-                <p><b>NUMERO</b> reparações encontram-se em atraso.</p>
+                <?php
+                  $sql = "SELECT count(incidente.id_incidente) r_atraso, manutencao.data_conclusao, manutencao.id_manutencao as id_manutencao, manutencao.data_planeada as data_planeada, incidente.id_incidente as id_incidente, incidente_manutencao.estado as estado  FROM manutencao
+                    INNER JOIN incidente_manutencao ON manutencao.id_manutencao=incidente_manutencao.id_manutencao
+                    INNER JOIN incidente ON incidente.id_incidente=incidente_manutencao.id_incidente
+                    WHERE manutencao.data_planeada < curdate() AND manutencao.data_conclusao IS NULL
+                    ORDER BY manutencao.data_planeada, manutencao.data_conclusao ASC";
+                  $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
+                  $row = mysqli_fetch_assoc($resultset);
+                ?>
+                <p><b><?php echo $row['r_atraso'];?></b> reparações encontram-se em atraso.</p>
               </div>
               <div>
-                <p>% reparações efetuadas hoje:</p>
+                <?php
+                  $sql = "SELECT count(incidente.id_incidente) as r_agendadas, manutencao.data_conclusao, manutencao.id_manutencao as id_manutencao, manutencao.data_planeada as data_planeada, incidente.id_incidente as id_incidente, incidente_manutencao.estado as estado  FROM manutencao
+                    INNER JOIN incidente_manutencao ON manutencao.id_manutencao=incidente_manutencao.id_manutencao
+                    INNER JOIN incidente ON incidente.id_incidente=incidente_manutencao.id_incidente
+                    WHERE manutencao.data_planeada = curdate()
+                    ORDER BY manutencao.data_planeada, manutencao.data_conclusao ASC";//reparações agendadas para hoje
+                  $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
+                  $row = mysqli_fetch_assoc($resultset);
+                  $r_agendadas=$row['r_agendadas'];
+                  $r_efetuadas=$row1['r_efetuadas'];
+                  $percentagem=($r_efetuadas/$r_agendadas)*100;
+                  
+                ?>
+                <p>% de reparações efetuadas hoje:</p>
                 <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%">VALOR%</div>
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<?php echo $percentagem;?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $percentagem;?>%"><?php echo $percentagem;?>%</div>
                 </div>
               </div>
             </div>

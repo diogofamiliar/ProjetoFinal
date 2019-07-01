@@ -37,7 +37,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
         </a>
         <div class="card-body d-flex flex-column">
           <h4 class="card-title">Inserir Manutenções</h4>
-          <p class="card-text">Inicie o processo de reparações ao <b>agendar manutenções</b>.<br>Pode adicionar novos incidentes, alterar os existentes ou mesmo eliminar algum registo mal efetuado.</p>
+          <p class="card-text">Inicie o processo de reparações ao <b>agendar manutenções</b>.<br>Pode adicionar <b>novos incidentes</b>, <b>alterar</b> os existentes ou mesmo <b>eliminar</b> algum registo mal efetuado.</p>
           <a href="incidentes.php" class="mt-auto btn btn-primary">Inserir</a>
         </div>
       </div>
@@ -49,7 +49,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
         </a>
         <div class="card-body d-flex flex-column">
             <h4 class="card-title">Gestão de Manutenções</h4>
-            <p class="card-text">Listagem de todas manutenções agendadas.<br>Pode editar ou eliminar manutenções do sistema.</p>
+            <p class="card-text"><b>Listagem</b> de todas manutenções agendadas.<br>Pode <b>editar</b> ou <b>eliminar</b> manutenções do sistema.</p>
             <a href="listagem.php" class="mt-auto btn btn-primary">Entrar</a>
         </div>
       </div>

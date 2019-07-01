@@ -109,6 +109,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
               ?>
       </tbody>
     </table>
+    <p>Legenda:<br>Verde -> Manutenção concluída<br>Vermelho -> Manutenção em atraso</p> 
   </div>
 </div>
     

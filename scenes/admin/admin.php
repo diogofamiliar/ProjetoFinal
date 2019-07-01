@@ -172,8 +172,8 @@ include '../../core/connect.php';
         </tbody>
       </table>
     </div>
+    <p>Legenda:<br>Verde -> Manutenção concluída<br>Vermelho -> Manutenção em atraso</p> 
   </div>
-    <!-- acrescentar legendas nas tabelas p.e.-->
 </div>
 
     

@@ -9,7 +9,7 @@ include "../../../core/connect.php";
         $id_mensagem=$_POST['id_mensagem'];
         foreach($id_mensagem as $valor){
             echo $valor;
-            $sql="UPDATE mensagem SET arquivada=2 WHERE id_mensagem='$valor'";
+            $sql="UPDATE mensagem SET arquivado=2 WHERE id_mensagem='$valor'";
             $result=mysqli_query($conn,$sql);
 
         }

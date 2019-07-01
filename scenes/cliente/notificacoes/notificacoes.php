@@ -86,7 +86,7 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
                     <?php
                       $sql = "SELECT mensagem.id_mensagem as id_mensagem, mensagem.assunto as assunto, mensagem.texto as mensagem, mensagem.data_criacao as data_criacao, destinatario.lida as lida 
                               FROM mensagem INNER JOIN destinatario 
-                              WHERE mensagem.id_mensagem=destinatario.id_mensagem AND destinatario.id_utilizador='$id_utilizador' AND mensagem.arquivada IS NULL ORDER BY mensagem.data_criacao DESC";
+                              WHERE mensagem.id_mensagem=destinatario.id_mensagem AND destinatario.id_utilizador='$id_utilizador' AND mensagem.arquivado IS NULL ORDER BY mensagem.data_criacao DESC";
                       $resultset = $conn->query($sql);
                       if ($resultset->num_rows > 0) {
                       while($rows = mysqli_fetch_assoc($resultset)) {
@@ -138,7 +138,7 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
                     <?php
                       $sql = "SELECT mensagem.id_mensagem as id_mensagem, mensagem.assunto as assunto, mensagem.texto as mensagem, mensagem.data_criacao as data_criacao, destinatario.lida as lida 
                       FROM mensagem INNER JOIN destinatario 
-                      WHERE mensagem.id_mensagem=destinatario.id_mensagem AND destinatario.id_utilizador='$id_utilizador' AND mensagem.arquivada IS NOT NULL ORDER BY mensagem.data_criacao DESC";
+                      WHERE mensagem.id_mensagem=destinatario.id_mensagem AND destinatario.id_utilizador='$id_utilizador' AND mensagem.arquivado IS NOT NULL ORDER BY mensagem.data_criacao DESC";
                       $resultset = $conn->query($sql);
                       if ($resultset->num_rows > 0) {
                       while($rows = mysqli_fetch_assoc($resultset)) {

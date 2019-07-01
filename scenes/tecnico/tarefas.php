@@ -51,12 +51,15 @@ if(($_SESSION['nome_grupo'])=='tecnico' && isset($_SESSION['id_utilizador'])){
   $id_fornecedor=$row['id_fornecedor'];
 	?>
   
-  <h1 id="h1-centered">Lista de tarefas</h1>
 	<div class="container col-11">
+  
+  <?php include "../../assets/breadcrumbers/bc_tecnico_reparacoes.php" ?>
+  
+  <h1 id="h1-centered">Lista de tarefas</h1>
   <p>Lista de todas as tarefas que tem para fazer. Clicando na fotografia tem acesso à mesma com maior detalhe.<br>Para concluir uma tarefa ou mais tarefas basta selecionar a(s) desejada(s) e clicar no botão "Concluído".</p>
     <div class="card">
       <div class="card-header d-flex justify-content-start">
-        <a class="btn btn-success" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-trash"></i> Concluído</a>
+        <a class="btn btn-success" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-check"></i> Concluído</a>
       </div>
       <div class="card-body">
         <form method="POST" id="form1" action="tarefa_concluída.php"> 

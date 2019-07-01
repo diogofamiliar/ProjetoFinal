@@ -24,6 +24,7 @@ include '../../headers/tecnico_header.php';?>
 
     <body>
         <div class="container">
+            <?php include "../../assets/breadcrumbers/bc_tecnico_incidente.php" ?>
             <h2 id="h1-centered">Registo de Incidente</h2>
             <form action="inserir_incidente.php" method="Post" enctype="multipart/form-data">    
                 <div class="form-group">

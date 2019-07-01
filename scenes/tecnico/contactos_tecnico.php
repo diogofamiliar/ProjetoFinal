@@ -35,8 +35,11 @@ if(($_SESSION['nome_grupo'])=='tecnico' && isset($_SESSION['id_utilizador'])){
 
 
   
-<h1 id="h1-centered">Contactos Úteis</h1>
+
 <div class="container">
+
+<?php include "../../assets/breadcrumbers/bc_tecnico_contacto.php" ?>
+<h1 id="h1-centered">Contactos Úteis</h1>
 <p>Lista de todos os contactos úteis de todos os condomínios.</p>
 </div> 
 <?php

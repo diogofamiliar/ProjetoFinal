@@ -114,11 +114,11 @@ include '../../core/connect.php';
                   $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
                   $row = mysqli_fetch_assoc($resultset);
                   $r_agendadas=$row['r_agendadas'];$r_efetuadas=$row1['r_efetuadas']; //reparações agendadas e reparações efetuadas
-                  $percentagem=($r_efetuadas/$r_agendadas)*100;
-                  if ($percentagem==0) {
+                  if ($r_agendadas==0) {
                     $percentagem="Sem manutenções para hoje";
+                  }else {
+                    $percentagem=($r_efetuadas/$r_agendadas)*100;
                   }
-                  
                 ?>
                 <p>% de reparações efetuadas hoje:</p>
                 <div class="progress">

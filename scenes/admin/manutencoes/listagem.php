@@ -160,12 +160,12 @@ function checkDelete() {
 </script>
 
 <?php
-  if(isset($_COOKIE["condominio_alterado"])){
+  if(isset($_COOKIE["manutencao_alterada"])){
 ?>
       <script>
       swal({
             title: "Sucesso!",
-            text: "O condomínio foi alterado com sucesso!",
+            text: "A manutenção foi alterada com sucesso!",
             icon: "success",
             button: "Continuar",
       });

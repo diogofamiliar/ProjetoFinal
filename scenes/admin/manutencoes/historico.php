@@ -34,7 +34,8 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
 <body>
 <div class="container">
   <?php include "../../../assets/breadcrumbers/bc_historico.php" ?>
-  <h2 id="h1-centered">Histórico manutenções</h2>
+  <h2 id="h1-centered">Histórico das Manutenções</h2>
+  <p>Lista das manutenções que foram concluídas e alguns detalhes das mesmas.</p>
   <div class="d-flex justify-content-center">
       <div class="card col-sm-12">
         <div class="card-body">

@@ -40,6 +40,10 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
     <div class="container">
     <?php include "../../assets/breadcrumbers/bc_admin_documentos.php" ?>
     <h1 id="h1-centered">Documentos</h1>
+    <p>A tabela apresenta todos os documentos existentes e estão relacionados com uma zona e condomínio. <br>Carregando no nome permite a sua visualização e/ou transferência. Os ícones à frente de cada permitem editar e eliminar o documento, respetivamente.</p>
+    <form action="adicionar_documento.php" method="Post">
+    <button type="submit" class="btn btn-primary btn-lg">Adicionar Documento</button>
+    </form>
     <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0" style="table-layout: fixed; width: 100%;">
       <thead>
         <tr>
@@ -67,7 +71,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
           <td><a href="../pdfreader.php?id=<?php echo utf8_encode($rows["nome_documento"]);?>"><?php echo utf8_encode($rows["nome_documento"]); ?></td>
           <td><?php echo utf8_encode($rows["descricao"]); ?></td>
           <td><?php echo utf8_encode($rows["nome_autor"]); ?></td>
-          <td><?php echo utf8_encode($rows["tamanho_ficheiro"]); ?></td>
+          <td><?php echo utf8_encode($rows["tamanho_ficheiro"]); ?> bytes</td>
           <td><a href="funcoes_doc.php?id=<?php echo $rows["id_documento"];?>&tipo_documento=<?php echo $rows["tipo_de_documento"];?>&zona=<?php echo $rows["nome_zona"];?>&descricao=<?php echo $rows["descricao"];?>&tipo=editar" class='far fa-edit' style='font-size:24px'></a><a href="funcoes_doc.php?id=<?php echo $rows["id_documento"];?>&tipo=apagar" class='far fa-trash-alt' style='font-size:24px'></a></td>
       </tr>
       <?php
@@ -91,9 +95,6 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
       ?>
       </tbody>
     </table>
-    <form action="adicionar_documento.php" method="Post">
-    <button type="submit" class="btn btn-primary btn-lg">Adicionar Documento</button>
-    </form>
   
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

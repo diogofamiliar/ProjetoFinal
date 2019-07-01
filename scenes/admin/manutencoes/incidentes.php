@@ -123,6 +123,7 @@ function OnButtonEdit(){
           </div>
         <div class="card-body">
         <h2 align="center">Incidentes</h2>
+        <p>A tabela apresenta todos os incidentes registados que não se encontram agendados para manutenção nem resolvidos.<br>Clicando em cima da fotografia é possível ver com mais pormenor.</p>
         <form name="Form1" method="POST">
       <div class="table-responsive">
       

@@ -50,6 +50,7 @@ function checkDelete() {
 <div class="container">
   <?php include "../../../assets/breadcrumbers/bc_listagem.php" ?>
   <h3>Lista de Manutenções Agendadas</h3>
+  <p>Lista das manutenções que se encontram agendadas para reparação.</p>
 </div>
 <div class="container">
   <div class="card">
@@ -81,6 +82,7 @@ function checkDelete() {
                       INNER JOIN zona ON zona.id_zona=incidente.id_zona
                       INNER JOIN condominio ON condominio.id_condominio=zona.id_condominio
                       INNER JOIN fornecedor ON fornecedor.id_fornecedor=manutencao.id_fornecedor
+                      WHERE incidente_manutencao.estado='agendada'
                       ORDER BY manutencao.data_planeada, manutencao.data_conclusao ASC";
               $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
               while($rows = mysqli_fetch_assoc($resultset)) {

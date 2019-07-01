@@ -60,8 +60,8 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
             <img class="object-fit-cover" src="../../../assets/admin/manutencoes/historico.png" alt="Card image cap">
         </a>
         <div class="card-body d-flex flex-column">
-          <h4 class="card-title">Histórico de Reparações</h4>
-          <p class="card-text">Verifique o histórico das reparações efetuadas nos seus condomínios e os detalhes das mesmas.</p>
+          <h4 class="card-title">Histórico das Manutenções</h4>
+          <p class="card-text">Verifique o histórico das manutenções efetuadas nos seus condomínios e consulte os detalhes das mesmas.</p>
           <a href="historico.php" class="mt-auto btn btn-primary">Entrar</a>
         </div>
       </div>

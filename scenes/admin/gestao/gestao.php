@@ -36,7 +36,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
                 </a>
                 <div class="card-body d-flex flex-column">
                     <h4 class="card-title">Gestão de utlizadores</h4>
-                    <p class="card-text">Adicione um utilizador a um grupo de utilizadores.<br>Altere a função de um utilizador.</p>
+                    <p class="card-text">Adicione utilizadores ou altere dados de um já existente.<br>Adicione um utilizador a um grupo de utilizadores.</p>
                     <a href="utilizadores/gestao_utilizadores.php" class="mt-auto btn btn-primary">Entrar</a>
                 </div>
             </div>
@@ -48,7 +48,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
                 </a>
                 <div class="card-body d-flex flex-column">
                     <h4 class="card-title">Gestão de condomínios e zonas</h4>
-                    <p class="card-text"> Adicione novos condomínios ou altere um condomínio já existente.<br>Gestão zonas</p>
+                    <p class="card-text"> Adicione novos condomínios ou altere um condomínio já existente.<br>Adicione novas zonas a um condomínio ou altere já existentes.</p>
                     <div class="row">
                         <a href="condominios/gestao_condominios.php" class="m-auto btn btn-primary">Condomínios</a>
                         <a href="zonas/gestao_zonas.php" class="m-auto btn btn-primary">Zonas</a>
@@ -63,7 +63,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
                 </a>
                 <div class="card-body d-flex flex-column">
                     <h4 class="card-title">Gestão de fornecedores</h4>
-                    <p class="card-text"> Adicione novos fornecedores ou altere os dados de um fornecedor já existente.<br>Elimine Condomínios</p>
+                    <p class="card-text"> Adicione novos fornecedores ou altere os dados de um fornecedor já existente.</p>
                     <a href="fornecedores/gestao_fornecedores.php" class="mt-auto btn btn-primary">Entrar</a>
                 </div>
             </div>

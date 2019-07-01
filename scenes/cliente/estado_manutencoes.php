@@ -36,7 +36,8 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
 	<?php ?>
     <div class="container">
         <?php include "../../assets/breadcrumbers/bc_cliente_estado_manutencoes.php" ?>
-        <h1>Estado das suas manutenções:</h1>
+        <h1>Estado das suas manutenções</h1>
+        <p><br>Lista de todas as manuteções cujos incidentes foram reportados por si.</p>
         <div class="table-responsive">  
             <table id="dados_manutencoes" class="table table-striped table-bordered">  
             <thead>  

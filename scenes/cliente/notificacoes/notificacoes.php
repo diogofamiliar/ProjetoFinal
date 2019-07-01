@@ -51,7 +51,8 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
   
 	<div class="container">
     <?php include "../../../assets/breadcrumbers/bc_cliente_notificacoes.php" ?>
-    <h1 id="h1-centered">Notificações e avisos:</h1>
+    <h1 id="h1-centered">Notificações e avisos</h1>
+    <p>Lista de mensagens e avisos que recebeu.</p>
     <div class="card">
       <div class="card-header d-flex justify-content-end">
         <a class="btn btn-danger" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-trash"></i> Eliminar</a>

@@ -45,6 +45,7 @@ session_start();
   <div class="container">
     <?php include "../../assets/breadcrumbers/bc_cliente_contactos.php" ?>
     <h1 id="h1-centered">Contactos Úteis</h1>
+    <p>Lista de todos os contactos relativos ao seu condomínio.</p>
   </div>
 
 <?php

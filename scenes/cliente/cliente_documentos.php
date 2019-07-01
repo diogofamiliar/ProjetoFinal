@@ -41,7 +41,8 @@ if($_SESSION['nome_grupo']=='cliente' && $_SESSION['id_utilizador']){
 
   <div class="container">
     <?php include "../../assets/breadcrumbers/bc_cliente_documentos.php" ?>  
-    <h1 id="h1-centered">Documentos</h1>      
+    <h1 id="h1-centered">Documentos</h1>  
+    <p>Lista de todos os documentos relativos à sua zona e condomínio.</p>    
     <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0" style="table-layout: fixed; width: 100%;">
       <thead>
         <tr>

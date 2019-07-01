@@ -32,8 +32,27 @@ function checkDelete() {
         if(x>0){ 
         var confirmed = confirm("Pretende eliminar as manutenções?");
             if(confirmed){
-            document.getElementById('form1').submit();
-            return true;
+                  document.Form1.action = "eliminar_manutencoes.php"
+                  document.Form1.submit();             // Submit the page
+                  return true;
+            }
+        }else{
+        swal("Aviso!", 
+        "Selecione as manutenções que pretende eliminar!", 
+        "error");
+        return false;
+        }
+    }
+</script>
+<script language="JavaScript" type="text/javascript">
+function checkDone() {
+    var x = $('[name="id_manutencao[]"]:checked').length;
+        if(x>0){ 
+        var confirmed = confirm("Pretende dar as manutenções como efetuadas?");
+            if(confirmed){
+                  document.Form1.action = "concluir_manutencao.php"
+                  document.Form1.submit();             // Submit the page
+                  return true;
             }
         }else{
         swal("Aviso!", 
@@ -56,11 +75,11 @@ function checkDelete() {
       <div class="row">
         <a class="btn btn-primary mx-1 my-2" href="incidentes.php"><i class="fa fa-plus-square"></i> Nova Manutenção</a>
         <a class="btn btn-danger mx-1 my-2" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-trash"></i> Eliminar Manutenção</a>
-        <a class="btn btn-success mx-1 my-2" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-check"></i> Manutenção concluída</a>
+        <a class="btn btn-success mx-1 my-2" href="javascript:{}" onclick="checkDone()"><i class="fa fa-check"></i> Manutenção concluída</a>
       </div>
     </div>
     <div class="card-body">
-      <form method="POST" id="form1" action="eliminar_manutencoes.php">
+      <form method="POST" name="Form1">
         <table id="data" class="table table-condensed table-hover table-striped bootgrid-table display" cellspacing="0" style="table-layout: fixed; width: 100%;">
           <thead>
             <tr>
@@ -181,6 +200,21 @@ function checkDelete() {
       swal({
             title: "Manutenção eliminada!",
             text: "As manutenções foram eliminadas com sucesso!",
+            icon: "success",
+            button: "Continuar",
+      });
+      </script>
+<?php
+  }
+?>
+
+<?php
+  if(isset($_COOKIE["manutencao_concluida"])){
+?>
+      <script>
+      swal({
+            title: "Manutenção efetuada!",
+            text: "As manutenções foram concluidas com sucesso!",
             icon: "success",
             button: "Continuar",
       });

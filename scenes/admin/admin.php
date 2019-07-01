@@ -74,7 +74,7 @@ include '../../core/connect.php';
                   $sql = "select count(incidente.id_incidente) as n_agendadas FROM incidente
                     LEFT JOIN incidente_manutencao
                     ON incidente_manutencao.id_incidente=incidente.id_incidente
-                    WHERE incidente_manutencao.id_incidente IS NULL";
+                    WHERE incidente_manutencao.id_incidente IS NULL";//número de reparações que não estão agendadas
                   $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
                   $row = mysqli_fetch_assoc($resultset);
                 ?>
@@ -86,7 +86,7 @@ include '../../core/connect.php';
                     INNER JOIN incidente_manutencao ON manutencao.id_manutencao=incidente_manutencao.id_manutencao
                     INNER JOIN incidente ON incidente.id_incidente=incidente_manutencao.id_incidente
                     WHERE manutencao.data_planeada = curdate() AND manutencao.data_conclusao IS NOT NULL
-                    ORDER BY manutencao.data_planeada, manutencao.data_conclusao ASC";
+                    ORDER BY manutencao.data_planeada, manutencao.data_conclusao ASC"; //número de reparações efetuadas
                   $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
                   $row1 = mysqli_fetch_assoc($resultset);
                 ?>
@@ -98,7 +98,7 @@ include '../../core/connect.php';
                     INNER JOIN incidente_manutencao ON manutencao.id_manutencao=incidente_manutencao.id_manutencao
                     INNER JOIN incidente ON incidente.id_incidente=incidente_manutencao.id_incidente
                     WHERE manutencao.data_planeada < curdate() AND manutencao.data_conclusao IS NULL
-                    ORDER BY manutencao.data_planeada, manutencao.data_conclusao ASC";
+                    ORDER BY manutencao.data_planeada, manutencao.data_conclusao ASC";//reparações em atraso
                   $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
                   $row = mysqli_fetch_assoc($resultset);
                 ?>
@@ -113,14 +113,16 @@ include '../../core/connect.php';
                     ORDER BY manutencao.data_planeada, manutencao.data_conclusao ASC";//reparações agendadas para hoje
                   $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
                   $row = mysqli_fetch_assoc($resultset);
-                  $r_agendadas=$row['r_agendadas'];
-                  $r_efetuadas=$row1['r_efetuadas'];
+                  $r_agendadas=$row['r_agendadas'];$r_efetuadas=$row1['r_efetuadas']; //reparações agendadas e reparações efetuadas
                   $percentagem=($r_efetuadas/$r_agendadas)*100;
+                  if ($percentagem==0) {
+                    $percentagem="Sem manutenções para hoje";
+                  }
                   
                 ?>
                 <p>% de reparações efetuadas hoje:</p>
                 <div class="progress">
-                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<?php echo $percentagem;?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $percentagem;?>%"><?php echo $percentagem;?>%</div>
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="<?php echo $percentagem;?>" aria-valuemin="0" aria-valuemax="100" style="width: <?php echo $percentagem;?>%"><?php echo $percentagem; if ($percentagem!=0) {  echo "%";}?></div> <!--SE A PERCENTAGEM FOR DIFERENTE DE ZERO IMPRIME "%" -->
                 </div>
               </div>
             </div>

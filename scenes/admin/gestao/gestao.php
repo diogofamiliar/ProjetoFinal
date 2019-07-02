@@ -35,7 +35,7 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
                     <img class="object-fit-cover" src="../../../assets/admin/gestao/gestao_utilizadores.jpg" alt="Card image">
                 </a>
                 <div class="card-body d-flex flex-column">
-                    <h4 class="card-title">Gestão de utlizadores</h4>
+                    <h4 class="card-title">Gestão de utilizadores</h4>
                     <p class="card-text">Adicione utilizadores ou altere dados de um já existente.<br>Adicione um utilizador a um grupo de utilizadores.</p>
                     <a href="utilizadores/gestao_utilizadores.php" class="mt-auto btn btn-primary">Entrar</a>
                 </div>

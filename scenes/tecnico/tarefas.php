@@ -62,7 +62,7 @@ if(($_SESSION['nome_grupo'])=='tecnico' && isset($_SESSION['id_utilizador'])){
         <a class="btn btn-success" href="javascript:{}" onclick="checkDelete()"><i class="fa fa-check"></i> Concluído</a>
       </div>
       <div class="card-body">
-        <form method="POST" id="form1" action="tarefa_concluída.php"> 
+        <form method="POST" id="form1" action="tarefa_concluida.php"> 
           <table class="table table-hover">
             <thead>
               <tr class="d-flex">

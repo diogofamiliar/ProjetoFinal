@@ -1,6 +1,8 @@
 <?php
 session_start();
-if(($_SESSION['nome_grupo'])=='tecnico' && isset($_SESSION['id_utilizador'])){
+if(($_SESSION['nome_grupo'])=='tecnico' && 
+    isset($_SESSION['id_utilizador']) && 
+    isset ($_POST['local'], $_POST['id_categoria_incidente'], $_POST['id_zona'], $_POST['descricao'])){
 }else header('Location: /ProjetoFinal/index.php');
 ?>
 <?php
@@ -28,6 +30,7 @@ if (isset ($_POST['local'], $_POST['id_categoria_incidente'], $_POST['id_zona'],
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
+    setcookie("registo_efetuado", "1", time()+(3), "/"); // o "/" disponibiliza a cookie para toda a plataforma
 }elseif(isset ($_POST['local'], $_POST['id_categoria_incidente'], $_POST['id_zona'])){
     $local = $_POST['local'];
     $id_zona= $_POST['id_zona'];
@@ -45,12 +48,12 @@ if (isset ($_POST['local'], $_POST['id_categoria_incidente'], $_POST['id_zona'],
     } else {
         echo "Error: " . $sql . "<br>" . mysqli_error($conn);
     }
+    setcookie("registo_efetuado", "1", time()+(3), "/"); // o "/" disponibiliza a cookie para toda a plataforma
 }
 //upload das fotos
     include '../../upload.php';
 
 
 mysqli_close($conn);
-setcookie("registo_efetuado", "1", time()+(3), "/"); // o "/" disponibiliza a cookie para toda a plataforma
 header( "Location: tecnico.php" );
 ?>

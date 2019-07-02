@@ -19,29 +19,114 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
     <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
     <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
     <title>Àrea do cliente</title>
+
   </head>
 
-<body>
+<body style="padding-top: 27px;">
 
 	<?php
   include __DIR__.'/../../headers/cliente_header.php';
   include '../../core/connect.php';
 	?>
   
-  <h1 id="h1-centered">
-    <?php
-    $id_utilizador=$_SESSION['id_utilizador'];
-    $sql = "SELECT nome FROM utilizador WHERE id_utilizador='$id_utilizador'";
-    $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
-    $row = mysqli_fetch_assoc($resultset);
-    ?>
-    Bem-vindo(a) <?php echo $row['nome'];?>
-  </h1>
-	<div class="container" id="index_incidentes">
-    <h2 id="h1-centered">Incidentes</h2>
-    <a href="registo_incidente.php" class="btn btn-lg btn-change btn-block" role="button">Registar incidente</a>
-    <a href="estado_manutencoes.php" class="btn btn-lg btn-change btn-block" role="button">Estado das manutenções</a>
+  <div class="w-100">
+
+<div class="w-100" id="top_div_cliente">
+  <div class="w-100">
+    <h5 class="mt-5" id="h5_admin">
+        <?php
+        $id_utilizador=$_SESSION['id_utilizador'];
+        $sql = "SELECT nome FROM utilizador WHERE id_utilizador='$id_utilizador'";
+        $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
+        $row = mysqli_fetch_assoc($resultset);
+        ?>
+        <b>Bem-vindo(a) <?php echo $row['nome'];?></b>
+    </h5>
   </div>
+  <div class="container my-5">
+    <div class="row">
+      <div class="col my-3">
+        <div class="card-transparent" id="area_controlo_cliente" style="border-color: #0199e6;">
+          <div class="card-header text-white" style="background-color: #0199e6;"><h3>Áreas de controlo</h3></div>
+          <div class="card-body text-dark">
+            <div class="container">
+            <div class="row">
+              <div class="col-sm">
+                <a href="registo_incidente.php" class="btn btn-lg btn-change btn-block" role="button"><i class="fa fa-plus-square"></i> Registar incidente</a>
+              </div>
+              <div class="col-sm">
+                <a href="estado_manutencoes.php" class="btn btn-lg btn-change btn-block" role="button"><i class="fa fa-calendar"></i> Estado manutenções</a>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm">
+                <a href="notificacoes/notificacoes.php" class="btn btn-lg btn-change btn-block" role="button"><i class="fa fa-envelope"></i> Notificações</a>
+              </div>
+              <div class="col-sm">
+                <a href="contactos.php" class="btn btn-lg btn-change btn-block" role="button"><i class="fa fa-phone"></i> Contactos</a>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col my-3">
+        <div class="card" id="teste2" style="border-color: #0199e6;">
+          <div class="card-header text-white" style="background-color: #0199e6;"><h3> Notificações</h3></div>
+          <div class="card-body text-dark">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th>Assunto</th>
+                  <th class="col-sm-6">Mensagem</th>
+                  <th>Data</th>
+                  <th class="col-sm-auto"></th>
+                </tr>
+              </thead>
+              <tbody>
+              <?php
+                $sql = "SELECT mensagem.id_mensagem as id_mensagem, mensagem.assunto as assunto, mensagem.texto as mensagem, mensagem.data_criacao as data_criacao, destinatario.lida as lida 
+                FROM mensagem INNER JOIN destinatario 
+                WHERE mensagem.id_mensagem=destinatario.id_mensagem AND destinatario.id_utilizador='$id_utilizador' ORDER BY destinatario.lida ASC, mensagem.data_criacao DESC LIMIT 5";
+                $resultset = $conn->query($sql);
+                if ($resultset->num_rows > 0) {
+                while($rows = mysqli_fetch_assoc($resultset)) {
+                ?>
+              <tr class="<?php if ($rows['lida'] == "1"){ echo 'table-active';}else{ echo '';} ?>">
+                  <td><?php echo utf8_encode($rows["assunto"]); ?></td>
+                  <td><?php echo utf8_encode($rows["mensagem"]); ?></td>
+                  <td><?php echo utf8_encode($rows["data_criacao"]); ?></td>
+                  <td><form method="POST" id="form2" action="notificacoes/mensagem_detalhe.php">
+                        <button form="form2" name="mensagem" class="btn btn-info" type="submit" value="<?php echo utf8_encode($rows["id_mensagem"]); ?>"><i class="fa fa-plus" aria-hidden="true"></i></button>
+                      </form>
+                  </td>
+              </tr>
+              <?php
+                }}else{
+              ?>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>Não existem notificações ou avisos!</td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                  
+              <?php
+              }
+              ?>
+              </tbody>
+            </table>
+            <div class="d-flex justify-content-center">
+              <a href="notificacoes/notificacoes.php">Ver mais</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 
     
     <!-- Optional JavaScript -->

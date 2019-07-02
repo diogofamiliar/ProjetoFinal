@@ -57,6 +57,7 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
                 </div>
             <button class="btn btn-secondary" onclick="history.go(-1);"><i class="fa fa-chevron-left"></i> Voltar</button>
             </div>
+            
         </div>
     </div>
 

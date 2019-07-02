@@ -25,11 +25,8 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
     include '../../../core/notificacao.php';
     include __DIR__.'/../../../headers/cliente_header.php';
     include '../../../core/connect.php';
-    $mensagem=$_POST['mensagem'];
-        echo $mensagem;
     if(isset($_POST['mensagem'])){
         $mensagem=$_POST['mensagem'];
-        echo $mensagem;
         $sql = "UPDATE destinatario SET lida='1', data_leitura=now() WHERE id_mensagem=$mensagem";
         $resultset = mysqli_query($conn, $sql) or die("database error:". mysqli_error($conn));
         $sql = "SELECT mensagem.id_mensagem as id_mensagem, mensagem.assunto as assunto, mensagem.texto as mensagem, mensagem.data_criacao as data_criacao FROM mensagem WHERE mensagem.id_mensagem='$mensagem'";

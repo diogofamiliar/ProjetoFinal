@@ -33,7 +33,7 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
 
 <div class="w-100" id="top_div_cliente">
   <div class="w-100">
-    <h5 class="mt-5" id="h5_admin">
+    <h5 class="mt-5" id="h5_cliente">
         <?php
         $id_utilizador=$_SESSION['id_utilizador'];
         $sql = "SELECT nome FROM utilizador WHERE id_utilizador='$id_utilizador'";
@@ -71,7 +71,7 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
         </div>
       </div>
       <div class="col my-3">
-        <div class="card" id="teste2" style="border-color: #0199e6;">
+        <div class="card" id="notificacoes_cliente" style="border-color: #0199e6;">
           <div class="card-header text-white" style="background-color: #0199e6;"><h3> Notificações</h3></div>
           <div class="card-body text-dark">
             <table class="table table-hover">

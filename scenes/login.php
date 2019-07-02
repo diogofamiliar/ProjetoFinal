@@ -1,6 +1,7 @@
 <?php
 ob_start();
 ?>
+
 <div class="container">
     <div class="modal fade" id="loginModal" role="dialog">
         <div class="modal-dialog">  
@@ -71,7 +72,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if (password_verify($senha, $hash)) {
             include __DIR__.'/../core/verify_user_role.php';
         } else {
-            echo 'Palavra-passe ou email inválidos';        
+            setcookie("pass_errada", "1", time()+(3), "/"); // o "/" disponibiliza a cookie para toda a plataforma
+            header('Location: index.php');
         }
     }
 }

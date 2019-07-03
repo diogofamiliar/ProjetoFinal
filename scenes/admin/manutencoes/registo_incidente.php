@@ -18,7 +18,7 @@ include '../../../headers/admin_header.php';
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../../css/custom.css">
         <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
-        <title>Àrea administrativa</title> 
+        <title>Área administrativa</title> 
         <?php include "../../../core/connect.php";?>
 
     </head>

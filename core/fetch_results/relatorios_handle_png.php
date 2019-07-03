@@ -27,7 +27,9 @@
         var chart_area = document.getElementById('condominio_chart_div');
         var chart = new google.visualization.PieChart(chart_area);
             
-
+        google.visualization.events.addListener(chart, 'ready', function(){
+            chart_area.innerHTML = '<img src="' + chart.getImageURI() + '" class="img-responsive">';
+        });
         chart.draw(data, options);
     }
 
@@ -52,14 +54,18 @@
 
         var chart_area = document.getElementById('incidente_chart_div');
         var chart = new google.visualization.PieChart(chart_area);
-
+           
+        google.visualization.events.addListener(chart, 'ready', function(){
+            chart_area.innerHTML = '<img src="' + chart.getImageURI() + '" class="img-responsive">';
+        });
         chart.draw(data, options);
     
       }
 
       function drawMainDashboard() { /* INCIDENTES P/ ZONA E P/ SELECAO CONDOMINIO*/
-        var dashboard = new google.visualization.Dashboard(
-            document.getElementById('dashboard_div'));
+        var my_chart=document.getElementById('dashboard_div');
+        var dashboard = new google.visualization.Dashboard(my_chart);
+  
         var categoryPicker = new google.visualization.ControlWrapper({
           'controlType': 'CategoryFilter',
           'containerId': 'categoryPicker_div',
@@ -100,12 +106,15 @@
 ?> 
         ]);
     dashboard.bind([categoryPicker], [pie]);
+    google.visualization.events.addListener(dashboard, 'ready', function () {
+      my_chart.innerHTML = '<img src="' + pie.getChart().getImageURI() + '">';
+   });
     dashboard.draw(data);
   }
 
   function drawMainDashboard2() { //INCIDENTES POR CONDOMINIO E POR SELECAO DO ANO
-        var dashboard = new google.visualization.Dashboard(
-            document.getElementById('dashboard_div'));
+        var my_chart=document.getElementById('dashboard_div2');
+        var dashboard = new google.visualization.Dashboard(my_chart);
       
         var categoryPicker2 = new google.visualization.ControlWrapper({
           'controlType': 'CategoryFilter',
@@ -150,6 +159,9 @@
           ]);
 
     dashboard.bind([categoryPicker2], [pie]);
+    google.visualization.events.addListener(dashboard, 'ready', function () {
+      my_chart.innerHTML = '<img src="' + pie.getChart().getImageURI() + '">';
+    });
     dashboard.draw(data);
   }
 

@@ -53,7 +53,7 @@ include __DIR__.'/../../core/connect.php';
                 <h1 style="font-size:160%; text-align:center;"><strong>Incidentes por Condomínio e por Seleção de Ano</strong></h1>
             </div>
             <div class="card-body">
-                <div id="dashboard_div">   
+                <div id="dashboard_div2">   
                     <div id="categoryPicker2_div" style="text-align:center;"></div>  
                     <div id="chart_div2" style="width: 100%; height: 500px;"></div>  
                 </div>

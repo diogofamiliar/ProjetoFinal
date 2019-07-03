@@ -27,9 +27,9 @@
         var chart_area = document.getElementById('condominio_chart_div');
         var chart = new google.visualization.PieChart(chart_area);
             
-    //    google.visualization.events.addListener(chart, 'ready', function(){
-    //        chart_area.innerHTML = '<img src="' + chart.getImageURI() + '" class="img-responsive">';
-    //    });
+        google.visualization.events.addListener(chart, 'ready', function(){
+            chart_area.innerHTML = '<img src="' + chart.getImageURI() + '" class="img-responsive">';
+        });
         chart.draw(data, options);
     }
 
@@ -55,9 +55,9 @@
         var chart_area = document.getElementById('incidente_chart_div');
         var chart = new google.visualization.PieChart(chart_area);
            
-    //    google.visualization.events.addListener(chart, 'ready', function(){
-     //       chart_area.innerHTML = '<img src="' + chart.getImageURI() + '" class="img-responsive">';
-     //   });
+        google.visualization.events.addListener(chart, 'ready', function(){
+            chart_area.innerHTML = '<img src="' + chart.getImageURI() + '" class="img-responsive">';
+        });
         chart.draw(data, options);
     
       }
@@ -106,9 +106,9 @@
 ?> 
         ]);
     dashboard.bind([categoryPicker], [pie]);
-   // google.visualization.events.addListener(dashboard, 'ready', function () {
-    //  my_chart.innerHTML = '<img src="' + pie.getChart().getImageURI() + '">';
-   // });
+    google.visualization.events.addListener(dashboard, 'ready', function () {
+      my_chart.innerHTML = '<img src="' + pie.getChart().getImageURI() + '">';
+   });
     dashboard.draw(data);
   }
 
@@ -159,9 +159,9 @@
           ]);
 
     dashboard.bind([categoryPicker2], [pie]);
-    //google.visualization.events.addListener(dashboard, 'ready', function () {
-    //  my_chart.innerHTML = '<img src="' + pie.getChart().getImageURI() + '">';
-    //});
+    google.visualization.events.addListener(dashboard, 'ready', function () {
+      my_chart.innerHTML = '<img src="' + pie.getChart().getImageURI() + '">';
+    });
     dashboard.draw(data);
   }
 

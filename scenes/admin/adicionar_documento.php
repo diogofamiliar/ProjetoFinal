@@ -16,6 +16,8 @@ include __DIR__.'/../../headers/admin_header.php';
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/custom.css">
         <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
+        <!-- Sweet alert -->
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         <title>elVecino | Adicionar Documento</title> 
         <?php include "../../core/connect.php";?>
 
@@ -74,3 +76,32 @@ include __DIR__.'/../../headers/admin_header.php';
     </body>
 
 </html>
+<?php
+  if(isset($_COOKIE["tipo_ficheiro_errado"])){
+?>
+      <script>
+      swal({
+            title: "ERRO!",
+            text: "Desculpe, apenas são permitidos ficheiros do tipo pdf, doc e docx!",
+            icon: "error",
+            button: "Continuar",
+      });
+      </script>
+<?php
+  }
+?>
+
+<?php
+  if(isset($_COOKIE["tamanho_ficheiro"])){
+?>
+      <script>
+      swal({
+            title: "ERRO!",
+            text: "Desculpe, o ficheiro que inseriu é muito grande!",
+            icon: "error",
+            button: "Continuar",
+      });
+      </script>
+<?php
+  }
+?>

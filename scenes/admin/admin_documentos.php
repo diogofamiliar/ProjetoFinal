@@ -126,32 +126,3 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
     </script>
 </body>
 </html> 
-<?php
-  if(isset($_COOKIE["tipo_ficheiro_errado"])){
-?>
-      <script>
-      swal({
-            title: "ERRO!",
-            text: "Desculpe, apenas são permitidos ficheiros do tipo pdf, doc e docx!",
-            icon: "error",
-            button: "Continuar",
-      });
-      </script>
-<?php
-  }
-?>
-
-<?php
-  if(isset($_COOKIE["tamanho_ficheiro"])){
-?>
-      <script>
-      swal({
-            title: "ERRO!",
-            text: "Desculpe, o ficheiro que inseriu é muito grande!",
-            icon: "error",
-            button: "Continuar",
-      });
-      </script>
-<?php
-  }
-?>

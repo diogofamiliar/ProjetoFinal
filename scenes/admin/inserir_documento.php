@@ -28,12 +28,12 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
         // Allow certain file formats
         if($FileType != "pdf" && $FileType != "docx" && $FileType != "doc" ) {
             setcookie("tipo_ficheiro_errado", "1", time()+(3), "/"); // o "/" disponibiliza a cookie para toda a plataforma
-            header('Location: /ProjetoFinal/scenes/admin/admin_documentos.php');
+            header('Location: /ProjetoFinal/scenes/admin/adicionar_documento.php');
             $uploadOk = 0;
         }elseif ($size > 500000) { 
             $uploadOk = 0;
             setcookie("tamanho_ficheiro", "1", time()+(3), "/"); // o "/" disponibiliza a cookie para toda a plataforma
-            header('Location: /ProjetoFinal/scenes/admin/admin_documentos.php');
+            header('Location: /ProjetoFinal/scenes/admin/adicionar_documento.php');
         }elseif (file_exists($target_file)) {
             echo "Desculpe, o ficheiro que tentou inserir já existe.";
 ?>      

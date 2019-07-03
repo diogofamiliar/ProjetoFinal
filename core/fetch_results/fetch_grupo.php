@@ -10,7 +10,7 @@
       {  
            while($row = mysqli_fetch_array($result))  
            {  
-                $output .= '  <li class="list-group-item">'.$row["nome"].'</li>';
+               $output .= '  <li class="list-group-item">'.$row["id_grupo"].' - '.$row["nome"].'</li>';
            }  
       }  
       else  

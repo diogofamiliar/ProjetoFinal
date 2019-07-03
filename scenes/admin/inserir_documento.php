@@ -35,16 +35,12 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
             setcookie("tamanho_ficheiro", "1", time()+(3), "/"); // o "/" disponibiliza a cookie para toda a plataforma
             header('Location: /ProjetoFinal/scenes/admin/adicionar_documento.php');
         }elseif (file_exists($target_file)) {
-            echo "Desculpe, o ficheiro que tentou inserir já existe.";
-?>      
-      <button class="btn btn-secondary" onclick="history.go(-2);"><i class="fa fa-chevron-left"></i> Voltar</button>
-<?php  
             $uploadOk = 0;
+            setcookie("ficheiro_existe", "1", time()+(3), "/"); // o "/" disponibiliza a cookie para toda a plataforma
+            header('Location: /ProjetoFinal/scenes/admin/adicionar_documento.php');
         }elseif ($uploadOk == 0) {
             echo "Ocorreu um erro, o ficheiro não foi adicionado.";
-?>      
-      <button class="btn btn-secondary" onclick="history.go(-2);"><i class="fa fa-chevron-left"></i> Voltar</button>
-<?php 
+
         // se tudo tiver ok faz upload
         } else {
             if (move_uploaded_file($_FILES['documento']['tmp_name'], $target_file)) {

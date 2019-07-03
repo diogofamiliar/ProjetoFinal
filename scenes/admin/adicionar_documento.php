@@ -105,3 +105,18 @@ include __DIR__.'/../../headers/admin_header.php';
 <?php
   }
 ?>
+
+<?php
+  if(isset($_COOKIE["ficheiro_existe"])){
+?>
+      <script>
+      swal({
+            title: "ERRO!",
+            text: "Desculpe, o ficheiro que tentou inserir já existe!",
+            icon: "error",
+            button: "Continuar",
+      });
+      </script>
+<?php
+  }
+?>

@@ -29,8 +29,9 @@ $row=mysqli_fetch_array($result);
   </head>
 
 <body>
-  
+
 	<div class="container py-3">
+    <?php include "../../assets/breadcrumbers/bc_admin_edit_profile.php" ?>
         <div class="row">
             <div class="mx-auto col-sm-7">
                 <!-- form user info -->

@@ -27,17 +27,13 @@ if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && 
 
         // Allow certain file formats
         if($FileType != "pdf" && $FileType != "docx" && $FileType != "doc" ) {
-            echo "Desculpe, apenas são permitidos ficheiros do tipo pdf, doc e docx.";
-?>      
-      <button class="btn btn-secondary" onclick="history.go(-2);"><i class="fa fa-chevron-left"></i> Voltar</button>
-<?php 
+            setcookie("tipo_ficheiro_errado", "1", time()+(3), "/"); // o "/" disponibiliza a cookie para toda a plataforma
+            header('Location: /ProjetoFinal/scenes/admin/admin_documentos.php');
             $uploadOk = 0;
         }elseif ($size > 500000) { 
-            echo "Desculpe, o ficheiro que inseriu é muito grande.";
-?>      
-      <button class="btn btn-secondary" onclick="history.go(-2);"><i class="fa fa-chevron-left"></i> Voltar</button>
-<?php  
             $uploadOk = 0;
+            setcookie("tamanho_ficheiro", "1", time()+(3), "/"); // o "/" disponibiliza a cookie para toda a plataforma
+            header('Location: /ProjetoFinal/scenes/admin/admin_documentos.php');
         }elseif (file_exists($target_file)) {
             echo "Desculpe, o ficheiro que tentou inserir já existe.";
 ?>      

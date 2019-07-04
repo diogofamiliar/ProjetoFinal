@@ -17,7 +17,7 @@ include '../../headers/tecnico_header.php';?>
         <link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="../../css/custom.css">
         <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
-        <title>Àrea técnica</title> 
+        <title>Área técnica</title> 
         <?php include "../../core/connect.php";?>
 
     </head>
@@ -59,7 +59,7 @@ include '../../headers/tecnico_header.php';?>
                     <label for="camera" class="font-weight-bold">Introduza imagens:</label>
                     <input id="camera" type="file" accept="image/*" capture="camera" name="files[]" multiple>
                 </div>
-                <button type="submit" name="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" name="submit" class="btn btn-primary">Enviar</button>
             </form>
         </div>
         

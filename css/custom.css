@@ -213,3 +213,12 @@ a > img {
       transform: translateX(0);
     }
   }
+
+  /* INDEX IMAGES*/
+
+ .img-responsive_index {
+    width: auto;
+    height: 50px;
+    opacity: 0.5;
+    filter: alpha(opacity=50);
+}

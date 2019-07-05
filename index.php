@@ -5,7 +5,7 @@ session_start();
 <html>
 
 <head>
-  <title>ElVecino</title>
+  <title>elVecino</title>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- css -->
@@ -184,7 +184,7 @@ session_start();
         <div class="col-md-12">
           <div class="color-light">
             <h2 class="wow bounceInDown" data-wow-delay="1s">Estragos no condomínio? Reparações não atendidas?</h2>
-            <p class="lead wow bounceInUp" data-wow-delay="2s">Registe-se já e reporte ao seu condomínio todos os estragos ou incidentes. Mais fácil, mais rápido. Sem telefonemas, sem troca de emails, sem preocupações, Tudo na sua aplicação.</p>
+            <p class="lead wow bounceInUp" data-wow-delay="2s">Registe-se já e reporte ao seu condomínio todos os estragos ou incidentes. Mais fácil, mais rápido. Sem telefonemas, sem troca de emails, sem preocupações. Tudo na sua aplicação.</p>
           </div>
         </div>
       </div>
@@ -238,7 +238,7 @@ session_start();
         <div class="col-md-12">
           <div class="color-light">
             <h2 class="wow bounceInDown" data-wow-delay="1s">Estragos no condomínio? Reparações não atendidas?</h2>
-            <p class="lead wow bounceInUp" data-wow-delay="2s">Registe-se já e reporte ao seu condomínio todos os estragos ou incidentes. Mais fácil, mais rápido. Sem telefonemas, sem troca de emails, sem preocupações, Tudo na sua aplicação.</p>
+            <p class="lead wow bounceInUp" data-wow-delay="2s">Registe-se já e reporte ao seu condomínio todos os estragos ou incidentes. Mais fácil, mais rápido. Sem telefonemas, sem troca de emails, sem preocupações. Tudo na sua aplicação.</p>
           </div>
         </div>
       </div>
@@ -301,7 +301,7 @@ session_start();
     </div>
   </section>
 
-  <!-- Contatos -->
+  <!-- Contactos -->
   <section id="contato" class="home-section bg-white">
     <div class="container">
       <div class="row">
@@ -322,7 +322,7 @@ session_start();
                 <h6 class="row d-flex justify-content-center">Emails:</h6>
                 <p class="row d-flex justify-content-center"><b>Geral:</b>  geral@habitabem.pt</p>
                 <p class="row d-flex justify-content-center"><b>Pagamentos:</b>  pagamentos@habitabem.pt</p>
-                <p class="row d-flex justify-content-center"><b>SOS 24 Horas:</b>  avarias@habitabem.p</p>
+                <p class="row d-flex justify-content-center"><b>SOS 24 Horas:</b>  avarias@habitabem.pt</p>
                 <p class="row d-flex justify-content-center"><b>Propostas:</b>  comercial@habitabem.pt</p>
                 <h6 class="row d-flex justify-content-center">Telefones:</h6>
                 <p class="row d-flex justify-content-center"><b>Geral:</b>  22 600 6804</p>

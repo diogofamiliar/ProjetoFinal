@@ -16,14 +16,14 @@ include __DIR__.'/../scenes/login.php';?>
                     <a class="nav-link" href="#">Informações</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contatos Úteis</a>
+                    <a class="nav-link" href="#">Contactos Úteis</a>
                 </li>
         </div>
         <a class="navbar-brand" href="../index.php"><img src="https://i.imgur.com/SzFkxr6.png" style="width:40px;"></a>
         <div class="navbar-collapse collapse dual-nav w-50 order-2">
             <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#loginModal">Iniciar sessão</a>
+                        <a class="nav-link" data-toggle="modal" data-target="#loginModal">Iniciar Sessão</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="registar_utilizador.php">Registar</a>

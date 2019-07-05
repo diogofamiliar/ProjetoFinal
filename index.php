@@ -184,7 +184,7 @@ session_start();
         <div class="col-md-12">
           <div class="color-light">
             <h2 class="wow bounceInDown" data-wow-delay="1s">Estragos no condomínio? Reparações não atendidas?</h2>
-            <p class="lead wow bounceInUp" data-wow-delay="2s">Registe-se já e reporte ao seu condomínio todos os estragos ou incidentes. Mais fácil, mais rápido. Sem telefonemas, sem troca de emails, sem preocupações, Tudo na sua aplicação.</p>
+            <p class="lead wow bounceInUp" data-wow-delay="2s">Registe-se já e reporte ao seu condomínio todos os estragos ou incidentes. Mais fácil, mais rápido. Sem telefonemas, sem troca de emails, sem preocupações. Tudo na sua aplicação.</p>
           </div>
         </div>
       </div>

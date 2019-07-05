@@ -307,7 +307,7 @@ session_start();
       <div class="row">
         <div class="col-md-offset-2 col-md-8">
           <div class="section-heading">
-            <h2>Contatos</h2>
+            <h2>Contactos</h2>
             <!--<p>We’ve been building unique digital products, platforms, and experiences for the past 6 years.</p>-->
           </div>
         </div>
@@ -319,10 +319,11 @@ session_start();
               <div class="card-body">
                 <h4 class="card-title">Propostas: comercial@habitabem.pt</h4>
                 <h6 class="row d-flex justify-content-center">Rua do Tenente Valadim n.º 544 – 4100-477 – Porto</h6>
-                <p class="row d-flex justify-content-center"><b>E-mail Geral:</b>  geral@habitabem.pt</p>
-                <p class="row d-flex justify-content-center"><b>E-mail Pagamentos:</b>  pagamentos@habitabem.pt</p>
-                <p class="row d-flex justify-content-center"><b>E-mail SOS 24 Horas:</b>  avarias@habitabem.p</p>
-                <p class="row d-flex justify-content-center"><b>E-mail Propostas:</b>  comercial@habitabem.pt</p>
+                <h6 class="row d-flex justify-content-center">Emails:</h6>
+                <p class="row d-flex justify-content-center"><b>Geral:</b>  geral@habitabem.pt</p>
+                <p class="row d-flex justify-content-center"><b>Pagamentos:</b>  pagamentos@habitabem.pt</p>
+                <p class="row d-flex justify-content-center"><b>SOS 24 Horas:</b>  avarias@habitabem.p</p>
+                <p class="row d-flex justify-content-center"><b>Propostas:</b>  comercial@habitabem.pt</p>
                 <h6 class="row d-flex justify-content-center">Telefones:</h6>
                 <p class="row d-flex justify-content-center"><b>Geral:</b>  22 600 6804</p>
                 <p class="row d-flex justify-content-center"><b>Telemóvel:</b>  93 744 0101</p>

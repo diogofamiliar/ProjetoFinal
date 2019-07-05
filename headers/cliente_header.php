@@ -26,7 +26,7 @@ include __DIR__.'/../core/notificacao.php';
                 </li>
 <?php } ?>
                 <li class="nav-item">
-                    <a class="nav-link" href="/ProjetoFinal/scenes/cliente/contactos.php">Contatos Úteis</a>
+                    <a class="nav-link" href="/ProjetoFinal/scenes/cliente/contactos.php">Contactos Úteis</a>
                 </li>
             </ul>
         </div>

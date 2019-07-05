@@ -16,7 +16,7 @@ if(($_SESSION['nome_grupo'])=='tecnico' && isset($_SESSION['id_utilizador'])){
     <!-- Sweet alert -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
-    <title>ElVecino - Área Técnica</title>
+    <title>elVecino - Área Técnica</title>
 
   
   <script language="JavaScript" type="text/javascript">

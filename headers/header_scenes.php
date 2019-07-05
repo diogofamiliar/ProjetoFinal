@@ -16,7 +16,7 @@ include __DIR__.'/../scenes/login.php';?>
                     <a class="nav-link" href="#">Informações</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contatos Úteis</a>
+                    <a class="nav-link" href="#">Contactos Úteis</a>
                 </li>
         </div>
         <a class="navbar-brand" href="../index.php"><img src="https://i.imgur.com/SzFkxr6.png" style="width:40px;"></a>

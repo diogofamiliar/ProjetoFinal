@@ -18,7 +18,7 @@ if(($_SESSION['nome_grupo'])=='cliente' || ($_SESSION['nome_grupo'])=='inquilino
     <link rel="stylesheet" type="text/css" href="../../css/custom.css">
     <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
     <link rel="shortcut icon" type="image/x-icon" href="https://i.imgur.com/SzFkxr6.png" />
-    <title>Àrea do cliente</title>
+    <title>Área do cliente</title>
 
   </head>
 

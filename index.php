@@ -5,7 +5,7 @@ session_start();
 <html>
 
 <head>
-  <title>ElVecino</title>
+  <title>elVecino</title>
   <meta charset="utf-8" />
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- css -->
@@ -301,7 +301,7 @@ session_start();
     </div>
   </section>
 
-  <!-- Contatos -->
+  <!-- Contactos -->
   <section id="contato" class="home-section bg-white">
     <div class="container">
       <div class="row">

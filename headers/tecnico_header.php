@@ -24,7 +24,7 @@
                     </a>
                 <li class="nav-item dropdown">
                     <a class="nav-link" href="/ProjetoFinal/scenes/tecnico/contactos_tecnico.php">
-                        <span class="fa fa-phone" aria-hidden="true" style="font-size:20px;"></span> Contatos Úteis
+                        <span class="fa fa-phone" aria-hidden="true" style="font-size:20px;"></span> Contactos Úteis
                     </a>
                 </li>
             </ul>

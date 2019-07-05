@@ -14,11 +14,11 @@ ob_start();
             <div class="modal-body" style="padding:40px 50px;">
                 <form form method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>"> 
                     <div class="form-group">
-                        <label for="usrname"><span class="glyphicon glyphicon-user"></span> Email</label>
+                        <label for="usrname">Email</label>
                         <input type="text" class="form-control" name="login_email" placeholder="Introduzir email" Required>
                     </div>
                     <div class="form-group">
-                        <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Palavra-passe</label>
+                        <label for="psw">Palavra-passe</label>
                         <input type="password" class="form-control" id="login_password" name="login_password" placeholder="Introduzir palavra-passe" Required>
                     </div>
                     <div class="checkbox">
@@ -31,7 +31,7 @@ ob_start();
                 <div class="content-center" id="modal_footer_content">
                     <ul style="list-style-type: none;">
                         <li>
-                            <button type="submit" class="btn btn-danger btn-default" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span>Cancelar</button>
+                            <button type="submit" class="btn btn-danger btn-default" data-dismiss="modal">Cancelar</button>
                         </li>
                     </ul>
                 </div>

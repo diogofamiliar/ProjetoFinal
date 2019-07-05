@@ -1,5 +1,5 @@
 <?php
-include 'scenes/login.php';
+include '/ProjetoFinal/scenes/login.php';
 ?>
 
 <nav class="navbar navbar-light navbar-expand-md bg-light justify-content-between navbar-fixed-top">

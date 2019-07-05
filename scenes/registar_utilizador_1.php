@@ -31,7 +31,7 @@
 
     <body>
         
-        <?php include '../headers/header.php';?>
+        <?php include '../headers/header_scenes.php';?>
         <div class="container">
             <h1>Já está quase!!!</h1>
             <p>Por favor conclua o preenchimento deste formulário de forma a criar uma conta.</p>

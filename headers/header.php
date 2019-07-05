@@ -1,5 +1,5 @@
 <?php
-include '/ProjetoFinal/scenes/login.php';
+include 'scenes/login.php';
 ?>
 
 <nav class="navbar navbar-light navbar-expand-md bg-light justify-content-between navbar-fixed-top">
@@ -31,7 +31,7 @@ include '/ProjetoFinal/scenes/login.php';
         <div class="navbar-collapse collapse dual-nav w-50 order-2">
             <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#loginModal">Iniciar Sessão</a>
+                        <a class="nav-link" data-toggle="modal" data-target="#loginModal">Iniciar sessão</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="scenes/registar_utilizador.php">Registar</a>

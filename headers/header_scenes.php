@@ -13,11 +13,21 @@ include __DIR__.'/../scenes/login.php';?>
                     <a class="nav-link pl-0" href="../index.php"  id="navbar-text">Página Inicial <span class="sr-only">Página Inicial</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Informações</a>
+                    <a class="nav-link" href="../index.php#services">Serviços</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contactos Úteis</a>
+                    <a class="nav-link" href="../index.php#responsaveis">Responsáveis</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.php#equipa">Equipa</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.php#multiplatform">Dispositivos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../index.php#contato">Contactos</a>
+                </li>
+            </ul>
         </div>
         <a class="navbar-brand" href="../index.php"><img src="https://i.imgur.com/SzFkxr6.png" style="width:40px;"></a>
         <div class="navbar-collapse collapse dual-nav w-50 order-2">

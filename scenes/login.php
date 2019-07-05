@@ -24,7 +24,7 @@ ob_start();
                     <div class="checkbox">
                         <label><input type="checkbox" value="" checked> Lembrar palavra-passe</label>
                         </div>
-                    <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span>Iniciar Sessão</button>
+                    <button type="submit" class="btn btn-success btn-block">Iniciar Sessão</button>
                 </form>
             </div>
             <div class="modal-footer">

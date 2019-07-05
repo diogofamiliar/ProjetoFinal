@@ -23,7 +23,7 @@ include __DIR__.'/../scenes/login.php';?>
         <div class="navbar-collapse collapse dual-nav w-50 order-2">
             <ul class="nav navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" data-toggle="modal" data-target="#loginModal">Iniciar sessão</a>
+                        <a class="nav-link" data-toggle="modal" data-target="#loginModal">Iniciar Sessão</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="registar_utilizador.php">Registar</a>

@@ -47,15 +47,6 @@ ob_start();
 include __DIR__.'/../core/connect.php';
 
 
-/*
-IMPORTANTE para no ficheiro "verify_user_role.php" o utilizador poder ser reencaminhado corretamente para a página pretendida. 
-Este isset define a proveniencia do user para este ficheiro login.php
-*/
-if(isset($camefrom)){ 
-    if($camefrom=="registar_utilizador.php"){
-        $_SESSION['camefrom']='registar_utilizador.php';
-    }else $_SESSION['camefrom']='index.php';
-}
 
 //pega nos dados do MODAL FORM e pesquisa pelo id_utilizador, email e senha do utilizador com o EMAIL inserido
 if($_SERVER["REQUEST_METHOD"] == "POST"){ 

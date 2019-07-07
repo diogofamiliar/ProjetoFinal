@@ -48,7 +48,7 @@ include __DIR__.'/../core/connect.php';
 
 
 /*
-IMPORTANTE para no ficheiro "verify_user_role.php" o utilizador poder ser reencaminhado corretamente para a página pretendida. PARA JÁ a clientes.php.
+IMPORTANTE para no ficheiro "verify_user_role.php" o utilizador poder ser reencaminhado corretamente para a página pretendida. 
 Este isset define a proveniencia do user para este ficheiro login.php
 */
 if(isset($camefrom)){ 
@@ -59,7 +59,7 @@ if(isset($camefrom)){
 
 //pega nos dados do MODAL FORM e pesquisa pelo id_utilizador, email e senha do utilizador com o EMAIL inserido
 if($_SERVER["REQUEST_METHOD"] == "POST"){ 
-    //include __DIR__.'/../core/pw_handle.php'; //vai verificar a pass inserida com a hash guardada na bd   
+     //vai verificar a pass inserida com a hash guardada na bd   
     if(isset($_POST['login_password'],$_POST['login_email'])){
         $email = $_POST['login_email'];
         $senha = $_POST['login_password'];       

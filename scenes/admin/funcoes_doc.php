@@ -36,7 +36,7 @@ if($tipo=="apagar" && $apagar){
                     echo "Registo apagado com sucesso!";
                     $sql2="SELECT nome FROM documento WHERE documento.id_documento = ".$id;
                     $result=mysqli_query($conn,$sql2);
-                    while($row = mysqli_fetch_assoc($result)){ //enquanto houver correspondencia para uma fotografia o programa apaga do sistema o ficheiro correspondente a este incidente
+                    while($row = mysqli_fetch_assoc($result)){ //enquanto houver correspondencia para um documento o programa apaga do sistema o ficheiro correspondente
                         $ficheiro=utf8_encode($row["nome"]);
                         $path='../../uploads/documentos/'.$ficheiro;
                         if(unlink($path)) echo "Deleted file ";//apaga o ficheiro do reportório        

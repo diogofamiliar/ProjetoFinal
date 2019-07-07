@@ -5,8 +5,6 @@ if(($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador'])){
 ?>
 <?php
 include "../../../core/connect.php";
-/*
-if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador'])){ */
     if(isset($_POST['id_manutencao'])){
         $id_manutencao=$_POST['id_manutencao'];
         foreach($id_manutencao as $valor){
@@ -20,6 +18,4 @@ if(isset($_SESSION['nome_grupo'])=='admin' && isset($_SESSION['id_utilizador']))
     setcookie("manutencao_concluida", "1", time()+(3), "/"); // o "/" disponibiliza a cookie para toda a plataforma
     header( "Location: listagem.php" );
     }
-
-/*}else header('Location: ../../../mensagens.php');    */
 ?>

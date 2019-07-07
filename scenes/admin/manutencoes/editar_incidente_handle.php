@@ -1,11 +1,10 @@
-<?php/*
+<?php
 session_start();
 if(($_SESSION['nome_grupo'])=='admin' || ($_SESSION['nome_grupo'])=='master' && isset($_SESSION['id_utilizador'])){
 }else header('Location: /ProjetoFinal/index.php');
-*/?>
+?>
 
 <?php
-echo "entrei";
 include "../../../core/connect.php";
 mysqli_set_charset($conn, "utf8");
 

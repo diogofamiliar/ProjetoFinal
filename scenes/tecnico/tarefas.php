@@ -78,6 +78,7 @@ if(($_SESSION['nome_grupo'])=='tecnico' && isset($_SESSION['id_utilizador'])){
             </thead>
             <tbody>
             <?php
+            // tarefas de cada fornecedor
               $sql =    "SELECT  prioridade, incidente.id_incidente, manutencao.id_manutencao as id_manutencao, tipo_manutencao.descricao as tipo_manutencao, incidente.id_zona, zona.morada as morada, zona.nome as entrada, manutencao.id_tipo_manutencao, manutencao.data_planeada as data_planeada, manutencao.observacoes as observacoes, incidente.descricao as descricao
                         FROM manutencao
                         INNER JOIN incidente_manutencao

@@ -2,8 +2,7 @@
 session_start();
 if(isset($_SESSION['nome_grupo'])=='admin' || isset($_SESSION['nome_grupo'])=='master' && isset($_SESSION['id_utilizador'])){
 }else header('Location: /ProjetoFinal/index.php');
-?>
-<?php
+
 include "../../../core/connect.php";
 if(isset($_POST['id_mensagem'])){
     $id_mensagem=$_POST['id_mensagem'];

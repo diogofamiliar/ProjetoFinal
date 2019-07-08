@@ -69,12 +69,12 @@ if(($_SESSION['nome_grupo'])=='tecnico' && isset($_SESSION['id_utilizador'])){
             <thead>
               <tr class="d-flex">
                 <th class="col-1"><input type="checkbox" id="checkAll"/></th>
-                <th class="col-1">Data</th>
-                <th class="col-2">Local</th>
-                <th class="col-2">Manutenção</th>
-                <th class="col-1">Prioridade</th>
-                <th class="col-1">Descrição do cliente</th>
-                <th class="col-2">Observações</th>
+                <th class="col-sm-2">Data</th>
+                <th class="col-sm-2">Local</th>
+                <th class="col-sm-2">Manutenção</th>
+                <th class="col-sm-1">Prioridade</th>
+                <th class="col-sm-4">Descrição do cliente</th>
+                <th class="col-sm-3">Observações</th>
                 <th class="col-2">Fotografia</th>
               </tr>
             </thead>
@@ -102,12 +102,12 @@ if(($_SESSION['nome_grupo'])=='tecnico' && isset($_SESSION['id_utilizador'])){
             <tr class="d-flex"> 
             <?php $id_incidente=$rows['id_incidente']; ?>
                 <td class="col-1"><input type="checkbox" name="id_manutencao[]" value="<?php echo $rows['id_manutencao']; ?>" multiple></td>
-                <td class="col-1"><?php echo utf8_encode($rows["data_planeada"]); ?></td>
-                <td class="col-2"><?php echo utf8_encode($rows["entrada"]);?><br><?php echo utf8_encode($rows["morada"]);?></td>
-                <td class="col-2"><?php echo utf8_encode($rows["tipo_manutencao"]); ?></td>
-                <td class="col-1"><?php echo utf8_encode($rows["prioridade"]);?></td>
-                <td class="col-1"><?php echo utf8_encode($rows["descricao"]);?></td>
-                <td class="col-2"><?php echo utf8_encode($rows["observacoes"]);?></td>
+                <td class="col-sm-2"><?php echo utf8_encode($rows["data_planeada"]); ?></td>
+                <td class="col-sm-2"><?php echo utf8_encode($rows["entrada"]);?><br><?php echo utf8_encode($rows["morada"]);?></td>
+                <td class="col-sm-2"><?php echo utf8_encode($rows["tipo_manutencao"]); ?></td>
+                <td class="col-sm-1"><?php echo utf8_encode($rows["prioridade"]);?></td>
+                <td class="col-sm-4"><?php echo utf8_encode($rows["descricao"]);?></td>
+                <td class="col-sm-3"><?php echo utf8_encode($rows["observacoes"]);?></td>
                 <td class="col-2">
 <?php
           $sql1="SELECT caminho FROM fotografia WHERE id_incidente=$id_incidente";

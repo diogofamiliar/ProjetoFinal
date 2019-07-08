@@ -63,6 +63,8 @@ if(($_SESSION['nome_grupo'])=='tecnico' && isset($_SESSION['id_utilizador'])){
       </div>
       <div class="card-body">
         <form method="POST" id="form1" action="tarefa_concluida.php"> 
+        <div class="table-responsive">
+          
           <table class="table table-hover">
             <thead>
               <tr class="d-flex">
@@ -138,6 +140,7 @@ if(($_SESSION['nome_grupo'])=='tecnico' && isset($_SESSION['id_utilizador'])){
             ?>
             </tbody>
           </table>
+        </div>
         </form>
       </div>
     </div>

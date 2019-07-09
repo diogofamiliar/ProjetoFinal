@@ -133,7 +133,7 @@ include '../../core/connect.php';
   </div>
   <div class="container">
     <h1>Plano de manutenções</h1>
-    <p>O painel que se encontra em baixo apresenta as reparações agendadas para o dia de hoje, amanhã e ontem.</p>
+    <p>O painel que se encontra em baixo apresenta as reparações agendadas para os três dias passados, para o dia de hoje e dias seguintes.</p>
     <div class="table-responsive">
       <table class="table table-bordered table-hover">
         <thead>

@@ -31,7 +31,7 @@ if(isset($_POST["hidden_html"]) && $_POST["hidden_html"] != '')
  $html1 .= '</table';
 
  $pdf = new Pdf();
- $pdf->load_html($html . $html1);
+ $pdf->load_html($html . '<h1 style="text-align: center;">Total de incidentes por zona e condomínio</h1>'. $html1);
  $pdf->render();
  $pdf->stream($file_name, array("Attachment" => false));
 }

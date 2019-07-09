@@ -36,50 +36,49 @@ include __DIR__.'/../../core/connect.php';
         <div id="testing">
             <div class="card my-4">
                 <div class="card-header">
-                    <h1 style="font-size:160%; text-align:center;"><strong>Incidentes por Zona e por Seleção de Condomínio</strong></h1>
+                    <h1 style="font-size:130%; text-align:center;"><strong>Incidentes por Zona e por Seleção de Condomínio</strong></h1>
                 </div>
                 <div class="card-body">
                     <div id="dashboard_div">   
                         <div id="categoryPicker_div" style="text-align:center;"></div>  
-                        <div id="chart_div" style="width: 80%; height: 500px;"></div> 
+                        <div id="chart_div" style="width: 80%; height: 400px;"></div> 
                     </div>
                 </div>
             </div>
             <div class="card my-4">
                 <div class="card-header">
-                    <h1 style="font-size:160%; text-align:center;"><strong>Incidentes por Condomínio e por Seleção de Ano</strong></h1>
+                    <h1 style="font-size:130%; text-align:center;"><strong>Incidentes por Condomínio e por Seleção de Ano</strong></h1>
                 </div>
                 <div class="card-body">
                     <div id="dashboard_div2">   
                         <div id="categoryPicker2_div" style="text-align:center;"></div>  
-                        <div id="chart_div2" style="width: 80%; height: 500px;"></div>  
+                        <div id="chart_div2" style="width: 80%; height: 400px;"></div>  
                     </div>
                 </div>
             </div>
             <div class="card  my-4">
                 <div class="card-header">
-                    <h1 style="font-size:160%; text-align:center;"><strong>Incidentes por Condomínio</strong></h1>
+                    <h1 style="font-size:130%; text-align:center;"><strong>Incidentes por Condomínio</strong></h1>
                 </div>
                 <div class="card-body">
                     <div class="panel-body" align="center">   
-                        <div id="condominio_chart_div" style="width: 100%; height: 500px;"></div>
+                        <div id="condominio_chart_div" style="width: 100%; height: 400px;"></div>
                     </div>
                 </div>
             </div>
             <div class="card  my-4">
                 <div class="card-header">
-                    <h1 style="font-size:160%; text-align:center;"><strong>Incidentes por Categoria de Incidente</strong></h1>
+                    <h1 style="font-size:130%; text-align:center;"><strong>Incidentes por Categoria de Incidente</strong></h1>
                 </div>
                 <div class="card-body">
                     <div class="panel-body" align="center">   
-                        <div id="incidente_chart_div" style="width: 100%; height: 500px;"></div>
+                        <div id="incidente_chart_div" style="width: 100%; height: 400px;"></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     </body>
-
 </html>
 
 <script>

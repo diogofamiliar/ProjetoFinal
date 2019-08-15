@@ -87,6 +87,6 @@ setTimeout(function() {
     $('#hidden_html').val($('#testing').html());
     $('#make_pdf').submit();
     });
-}, 500);
+}, 800);
 
 </script>
